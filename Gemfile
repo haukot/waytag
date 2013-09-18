@@ -23,5 +23,6 @@ end
 gem 'unicorn'
 
 group :development, :test do
-  gem 'capistrano', group: :development
+  gem 'capistrano', github: 'capistrano/capistrano', branch: 'v3'
+  gem 'capistrano-rails'
 end
