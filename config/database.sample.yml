@@ -1,0 +1,28 @@
+setup: &setup
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *setup
+  database: waytag_development
+  username: postgres
+  password:
+  pool: 5
+  timeout: 5000
+
+production:
+  <<: *setup
+  database: waytag_production
+  username: waytag_production
+  password:
+  pool: 5
+  timeout: 5000
+
+test:
+  <<: *setup
+  host: /var/run/postgresql
+  database: waytag_test
+  username: postgres
+  password:
+  pool: 5
+  timeout: 5000
