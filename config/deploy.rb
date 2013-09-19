@@ -6,7 +6,7 @@ set :repo_url, 'git@bitbucket.org:8xx8/waytag-web.git'
 set :deploy_to, '~/workspace/waytag'
 set :scm, :git
 
-# set :format, :pretty
+set :format, :pretty
 # set :log_level, :debug
 # set :pty, true
 
