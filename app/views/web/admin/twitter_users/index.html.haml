@@ -1,0 +1,19 @@
+%h1 Listing twitter_users
+
+%table
+  %tr
+    %th Image
+    %th Name
+    %th Screen name
+    %th External id str
+    %th State
+    %th
+
+  - @twitter_users.each do |twitter_user|
+    %tr
+      %td= twitter_user.image
+      %td= twitter_user.name
+      %td= twitter_user.screen_name
+      %td= twitter_user.external_id_str
+      %td= twitter_user.state
+      %td= link_to 'Destroy', admin_twitter_user_path(twitter_user), :method => :delete, :data => { :confirm => 'Are you sure?' }

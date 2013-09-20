@@ -2,7 +2,7 @@ class Report < ActiveRecord::Base
   extend Enumerize
 
   belongs_to :city
-  belongs_to :sourceable
+  belongs_to :sourceable, polymorphic: true
 
   has_one :tweet, dependent: :destroy
 

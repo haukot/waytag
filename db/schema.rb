@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920122140) do
+ActiveRecord::Schema.define(version: 20130920171420) do
+
+  create_table "android_users", force: true do |t|
+    t.string   "token"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "api_users", force: true do |t|
+    t.string   "token"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bonuses", force: true do |t|
     t.string   "title"
@@ -27,6 +41,13 @@ ActiveRecord::Schema.define(version: 20130920122140) do
     t.string   "email"
     t.string   "twitter_name"
     t.string   "hashtag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ios_users", force: true do |t|
+    t.string   "token"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +89,16 @@ ActiveRecord::Schema.define(version: 20130920122140) do
   create_table "tweets", force: true do |t|
     t.integer  "report_id"
     t.string   "id_str"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "twitter_users", force: true do |t|
+    t.string   "image"
+    t.string   "name"
+    t.string   "screen_name"
+    t.string   "external_id_str"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
