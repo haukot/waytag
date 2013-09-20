@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b User name:
+  = @post.user_name
+%p
+  %b Title:
+  = @post.title
+%p
+  %b Content:
+  = @post.content
+%p
+  %b State:
+  = @post.state
+%p
+  %b Published at:
+  = @post.published_at
+%p
+  %b Seo name:
+  = @post.seo_name
+%p
+  %b Seo keywords:
+  = @post.seo_keywords
+%p
+  %b Seo description:
+  = @post.seo_description
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path

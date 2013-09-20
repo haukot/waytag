@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Report:
+  = @tweet.report_id
+%p
+  %b Id str:
+  = @tweet.id_str
+
+= link_to 'Edit', edit_tweet_path(@tweet)
+\|
+= link_to 'Back', tweets_path

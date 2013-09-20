@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @bonu.title
+%p
+  %b Description:
+  = @bonu.description
+
+= link_to 'Edit', edit_bonu_path(@bonu)
+\|
+= link_to 'Back', bonus_path

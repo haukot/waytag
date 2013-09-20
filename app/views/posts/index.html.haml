@@ -1,0 +1,33 @@
+%h1 Listing posts
+
+%table
+  %tr
+    %th User name
+    %th Title
+    %th Content
+    %th State
+    %th Published at
+    %th Seo name
+    %th Seo keywords
+    %th Seo description
+    %th
+    %th
+    %th
+
+  - @posts.each do |post|
+    %tr
+      %td= post.user_name
+      %td= post.title
+      %td= post.content
+      %td= post.state
+      %td= post.published_at
+      %td= post.seo_name
+      %td= post.seo_keywords
+      %td= post.seo_description
+      %td= link_to 'Show', post
+      %td= link_to 'Edit', edit_post_path(post)
+      %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Post', new_post_path

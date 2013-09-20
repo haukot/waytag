@@ -22,6 +22,7 @@ gem 'kaminari'
 gem 'active_model_serializers'
 
 gem 'russian'
+gem 'enumerize'
 gem 'validates'
 gem 'state_machine'
 gem 'configus'
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capistrano', github: 'capistrano/capistrano', branch: 'v3'
   gem 'capistrano-rails'
+  gem 'factory_girl_sequences'
 end
 
 group :test do
