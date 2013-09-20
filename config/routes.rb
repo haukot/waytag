@@ -1,13 +1,23 @@
 Waytag::Application.routes.draw do
-  resources :tweets
+  scope module: :api do
 
-  resources :posts
+  end
 
-  resources :reports
+  scope module: :web do
+    namespace :admin do
+      root :to => 'reports#index'
 
-  resources :partners
+      resources :tweets, only: :index
 
-  resources :cities
+      resources :posts, only: [:index, :edit, :new, :create, :update, :destroy]
 
-  resources :bonuses
+      resources :reports, only: [:index, :destroy]
+
+      resources :partners, only: [:index, :edit, :new, :create, :update, :destroy]
+
+      resources :cities, only: [:index, :edit, :new, :create, :update, :destroy]
+
+      resources :bonuses, only: [:index, :edit, :new, :create, :update, :destroy]
+    end
+  end
 end

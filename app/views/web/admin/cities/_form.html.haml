@@ -1,0 +1,12 @@
+= simple_form_for @city, url: url do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :slug
+    = f.input :name
+    = f.input :email
+    = f.input :twitter_name
+    = f.input :hashtag
+
+  .form-actions
+    = f.button :submit
