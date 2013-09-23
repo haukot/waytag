@@ -18,6 +18,14 @@ production:
   pool: 5
   timeout: 5000
 
+staging:
+  <<: *setup
+  database: waytag_staging
+  username: waytag_staging
+  password:
+  pool: 5
+  timeout: 5000
+
 test:
   <<: *setup
   host: /var/run/postgresql

@@ -3,7 +3,6 @@ set :repo_url, 'git@bitbucket.org:8xx8/waytag-web.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '~/workspace/waytag'
 set :scm, :git
 
 set :format, :pretty
@@ -15,8 +14,14 @@ set :format, :pretty
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
+set :rvm_type, :system
+set :ssh_options, forward_agent: true
 
 namespace :deploy do
+  desc "Symlinks the database.yml"
+  task :symlink_db, :roles => :app do
+    run "ln -nfs #{release_path}/config/database.sample.yml #{release_path}/config/database.yml"
+  end
 
   desc 'Restart application'
   task :restart do
@@ -38,3 +43,5 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
 
 end
+
+before 'deploy:finalize_update', 'deploy:symlink_db'
