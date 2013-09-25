@@ -45,8 +45,11 @@ group :development, :test do
   gem 'wrong'
   gem 'awesome_print'
   gem 'factory_girl_rails'
-  gem 'capistrano', github: 'capistrano/capistrano', branch: 'v3'
-  gem 'capistrano-rails'
+  gem 'capi', '0.1.1'
+  gem 'capistrano', '2.13.5'
+  gem 'rvm-capistrano', '1.2.7'
+  gem 'capistrano-ext'
+  gem 'capistrano_colors'
   gem 'factory_girl_sequences'
 end
 
