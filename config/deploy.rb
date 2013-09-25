@@ -1,6 +1,6 @@
 set :rake, "#{rake} --trace"
 
-set :stages, %w(production)
+set :stages, %w(staging production)
 set :default_stage, "production"
 set :rvm_type, :system
 set :use_sudo, false

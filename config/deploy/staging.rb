@@ -1,6 +1,6 @@
 set :application, "waytag_staging"
 
-set :rails_env, :production
+set :rails_env, :staging
 set :branch, 'staging'
 set :user, 'waytag_staging'
 set :keep_releases, 5
