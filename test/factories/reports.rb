@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :report do
     text { generate :body }
+    source_text { generate :body }
     time { Time.now }
     source_kind :web
     city

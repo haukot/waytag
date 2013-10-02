@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002062129) do
+ActiveRecord::Schema.define(version: 20131002064203) do
 
   create_table "android_users", force: true do |t|
     t.string   "token"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20131002062129) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "event_kind"
+    t.string   "source_text"
   end
 
   create_table "streets", force: true do |t|

@@ -1,4 +1,7 @@
 Waytag::Application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/q'
+
   get "reports/index"
   get "cities/index"
   scope module: :api do
@@ -28,8 +31,7 @@ Waytag::Application.routes.draw do
 
     resources :cities, only: :index, path: '/' do
       scope module: :cities do
-        get "/" => "reports#index"
-        resources :reports, only: :index
+        resources :reports, only: [:index, :create]
 
         resources :partners, only: [:index, :show]
         resources :bonuses, only: [:index, :show]

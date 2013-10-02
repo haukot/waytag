@@ -1,2 +1,3 @@
-- @reports.each do |report|
-  = report.text
+- if @reports
+  - @reports.each do |report|
+    = report.text

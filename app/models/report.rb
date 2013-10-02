@@ -7,7 +7,8 @@ class Report < ActiveRecord::Base
 
   has_one :tweet, dependent: :destroy
 
-  validates :text, presence: true
+  validates :source_text, presence: true
+  validates :time, presence: true
   validates :source_kind, presence: true
   validates :city, presence: true
 

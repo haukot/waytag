@@ -10,10 +10,10 @@ GIT
 
 GIT
   remote: git://github.com/norman/friendly_id.git
-  revision: 637ec7d62a56fc81dcc141ce2d1c287fa4b40055
+  revision: ba3fd42b6d9fbd5e3d8681f8218e19b9904d5937
   branch: master
   specs:
-    friendly_id (5.0.0.rc2)
+    friendly_id (5.0.0.rc3)
       activerecord (~> 4.0.0)
 
 GIT
@@ -35,9 +35,9 @@ GIT
 
 GIT
   remote: https://github.com/plataformatec/simple_form.git
-  revision: f0b95cb9805ebc895947cafaf33a07b67eeb8c71
+  revision: 50c4ac4a8bd0cb883ddaa309b779978e4207fef4
   specs:
-    simple_form (3.0.0.rc)
+    simple_form (3.0.0)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
 
@@ -73,7 +73,7 @@ GEM
     ansi (1.4.3)
     arel (4.0.0)
     atomic (1.1.14)
-    awesome_print (1.1.0)
+    awesome_print (1.2.0)
     backports (3.3.4)
     bcrypt-ruby (3.0.1)
     bootstrap-datetimepicker-rails (0.0.11)
@@ -90,7 +90,9 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
-    cocoon (1.2.0)
+    celluloid (0.15.1)
+      timers (~> 1.1.0)
+    cocoon (1.2.1)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -102,12 +104,13 @@ GEM
     commonjs (0.2.7)
     configus (0.0.4)
       rake
+    connection_pool (1.1.0)
     descendants_tracker (0.0.1)
     diff-lcs (1.1.3)
     enumerize (0.7.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
-    execjs (2.0.1)
+    execjs (2.0.2)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.2.1)
@@ -121,7 +124,7 @@ GEM
     gcm (0.0.4)
       httparty
       json
-    gon (4.1.0)
+    gon (4.1.1)
       actionpack (>= 2.3.0)
       json
     guard (1.8.3)
@@ -201,6 +204,8 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     rack (1.5.2)
+    rack-protection (1.5.0)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.0)
@@ -225,6 +230,9 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.4)
+    redis-namespace (1.3.1)
+      redis (~> 3.0.0)
     ref (1.0.5)
     ruby2ruby (2.0.6)
       ruby_parser (~> 3.1)
@@ -239,10 +247,20 @@ GEM
       json (>= 1.1.3)
       rdoc (~> 3.10)
     sexp_processor (4.3.0)
+    sidekiq (2.15.0)
+      celluloid (>= 0.15.1)
+      connection_pool (>= 1.0.0)
+      json
+      redis (>= 3.0.4)
+      redis-namespace (>= 1.3.1)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
+    sinatra (1.4.3)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
     slop (3.4.6)
     spring (0.0.10)
     sprockets (2.10.0)
@@ -263,6 +281,7 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
+    timers (1.1.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -329,8 +348,10 @@ DEPENDENCIES
   russian
   rvm-capistrano (= 1.2.7)
   sdoc
+  sidekiq
   simple_form!
   simplecov
+  sinatra (>= 1.3.0)
   spring
   state_machine
   test_after_commit
