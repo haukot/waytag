@@ -1,0 +1,2491 @@
+%YAML 1.1
+---
+# ulway_server.words
+-
+  word: абсолютн
+  rate: 0
+-
+  word: авари
+  rate: 42
+-
+  word: аварий
+  rate: 1
+-
+  word: аварийк
+  rate: 3
+-
+  word: аварийко
+  rate: 0
+-
+  word: авиастроителе
+  rate: 10
+-
+  word: авиационног
+  rate: 0
+-
+  word: авио
+  rate: 0
+-
+  word: авт
+  rate: 2
+-
+  word: автобус
+  rate: 1
+-
+  word: автобусо
+  rate: 0
+-
+  word: автовокза
+  rate: 8
+-
+  word: автовокзал
+  rate: 7
+-
+  word: автодетал
+  rate: 4
+-
+  word: автоза
+  rate: 0
+-
+  word: автозавод
+  rate: 0
+-
+  word: автозаводска
+  rate: 0
+-
+  word: автолюбител
+  rate: 10
+-
+  word: автомагазин
+  rate: 0
+-
+  word: автомобиле
+  rate: 0
+-
+  word: автопоезд
+  rate: 0
+-
+  word: автора
+  rate: 6
+-
+  word: администраци
+  rate: 0
+-
+  word: адска
+  rate: 0
+-
+  word: азс
+  rate: 0
+-
+  word: айвенг
+  rate: 0
+-
+  word: аквамол
+  rate: 0
+-
+  word: аккуратне
+  rate: 0
+-
+  word: активн
+  rate: 4
+-
+  word: алкогол
+  rate: 1
+-
+  word: антон
+  rate: 2
+-
+  word: аптек
+  rate: 0
+-
+  word: артур
+  rate: 78
+-
+  word: асфальт
+  rate: 0
+-
+  word: аша
+  rate: 0
+-
+  word: ашан
+  rate: 2
+-
+  word: аэропорт
+  rate: 2
+-
+  word: башнефт
+  rate: 2
+-
+  word: бер
+  rate: 4
+-
+  word: берег
+  rate: 0
+-
+  word: березк
+  rate: 0
+-
+  word: бес
+  rate: 2
+-
+  word: бессониц
+  rate: 0
+-
+  word: бетономешалк
+  rate: 1
+-
+  word: благодар
+  rate: 0
+-
+  word: бог
+  rate: 1
+-
+  word: богатыр
+  rate: 0
+-
+  word: богдашк
+  rate: 0
+-
+  word: бойц
+  rate: 0
+-
+  word: бок
+  rate: 0
+-
+  word: больш
+  rate: 0
+-
+  word: больша
+  rate: 1
+-
+  word: большог
+  rate: 0
+-
+  word: боулинг
+  rate: 0
+-
+  word: бракосочетани
+  rate: 0
+-
+  word: братик
+  rate: 0
+-
+  word: бретска
+  rate: 2
+-
+  word: бросат
+  rate: 0
+-
+  word: буд
+  rate: 2
+-
+  word: будут
+  rate: 0
+-
+  word: будь
+  rate: 21
+-
+  word: будьт
+  rate: 1
+-
+  word: буинска
+  rate: 2
+-
+  word: бульвар
+  rate: 4
+-
+  word: буханк
+  rate: 0
+-
+  word: бывш
+  rate: 0
+-
+  word: бьютс
+  rate: 0
+-
+  word: ваз
+  rate: 0
+-
+  word: валящи
+  rate: 0
+-
+  word: вверх
+  rate: 1
+-
+  word: вертикал
+  rate: 3
+-
+  word: верх
+  rate: 4
+-
+  word: верхне
+  rate: 12
+-
+  word: верхню
+  rate: 1
+-
+  word: верхня
+  rate: 1
+-
+  word: вечер
+  rate: 0
+-
+  word: вечерни
+  rate: 0
+-
+  word: вещ
+  rate: 0
+-
+  word: вещево
+  rate: 1
+-
+  word: вещевог
+  rate: 3
+-
+  word: взад
+  rate: 0
+-
+  word: вид
+  rate: 5
+-
+  word: видеокамер
+  rate: 0
+-
+  word: видн
+  rate: 1
+-
+  word: винновк
+  rate: 0
+-
+  word: витрин
+  rate: 0
+-
+  word: включ
+  rate: 0
+-
+  word: влкза
+  rate: 0
+-
+  word: влупилис
+  rate: 0
+-
+  word: вначал
+  rate: 0
+-
+  word: внимательн
+  rate: 21
+-
+  word: внимательне
+  rate: 12
+-
+  word: водител
+  rate: 3
+-
+  word: водопровод
+  rate: 0
+-
+  word: возкал
+  rate: 0
+-
+  word: возл
+  rate: 9
+-
+  word: возможн
+  rate: 2
+-
+  word: вокза
+  rate: 1
+-
+  word: вокзал
+  rate: 3
+-
+  word: волжска
+  rate: 3
+-
+  word: волжско
+  rate: 1
+-
+  word: вольдемар
+  rate: 5
+-
+  word: вообщ
+  rate: 0
+-
+  word: воспользуй
+  rate: 10
+-
+  word: восьмерк
+  rate: 13
+-
+  word: вот
+  rate: 3
+-
+  word: вперед
+  rate: 0
+-
+  word: врач
+  rate: 0
+-
+  word: все
+  rate: 0
+-
+  word: всегд
+  rate: 0
+-
+  word: всех
+  rate: 6
+-
+  word: вск
+  rate: 0
+-
+  word: вско
+  rate: 0
+-
+  word: вског
+  rate: 0
+-
+  word: вста
+  rate: 1
+-
+  word: встават
+  rate: 0
+-
+  word: встал
+  rate: 1
+-
+  word: встреч
+  rate: 2
+-
+  word: вторчерм
+  rate: 0
+-
+  word: въезд
+  rate: 5
+-
+  word: въехал
+  rate: 0
+-
+  word: выборочн
+  rate: 3
+-
+  word: выезд
+  rate: 6
+-
+  word: вылетающ
+  rate: 2
+-
+  word: выписал
+  rate: 0
+-
+  word: гагарин
+  rate: 1
+-
+  word: гаи
+  rate: 0
+-
+  word: гайц
+  rate: 2
+-
+  word: герасим
+  rate: 0
+-
+  word: гибдд
+  rate: 2
+-
+  word: гим
+  rate: 0
+-
+  word: глобус
+  rate: 3
+-
+  word: глух
+  rate: 0
+-
+  word: говор
+  rate: 0
+-
+  word: гончар
+  rate: 35
+-
+  word: гор
+  rate: 10
+-
+  word: горин
+  rate: 0
+-
+  word: город
+  rate: 10
+-
+  word: городк
+  rate: 2
+-
+  word: гостиниц
+  rate: 0
+-
+  word: градусо
+  rate: 0
+-
+  word: грузова
+  rate: 1
+-
+  word: грузово
+  rate: 4
+-
+  word: грузову
+  rate: 0
+-
+  word: гряз
+  rate: 0
+-
+  word: гулливер
+  rate: 5
+-
+  word: дальн
+  rate: 0
+-
+  word: дамб
+  rate: 0
+-
+  word: дан
+  rate: 0
+-
+  word: данн
+  rate: 0
+-
+  word: дарс
+  rate: 0
+-
+  word: дач
+  rate: 8
+-
+  word: движени
+  rate: 28
+-
+  word: движетс
+  rate: 2
+-
+  word: дво
+  rate: 0
+-
+  word: дворец
+  rate: 0
+-
+  word: дворц
+  rate: 0
+-
+  word: дебил
+  rate: 0
+-
+  word: девочк
+  rate: 0
+-
+  word: девушк
+  rate: 0
+-
+  word: девятк
+  rate: 0
+-
+  word: деж
+  rate: 0
+-
+  word: дер
+  rate: 0
+-
+  word: держитс
+  rate: 0
+-
+  word: десятк
+  rate: 0
+-
+  word: детски
+  rate: 0
+-
+  word: детског
+  rate: 0
+-
+  word: дивизи
+  rate: 13
+-
+  word: дим
+  rate: 4
+-
+  word: димитр
+  rate: 6
+-
+  word: димитровград
+  rate: 0
+-
+  word: димитровградско
+  rate: 2
+-
+  word: димитровградског
+  rate: 1
+-
+  word: димитровоградско
+  rate: 0
+-
+  word: димитродск
+  rate: 2
+-
+  word: димк
+  rate: 0
+-
+  word: дне
+  rate: 0
+-
+  word: доватор
+  rate: 6
+-
+  word: доваторсуи
+  rate: 2
+-
+  word: догнал
+  rate: 3
+-
+  word: доезжа
+  rate: 2
+-
+  word: дожд
+  rate: 11
+-
+  word: дождь
+  rate: 10
+-
+  word: дом
+  rate: 4
+-
+  word: домо
+  rate: 0
+-
+  word: дорог
+  rate: 6
+-
+  word: дпс
+  rate: 156
+-
+  word: драм
+  rate: 1
+-
+  word: другу
+  rate: 2
+-
+  word: дружб
+  rate: 2
+-
+  word: друзь
+  rate: 0
+-
+  word: дтп
+  rate: 199
+-
+  word: дурак
+  rate: 0
+-
+  word: дух
+  rate: 2
+-
+  word: евроспорт
+  rate: 2
+-
+  word: едет
+  rate: 0
+-
+  word: едит
+  rate: 0
+-
+  word: езд
+  rate: 0
+-
+  word: есл
+  rate: 5
+-
+  word: ест
+  rate: 1
+-
+  word: ефрем
+  rate: 14
+-
+  word: еха
+  rate: 1
+-
+  word: ехат
+  rate: 2
+-
+  word: желез
+  rate: 8
+-
+  word: жестка
+  rate: 0
+-
+  word: живц
+  rate: 0
+-
+  word: жигул
+  rate: 0
+-
+  word: жигулевска
+  rate: 0
+-
+  word: жмутс
+  rate: 0
+-
+  word: жны
+  rate: 2
+-
+  word: жуковк
+  rate: 0
+-
+  word: жуковског
+  rate: 3
+-
+  word: заб
+  rate: 3
+-
+  word: завияжь
+  rate: 2
+-
+  word: завод
+  rate: 0
+-
+  word: заводско
+  rate: 3
+-
+  word: заволжь
+  rate: 14
+-
+  word: заворачива
+  rate: 0
+-
+  word: завтр
+  rate: 0
+-
+  word: загорелис
+  rate: 0
+-
+  word: загс
+  rate: 0
+-
+  word: заде
+  rate: 0
+-
+  word: задн
+  rate: 0
+-
+  word: закр
+  rate: 0
+-
+  word: закры
+  rate: 0
+-
+  word: закрытог
+  rate: 2
+-
+  word: замеч
+  rate: 0
+-
+  word: западног
+  rate: 3
+-
+  word: заправк
+  rate: 1
+-
+  word: зар
+  rate: 2
+-
+  word: заработал
+  rate: 0
+-
+  word: зареч
+  rate: 10
+-
+  word: засад
+  rate: 0
+-
+  word: засвияжсог
+  rate: 0
+-
+  word: засвияжь
+  rate: 3
+-
+  word: затор
+  rate: 2
+-
+  word: затрудн
+  rate: 34
+-
+  word: затруднени
+  rate: 4
+-
+  word: зач
+  rate: 0
+-
+  word: звезд
+  rate: 3
+-
+  word: зеле
+  rate: 8
+-
+  word: зелен
+  rate: 1
+-
+  word: зимню
+  rate: 0
+-
+  word: зна
+  rate: 0
+-
+  word: знак
+  rate: 8
+-
+  word: идут
+  rate: 0
+-
+  word: ильдар
+  rate: 2
+-
+  word: импер
+  rate: 7
+-
+  word: императорск
+  rate: 3
+-
+  word: императорски
+  rate: 3
+-
+  word: инерциаль
+  rate: 1
+-
+  word: инженер
+  rate: 0
+-
+  word: инженерн
+  rate: 5
+-
+  word: инзенска
+  rate: 3
+-
+  word: инзенски
+  rate: 0
+-
+  word: инзенско
+  rate: 0
+-
+  word: иномарк
+  rate: 1
+-
+  word: интересн
+  rate: 0
+-
+  word: информац
+  rate: 0
+-
+  word: ирландски
+  rate: 0
+-
+  word: искр
+  rate: 0
+-
+  word: истори
+  rate: 0
+-
+  word: ишеевско
+  rate: 0
+-
+  word: кажд
+  rate: 0
+-
+  word: каждог
+  rate: 2
+-
+  word: кажду
+  rate: 0
+-
+  word: как
+  rate: 4
+-
+  word: кака
+  rate: 0
+-
+  word: како
+  rate: 0
+-
+  word: камаз
+  rate: 1
+-
+  word: камер
+  rate: 51
+-
+  word: камеро
+  rate: 0
+-
+  word: камышинска
+  rate: 4
+-
+  word: камышинско
+  rate: 0
+-
+  word: каппел
+  rate: 0
+-
+  word: капу
+  rate: 0
+-
+  word: карасевк
+  rate: 3
+-
+  word: карбыш
+  rate: 3
+-
+  word: карл
+  rate: 3
+-
+  word: картинк
+  rate: 0
+-
+  word: катаетс
+  rate: 0
+-
+  word: катаютс
+  rate: 0
+-
+  word: каф
+  rate: 5
+-
+  word: каш
+  rate: 0
+-
+  word: квадрат
+  rate: 1
+-
+  word: кент
+  rate: 5
+-
+  word: киндяковк
+  rate: 8
+-
+  word: кипиш
+  rate: 0
+-
+  word: кир
+  rate: 10
+-
+  word: кладбищ
+  rate: 0
+-
+  word: классик
+  rate: 2
+-
+  word: ког
+  rate: 2
+-
+  word: когд
+  rate: 2
+-
+  word: количеств
+  rate: 0
+-
+  word: колл
+  rate: 0
+-
+  word: колледж
+  rate: 0
+-
+  word: кольк
+  rate: 0
+-
+  word: кольц
+  rate: 34
+-
+  word: ком
+  rate: 6
+-
+  word: комиссар
+  rate: 0
+-
+  word: комсомол
+  rate: 1
+-
+  word: комсомольско
+  rate: 2
+-
+  word: координат
+  rate: 1
+-
+  word: коп
+  rate: 0
+-
+  word: копь
+  rate: 5
+-
+  word: крайне
+  rate: 0
+-
+  word: крас
+  rate: 0
+-
+  word: красногвардейско
+  rate: 0
+-
+  word: крым
+  rate: 6
+-
+  word: куд
+  rate: 0
+-
+  word: кузоватовска
+  rate: 3
+-
+  word: куйбыш
+  rate: 0
+-
+  word: курс
+  rate: 2
+-
+  word: лад
+  rate: 0
+-
+  word: лев
+  rate: 0
+-
+  word: лева
+  rate: 1
+-
+  word: лево
+  rate: 3
+-
+  word: левог
+  rate: 0
+-
+  word: левы
+  rate: 2
+-
+  word: легкова
+  rate: 4
+-
+  word: легковушк
+  rate: 4
+-
+  word: легковы
+  rate: 1
+-
+  word: лезьт
+  rate: 0
+-
+  word: ленин
+  rate: 10
+-
+  word: ленинског
+  rate: 1
+-
+  word: ленк
+  rate: 3
+-
+  word: лета
+  rate: 0
+-
+  word: летн
+  rate: 10
+-
+  word: либкнехт
+  rate: 0
+-
+  word: лидер
+  rate: 2
+-
+  word: лимузи
+  rate: 0
+-
+  word: лини
+  rate: 0
+-
+  word: лихач
+  rate: 2
+-
+  word: лов
+  rate: 12
+-
+  word: локомотив
+  rate: 14
+-
+  word: лугово
+  rate: 2
+-
+  word: лучш
+  rate: 0
+-
+  word: люксембург
+  rate: 3
+-
+  word: магазин
+  rate: 5
+-
+  word: магн
+  rate: 0
+-
+  word: магус
+  rate: 1
+-
+  word: майска
+  rate: 1
+-
+  word: майско
+  rate: 9
+-
+  word: макдак
+  rate: 0
+-
+  word: малозамет
+  rate: 0
+-
+  word: марат
+  rate: 3
+-
+  word: маркс
+  rate: 11
+-
+  word: маршрутк
+  rate: 8
+-
+  word: маршрутко
+  rate: 0
+-
+  word: мат
+  rate: 0
+-
+  word: маши
+  rate: 4
+-
+  word: машин
+  rate: 8
+-
+  word: машинк
+  rate: 2
+-
+  word: маяковског
+  rate: 0
+-
+  word: мебельград
+  rate: 0
+-
+  word: межд
+  rate: 5
+-
+  word: мелк
+  rate: 5
+-
+  word: мелки
+  rate: 0
+-
+  word: мелко
+  rate: 0
+-
+  word: мемцентр
+  rate: 0
+-
+  word: мер
+  rate: 0
+-
+  word: меропр
+  rate: 0
+-
+  word: мест
+  rate: 17
+-
+  word: меч
+  rate: 0
+-
+  word: микрорайо
+  rate: 0
+-
+  word: мина
+  rate: 52
+-
+  word: минае
+  rate: 0
+-
+  word: минувше
+  rate: 0
+-
+  word: минут
+  rate: 1
+-
+  word: мир
+  rate: 3
+-
+  word: мирн
+  rate: 0
+-
+  word: мирног
+  rate: 0
+-
+  word: михайл
+  rate: 0
+-
+  word: мишар
+  rate: 0
+-
+  word: мкр
+  rate: 0
+-
+  word: мног
+  rate: 8
+-
+  word: множествен
+  rate: 0
+-
+  word: модел
+  rate: 0
+-
+  word: мож
+  rate: 0
+-
+  word: можайског
+  rate: 1
+-
+  word: молод
+  rate: 2
+-
+  word: молода
+  rate: 0
+-
+  word: молоч
+  rate: 2
+-
+  word: мос
+  rate: 0
+-
+  word: моск
+  rate: 6
+-
+  word: московс
+  rate: 0
+-
+  word: московск
+  rate: 13
+-
+  word: московско
+  rate: 5
+-
+  word: моссковск
+  rate: 0
+-
+  word: мост
+  rate: 91
+-
+  word: мосто
+  rate: 1
+-
+  word: мот
+  rate: 0
+-
+  word: моторног
+  rate: 0
+-
+  word: музе
+  rate: 0
+-
+  word: мчс
+  rate: 1
+-
+  word: навигаци
+  rate: 1
+-
+  word: надеюс
+  rate: 0
+-
+  word: наеха
+  rate: 0
+-
+  word: назад
+  rate: 1
+-
+  word: наконец
+  rate: 0
+-
+  word: намертв
+  rate: 2
+-
+  word: направл
+  rate: 0
+-
+  word: направлени
+  rate: 4
+-
+  word: напроти
+  rate: 25
+-
+  word: нариман
+  rate: 16
+-
+  word: народ
+  rate: 3
+-
+  word: наряд
+  rate: 0
+-
+  word: настро
+  rate: 2
+-
+  word: начал
+  rate: 6
+-
+  word: началс
+  rate: 0
+-
+  word: начи
+  rate: 0
+-
+  word: неболь
+  rate: 0
+-
+  word: недалек
+  rate: 3
+-
+  word: недел
+  rate: 0
+-
+  word: некоторы
+  rate: 0
+-
+  word: немног
+  rate: 2
+-
+  word: неожида
+  rate: 0
+-
+  word: нескольк
+  rate: 7
+-
+  word: нет
+  rate: 20
+-
+  word: нив
+  rate: 0
+-
+  word: ниж
+  rate: 1
+-
+  word: нижне
+  rate: 13
+-
+  word: нижня
+  rate: 2
+-
+  word: никог
+  rate: 0
+-
+  word: никт
+  rate: 0
+-
+  word: нов
+  rate: 4
+-
+  word: новог
+  rate: 6
+-
+  word: новосельдински
+  rate: 0
+-
+  word: новы
+  rate: 5
+-
+  word: номер
+  rate: 2
+-
+  word: норм
+  rate: 0
+-
+  word: ночь
+  rate: 1
+-
+  word: ных
+  rate: 0
+-
+  word: обго
+  rate: 0
+-
+  word: обезжайт
+  rate: 0
+-
+  word: обелиск
+  rate: 8
+-
+  word: обо
+  rate: 4
+-
+  word: обочин
+  rate: 2
+-
+  word: обстановк
+  rate: 0
+-
+  word: объезд
+  rate: 0
+-
+  word: объезжа
+  rate: 0
+-
+  word: обычн
+  rate: 3
+-
+  word: овощебаз
+  rate: 2
+-
+  word: огн
+  rate: 0
+-
+  word: ограждени
+  rate: 0
+-
+  word: огранич
+  rate: 0
+-
+  word: огром
+  rate: 2
+-
+  word: одеваютс
+  rate: 0
+-
+  word: одн
+  rate: 0
+-
+  word: окол
+  rate: 16
+-
+  word: окруж
+  rate: 2
+-
+  word: окт
+  rate: 0
+-
+  word: октябрьска
+  rate: 9
+-
+  word: октябрьско
+  rate: 3
+-
+  word: октяюрьско
+  rate: 2
+-
+  word: олимпийск
+  rate: 0
+-
+  word: олимпийски
+  rate: 2
+-
+  word: определя
+  rate: 1
+-
+  word: оптимус
+  rate: 3
+-
+  word: освещени
+  rate: 0
+-
+  word: основани
+  rate: 0
+-
+  word: ост
+  rate: 16
+-
+  word: останавлива
+  rate: 2
+-
+  word: остановк
+  rate: 0
+-
+  word: остановко
+  rate: 3
+-
+  word: остановл
+  rate: 0
+-
+  word: отключ
+  rate: 0
+-
+  word: откр
+  rate: 0
+-
+  word: отмет
+  rate: 0
+-
+  word: отпуст
+  rate: 0
+-
+  word: отрад
+  rate: 4
+-
+  word: отсутстви
+  rate: 0
+-
+  word: паб
+  rate: 0
+-
+  word: павл
+  rate: 0
+-
+  word: парк
+  rate: 7
+-
+  word: парковк
+  rate: 0
+-
+  word: паровоз
+  rate: 0
+-
+  word: паровозик
+  rate: 1
+-
+  word: пассаж
+  rate: 2
+-
+  word: пассажиро
+  rate: 0
+-
+  word: пасут
+  rate: 0
+-
+  word: пдд
+  rate: 0
+-
+  word: пер
+  rate: 1
+-
+  word: первак
+  rate: 0
+-
+  word: первомайска
+  rate: 2
+-
+  word: первомайско
+  rate: 1
+-
+  word: перед
+  rate: 33
+-
+  word: переезд
+  rate: 2
+-
+  word: перекидног
+  rate: 2
+-
+  word: перекр
+  rate: 8
+-
+  word: перекрест
+  rate: 8
+-
+  word: перекрестк
+  rate: 25
+-
+  word: перекро
+  rate: 2
+-
+  word: переливани
+  rate: 0
+-
+  word: переписываетс
+  rate: 0
+-
+  word: переулк
+  rate: 0
+-
+  word: переход
+  rate: 5
+-
+  word: перкулк
+  rate: 0
+-
+  word: пес
+  rate: 0
+-
+  word: петровк
+  rate: 1
+-
+  word: пешеход
+  rate: 5
+-
+  word: пешеходн
+  rate: 0
+-
+  word: пешеходник
+  rate: 0
+-
+  word: пешеходо
+  rate: 11
+-
+  word: пешпереход
+  rate: 0
+-
+  word: пион
+  rate: 0
+-
+  word: план
+  rate: 3
+-
+  word: пласт
+  rate: 5
+-
+  word: плит
+  rate: 0
+-
+  word: плотн
+  rate: 0
+-
+  word: плюс
+  rate: 0
+-
+  word: побед
+  rate: 3
+-
+  word: пова
+  rate: 0
+-
+  word: поворот
+  rate: 12
+-
+  word: погибл
+  rate: 0
+-
+  word: поголовн
+  rate: 0
+-
+  word: погруз
+  rate: 0
+-
+  word: под
+  rate: 0
+-
+  word: подрезал
+  rate: 0
+-
+  word: подряд
+  rate: 1
+-
+  word: подъ
+  rate: 3
+-
+  word: подьезд
+  rate: 0
+-
+  word: пожар
+  rate: 0
+-
+  word: пок
+  rate: 2
+-
+  word: поликлиник
+  rate: 2
+-
+  word: полици
+  rate: 0
+-
+  word: полнос
+  rate: 0
+-
+  word: полос
+  rate: 25
+-
+  word: полотн
+  rate: 0
+-
+  word: пользуютс
+  rate: 0
+-
+  word: поменял
+  rate: 0
+-
+  word: понима
+  rate: 0
+-
+  word: понятн
+  rate: 0
+-
+  word: поочер
+  rate: 0
+-
+  word: пор
+  rate: 2
+-
+  word: порт
+  rate: 3
+-
+  word: пос
+  rate: 0
+-
+  word: посл
+  rate: 19
+-
+  word: послед
+  rate: 0
+-
+  word: последне
+  rate: 1
+-
+  word: последни
+  rate: 0
+-
+  word: посред
+  rate: 0
+-
+  word: пост
+  rate: 8
+-
+  word: постав
+  rate: 0
+-
+  word: пострадавш
+  rate: 0
+-
+  word: пострадавши
+  rate: 1
+-
+  word: пот
+  rate: 1
+-
+  word: поцеловал
+  rate: 0
+-
+  word: поцеловалос
+  rate: 0
+-
+  word: поч
+  rate: 0
+-
+  word: почт
+  rate: 3
+-
+  word: почувствова
+  rate: 0
+-
+  word: ппц
+  rate: 0
+-
+  word: прав
+  rate: 3
+-
+  word: правд
+  rate: 0
+-
+  word: право
+  rate: 1
+-
+  word: праздник
+  rate: 0
+-
+  word: практическ
+  rate: 0
+-
+  word: предвиж
+  rate: 0
+-
+  word: прежн
+  rate: 0
+-
+  word: президентск
+  rate: 1
+-
+  word: президентског
+  rate: 0
+-
+  word: прецессион
+  rate: 1
+-
+  word: прибрежк
+  rate: 2
+-
+  word: прив
+  rate: 0
+-
+  word: пригород
+  rate: 2
+-
+  word: пригородн
+  rate: 0
+-
+  word: прижал
+  rate: 0
+-
+  word: примерн
+  rate: 0
+-
+  word: причин
+  rate: 0
+-
+  word: проб
+  rate: 0
+-
+  word: пробищ
+  rate: 0
+-
+  word: пробк
+  rate: 72
+-
+  word: проблематич
+  rate: 0
+-
+  word: проблемн
+  rate: 0
+-
+  word: пробочк
+  rate: 1
+-
+  word: провалилс
+  rate: 0
+-
+  word: провер
+  rate: 0
+-
+  word: проверк
+  rate: 0
+-
+  word: прода
+  rate: 1
+-
+  word: проезд
+  rate: 0
+-
+  word: произошл
+  rate: 0
+-
+  word: промзон
+  rate: 10
+-
+  word: промк
+  rate: 9
+-
+  word: промышлен
+  rate: 0
+-
+  word: пропуска
+  rate: 4
+-
+  word: проспект
+  rate: 3
+-
+  word: протаран
+  rate: 2
+-
+  word: протокол
+  rate: 0
+-
+  word: проход
+  rate: 2
+-
+  word: пуст
+  rate: 0
+-
+  word: пут
+  rate: 0
+-
+  word: путепровод
+  rate: 5
+-
+  word: пушк
+  rate: 1
+-
+  word: пушкар
+  rate: 16
+-
+  word: пушкаревск
+  rate: 2
+-
+  word: пушкаревско
+  rate: 5
+-
+  word: пушкаревског
+  rate: 1
+-
+  word: пушкинско
+  rate: 2
+-
+  word: пушкоревско
+  rate: 0
+-
+  word: пья
+  rate: 0
+-
+  word: пьянк
+  rate: 2
+-
+  word: пятнице
+  rate: 0
+-
+  word: пятог
+  rate: 3
+-
+  word: работ
+  rate: 0
+-
+  word: работа
+  rate: 10
+-
+  word: радар
+  rate: 3
+-
+  word: ради
+  rate: 85
+-
+  word: радищ
+  rate: 1
+-
+  word: развернул
+  rate: 0
+-
+  word: развязк
+  rate: 1
+-
+  word: разн
+  rate: 0
+-
+  word: разнобо
+  rate: 0
+-
+  word: райо
+  rate: 1
+-
+  word: район
+  rate: 8
+-
+  word: реб
+  rate: 2
+-
+  word: резин
+  rate: 0
+-
+  word: рейд
+  rate: 7
+-
+  word: рельс
+  rate: 1
+-
+  word: репин
+  rate: 1
+-
+  word: реч
+  rate: 2
+-
+  word: речног
+  rate: 0
+-
+  word: речпорт
+  rate: 0
+-
+  word: рим
+  rate: 4
+-
+  word: ровд
+  rate: 0
+-
+  word: родник
+  rate: 0
+-
+  word: розочк
+  rate: 0
+-
+  word: росинк
+  rate: 2
+-
+  word: ротор
+  rate: 2
+-
+  word: рты
+  rate: 0
+-
+  word: рын
+  rate: 8
+-
+  word: рынк
+  rate: 9
+-
+  word: рябик
+  rate: 19
+-
+  word: ряд
+  rate: 7
+-
+  word: самарска
+  rate: 2
+-
+  word: самосва
+  rate: 0
+-
+  word: сандер
+  rate: 0
+-
+  word: сафар
+  rate: 0
+-
+  word: сашк
+  rate: 2
+-
+  word: сбербанк
+  rate: 1
+-
+  word: светлан
+  rate: 0
+-
+  word: светлячко
+  rate: 2
+-
+  word: светофор
+  rate: 16
+-
+  word: свияг
+  rate: 0
+-
+  word: свободе
+  rate: 0
+-
+  word: свободн
+  rate: 1
+-
+  word: связ
+  rate: 0
+-
+  word: себ
+  rate: 1
+-
+  word: север
+  rate: 1
+-
+  word: сегодн
+  rate: 1
+-
+  word: сейчас
+  rate: 1
+-
+  word: сент
+  rate: 6
+-
+  word: сентябр
+  rate: 14
+-
+  word: середин
+  rate: 0
+-
+  word: серы
+  rate: 0
+-
+  word: серьез
+  rate: 2
+-
+  word: сзад
+  rate: 0
+-
+  word: сидел
+  rate: 0
+-
+  word: сизо
+  rate: 0
+-
+  word: сильн
+  rate: 4
+-
+  word: симбирски
+  rate: 5
+-
+  word: симбирско
+  rate: 1
+-
+  word: сист
+  rate: 1
+-
+  word: сих
+  rate: 2
+-
+  word: сказываютс
+  rate: 0
+-
+  word: скапливаетс
+  rate: 1
+-
+  word: скор
+  rate: 0
+-
+  word: скоре
+  rate: 0
+-
+  word: скорост
+  rate: 9
+-
+  word: скочил
+  rate: 0
+-
+  word: сломалас
+  rate: 0
+-
+  word: смотр
+  rate: 2
+-
+  word: снег
+  rate: 17
+-
+  word: снима
+  rate: 0
+-
+  word: снимаетс
+  rate: 0
+-
+  word: собираетс
+  rate: 0
+-
+  word: соблюда
+  rate: 1
+-
+  word: собо
+  rate: 0
+-
+  word: собралос
+  rate: 2
+-
+  word: советско
+  rate: 0
+-
+  word: современник
+  rate: 0
+-
+  word: созидателе
+  rate: 29
+-
+  word: солнц
+  rate: 6
+-
+  word: составляетс
+  rate: 0
+-
+  word: спасско
+  rate: 0
+-
+  word: специальн
+  rate: 0
+-
+  word: спецтехник
+  rate: 0
+-
+  word: спеш
+  rate: 0
+-
+  word: спин
+  rate: 0
+-
+  word: спряталс
+  rate: 0
+-
+  word: сраз
+  rate: 3
+-
+  word: средня
+  rate: 3
+-
+  word: став
+  rate: 3
+-
+  word: становитс
+  rate: 0
+-
+  word: станци
+  rate: 1
+-
+  word: стар
+  rate: 24
+-
+  word: старог
+  rate: 2
+-
+  word: стары
+  rate: 6
+-
+  word: стас
+  rate: 0
+-
+  word: стк
+  rate: 2
+-
+  word: сто
+  rate: 65
+-
+  word: столб
+  rate: 0
+-
+  word: столкновени
+  rate: 1
+-
+  word: столкнулис
+  rate: 0
+-
+  word: стоматоло
+  rate: 2
+-
+  word: стоп
+  rate: 0
+-
+  word: сторон
+  rate: 157
+-
+  word: стоянк
+  rate: 0
+-
+  word: строн
+  rate: 0
+-
+  word: суббот
+  rate: 0
+-
+  word: суд
+  rate: 1
+-
+  word: сур
+  rate: 2
+-
+  word: считал
+  rate: 0
+-
+  word: съезд
+  rate: 1
+-
+  word: таж
+  rate: 0
+-
+  word: таз
+  rate: 0
+-
+  word: тазик
+  rate: 0
+-
+  word: таис
+  rate: 1
+-
+  word: так
+  rate: 6
+-
+  word: така
+  rate: 0
+-
+  word: такусенька
+  rate: 0
+-
+  word: там
+  rate: 1
+-
+  word: твит
+  rate: 0
+-
+  word: твор
+  rate: 0
+-
+  word: творитс
+  rate: 0
+-
+  word: театр
+  rate: 1
+-
+  word: телецентр
+  rate: 0
+-
+  word: тепер
+  rate: 0
+-
+  word: терешк
+  rate: 0
+-
+  word: терешково
+  rate: 0
+-
+  word: террас
+  rate: 4
+-
+  word: террасс
+  rate: 0
+-
+  word: тех
+  rate: 0
+-
+  word: технос
+  rate: 0
+-
+  word: тойот
+  rate: 0
+-
+  word: ток
+  rate: 1
+-
+  word: толстог
+  rate: 0
+-
+  word: тольк
+  rate: 0
+-
+  word: томатик
+  rate: 0
+-
+  word: торг
+  rate: 0
+-
+  word: тормоз
+  rate: 18
+-
+  word: торомоз
+  rate: 2
+-
+  word: торопятс
+  rate: 0
+-
+  word: тралик
+  rate: 2
+-
+  word: трам
+  rate: 0
+-
+  word: трамва
+  rate: 2
+-
+  word: трамвае
+  rate: 0
+-
+  word: трамвайн
+  rate: 0
+-
+  word: транспорт
+  rate: 0
+-
+  word: трафик
+  rate: 0
+-
+  word: трезвы
+  rate: 0
+-
+  word: треног
+  rate: 0
+-
+  word: троечк
+  rate: 0
+-
+  word: троллейбус
+  rate: 1
+-
+  word: тут
+  rate: 5
+-
+  word: тюлен
+  rate: 21
+-
+  word: уаз
+  rate: 5
+-
+  word: убрал
+  rate: 0
+-
+  word: уважаемы
+  rate: 10
+-
+  word: увд
+  rate: 0
+-
+  word: удивляетс
+  rate: 0
+-
+  word: уксм
+  rate: 2
+-
+  word: улгу
+  rate: 2
+-
+  word: улетел
+  rate: 0
+-
+  word: улиц
+  rate: 4
+-
+  word: ульяновск
+  rate: 9
+-
+  word: ульяновскг
+  rate: 2
+-
+  word: ульяновски
+  rate: 15
+-
+  word: ульяновског
+  rate: 1
+-
+  word: употреблени
+  rate: 0
+-
+  word: урицког
+  rate: 8
+-
+  word: устанавлива
+  rate: 0
+-
+  word: установ
+  rate: 0
+-
+  word: установле
+  rate: 2
+-
+  word: утес
+  rate: 0
+-
+  word: утр
+  rate: 1
+-
+  word: уча
+  rate: 1
+-
+  word: участк
+  rate: 0
+-
+  word: учеб
+  rate: 0
+-
+  word: факт
+  rate: 0
+-
+  word: фармколледж
+  rate: 0
+-
+  word: ферм
+  rate: 2
+-
+  word: филат
+  rate: 0
+-
+  word: фок
+  rate: 2
+-
+  word: фотостуди
+  rate: 0
+-
+  word: фур
+  rate: 1
+-
+  word: хмельницког
+  rate: 3
+-
+  word: ход
+  rate: 0
+-
+  word: хорош
+  rate: 1
+-
+  word: хот
+  rate: 0
+-
+  word: хрусталь
+  rate: 6
+-
+  word: хрустальног
+  rate: 0
+-
+  word: цеетр
+  rate: 0
+-
+  word: центр
+  rate: 52
+-
+  word: централь
+  rate: 2
+-
+  word: центробанк
+  rate: 1
+-
+  word: церкв
+  rate: 5
+-
+  word: цум
+  rate: 17
+-
+  word: цума
+  rate: 0
+-
+  word: чарк
+  rate: 1
+-
+  word: частеньк
+  rate: 0
+-
+  word: чегон
+  rate: 0
+-
+  word: человек
+  rate: 2
+-
+  word: чем
+  rate: 0
+-
+  word: чердакл
+  rate: 0
+-
+  word: через
+  rate: 5
+-
+  word: чет
+  rate: 5
+-
+  word: чикаг
+  rate: 0
+-
+  word: чист
+  rate: 0
+-
+  word: чисты
+  rate: 0
+-
+  word: чкаловк
+  rate: 2
+-
+  word: чозан
+  rate: 0
+-
+  word: чут
+  rate: 2
+-
+  word: шарятс
+  rate: 0
+-
+  word: шах
+  rate: 0
+-
+  word: шевцово
+  rate: 0
+-
+  word: шевченк
+  rate: 1
+-
+  word: школ
+  rate: 1
+-
+  word: шолм
+  rate: 1
+-
+  word: шосс
+  rate: 27
+-
+  word: шоферо
+  rate: 0
+-
+  word: щас
+  rate: 0
+-
+  word: эвакуатор
+  rate: 0
+-
+  word: экипаж
+  rate: 42
+-
+  word: этот
+  rate: 0
+-
+  word: эхо
+  rate: 0
+-
+  word: южног
+  rate: 2
+-
+  word: юност
+  rate: 0
+-
+  word: ярмарк
+  rate: 1
+...

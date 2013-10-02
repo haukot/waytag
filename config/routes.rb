@@ -1,11 +1,13 @@
 Waytag::Application.routes.draw do
+  get "reports/index"
+  get "cities/index"
   scope module: :api do
 
   end
 
   scope module: :web do
     namespace :admin do
-      root :to => 'reports#index'
+      root to: 'reports#index'
 
       resources :posts, only: [:index, :edit, :new, :create, :update, :destroy]
 
@@ -20,6 +22,16 @@ Waytag::Application.routes.draw do
       resources :android_users, only: [:index, :destroy]
       resources :api_users, only: [:index, :destroy]
       resources :twitter_users, only: [:index, :destroy]
+    end
+
+    root to: 'cities#index'
+
+    resources :cities, only: :index, path: '/' do
+      scope module: :cities do
+        resources :reports, only: :index
+
+        get "/" => "reports#index"
+      end
     end
   end
 end

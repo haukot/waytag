@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920171420) do
+ActiveRecord::Schema.define(version: 20131002062129) do
 
   create_table "android_users", force: true do |t|
     t.string   "token"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20130920171420) do
     t.string   "email"
     t.string   "twitter_name"
     t.string   "hashtag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "city_streets", force: true do |t|
+    t.string   "name"
+    t.integer  "rate"
+    t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,6 +92,14 @@ ActiveRecord::Schema.define(version: 20130920171420) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "event_kind"
+  end
+
+  create_table "streets", force: true do |t|
+    t.integer  "city_id"
+    t.string   "name"
+    t.integer  "rate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tweets", force: true do |t|
