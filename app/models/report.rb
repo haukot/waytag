@@ -1,4 +1,5 @@
 class Report < ActiveRecord::Base
+  include ReportsRepository
   extend Enumerize
 
   belongs_to :city
@@ -13,7 +14,7 @@ class Report < ActiveRecord::Base
   enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
   enumerize :event_kind, in: [:dps, :dtp, :cmr, :rmnt, :prbk]
 
-  state_machine :status, initial: :added do
+  state_machine :state, initial: :added do
     state :added
     state :posted
     state :rejected

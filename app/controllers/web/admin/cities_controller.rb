@@ -44,7 +44,7 @@ class Web::Admin::CitiesController < Web::Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_city
-      @city = City.find(params[:id])
+      @city = City.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
