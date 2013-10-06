@@ -1,11 +1,11 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# encoding: utf-8
 
 FactoryGirl.define do
   factory :city do
-    slug { generate :subdomain }
-    name
+    initialize_with { City.find_or_create_by(slug: "ul") }
+    name { "Ульяновск" }
     email
-    twitter_name { generate :login }
-    hashtag { generate :login }
+    twitter_name { "@Ulway" }
+    hashtag { "ulway" }
   end
 end
