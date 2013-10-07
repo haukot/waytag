@@ -1,9 +1,9 @@
 class ReportsWorker
   include Sidekiq::Worker
 
-  sidekiq_options retry: 5
+  sidekiq_options retry: 1
 
-  def perform(name, count)
-    puts name, count
+  def perform(report_id)
+    ReportsService.perform(report_id)
   end
 end
