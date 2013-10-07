@@ -13,11 +13,11 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'simple_form', git: 'https://github.com/plataformatec/simple_form.git'
 gem 'therubyracer', platforms: :ruby
-gem "therubyracer"
 gem "bootstrap-switch-rails"
 gem 'less-rails-bootstrap'
 gem 'twitter-bootstrap-rails', github: "seyhunak/twitter-bootstrap-rails", branch: "bootstrap3"
 gem 'bootstrap-datetimepicker-rails'
+gem 'green_midget', :github => 'Andrew8xx8/GreenMidget'
 
 gem 'js-routes'
 gem 'ransack', github: "ernie/ransack", branch: 'rails-4'
@@ -34,6 +34,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 gem 'sinatra', '>= 1.3.0', require: false
 gem 'sidekiq'
+gem 'russian_obscenity'
+gem 'twitter'
 
 # Push
 gem 'gcm'
