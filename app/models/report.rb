@@ -14,8 +14,11 @@ class Report < ActiveRecord::Base
 
   enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
   enumerize :event_kind, in: [:dps, :dtp, :cmr, :rmnt, :prbk]
+  enumerize :reject_kind, in: [:HZ, :spam, :rt, :question, :yell, :reply]
 
   state_machine :state, initial: :added do
+    after_transition any => :rejected, do: :set_reject_kind
+
     state :added
     state :posted
     state :rejected
@@ -36,4 +39,71 @@ class Report < ActiveRecord::Base
     end
   end
 
+  def try_approve!
+    if contains_bad_data?
+      reject
+    elsif bayes != -1
+      reject
+    else
+      approve
+    end
+
+    save!
+  end
+
+  def contains_bad_data?
+    question? || yell? || rt? || with_mentions?
+  end
+
+  def question?
+    text.include?("?")
+  end
+
+  def yell?
+    text.upcase == text || text.include?("!")
+  end
+
+  def with_mentions?
+    text.include?("@")
+  end
+
+  def rt?
+    text.include?("RT")
+  end
+
+  def clean_text
+    text.gsub(/(#ulsk|##{city.hashtag}|#{city.twitter_name}|#{city.hashtag})/i, '')
+    .sub(/\A\[\d{1,2}:\d{1,2}\]/, '')
+    .gsub(/\s+/, ' ')
+    .strip
+  end
+
+  def text_without_via
+    text.gsub(/via\s.*$/, '')
+    .strip
+  end
+
+  def bayes
+    @bayes ||= Rater.classify clean_text
+  end
+
+  private
+
+  def set_reject_kind
+    if question?
+      self.reject_kind = :question
+    elsif yell?
+      self.reject_kind = :yell
+    elsif with_mentions?
+      self.reject_kind = :reply
+    elsif rt?
+      self.reject_kind = :rt
+    else
+      if bayes == 0
+        self.reject_kind = :HZ
+      elsif bayes == 1
+        self.reject_kind = :spam
+      end
+    end
+  end
 end
