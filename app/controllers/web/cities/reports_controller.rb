@@ -8,7 +8,7 @@ class Web::Cities::ReportsController < Web::Cities::ApplicationController
     @report.source_kind = :web
 
     if @report.save
-      ReportsWorker.perform_async('bob', 5)
+      ReportsWorker.perform_async(@report.id)
       redirect_to city_reports_path(resource_city), notice: 'report was successfully created.'
     else
       render action: 'index'
