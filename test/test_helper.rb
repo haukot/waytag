@@ -4,8 +4,11 @@ require 'rails/test_help'
 require 'wrong/adapters/minitest'
 require 'sidekiq/testing'
 
+Dir[Rails.root.join("test/lib/*.rb")].each {|f| require f}
+
 FactoryGirl.reload
 FactoryGirlSequences.reload
+Wrong.config.color
 
 Sidekiq::Testing.fake!
 
