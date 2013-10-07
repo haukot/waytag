@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002064203) do
+ActiveRecord::Schema.define(version: 20131007051813) do
 
   create_table "android_users", force: true do |t|
     t.string   "token"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 20131002064203) do
     t.datetime "updated_at"
   end
 
+  create_table "green_midget_records", force: true do |t|
+    t.string   "key"
+    t.integer  "value"
+    t.datetime "updated_at"
+  end
+
+  add_index "green_midget_records", ["key"], name: "index_green_midget_records_on_key", using: :btree
+  add_index "green_midget_records", ["updated_at"], name: "index_green_midget_records_on_updated_at", using: :btree
+
   create_table "ios_users", force: true do |t|
     t.string   "token"
     t.string   "state"
@@ -93,6 +102,7 @@ ActiveRecord::Schema.define(version: 20131002064203) do
     t.datetime "updated_at"
     t.string   "event_kind"
     t.string   "source_text"
+    t.string   "reject_kind"
   end
 
   create_table "streets", force: true do |t|
