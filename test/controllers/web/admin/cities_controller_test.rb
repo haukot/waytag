@@ -3,7 +3,6 @@ require 'test_helper'
 class Web::Admin::CitiesControllerTest < ActionController::TestCase
   setup do
     @city = create :city
-    p @city.errors
   end
 
   test "should get index" do
