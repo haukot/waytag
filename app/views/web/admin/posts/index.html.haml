@@ -1,51 +1,31 @@
-%h3
-  = t('post.list')
+%h1 Listing posts
 
-.clearfix
-  .pull-left
-    = ransack_paginate @posts
-  .pull-right
-    = link_to new_admin_post_path, :class => "btn btn-primary" do
-      %i.icon-plus
-      = t('Add post')
+%table
+  %tr
+    %th User name
+    %th Title
+    %th Content
+    %th State
+    %th Published at
+    %th Seo name
+    %th Seo keywords
+    %th Seo description
+    %th
+    %th
 
-%table.table
-  %thead
-    %th= sort_link @q, :name, t('name')
-    %th= sort_link @q, :title, t('title')
-    %th= sort_link @q, :content, t('content')
-    %th= t('actions')
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= post.name
-        %td= post.title
-        %td= post.content
-        %td
-          .btn-group
-            = link_to t('edit'), edit_admin_post_path(post.id), class: "btn btn-primary"
-            = link_to t('destroy'), admin_post_path(post.id), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger"
+  - @posts.each do |post|
+    %tr
+      %td= post.user_name
+      %td= post.title
+      %td= post.content
+      %td= post.state
+      %td= post.published_at
+      %td= post.seo_name
+      %td= post.seo_keywords
+      %td= post.seo_description
+      %td= link_to 'Edit', edit_admin_post_path(post)
+      %td= link_to 'Destroy', admin_post_path(post), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= ransack_paginate @posts
+%br
 
-
-.well
-  %h4
-    Posts filter
-  .form-horizontal
-    = simple_form_for @q, :url => search_admin_posts_path do |f|
-      .row
-        - f.with_options :required => false do |opt|
-          .span4
-            = opt.input :name_matches
-            = opt.input :title_matches
-          .span4
-            = opt.input :created_at_lt, :as =>:date_picker
-            = opt.input :created_at_gt, :as =>:date_picker
-          .span4
-            = opt.input :updated_at_lt, :as =>:date_picker
-            = opt.input :updated_at_gt, :as =>:date_picker
-
-      .control-group
-        .controls
-          = f.submit :class => "btn btn-primary"
+= link_to 'New Post', new_admin_post_path

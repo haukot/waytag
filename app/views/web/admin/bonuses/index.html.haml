@@ -1,40 +1,19 @@
-%h3
-  = t('bonus.list')
+%h1 Listing bonuses
 
-.clearfix
-  .pull-left
-    = ransack_paginate @bonuses
-  .pull-right
-    = link_to new_admin_bonuse_path, :class => "btn btn-primary" do
-      %i.icon-plus
-      = t('Add bonus')
+%table
+  %tr
+    %th Title
+    %th Description
+    %th
+    %th
 
-%table.table
-  %thead
-    %th= sort_link @q, :name, "Name"
-    %th= sort_link @q, :description, "Description"
-  %tbody
-    - @bonuses.each do |bonus|
-      %tr
-        %td= bonus.name
-        %td= bonus.description
-        %td
-          .btn-group
-            = link_to t('edit'), edit_admin_bonuse_path(bonus.id), class: "btn btn-primary"
-            = link_to t('destroy'), admin_bonuse_path(bonus.id), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger"
+  - @bonuses.each do |bonus|
+    %tr
+      %td= bonus.title
+      %td= bonus.description
+      %td= link_to 'Edit', edit_admin_bonus_path(bonus)
+      %td= link_to 'Destroy', admin_bonus_path(bonus), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= ransack_paginate @bonuses
+%br
 
-.well
-  %h4
-    Search filter
-  .form-horizontal
-    = simple_form_for @q, :url => search_admin_bonuses_path do |f|
-      .row
-        - f.with_options :required => false do |opt|
-          .span4
-            = opt.input :name_matches
-
-      .control-group
-        .controls
-          = f.submit :class => "btn btn-primary"
+= link_to 'New Bonus', new_admin_bonus_path

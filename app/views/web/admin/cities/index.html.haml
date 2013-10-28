@@ -1,40 +1,25 @@
-%h3
-  = t('city.list')
+%h1 Listing cities
 
-.clearfix
-  .pull-left
-    = ransack_paginate @cities
-  .pull-right
-    = link_to new_admin_city_path, class: "btn btn-primary" do
-      %i.icon-plus
-      = t('Add city')
+%table
+  %tr
+    %th Slug
+    %th Name
+    %th Email
+    %th Twitter name
+    %th Hashtag
+    %th
+    %th
 
-%table.table
-  %thead
-    %th= sort_link @q, :name, t('city.name')
-    %th= sort_link @q, :twitter, t('city.twitter')
-    %th= sort_link @q, :email, t('city.email')
-    %th= sort_link @q, :sub_domain, t('city.sub_domain')
-    %th= sort_link @q, :hashtag, t('city.hashtag')
-    %th= sort_link @q, :actions, t('city.actions')
+  - @cities.each do |city|
+    %tr
+      %td= city.slug
+      %td= city.name
+      %td= city.email
+      %td= city.twitter_name
+      %td= city.hashtag
+      %td= link_to 'Edit', edit_admin_city_path(city)
+      %td= link_to 'Destroy', admin_city_path(city), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  %tbody
-    - @cities.each do |city|
-      %tr
-        %td
-          = city.name
-        %td
-          = city.twitter
-        %td
-          = city.email
-        %td
-          = city.sub_domain
-        %td
-          = city.hashtag
-        %td
-          .btn-group
-            = link_to t('streets'), admin_city_streets_path(city), class: "btn"
-            = link_to t('edit'), edit_admin_city_path(city.id), class: "btn btn-primary"
-            = link_to t('destroy'), admin_city_path(city.id), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger"
+%br
 
-= ransack_paginate @cities
+= link_to 'New City', new_admin_city_path
