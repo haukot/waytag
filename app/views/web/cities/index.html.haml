@@ -1,2 +1,11 @@
-%h1 Web::Cities#index
-%p Find me in app/views/web/cities/index.html.haml
+.cities-index
+  %h1 Ваш город
+
+  .svg-logo
+    = image_tag("waytagpin.svg", class: "sticker")
+
+    - if @cities.any?
+      - @cities.each do |city|
+        = link_to city_path(city) do
+          %span.name
+            = city.name

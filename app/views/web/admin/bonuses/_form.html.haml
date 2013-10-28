@@ -1,9 +1,7 @@
-= simple_form_for @bonus, url: url do |f|
+= simple_form_for @bonus, :url => url, :html => {:class => "form-horizontal"} do |f|
   = f.error_notification
-
-  .form-inputs
-    = f.input :title
-    = f.input :description
-
-  .form-actions
-    = f.button :submit
+  = f.input :name
+  = f.input :description
+  .control-group
+    .controls
+      = f.button :submit, :class => 'btn btn-primary'

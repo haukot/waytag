@@ -1,0 +1,53 @@
+%h3
+  = t('city.street.list')
+
+.clearfix
+  .pull-left
+    = ransack_paginate @streets
+  .pull-right
+    = link_to new_admin_city_street_path, class: "btn btn-primary" do
+      %i.icon-plus
+      = t('Add street')
+
+%table.table
+  %thead
+    %th= sort_link @q, :name, "name"
+    %th= sort_link @q, :rate, "rate"
+    %th city
+
+  %tbody
+    - @streets.each do |street|
+      %tr
+        %td
+          = street.name
+        %td
+          = street.rate
+        %td
+          = street.city.name
+        %td
+          .btn-group
+            = link_to t('edit'), edit_admin_city_street_path(street.city, street), class: "btn btn-primary"
+            = link_to t('destroy'), admin_city_street_path(street.city, street), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger"
+
+= ransack_paginate @streets
+
+.well
+  %h4
+    Search filter
+  .form-horizontal
+    = simple_form_for @q, :url => search_admin_city_streets_path do |f|
+      .row
+        - f.with_options :required => false do |opt|
+          .span4
+            = opt.input :name_matches
+            = opt.input :rate_eq
+          .span4
+            = opt.input :created_at_lt, :as =>:date_picker
+            = opt.input :created_at_gt, :as =>:date_picker
+          .span4
+            = opt.input :updated_at_lt, :as =>:date_picker
+            = opt.input :updated_at_gt, :as =>:date_picker
+
+      .control-group
+        .controls
+          = f.submit :class => "btn btn-primary"

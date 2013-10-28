@@ -1,5 +1,4 @@
-%h1 New bonus
+%h3
+  = t('bonus.create')
 
-= render 'form', url: admin_bonuses_path
-
-= link_to 'Back', admin_bonuses_path
+= render 'form', :url => admin_bonuses_path

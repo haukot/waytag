@@ -1,0 +1,6 @@
+= simple_form_for @black_list, :url => url, :html => {:class => "form-horizontal"} do |f|
+  = f.error_notification
+  = f.input :screen_name
+  .control-group
+    .controls
+      = f.button :submit, :class => 'btn btn-primary'

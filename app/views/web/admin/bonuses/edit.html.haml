@@ -1,5 +1,4 @@
-%h1 Editing bonus
+%h3
+  = t('bonus.edit')
 
-= render 'form', url: admin_bonus_path(@bonus)
-
-= link_to 'Back', admin_bonuses_path
+= render 'form', :url => admin_bonuse_path(@bonus)

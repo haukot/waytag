@@ -1,12 +1,79 @@
-%h1 Listing tweets
+%h3
+  = t('tweet.list')
 
-%table
-  %tr
-    %th Report
-    %th Id str
-    %th
 
-  - @tweets.each do |tweet|
-    %tr
-      %td= tweet.report_id
-      %td= tweet.id_str
+= ransack_paginate @tweets
+
+%table.table
+  %thead
+    %th= sort_link @q, :id_str     , t('tweet.id_str')
+    %th= sort_link @q, :text       , t('tweet.text')
+    %th= sort_link @q, :mentor     , t('tweet.mentor')
+    %th= sort_link @q, :source     , t('tweet.source')
+    %th= sort_link @q, :created_at , t('tweet.created_at')
+    %th= sort_link @q, :updated_at , t('tweet.updated_at')
+    %th= sort_link @q, :status     , t('tweet.status')
+    %th= sort_link @q, :bayes      , t('tweet.bayes')
+    %th= sort_link @q, :city       , t('city.city')
+    %th{colspan: 2} actions
+
+  %tbody
+    - @tweets.each do |tweet|
+      %tr
+        %td
+          .tweet-id.word-wrap
+            =link_to tweet.id_str, "https://twitter.com/#{tweet.city.twitter}/status/#{tweet.id_str}"
+        %td=tweet.text
+        %td=tweet.mentor
+        %td=tweet.source
+        %td=tweet.created_at.strftime('[%H:%M] %d.%m.%Y')
+        %td=tweet.updated_at.strftime('[%H:%M] %d.%m.%Y')
+        %td
+          - case tweet.status
+          - when "posted"
+            - $css_status = 'success'
+          - when "added"
+            - $css_status = 'info'
+          - when "rejected"
+            - $css_status = 'inverse'
+          - when "waiting_post"
+            - $css_status = 'warning'
+          - when "post_failed"
+            - $css_status = 'important'
+          %span{:class => "label label-#{$css_status}"}=tweet.status
+        %td=tweet.bayes
+        %td=tweet.city.name
+        %td
+          .btn-group.btn-group-vertical
+            = link_to t('Good'), good_admin_tweets_path(tweet.id), :method => :put, :class => "btn"
+            = link_to t('Bad'), bad_admin_tweets_path(tweet.id), :method => :put, :class => "btn btn-inverse"
+        %td
+          .btn-group.btn-group-vertical
+            = link_to t('Good&Publish'), publish_admin_tweets_path(tweet.id), :method => :put, :class => "btn btn-success"
+            = link_to t('Destroy'), admin_tweet_path(tweet.id), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger"
+
+= ransack_paginate @tweets
+
+.well
+  %h4
+    Search filter
+  .form-horizontal
+    = simple_form_for @q, :url => search_admin_tweets_path do |f|
+      .row
+        - f.with_options :required => false do |opt|
+          .span4
+            = opt.input :id_str_eq
+            = opt.input :text_matches
+            = opt.input :mentor_matches
+            = opt.input :source_matches
+            = opt.input :status_matches
+          .span4
+            = opt.input :created_at_lt, :as =>:date_picker
+            = opt.input :created_at_gt, :as =>:date_picker
+          .span4
+            = opt.input :updated_at_lt, :as =>:date_picker
+            = opt.input :updated_at_gt, :as =>:date_picker
+
+      .control-group
+        .controls
+          = f.submit :class => "btn btn-primary"

@@ -1,5 +1,4 @@
-%h1 Editing city
+%h3
+  = t('city.edit')
 
-= render 'form', url: admin_city_path(@city)
-
-= link_to 'Back', admin_cities_path
+= render 'form', :url => admin_city_path(@city)

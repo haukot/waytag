@@ -1,0 +1,47 @@
+%h3
+  = t('word.list')
+
+.clearfix
+  .pull-left
+    = ransack_paginate @words
+  .pull-right
+    = link_to new_admin_word_path, :class => "btn btn-primary" do
+      %i.icon-plus
+      = t('Add word')
+
+%table.table
+  %thead
+    %th= sort_link @q, :word, "Word"
+    %th= sort_link @q, :rate, "Rate"
+  %tbody
+    - @words.each do |word|
+      %tr
+        %td= word.word
+        %td= word.rate
+        %td
+          .btn-group
+            = link_to t('edit'), edit_admin_word_path(word.id), class: "btn btn-primary"
+            = link_to t('destroy'), admin_word_path(word.id), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger"
+
+= ransack_paginate @words
+
+.well
+  %h4
+    Search filter
+  .form-horizontal
+    = simple_form_for @q, :url => search_admin_words_path do |f|
+      .row
+        - f.with_options :required => false do |opt|
+          .span4
+            = opt.input :word_matches
+            = opt.input :rate_eq
+          .span4
+            = opt.input :created_at_lt, :as =>:date_picker
+            = opt.input :created_at_gt, :as =>:date_picker
+          .span4
+            = opt.input :updated_at_lt, :as =>:date_picker
+            = opt.input :updated_at_gt, :as =>:date_picker
+
+      .control-group
+        .controls
+          = f.submit :class => "btn btn-primary"

@@ -1,0 +1,21 @@
+.row
+  %p
+.row
+  .span12
+    %div
+      %h1
+        Наш виджет используют
+    %hr
+    - @api_users.each do |api_user|
+      - if api_user.origin =~ URI::regexp
+        %li
+          = link_to api_user.origin, api_user.origin, {rel: :nofollow, _target: :blank}
+      - else
+        %li 
+          = api_user.origin
+      %hr
+    %hr
+      %h2
+        Код для вставки
+      %pre
+        = widget_html_code

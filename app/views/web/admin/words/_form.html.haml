@@ -1,0 +1,7 @@
+= simple_form_for @word, :url => url, :html => {:class => "form-horizontal"} do |f|
+  = f.error_notification
+  = f.input :word
+  = f.input :rate
+  .control-group
+    .controls
+      = f.button :submit, :class => 'btn btn-primary'

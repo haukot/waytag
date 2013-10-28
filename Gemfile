@@ -18,6 +18,9 @@ gem "bootstrap-switch-rails"
 gem 'less-rails-bootstrap'
 gem 'twitter-bootstrap-rails', github: "seyhunak/twitter-bootstrap-rails", branch: "bootstrap3"
 gem 'bootstrap-datetimepicker-rails'
+gem "select2-rails"
+gem 'jquery-ui-rails'
+gem 'sass-rails'
 
 gem 'js-routes'
 gem 'ransack', github: "ernie/ransack", branch: 'rails-4'

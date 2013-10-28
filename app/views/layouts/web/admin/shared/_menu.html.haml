@@ -1,0 +1,16 @@
+.navbar.navbar-static-top
+  .navbar-inner
+    .container
+      %a.brand{:href => admin_root_path} Waytag :: Admin
+      - if signed_in?
+        %ul.nav
+          %li= link_to t('tweet.list'), admin_tweets_path
+          %li= link_to t('black_list.list'), admin_black_list_index_path
+          %li= link_to t('user.list'), admin_users_path
+          %li= link_to t('city.list'), admin_cities_path
+          %li= link_to t('post.list'), admin_posts_path
+      %ul.nav.pull-right
+        - if signed_in?
+          %li= link_to t('sign_out'), admin_session_path, method: :delete
+        - else
+          %li= link_to t('sign_in'), new_admin_session_path 

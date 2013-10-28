@@ -1,0 +1,23 @@
+.navbar
+  .navbar-inner
+    .row-fluid
+      .span6
+        = link_to root_path do
+          = image_tag("header_icon.png", size: "22x28", class: "logo pull-left")
+        %ul.nav.pull-left.nav-city
+          %li.dropdown
+            %a{href:"#", class:"dropdown-toggle", "data-toggle" => "dropdown" }
+              = @resource_city.name
+              %b.caret
+            %ul.dropdown-menu
+              - cities_to_go.each do |city|
+                %li
+                  = link_to city.name, city_path(city)
+      .span6
+        %ul.nav.nav-menu.pull-right
+          %li{:class => active_navigation(city_bonuses_path(@resource_city))}
+            = link_to 'О, Бонусы!', city_bonuses_path(@resource_city)
+          %li{:class => active_navigation(city_about_path(@resource_city))}
+            = link_to 'Кто мы такие', city_about_path(@resource_city)
+          %li{:class => active_navigation(city_stat_path(@resource_city))}
+            = link_to 'Цифры и факты', city_stat_path(@resource_city)

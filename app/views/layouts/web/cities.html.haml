@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    = render 'layouts/web/shared/head'
+    = include_gon
+  %body
+    .main.welcome
+      .content
+        = yield
+    = render :partial => 'layouts/web/shared/footer'

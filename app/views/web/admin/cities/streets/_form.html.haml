@@ -1,0 +1,8 @@
+= simple_form_for @street, :url => url, :html => {:class => "form-horizontal"} do |f|
+  = f.error_notification
+  = f.input :name
+  = f.input :rate
+  = f.input :city_id
+  .control-group
+    .controls
+      = f.button :submit, :class => 'btn btn-primary'

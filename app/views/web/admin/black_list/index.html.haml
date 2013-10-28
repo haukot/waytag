@@ -1,0 +1,26 @@
+%h3
+  = t('black_list.list')
+
+.clearfix
+  .pull-left
+    = ransack_paginate @black_lists
+  .pull-right
+    = link_to new_admin_black_list_path, :class => "btn btn-primary" do
+      %i.icon-plus
+      = t('Add account')
+
+%table.table
+  %thead
+    %th= sort_link @q, :screen_name, t('black_list.list.login')
+    %th= t('actions')
+  %tbody
+    - @black_lists.each do |black_list|
+      %tr
+        %td
+          = link_to "@#{black_list.screen_name}", "https://twitter.com/#{black_list.screen_name}"
+        %td
+          .btn-group
+            = link_to t('edit'), edit_admin_black_list_path(black_list.id), class: "btn btn-primary"
+            = link_to t('destroy'), admin_black_list_path(black_list.id), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger"
+
+= ransack_paginate @black_lists
