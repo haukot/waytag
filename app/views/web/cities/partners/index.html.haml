@@ -12,9 +12,3 @@
     %tr
       %td= partner.title
       %td= partner.description
-      %td= link_to 'Edit', edit_admin_partner_path(partner)
-      %td= link_to 'Destroy', admin_partner_path(partner), :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Partner', new_admin_partner_path
