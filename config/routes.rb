@@ -28,10 +28,14 @@ Waytag::Application.routes.draw do
 
     resources :cities, only: :index, path: '/' do
       scope module: :cities do
+        get "/" => "reports#index"
         resources :reports, only: :index
 
-        get "/" => "reports#index"
+        resources :partners, only: [:index, :show]
+        resources :bonuses, only: [:index, :show]
       end
     end
+
+    resources :posts, only: [:index, :show]
   end
 end

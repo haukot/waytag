@@ -1,0 +1,19 @@
+%h1 Listing bonuses
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th
+    %th
+
+  - @bonuses.each do |bonus|
+    %tr
+      %td= bonus.title
+      %td= bonus.description
+      %td= link_to 'Edit', edit_admin_bonus_path(bonus)
+      %td= link_to 'Destroy', admin_bonus_path(bonus), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bonus', new_admin_bonus_path
