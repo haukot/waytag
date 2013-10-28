@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="176.29865"
+   height="224.25"
+   id="svg3744">
+  <defs
+     id="defs3746">
+  <style type="text/css">
+     <![CDATA[
+      @font-face {
+          font-family: "Russian Road Sign";
+          src: url('/assets/russianroadsign-medium.otf');
+      }
+     ]]>
+    </style>
+    <linearGradient
+       x1="124.58441"
+       y1="422.82404"
+       x2="117.90347"
+       y2="199.82404"
+       id="linearGradient4218"
+       xlink:href="#linearGradient4176"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(236.4142,149.62741)" />
+    <linearGradient
+       id="linearGradient4176">
+      <stop
+         id="stop4178"
+         style="stop-color:#aa0000;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop4180"
+         style="stop-color:#ff0000;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       x1="124.58441"
+       y1="422.82404"
+       x2="117.90347"
+       y2="199.82404"
+       id="linearGradient3742"
+       xlink:href="#linearGradient4176"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-33.584423,-201.17246)" />
+    <linearGradient
+       x1="124.58441"
+       y1="422.82404"
+       x2="117.90347"
+       y2="199.82404"
+       id="linearGradient3893"
+       xlink:href="#linearGradient4176"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(253.25605,219.03813)" />
+  </defs>
+  <metadata
+     id="metadata3749">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-286.84214,-420.25)"
+     id="layer1">
+    <path
+       d="m 433.65006,452.61378 c 32.53762,32.5376 24.54377,78.90612 0,117.82907 -20.84934,33.06412 -49.56377,66.07092 -58.91454,66.07092 -9.35076,0 -34.74389,-24.20618 -58.91451,-66.07092 -23.00755,-39.85024 -32.5376,-85.29147 0,-117.82907 32.53761,-32.53759 85.29146,-32.53758 117.82905,0"
+       id="path3841-1"
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient3893);stroke-width:16;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="374.64746"
+       y="511.27869"
+       id="text3899"
+       xml:space="preserve"
+       style="font-size:35.21085739px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:160.00000238%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium"><tspan
+         x="374.64746"
+         y="511.27869"
+         id="tspan3006">WAYTAG</tspan></text>
+    <rect
+       width="104"
+       height="7.1403594"
+       ry="3.5701797"
+       x="324.95602"
+       y="530.17493"
+       id="rect3905"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:5.45449305;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="373.52441"
+       y="582.60608"
+       id="text3899-1"
+       xml:space="preserve"
+       style="font-size:44.97141647px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:160.00000238%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium"><tspan
+         x="373.52441"
+         y="582.60608"
+         id="tspan3006-7">RU</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="163.0625"
+   height="163.09375"
+   id="svg3210">
+  <defs
+     id="defs3212">
+    <style type="text/css">
+     <![CDATA[
+      @font-face {
+          font-family: "Russian Road Sign";
+          src: url('/assets/russianroadsign-medium.otf');
+      }
+     ]]>
+    </style>
+    <linearGradient
+       x1="565.78955"
+       y1="587.59021"
+       x2="564.79279"
+       y2="431.86737"
+       id="linearGradient4194"
+       xlink:href="#linearGradient4176"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-189.97833,22.350894)" />
+    <linearGradient
+       id="linearGradient4176">
+      <stop
+         id="stop4178"
+         style="stop-color:#aa0000;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop4180"
+         style="stop-color:#ff0000;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata3215">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-293.46875,-450.8125)"
+     id="layer1">
+    <text
+       x="377.64935"
+       y="543.59717"
+       id="text3899-8-2-1"
+       xml:space="preserve"
+       style="font-size:40.0317688px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:160.00000238%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium"><tspan
+         x="377.64935"
+         y="543.59717"
+         id="tspan3040-8-9">ULWAY</tspan></text>
+    <path
+       d="m 448.5391,532.36218 a 73.539101,73.539101 0 1 1 -147.0782,0 73.539101,73.539101 0 1 1 147.0782,0 z"
+       id="path3068-3"
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient4194);stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="376.20758"
+       y="539.09869"
+       id="text3899-8-0-9"
+       xml:space="preserve"
+       style="font-size:29.15284157px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:160.00000238%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium"><tspan
+         x="376.20758"
+         y="539.09869"
+         id="tspan3040-7-7"
+         style="font-size:32px">EKBWAY</tspan></text>
+  </g>
+</svg>

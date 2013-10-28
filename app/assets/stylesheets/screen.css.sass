@@ -1,0 +1,283 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,cyrillic-ext,cyrillic)
+
+@font-face
+  font-family: 'Russian Road Sign'
+  src: url('/assets/russianroadsign-medium-webfont.eot')
+  src: url('/assets/russianroadsign-medium-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/russianroadsign-medium-webfont.woff') format('woff'), url('/assets/russianroadsign-medium-webfont.ttf') format('truetype'), url('/assets/russianroadsign-medium-webfont.svg#russian_road_signmedium') format('svg')
+  font-weight: normal
+  font-style: normal
+
+.road
+  font-family: 'Russian Road Sign'
+
+html,body
+  height: 100%
+
+body
+  font-family: 'Roboto Condensed', sans-serif
+
+h2, h3
+  text-align: center
+  margin: 0
+  font-weight: 100
+h2
+  font-size: 32px
+h3
+  font-size: 18px
+
+// Layout
+.main
+  min-height: 100%
+.content
+  padding-bottom: 100px
+.footer
+  height: 100px
+  margin-top: -100px
+
+// TYPO
+.typo
+  padding-top: 20px
+  h1
+    margin-bottom: 20px
+  h2
+    text-align: left
+    margin-bottom: 20px
+  p
+    margin-bottom: 20px
+
+// Splash page
+.main.welcome
+  background: url(asphalt_new.jpg) 0 0 #ccc
+  h1
+    margin-top: 0
+    color: #fff
+    text-align: center
+.cities-index
+  padding: 40px
+  .svg-logo
+    width: 200px
+    margin: 100px auto 0
+    position: relative
+  a
+    background-color: #FFF
+    border-radius: 4px
+    padding: 1px
+    display: inline-block
+    text-decoration: underline
+    border: 1px solid #666
+    position: absolute
+    &:nth-child(1)
+      left: -290px
+      bottom: 85px
+    &:nth-child(2)
+      left: -290px
+      bottom: 85px
+    &:nth-child(3)
+      left: -245px
+      bottom: 0
+    &:nth-child(4)
+      right: -202px
+      bottom: 85px
+    &:nth-child(5)
+      right: -290px
+      bottom: 0
+    .name
+      display: inline-block
+      font-family: 'Russian Road Sign'
+      text-transform: uppercase
+      color: #000
+      border: 2px solid #000
+      border-radius: 4px
+      font-size: 36px
+      padding: 10px 30px
+
+// Navbar
+.logo
+  margin-right: 10px
+  position: relative
+  top: 6px
+.navbar
+  margin-bottom: 0
+.navbar-inner
+  background: #991818
+  border: none
+  border-radius: 0
+  box-shadow: none
+.nav-city
+  a
+    color: #ddd !important
+    text-shadow: none !important
+  .caret
+    border-top-color: #ddd !important
+    border-bottom-color: #ddd !important
+  .dropdown-menu,
+  .dropdown.open
+    a
+      color: #000 !important
+    .caret
+      border-top-color: #000 !important
+      border-bottom-color: #000 !important
+.nav-menu
+  a
+    color: #ddd !important
+    text-shadow: none !important
+    transition: all 0.5 ease
+    &:hover
+      color: #eee !important
+    &.active
+      color: #eee !important
+  .active
+    a
+      background-color: #7F645E !important
+
+// Tweets block
+.tweets-block
+  padding: 20px 0
+  font-size: 16px
+  background-color: #e8e8e8
+.tweet
+  line-height: 28px
+  padding-bottom: 6px
+  margin-bottom: 6px
+  border-bottom: 1px dashed #ddd
+  overflow: hidden
+  .nick
+    display: inline-block
+    width: 200px
+    text-align: right
+    opacity: 0.8
+  .info
+    margin-right: 4px
+  .info,
+  .text
+    float: left
+  img
+    border-radius: 2px
+    margin: 0 2px
+    position: relative
+    top: -2px
+
+// Info block
+.info-block
+  padding: 100px
+  background: url(asphalt_new.jpg) 0 0 #ccc
+  overflow: hidden
+.round-sign-wrap
+  width: 30%
+  margin-right: 10%
+  float: left
+.round-sign
+  width: 100%
+.info-content
+  margin-left: 40%
+  color: #fff
+  font-size: 30px
+  line-height: 36px
+  a,
+  .hash
+    color: red
+  p
+    margin-bottom: 30px
+
+// Send form
+.send-form
+  background-color: #9DD3DF
+  padding: 30px 40px
+  h1
+    margin-top: 0
+    margin-bottom: 30px
+  h2
+    text-align: left
+    margin-bottom: 10px
+  form
+    text-align: center
+  .how
+    width: 100%
+    box-sizing: border-box
+
+// Radio block
+.radio-block
+  background: #991818
+  color: #e8e8e8
+  padding: 50px 0
+  h2,
+  h3
+    text-align: left
+  h2
+    padding-top: 55px
+  .radio-card
+    padding: 20px 3px 0
+  .image-wrap
+    position: relative
+    z-index: 0
+    width: 151px
+    height: 151px
+    .sectorable
+      border-width: 75px
+      border-style: solid
+      border-left-color: #333
+      border-right-color: #333
+      border-top-color: #fff
+      border-bottom-color: #fff
+      position: absolute
+      left: 50%
+      top: 50%
+      margin-left: -75px
+      margin-top: -75px
+      border-radius: 50%
+      overflow: hidden
+      transition: all 0.5s ease
+    .image-bordered
+      overflow: hidden
+      position: relative
+      z-index: 2
+      width: 150px
+      height: 150px
+      border-radius: 50%
+      border: 1px solid #000
+    &:hover
+      .sectorable
+        transform: scale(1.1) rotate(90deg)
+  .radio-fq
+    height: 101px
+    padding-top: 59px
+    font-size: 16px
+    margin-left: 180px
+  .left .radio-fq
+    text-align: right
+    margin-right: 180px
+    margin-left: 0
+
+// Bonus block
+.bonus-block
+  background-color: #000
+  color: #FF2A00
+  padding: 60px 100px 100px
+  h2
+    color: #fff
+    margin-bottom: 40px
+    text-align: right
+    &.all-bonuses
+      margin-bottom: 0
+  a
+    color: #fff
+    text-decoration: underline
+.sticker
+  width: 100%
+
+// Footer
+.footer
+  background: #000
+  color: #ddd
+  a
+    color: #ccc
+  .footer-inner
+    padding: 0 20px
+  p
+    line-height: 100px
+    &.pull-left
+      margin-right: 60px
+    &.pull-right
+      a
+        margin-left: 20px
+
