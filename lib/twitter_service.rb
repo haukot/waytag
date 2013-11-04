@@ -15,8 +15,7 @@ class TwitterService
       c = client(report.city)
 
       if report.map_picture
-        image =  open(report.map_picture)
-        response = c.update_with_media(report.text, image)
+        response = c.update_with_media(report.text, image(report))
       else
         response = c.update(report.text)
       end
@@ -29,6 +28,10 @@ class TwitterService
     end
 
     private
+
+    def image(report)
+      open(report.map_picture)
+    end
 
     def client(city)
       ServiceLocator.twitter(city.slug)

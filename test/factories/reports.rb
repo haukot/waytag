@@ -13,4 +13,9 @@ FactoryGirl.define do
       source_kind :ios
     end
   end
+
+  factory :report_with_geo, parent: :report do
+    latitude { generate :integer }
+    longitude { generate :integer }
+  end
 end

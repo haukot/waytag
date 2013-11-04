@@ -17,9 +17,4 @@ class Web::Admin::AndroidUsersController < Web::Admin::ApplicationController
     def set_android_user
       @android_user = AndroidUser.find(params[:id])
     end
-
-    # Only allow a trusted parameter "white list" through.
-    def android_user_params
-      params.require(:android_user).permit(:token, :state)
-    end
 end

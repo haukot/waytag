@@ -18,8 +18,4 @@ class Web::Admin::TwitterUsersController < Web::Admin::ApplicationController
       @twitter_user = TwitterUser.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def twitter_user_params
-      params.require(:twitter_user).permit(:image, :name, :screen_name, :external_id_str, :state)
-    end
 end

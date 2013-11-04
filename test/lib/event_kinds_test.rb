@@ -4,6 +4,12 @@ require 'test_helper'
 
 class EventKindsTest < ActiveSupport::TestCase
 
+  test "Return empty string if not detected" do
+    ["ololo"].each do |text|
+      assert { EventKinds.from_text(text) == nil }
+    end
+  end
+
   test "Detect dps from text" do
     ["ДПС"].each do |text|
       assert { EventKinds.from_text(text) == :dps }

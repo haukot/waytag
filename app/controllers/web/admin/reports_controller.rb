@@ -18,8 +18,4 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
       @report = Report.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def report_params
-      params.require(:report).permit(:city_id, :text, :time, :state, :source_id, :source_type, :source_kind)
-    end
 end

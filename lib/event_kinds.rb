@@ -12,7 +12,7 @@ class EventKinds
       return :dps if text =~ /дпс/i
       return :cmr if text =~ /камера/i
       return :rmnt if text =~ /ремонт/i
-      ""
+      nil
     end
 
   end
