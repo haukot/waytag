@@ -5,10 +5,10 @@ class ReportsServiceTest < MiniTest::Unit::TestCase
   def setup
     @text = "На Локомотивной 67 дежурит отряд ДПС. Соблюдайте скоростной режим."
 
-    Rater.good @text
-    Rater.good @text
-    Rater.good @text
-    Rater.bad "ololo"
+    Classifier.good @text
+    Classifier.good @text
+    Classifier.good @text
+    Classifier.bad "ololo"
   end
 
 

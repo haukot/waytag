@@ -4,9 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'wrong/adapters/minitest'
 require 'sidekiq/testing'
-
-
-Dir[Rails.root.join("test/lib/*.rb")].each {|f| require f}
+require 'support'
 
 FactoryGirl.reload
 FactoryGirlSequences.reload

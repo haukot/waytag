@@ -1,6 +1,10 @@
 # encoding: utf-8
 
-class Rater
+class Classifier
+  GOOD = -1
+  BAD = 1
+  UNKNOWN = 0
+
   class << self
     def good(text)
       text = clean text

@@ -5,6 +5,7 @@ gem 'pg'
 
 gem "friendly_id", github: 'norman/friendly_id', branch: "master"
 gem 'gon'
+gem 'foreman'
 
 gem 'cocoon'
 gem 'uglifier', '>= 1.3.0'
@@ -24,6 +25,7 @@ gem 'ransack', github: "ernie/ransack", branch: 'rails-4'
 gem 'kaminari'
 gem 'active_model_serializers'
 
+gem 'geocoder'
 gem 'russian'
 gem 'enumerize'
 gem 'validates'

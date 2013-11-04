@@ -14,7 +14,7 @@ class Report < ActiveRecord::Base
 
   enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
   enumerize :event_kind, in: [:dps, :dtp, :cmr, :rmnt, :prbk]
-  enumerize :reject_kind, in: [:HZ, :spam, :rt, :question, :yell, :reply]
+  enumerize :reject_kind, in: [:unknown_classify, :spam, :rt, :question, :yell, :reply]
 
   state_machine :state, initial: :added do
     after_transition any => :rejected, do: :set_reject_kind
@@ -42,7 +42,7 @@ class Report < ActiveRecord::Base
   def try_approve!
     if contains_bad_data?
       reject
-    elsif bayes != -1
+    elsif classify != Classifier::GOOD
       reject
     else
       approve
@@ -83,8 +83,8 @@ class Report < ActiveRecord::Base
     .strip
   end
 
-  def bayes
-    @bayes ||= Rater.classify clean_text
+  def classify
+    Classifier.classify clean_text
   end
 
   private
@@ -99,9 +99,9 @@ class Report < ActiveRecord::Base
     elsif rt?
       self.reject_kind = :rt
     else
-      if bayes == 0
-        self.reject_kind = :HZ
-      elsif bayes == 1
+      if bayes == Classifier::UNKNOWN
+        self.reject_kind = :unknown_classify
+      elsif bayes == Classifier::BAD
         self.reject_kind = :spam
       end
     end
