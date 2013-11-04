@@ -8,6 +8,8 @@ class CreateReports < ActiveRecord::Migration
       t.string :sourceable_id
       t.string :sourceable_type
       t.string :source_kind
+      t.float  :longitude
+      t.float  :latitude
 
       t.timestamps
     end

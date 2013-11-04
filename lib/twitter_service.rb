@@ -1,6 +1,7 @@
 # encoding: utf-8
 class TwitterService
   class << self
+
     def destroy(report)
       if report.tweet
         c = client(report.city)
@@ -35,5 +36,6 @@ class TwitterService
     def client(city)
       ServiceLocator.twitter(city.slug)
     end
+
   end
 end

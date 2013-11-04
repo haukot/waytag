@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 20131007051813) do
     t.string   "sourceable_id"
     t.string   "sourceable_type"
     t.string   "source_kind"
+    t.float    "longitude"
+    t.float    "latitude"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "event_kind"
@@ -118,17 +120,26 @@ ActiveRecord::Schema.define(version: 20131007051813) do
 
   create_table "tweets", force: true do |t|
     t.integer  "report_id"
+    t.integer  "twitter_user_id"
     t.string   "id_str"
+    t.boolean  "retweeted"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "text"
+    t.string   "in_reply_to_status_id_str"
+    t.string   "in_reply_to_user_id_str"
+    t.datetime "external_created_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "twitter_users", force: true do |t|
-    t.string   "image"
+    t.string   "profile_image_url"
     t.string   "name"
     t.string   "screen_name"
-    t.string   "external_id_str"
+    t.string   "id_str"
     t.string   "state"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

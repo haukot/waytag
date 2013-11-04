@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :twitter_user do
-    image { generate :slug }
+    profile_image_url { generate :slug }
     name
     screen_name { generate :name }
-    external_id_str { generate :slug }
+    id_str { generate :slug }
   end
 end

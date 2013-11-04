@@ -1,4 +1,4 @@
-klass TwitttrReader
+class TwitterReader
   class << self
     def read_from(city)
       client = ServiceLocator.twitter_stream(city)

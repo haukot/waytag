@@ -1,5 +1,9 @@
+# encoding: utf-8
+
 class Report < ActiveRecord::Base
   include ReportsRepository
+  include TextFunctions
+
   extend Enumerize
 
   belongs_to :city
@@ -13,8 +17,8 @@ class Report < ActiveRecord::Base
   validates :city, presence: true
 
   enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
-  enumerize :event_kind, in: [:dps, :dtp, :cmr, :rmnt, :prbk]
-  enumerize :reject_kind, in: [:unknown_classify, :spam, :rt, :question, :yell, :reply]
+  enumerize :event_kind, in: EventKinds.all
+  enumerize :reject_kind, in: [:unknown_classify, :spam, :question, :yell, :reply]
 
   state_machine :state, initial: :added do
     after_transition any => :rejected, do: :set_reject_kind
@@ -51,38 +55,6 @@ class Report < ActiveRecord::Base
     save!
   end
 
-  def contains_bad_data?
-    question? || yell? || rt? || with_mentions?
-  end
-
-  def question?
-    text.include?("?")
-  end
-
-  def yell?
-    text.upcase == text || text.include?("!")
-  end
-
-  def with_mentions?
-    text.include?("@")
-  end
-
-  def rt?
-    text.include?("RT")
-  end
-
-  def clean_text
-    text.gsub(/(#ulsk|##{city.hashtag}|#{city.twitter_name}|#{city.hashtag})/i, '')
-    .sub(/\A\[\d{1,2}:\d{1,2}\]/, '')
-    .gsub(/\s+/, ' ')
-    .strip
-  end
-
-  def text_without_via
-    text.gsub(/via\s.*$/, '')
-    .strip
-  end
-
   def classify
     Classifier.classify clean_text
   end
@@ -96,8 +68,6 @@ class Report < ActiveRecord::Base
       self.reject_kind = :yell
     elsif with_mentions?
       self.reject_kind = :reply
-    elsif rt?
-      self.reject_kind = :rt
     else
       if bayes == Classifier::UNKNOWN
         self.reject_kind = :unknown_classify
