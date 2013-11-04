@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4.0.0'
 gem 'pg'
 
 gem "friendly_id", github: 'norman/friendly_id', branch: "master"
@@ -28,16 +28,15 @@ gem 'active_model_serializers'
 gem 'geocoder'
 gem 'russian'
 gem 'enumerize'
-gem 'validates'
 gem 'state_machine'
 gem 'configus'
-gem 'virtus'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 gem 'sinatra', '>= 1.3.0', require: false
 gem 'sidekiq'
 gem 'russian_obscenity'
 gem 'twitter'
+gem 'tweetstream', require: false
 
 # Push
 gem 'gcm'
@@ -49,27 +48,23 @@ end
 gem 'unicorn'
 
 group :development, :test do
-  gem 'pry-rails'
-  gem 'pre-commit'
-  gem 'wrong'
   gem 'awesome_print'
+  gem 'pry-rails'
+
+  gem 'wrong'
   gem 'factory_girl_rails'
-  gem 'capi', '0.1.1'
-  gem 'capistrano', '2.13.5'
-  gem 'rvm-capistrano', '1.2.7'
-  gem 'capistrano-ext'
-  gem 'capistrano_colors'
   gem 'factory_girl_sequences'
+
+  gem 'capi', '0.1.1', require: false
+  gem 'capistrano', '2.13.5', require: false
+  gem 'rvm-capistrano', '1.2.7', require: false
+  gem 'capistrano-ext', require: false
+  gem 'capistrano_colors', require: false
 end
 
 group :test do
   gem 'turn'
-  gem 'test_after_commit'
-  gem "rake"
-  gem 'minitest'
   gem 'simplecov'
   gem 'mocha', require: false
-  gem 'spring'
-  gem 'guard'
-  gem 'guard-minitest'
+  gem 'webmock'
 end
