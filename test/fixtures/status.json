@@ -1,0 +1,85 @@
+{
+  "created_at": "Mon Aug 19 20:01:54 +0000 2013",
+  "id": 369549806584094720,
+  "id_str": "369549806584094720",
+  "text": "ДТП дорога ДПС засвияже",
+  "source": "web",
+  "truncated": false,
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 216778941,
+    "id_str": "216778941",
+    "name": "8xx8 [18+]",
+    "screen_name": "8xx8ru",
+    "location": "Simbirsk",
+    "url": "http://8xx8.ru",
+    "description": "Just a Developer",
+    "protected": false,
+    "followers_count": 215,
+    "friends_count": 195,
+    "listed_count": 10,
+    "created_at": "Wed Nov 17 18:01:56 +0000 2010",
+    "favourites_count": 83,
+    "utc_offset": 14400,
+    "time_zone": "Moscow",
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 3096,
+    "lang": "en",
+    "contributors_enabled": false,
+    "is_translator": false,
+    "profile_background_color": "131516",
+    "profile_background_image_url": "http://a0.twimg.com/profile_background_images/172652982/bg.png",
+    "profile_background_image_url_https": "https://si0.twimg.com/profile_background_images/172652982/bg.png",
+    "profile_background_tile": true,
+    "profile_image_url": "http://a0.twimg.com/profile_images/2563494421/u0hxerpikv3rzf76vhsk_normal.jpeg",
+    "profile_image_url_https": "https://si0.twimg.com/profile_images/2563494421/u0hxerpikv3rzf76vhsk_normal.jpeg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/216778941/1355167646",
+    "profile_link_color": "006399",
+    "profile_sidebar_border_color": "C7D9DE",
+    "profile_sidebar_fill_color": "E6F5FA",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null
+  },
+  "geo": {
+    "coordinates": [
+      14.5191613,
+      121.0132101
+    ],
+    "type": "Point"
+  },
+  "place": null,
+  "contributors": null,
+  "retweet_count": 0,
+  "favorite_count": 0,
+  "entities": {
+    "hashtags": [],
+    "symbols": [],
+    "urls": [],
+    "user_mentions": [
+      {
+        "screen_name": "Ulway",
+        "name": "Ulway",
+        "id": 376662197,
+        "id_str": "376662197",
+        "indices": [
+          7,
+          13
+        ]
+      }
+    ]
+  },
+  "favorited": false,
+  "retweeted": false,
+  "filter_level": "medium",
+  "lang": "en"
+}
