@@ -10,7 +10,8 @@ class Web::Cities::ReportsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create bonus" do
+  test "should create report" do
+    ReportsWorker.jobs.clear
     assert_equal 0, ReportsWorker.jobs.size
 
     attrs = attributes_for :report

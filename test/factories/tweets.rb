@@ -5,7 +5,7 @@ FactoryGirl.define do
     id_str { generate :slug }
     twitter_user
     text { "ДТП дорога ДПС засвияже" }
-    external_created_at { Time.now }
+    created_at { Time.now }
     in_reply_to_status_id_str { nil }
     in_reply_to_user_id_str { nil }
     longitude { 30.40}

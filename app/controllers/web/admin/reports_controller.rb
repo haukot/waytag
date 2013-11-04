@@ -8,7 +8,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
 
   # DELETE /reports/1
   def destroy
-    @report.destroy
+    ReportsService.destroy(@report)
     redirect_to admin_reports_url, notice: 'Report was successfully destroyed.'
   end
 

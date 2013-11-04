@@ -10,6 +10,7 @@ class CreateReports < ActiveRecord::Migration
       t.string :source_kind
       t.float  :longitude
       t.float  :latitude
+      t.string :id_str
 
       t.timestamps
     end

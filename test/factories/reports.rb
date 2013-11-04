@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :report do
+    id_str { generate :string }
     text { generate :body }
     source_text { generate :body }
     time { Time.now }

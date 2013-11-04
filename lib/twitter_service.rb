@@ -3,9 +3,9 @@ class TwitterService
   class << self
 
     def destroy(report)
-      if report.tweet
+      if report.id_str
         c = client(report.city)
-        c.status_destroy(report.tweet.id)
+        c.status_destroy(report.id_str)
       end
     rescue Twitter::Error => e
       Rails.logger.fatal "Twitter error #{e.to_s}"
@@ -16,22 +16,19 @@ class TwitterService
 
       if report.map_picture
         image =  open(report.map_picture)
-        response = client.update_with_media(report.text, image)
+        response = c.update_with_media(report.text, image)
       else
-        response = client.update(report.text)
+        response = c.update(report.text)
       end
 
-      create_tweet(report, response)
+      report.id_str = response[:id_str]
+      report.save
     rescue Twitter::Error::Forbidden => e
       Rails.logger.fatal "Tweet rejected #{e.to_s}"
       nil
     end
 
     private
-
-    def create_tweet(report, response)
-      report.tweet.create_from_twitter_response(response)
-    end
 
     def client(city)
       ServiceLocator.twitter(city.slug)

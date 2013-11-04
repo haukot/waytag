@@ -19,6 +19,7 @@ class TwitterBotTest < ActiveSupport::TestCase
   end
 
   test "handle_status_repost" do
+    ReportsWorker.jobs.clear
     assert_equal 0, ReportsWorker.jobs.size
 
     TwitterBot.handle_status(load_fixture('status.json'), 'ul', 'hashtag')

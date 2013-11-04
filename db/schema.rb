@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20131007051813) do
     t.string   "source_kind"
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "id_str"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "event_kind"
