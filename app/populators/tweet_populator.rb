@@ -1,26 +1,25 @@
 # encoding: utf-8
 
 class TweetPopulator < BasePopulator
-  permit(:id_str, :retweeted, :text, :in_reply_to_user_id_str, :in_reply_to_status_id_str)
+  permit(:created_at, :id_str, :retweeted, :text, :in_reply_to_user_id_str, :in_reply_to_status_id_str)
 
-  def create
+  def populate
     tweet = Tweet.new(strong_params)
     tweet.twitter_user = populate_user
-    tweet.external_created_at = params["created_at"]
 
     if geo_data_exists?
       tweet.longitude = params["geo"]["coordinates"].first
       tweet.latitude = params["geo"]["coordinates"].last
     end
 
-    tweet.save ? tweet : nil
+    tweet.valid? ? tweet : nil
   end
 
   private
 
   def populate_user
     up = TwitterUserPopulator.new (params["user"])
-    up.create
+    up.populate
   end
 
   def geo_data_exists?

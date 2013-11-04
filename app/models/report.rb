@@ -9,8 +9,6 @@ class Report < ActiveRecord::Base
   belongs_to :city
   belongs_to :sourceable, polymorphic: true
 
-  has_one :tweet, dependent: :destroy
-
   validates :source_text, presence: true
   validates :time, presence: true
   validates :source_kind, presence: true

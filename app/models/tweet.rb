@@ -1,10 +1,18 @@
 # encoding: utf-8
 
-class Tweet < ActiveRecord::Base
+class Tweet
+  include ActiveModel::Model
   include TextFunctions
 
-  belongs_to :report
-  belongs_to :twitter_user
+  attr_accessor :id_str, :retweeted, :longitude,
+    :latitude, :text, :in_reply_to_status_id_str,
+    :in_reply_to_user_id_str, :created_at,
+    :twitter_user
+
+  validates :twitter_user, presence: true
+  validates :id_str, presence: true
+  validates :text, presence: true
+  validates :created_at, presence: true
 
   def contains_bad_data?
     super || more_two_mentions? || retweeted? || answer?

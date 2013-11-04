@@ -7,7 +7,7 @@ class TwitterBot
       if status["text"] == "I love @Ulway!"
         ServiceLocator.twitter(city).direct_message_create(status["user"]["id"], "I love you tooo!")
       else
-        tweet = TweetPopulator.new(status).create
+        tweet = TweetPopulator.new(status).populate
 
         if tweet.contains_bad_data?
           try_answer_on tweet
@@ -28,7 +28,7 @@ class TwitterBot
         city_id: city.id,
       })
 
-      report = rp.create_from_tweet(tweet)
+      report = rp.populate_from_twitter(tweet)
 
       ReportsWorker.perform_async(report.id)
     end

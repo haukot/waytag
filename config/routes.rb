@@ -15,7 +15,6 @@ Waytag::Application.routes.draw do
       resources :posts, only: [:index, :edit, :new, :create, :update, :destroy]
 
       resources :reports, only: [:index, :destroy]
-      resources :tweets, only: :index
 
       resources :partners, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :cities, only: [:index, :edit, :new, :create, :update, :destroy]

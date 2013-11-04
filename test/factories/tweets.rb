@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :tweet do
-    report
     id_str { generate :slug }
     twitter_user
     text { "ДТП дорога ДПС засвияже" }

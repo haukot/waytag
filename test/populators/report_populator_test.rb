@@ -5,14 +5,14 @@ require 'test_helper'
 class ReportPopulatorTest < ActiveSupport::TestCase
   test "Test populating report from Twitter" do
     city = create :city
-    tweet = create :tweet, report: nil
+    tweet = build :tweet
 
     rp = ReportPopulator.new({
       source_kind: :mentions,
       city_id: city.id
     })
 
-    report = rp.create_from_tweet tweet
+    report = rp.populate_from_twitter tweet
 
     assert { report.present? }
     assert { report.longitude }

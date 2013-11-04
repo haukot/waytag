@@ -7,7 +7,7 @@ class TwitterUserPopulatorTest < ActiveSupport::TestCase
     params = ActiveSupport::JSON.decode(load_fixture('status.json'))
     tup = TwitterUserPopulator.new(params["user"])
 
-    user = tup.create
+    user = tup.populate
 
     assert { user.present? }
   end
