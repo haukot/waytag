@@ -54,4 +54,10 @@ class Report < ActiveRecord::Base
     Classifier.classify clean_text
   end
 
+  def map_picture
+    if latitude && longitude
+      URI::encode("http://maps.googleapis.com/maps/api/staticmap?center=#{latitude},#{longitude}&zoom=15&size=400x400&markers=color:red|label:O|#{latitude},#{longitude}&sensor=true")
+    end
+  end
+
 end
