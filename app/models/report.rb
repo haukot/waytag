@@ -18,11 +18,8 @@ class Report < ActiveRecord::Base
 
   enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
   enumerize :event_kind, in: EventKinds.all
-  enumerize :reject_kind, in: [:unknown_classify, :spam, :question, :yell, :reply]
 
   state_machine :state, initial: :added do
-    after_transition any => :rejected, do: :set_reject_kind
-
     state :added
     state :posted
     state :rejected
@@ -59,21 +56,4 @@ class Report < ActiveRecord::Base
     Classifier.classify clean_text
   end
 
-  private
-
-  def set_reject_kind
-    if question?
-      self.reject_kind = :question
-    elsif yell?
-      self.reject_kind = :yell
-    elsif with_mentions?
-      self.reject_kind = :reply
-    else
-      if bayes == Classifier::UNKNOWN
-        self.reject_kind = :unknown_classify
-      elsif bayes == Classifier::BAD
-        self.reject_kind = :spam
-      end
-    end
-  end
 end

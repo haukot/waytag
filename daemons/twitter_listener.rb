@@ -1,10 +1,12 @@
+require 'sidekiq'
 require "eventmachine"
 require "active_support"
 require "configus"
 require "tweetstream"
 
-require File.expand_path("../../config/initializers/configus", __FILE__)
+require File.expand_path("../../lib/configus", __FILE__)
 
+require File.expand_path("../../app/workers/twitter_bot_worker", __FILE__)
 require File.expand_path("../../lib/service_locator", __FILE__)
 require File.expand_path("../../lib/twitter_reader", __FILE__)
 

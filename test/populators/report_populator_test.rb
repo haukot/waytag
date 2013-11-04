@@ -17,6 +17,6 @@ class ReportPopulatorTest < ActiveSupport::TestCase
     assert { report.present? }
     assert { report.longitude }
     assert { report.latitude }
-    assert { report.sourceable.id == tweet.id }
+    assert { report.sourceable == tweet.twitter_user }
   end
 end

@@ -1,11 +1,13 @@
 ENV["RAILS_ENV"] ||= "test"
 
 require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
 require 'wrong/adapters/minitest'
 require 'sidekiq/testing'
 require 'support'
 
+require 'webmock/minitest'
+
+require 'rails/test_help'
 FactoryGirl.reload
 FactoryGirlSequences.reload
 Wrong.config.color

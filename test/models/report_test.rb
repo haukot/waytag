@@ -6,31 +6,29 @@ class ReportTest < ActiveSupport::TestCase
   test "question?" do
     report = create :report, text: "Как дела на мосту?"
 
-    assert report.question?
+    assert { report.question? }
   end
 
   test "yell?" do
     report = create :report, text: "МАТЬ ПЕРЕМАТЬ!"
 
     assert report.yell?
+
+    report = create :report, text: "МАТЬ просто мать!"
+
+    assert { !report.yell? }
   end
 
   test "with_mentions?" do
     report = create :report, text: "По центру катается форд дпс с парконом @ololo"
 
-    assert report.with_mentions?
-  end
-
-  test "rt?" do
-    report = create :report, text: "RT Локомотивная от 4 мкр.едет еле еле."
-
-    assert report.rt?
+    assert { report.with_mentions? }
   end
 
   test "text without via" do
     _without_via_provider.each do |test_case|
       report = create :report, text: test_case[0]
-      assert_equal report.text_without_via, test_case[1]
+      assert { report.text_without_via == test_case[1] }
     end
   end
 
@@ -45,7 +43,7 @@ class ReportTest < ActiveSupport::TestCase
   test "clean text" do
     _clean_provider.each do |test_case|
       report = create :report, text: test_case[0]
-      assert_equal test_case[1], report.clean_text
+      assert { test_case[1] == report.clean_text }
     end
   end
 

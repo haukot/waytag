@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 20131007051813) do
     t.datetime "updated_at"
     t.string   "event_kind"
     t.string   "source_text"
-    t.string   "reject_kind"
   end
 
   create_table "streets", force: true do |t|

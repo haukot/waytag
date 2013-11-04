@@ -2,6 +2,8 @@
 class TwitterBot
   class << self
     def handle_status(status, city, source)
+      status = ActiveSupport::JSON.decode status
+
       if status["text"] == "I love @Ulway!"
         ServiceLocator.twitter(city).direct_message_create(status["user"]["id"], "I love you tooo!")
       else
@@ -15,7 +17,7 @@ class TwitterBot
       end
     end
 
-    def try_answer(tweet)
+    def try_answer_on(tweet)
     end
 
     def add_report(tweet, city, source)

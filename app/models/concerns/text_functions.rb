@@ -11,7 +11,7 @@ module TextFunctions
   end
 
   def yell?
-    text.upcase == text || text.include?("!")
+    text.mb_chars.upcase == text
   end
 
   def with_mentions?
