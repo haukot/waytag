@@ -1,23 +1,44 @@
 # encoding: utf-8
 class TwitterBot
   class << self
+    YELL = [
+      "Не кричи",
+      "Воу! Полегче!",
+      "Ой, вы забыли выключить CapsLock",
+      "ЩТАА?"
+    ]
+    QUESTION = [
+      "Вам тут не справочная!"
+    ]
+
     def handle_status(status, city, source)
+      client = ServiceLocator.twitter(city)
       status = ActiveSupport::JSON.decode status
 
       if status["text"] == "I love @Ulway!"
-        ServiceLocator.twitter(city).direct_message_create(status["user"]["id"], "I love you tooo!")
+        client.direct_message_create(status["user"]["id"], "I love you tooo!")
       else
         tweet = TweetPopulator.new(status).populate
 
+        return unless tweet
+        return if tweet.twitter_user.blocked?
+
         if tweet.contains_bad_data?
-          try_answer_on tweet
+          try_answer_on tweet, client
         else
           add_report(tweet, city, source)
         end
       end
     end
 
-    def try_answer_on(tweet)
+    def try_answer_on(tweet, client)
+      if tweet.yell?
+        client.update("@#{tweet.twitter_user.screen_name} #{YELL.sample}", in_reply_to_status_id: tweet.id_str.to_i)
+      end
+
+      if !tweet.more_two_mentions? && tweet.question?
+        client.update("@#{tweet.twitter_user.screen_name} #{QUESTION.sample}", in_reply_to_status_id: tweet.id_str.to_i)
+      end
     end
 
     def add_report(tweet, city, source)

@@ -3,7 +3,7 @@
 module TextFunctions
 
   def contains_bad_data?
-    question? || yell? || with_mentions?
+    question? || yell?
   end
 
   def question?
@@ -12,10 +12,6 @@ module TextFunctions
 
   def yell?
     text.mb_chars.upcase == text
-  end
-
-  def with_mentions?
-    text.include?("@")
   end
 
   def clean_text

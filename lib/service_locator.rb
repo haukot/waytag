@@ -20,6 +20,10 @@ class ServiceLocator
       @stream_clients[city]
     end
 
+    def waytag_twitter
+      twitter(:waytag)
+    end
+
     def twitter(city)
       @rest_clients ||= {}
 

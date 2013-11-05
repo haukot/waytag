@@ -1,6 +1,13 @@
 # encoding: utf-8
 class TwitterService
   class << self
+    def populate_user(screen_name)
+      client = ServiceLocator.waytag_twitter
+      client.user(screen_name).to_json
+
+      tup = TwitterUserPopulator.new params
+      tup.populate
+    end
 
     def destroy(report)
       if report.id_str

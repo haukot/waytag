@@ -5,6 +5,7 @@ class TweetPopulator < BasePopulator
 
   def populate
     tweet = Tweet.new(strong_params)
+
     tweet.twitter_user = populate_user
 
     if geo_data_exists?
@@ -18,6 +19,8 @@ class TweetPopulator < BasePopulator
   private
 
   def populate_user
+    return nil if City.exists? twitter_name: params["user"]["screen_name"]
+
     up = TwitterUserPopulator.new (params["user"])
     up.populate
   end

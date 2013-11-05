@@ -6,6 +6,12 @@ class Web::Admin::TwitterUsersController < Web::Admin::ApplicationController
     @twitter_users = TwitterUser.all
   end
 
+  # POST /twitter_users
+  def create
+    TwitterService.populate_user params[:screen_name]
+    redirect_to admin_twitter_users_url, notice: 'Twitter user was successfully destroyed.'
+  end
+
   # DELETE /twitter_users/1
   def destroy
     @twitter_user.destroy
