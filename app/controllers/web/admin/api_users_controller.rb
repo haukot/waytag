@@ -18,8 +18,4 @@ class Web::Admin::ApiUsersController < Web::Admin::ApplicationController
       @api_user = ApiUser.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def api_user_params
-      params.require(:api_user).permit(:token, :state)
-    end
 end

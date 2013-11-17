@@ -8,7 +8,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
 
   # DELETE /reports/1
   def destroy
-    @report.destroy
+    ReportsService.destroy(@report)
     redirect_to admin_reports_url, notice: 'Report was successfully destroyed.'
   end
 
@@ -18,8 +18,4 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
       @report = Report.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def report_params
-      params.require(:report).permit(:city_id, :text, :time, :state, :source_id, :source_type, :source_kind)
-    end
 end
