@@ -34,9 +34,7 @@ class TwitterBot
     def try_answer_on(tweet, client)
       if tweet.yell?
         client.update("@#{tweet.twitter_user.screen_name} #{YELL.sample}", in_reply_to_status_id: tweet.id_str.to_i)
-      end
-
-      if !tweet.more_two_mentions? && tweet.question?
+      elsif !tweet.more_two_mentions? && tweet.question?
         client.update("@#{tweet.twitter_user.screen_name} #{QUESTION.sample}", in_reply_to_status_id: tweet.id_str.to_i)
       end
     end
