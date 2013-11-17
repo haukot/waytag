@@ -4,10 +4,9 @@ Waytag::Application.routes.draw do
 
   namespace :api do
     resources :cities, only: [:index, :show] do
-      scope :module => :cities do
-        resources :tweets, only: :index
-        resources :reports, only: :create
-        resources :streets
+      scope module: :cities do
+        resources :reports, only: [:index, :create]
+        resources :streets, only: [:index]
       end
     end
   end

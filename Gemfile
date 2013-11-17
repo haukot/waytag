@@ -22,7 +22,7 @@ gem 'bootstrap-datetimepicker-rails'
 gem 'js-routes'
 gem 'ransack', github: "ernie/ransack", branch: 'rails-4'
 gem 'kaminari'
-gem 'active_model_serializers'
+gem 'jbuilder'
 
 gem 'geocoder'
 gem 'russian'

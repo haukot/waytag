@@ -9,7 +9,12 @@ class ReportsService
       report = Report.find report_id
       report.text = TextComposer.compose(report)
 
+      if report.has_duplicate?
+        return report.destroy
+      end
+
       report.try_approve!
+      p report
 
       if report.wating_post?
         PostWorker.perform_async(report.id)

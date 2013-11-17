@@ -3,6 +3,34 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
+  test "has no duplicate" do
+    create :report, source_text: "Как дела"
+    report = create :report, source_text: "на мосту?"
+
+    assert { report.has_duplicate? == false }
+  end
+
+  test "has_duplicate by source text" do
+    create :report, source_text: "Как дела на мосту?"
+    report = create :report, source_text: "Как дела на мосту?"
+
+    assert { report.has_duplicate? }
+  end
+
+  test "has_duplicate by text" do
+    create :report, text: "Как дела на мосту?"
+    report = create :report, text: "Как дела на мосту?"
+
+    assert { report.has_duplicate? }
+  end
+
+  test "Detect has_duplicates only on 2 hours text" do
+    create :report, text: "Как дела на мосту?", time: Time.now - 3.hours
+    report = create :report, text: "Как дела на мосту?", time: Time.now
+
+    assert { report.has_duplicate? == false }
+  end
+
   test "question?" do
     report = create :report, text: "Как дела на мосту?"
 

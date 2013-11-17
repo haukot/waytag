@@ -1,10 +1,9 @@
 # encoding: utf-8
 
 class Report < ActiveRecord::Base
+  include EventKindable
   include ReportsRepository
   include TextFunctions
-
-  extend Enumerize
 
   belongs_to :city
   belongs_to :sourceable, polymorphic: true
@@ -15,26 +14,30 @@ class Report < ActiveRecord::Base
   validates :city, presence: true
 
   enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
-  enumerize :event_kind, in: EventKinds.all
 
   state_machine :state, initial: :added do
     state :added
     state :posted
     state :rejected
+    state :bad
     state :wating_post
     state :post_failed
 
     event :post do
-      transition [:wating_post] => :posted
+      transition :wating_post => :posted
     end
 
     event :approve do
-      transition [:added] => :wating_post
+      transition [:bad, :added] => :wating_post
+    end
+
+    event :mark_as_bad do
+      transition :added => :bad
     end
 
     event :reject do
-      transition [:added] => :rejected
-      transition [:wating_post] => :post_failed
+      transition :added => :rejected
+      transition :wating_post => :post_failed
     end
   end
 
@@ -50,8 +53,8 @@ class Report < ActiveRecord::Base
   def try_approve!
     if contains_bad_data?
       reject
-    elsif classify != Classifier::GOOD
-      reject
+    elsif classify != :good
+      mark_as_bad
     else
       approve
     end
@@ -60,7 +63,7 @@ class Report < ActiveRecord::Base
   end
 
   def classify
-    Classifier.classify clean_text
+    Classifier.classify(clean_text).to_sym
   end
 
   def map_picture
@@ -79,6 +82,10 @@ class Report < ActiveRecord::Base
   def text_without_via
     text.gsub(/via\s.*$/, '')
     .strip
+  end
+
+  def has_duplicate?
+    self.class.where("(time > ?) AND (text = ? OR source_text = ?) AND ( id != ?)", time - 2.hours, text, source_text, id).any?
   end
 
 end
