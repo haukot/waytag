@@ -2,10 +2,18 @@ Waytag::Application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/q'
 
-  get "reports/index"
-  get "cities/index"
-  scope module: :api do
+  namespace :api do
+    resources :cities, only: [:index, :show] do
+      scope :module => :cities do
+        resources :tweets, only: :index
+        resources :reports, only: :create
+        resources :streets
+      end
+    end
+  end
 
+  namespace :rss do
+    get "/:id" => "messages#feed"
   end
 
   scope module: :web do
