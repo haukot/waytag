@@ -6,6 +6,12 @@ class Web::Admin::TwitterUsersController < Web::Admin::ApplicationController
     @twitter_users = TwitterUser.all
   end
 
+  # POST /twitter_users
+  def create
+    TwitterService.populate_user params[:screen_name]
+    redirect_to admin_twitter_users_url, notice: 'Twitter user was successfully destroyed.'
+  end
+
   # DELETE /twitter_users/1
   def destroy
     @twitter_user.destroy
@@ -18,8 +24,4 @@ class Web::Admin::TwitterUsersController < Web::Admin::ApplicationController
       @twitter_user = TwitterUser.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def twitter_user_params
-      params.require(:twitter_user).permit(:image, :name, :screen_name, :external_id_str, :state)
-    end
 end

@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002062129) do
+ActiveRecord::Schema.define(version: 20131106143644) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "android_users", force: true do |t|
     t.string   "token"
@@ -53,6 +56,14 @@ ActiveRecord::Schema.define(version: 20131002062129) do
     t.datetime "updated_at"
   end
 
+  create_table "classifier_features", force: true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.integer  "count",      default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ios_users", force: true do |t|
     t.string   "token"
     t.string   "state"
@@ -89,9 +100,13 @@ ActiveRecord::Schema.define(version: 20131002062129) do
     t.string   "sourceable_id"
     t.string   "sourceable_type"
     t.string   "source_kind"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "id_str"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "event_kind"
+    t.string   "source_text"
   end
 
   create_table "streets", force: true do |t|
@@ -102,19 +117,13 @@ ActiveRecord::Schema.define(version: 20131002062129) do
     t.datetime "updated_at"
   end
 
-  create_table "tweets", force: true do |t|
-    t.integer  "report_id"
-    t.string   "id_str"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "twitter_users", force: true do |t|
-    t.string   "image"
+    t.string   "profile_image_url"
     t.string   "name"
     t.string   "screen_name"
-    t.string   "external_id_str"
+    t.string   "id_str"
     t.string   "state"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,8 +1,18 @@
 Waytag::Application.routes.draw do
-  get "reports/index"
-  get "cities/index"
-  scope module: :api do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/q'
 
+  namespace :api do
+    resources :cities, only: [:index, :show] do
+      scope module: :cities do
+        resources :reports, only: [:index, :create]
+        resources :streets, only: [:index]
+      end
+    end
+  end
+
+  namespace :rss do
+    get "/:id" => "messages#feed"
   end
 
   scope module: :web do
@@ -12,7 +22,6 @@ Waytag::Application.routes.draw do
       resources :posts, only: [:index, :edit, :new, :create, :update, :destroy]
 
       resources :reports, only: [:index, :destroy]
-      resources :tweets, only: :index
 
       resources :partners, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :cities, only: [:index, :edit, :new, :create, :update, :destroy]
@@ -28,8 +37,7 @@ Waytag::Application.routes.draw do
 
     resources :cities, only: :index, path: '/' do
       scope module: :cities do
-        get "/" => "reports#index"
-        resources :reports, only: :index
+        resources :reports, only: [:index, :create]
 
         resources :partners, only: [:index, :show]
         resources :bonuses, only: [:index, :show]

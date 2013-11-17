@@ -12,6 +12,9 @@ class Web::Admin::ReportsControllerTest < ActionController::TestCase
   end
 
   test "should destroy report" do
+    r = stub_request(:post, "https://api.twitter.com/1.1/statuses/destroy/#{@report.id_str}.json").
+      to_return(:status => 200, :body => "", :headers => {})
+
     delete :destroy, id: @report
 
     assert_redirected_to admin_reports_path
