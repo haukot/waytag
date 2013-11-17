@@ -18,7 +18,6 @@ gem "bootstrap-switch-rails"
 gem 'less-rails-bootstrap'
 gem 'twitter-bootstrap-rails', github: "seyhunak/twitter-bootstrap-rails", branch: "bootstrap3"
 gem 'bootstrap-datetimepicker-rails'
-gem 'green_midget', :github => 'Andrew8xx8/GreenMidget'
 
 gem 'js-routes'
 gem 'ransack', github: "ernie/ransack", branch: 'rails-4'
@@ -31,12 +30,14 @@ gem 'enumerize'
 gem 'state_machine'
 gem 'configus'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
+gem 'usefull_scopes', github: 'kaize/usefull_scopes'
 gem 'sinatra', '>= 1.3.0', require: false
 gem 'sidekiq'
 gem 'russian_obscenity'
 gem 'twitter'
 gem 'tweetstream', require: false
+
+gem 'fisher_classifier', github: 'Andrew8xx8/fisher_classifier'
 
 # Push
 gem 'gcm'

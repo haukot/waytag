@@ -38,6 +38,15 @@ class Report < ActiveRecord::Base
     end
   end
 
+  def contains_bad_data?
+    super || with_mentions?
+  end
+
+  def with_mentions?
+    mentions = clean_text.scan(/@\w*/m)
+    mentions.count > 0
+  end
+
   def try_approve!
     if contains_bad_data?
       reject
@@ -58,6 +67,18 @@ class Report < ActiveRecord::Base
     if latitude && longitude
       URI::encode("http://maps.googleapis.com/maps/api/staticmap?center=#{latitude},#{longitude}&zoom=15&size=400x400&markers=color:red|label:O|#{latitude},#{longitude}&sensor=true")
     end
+  end
+
+  def clean_text
+    text.gsub(/(#ulsk|##{city.hashtag}|#{city.twitter_name}|#{city.hashtag})/i, '')
+    .sub(/\A\[\d{1,2}:\d{1,2}\]/, '')
+    .gsub(/\s+/, ' ')
+    .strip
+  end
+
+  def text_without_via
+    text.gsub(/via\s.*$/, '')
+    .strip
   end
 
 end

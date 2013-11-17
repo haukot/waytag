@@ -1,9 +1,8 @@
 GIT
-  remote: git://github.com/Andrew8xx8/GreenMidget.git
-  revision: 9ab8302b613e4fc608d4748b8251f4da756be887
+  remote: git://github.com/Andrew8xx8/fisher_classifier.git
+  revision: b62a0b3f81ce1bc262b82d810f8a78a70b8ba68b
   specs:
-    green_midget (0.1.2)
-      activerecord
+    fisher_classifier (0.0.1)
 
 GIT
   remote: git://github.com/ernie/ransack.git
@@ -14,6 +13,12 @@ GIT
       actionpack (>= 4.0.0)
       activerecord (>= 4.0.0)
       polyamorous (~> 0.6.0)
+
+GIT
+  remote: git://github.com/kaize/usefull_scopes.git
+  revision: 016c3807f6154f6022d095e7fa0bb74e1aa78b96
+  specs:
+    usefull_scopes (0.2.1)
 
 GIT
   remote: git://github.com/norman/friendly_id.git
@@ -33,12 +38,6 @@ GIT
       execjs
       rails (>= 3.1)
       railties (>= 3.1)
-
-GIT
-  remote: https://github.com/kaize/usefull_scopes.git
-  revision: 016c3807f6154f6022d095e7fa0bb74e1aa78b96
-  specs:
-    usefull_scopes (0.2.1)
 
 GIT
   remote: https://github.com/plataformatec/simple_form.git
@@ -345,12 +344,12 @@ DEPENDENCIES
   enumerize
   factory_girl_rails
   factory_girl_sequences
+  fisher_classifier!
   foreman
   friendly_id!
   gcm
   geocoder
   gon
-  green_midget!
   haml-rails
   jquery-rails
   js-routes

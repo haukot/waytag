@@ -4,8 +4,6 @@ require 'test_helper'
 
 class TwitterBotTest < ActiveSupport::TestCase
   setup do
-    GreenMidget::Classifier.new("ДТП ДПС пробка авария минаева").classify_as! :ham
-    GreenMidget::Classifier.new("пизда джигурда").classify_as! :spam
   end
 
   test "handle_status_i_love" do

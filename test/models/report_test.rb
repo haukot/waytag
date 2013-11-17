@@ -6,23 +6,23 @@ class ReportTest < ActiveSupport::TestCase
   test "question?" do
     report = create :report, text: "Как дела на мосту?"
 
-    assert { report.question? }
+    assert { report.question?  == true }
   end
 
   test "yell?" do
     report = create :report, text: "МАТЬ ПЕРЕМАТЬ!"
 
-    assert report.yell?
+    assert { report.yell? == true }
 
     report = create :report, text: "МАТЬ просто мать!"
 
-    assert { !report.yell? }
+    assert { report.yell? == false }
   end
 
   test "with_mentions?" do
     report = create :report, text: "По центру катается форд дпс с парконом @ololo"
 
-    assert { report.with_mentions? }
+    assert { report.with_mentions? == true }
   end
 
   test "text without via" do
