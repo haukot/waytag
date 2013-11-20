@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :user_name
       t.string :title
-      t.string :content
+      t.text :content
       t.string :state
       t.datetime :published_at
       t.string :seo_name

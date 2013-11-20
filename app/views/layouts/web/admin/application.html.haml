@@ -19,40 +19,26 @@
 
 
   %body
-    .navbar.navbar-fixed-top{ role: :navigation }
-      .navbar-header
-        %a.navbar-brand(href="#") Waytag::Admin
-        %ul.nav.navbar-nav
-          %li= link_to "Reports", admin_reports_path
-          %li= link_to "Cities", admin_cities_path
-          %li= link_to "Partners", admin_partners_path
-          %li= link_to "Bonuses", admin_bonuses_path
-          %li= link_to "Blog", admin_posts_path
-          %li.dropdown
-            %a.dropdown-toggle{ "data-toggle"=>"dropdown" }
-              Users
-              %b.caret
-            %ul.dropdown-menu
-              %li= link_to "Twitter", admin_twitter_users_path
-              %li= link_to "Android", admin_api_users_path
-              %li= link_to "IOS", admin_ios_users_path
-              %li= link_to "API", admin_api_users_path
+    = nav_bar fixed: :top, brand: "Waytag::Admin", brand_link: admin_root_path do
+      = menu_group do
+        = menu_item "Reports", admin_reports_path
+        = menu_item "Cities", admin_cities_path
+        = menu_item "Partners", admin_partners_path
+        = menu_item "Bonuses", admin_bonuses_path
+        = menu_item "Blog", admin_posts_path
+        = drop_down "Users" do
+          = menu_item "Twitter", admin_twitter_users_path
+          = menu_item "Android", admin_android_users_path
+          = menu_item "IOS", admin_ios_users_path
+          = menu_item "API", admin_api_users_path
 
     %br
     %br
     %br
     .container
       .row
-        .col-lg-9
+        .col-lg-12
           = bootstrap_flash
           = yield
-        .col-lg-3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
       %footer
-        %p &copy; Company 2013
+        %p &copy; Waytag.ru 2013

@@ -1,18 +1,24 @@
-%h1 Listing twitter_users
+%h1 Twitter Users
 
-%table
-  %tr
-    %th Image
-    %th Name
-    %th Screen name
-    %th External id str
-    %th State
-    %th
+%hr
 
-  - @twitter_users.each do |twitter_user|
+%table.table.table-striped
+  %thead
     %tr
-      %td= twitter_user.name
-      %td= twitter_user.screen_name
-      %td= twitter_user.id_str
-      %td= twitter_user.state
-      %td= link_to 'Destroy', admin_twitter_user_path(twitter_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th #
+      %th Image
+      %th Name
+      %th Screen name
+      %th External id str
+      %th State
+      %th
+
+  %tbody
+    - @twitter_users.each do |twitter_user|
+      %tr
+        %td= twitter_user.id
+        %td= twitter_user.name
+        %td= twitter_user.screen_name
+        %td= twitter_user.id_str
+        %td= twitter_user.state
+        %td= admin_destroy_button(admin_twitter_user_path(twitter_user))

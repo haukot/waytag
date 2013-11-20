@@ -19,7 +19,7 @@ class Web::Admin::CitiesControllerTest < ActionController::TestCase
   test "should create city" do
     post :create, city: { email: @city.email, hashtag: @city.hashtag, name: @city.name, slug: @city.slug, twitter_name: @city.twitter_name }
 
-    assert_redirected_to admin_city_path(assigns(:city))
+    assert_redirected_to admin_cities_path
   end
 
   test "should get edit" do
@@ -29,7 +29,7 @@ class Web::Admin::CitiesControllerTest < ActionController::TestCase
 
   test "should update city" do
     patch :update, id: @city, city: { email: @city.email, hashtag: @city.hashtag, name: @city.name, slug: @city.slug, twitter_name: @city.twitter_name }
-    assert_redirected_to admin_city_path(assigns(:city))
+    assert_redirected_to admin_cities_path
   end
 
   test "should destroy city" do

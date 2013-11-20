@@ -20,7 +20,7 @@ class Web::Admin::PostsController < Web::Admin::ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to admin_post_path(@post), notice: 'Post was successfully created.'
+      redirect_to admin_posts_path, notice: 'Post was successfully created.'
     else
       render action: 'new'
     end
@@ -29,7 +29,7 @@ class Web::Admin::PostsController < Web::Admin::ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      redirect_to admin_post_path(@post), notice: 'Post was successfully updated.'
+      redirect_to admin_posts_path, notice: 'Post was successfully updated.'
     else
       render action: 'edit'
     end

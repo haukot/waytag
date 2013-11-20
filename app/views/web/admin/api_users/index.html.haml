@@ -1,13 +1,19 @@
-%h1 Listing api_users
+%h1 Api Users
 
-%table
-  %tr
-    %th Token
-    %th State
-    %th
+%hr
 
-  - @api_users.each do |api_user|
+%table.table.table-striped
+  %thead
     %tr
-      %td= api_user.token
-      %td= api_user.state
-      %td= link_to 'Destroy', admin_api_users_path(api_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th #
+      %th Token
+      %th State
+      %th
+
+  %tbody
+    - @api_users.each do |api_user|
+      %tr
+        %td= api_user.id
+        %td= api_user.token
+        %td= api_user.state
+        %td= admin_destroy_button(admin_api_user_path(api_user))

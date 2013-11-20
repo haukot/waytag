@@ -20,7 +20,7 @@ class Web::Admin::PartnersController < Web::Admin::ApplicationController
     @partner = Partner.new(partner_params)
 
     if @partner.save
-      redirect_to admin_partner_path(@partner), notice: 'Partner was successfully created.'
+      redirect_to admin_partners_path, notice: 'Partner was successfully created.'
     else
       render action: 'new'
     end
@@ -29,7 +29,7 @@ class Web::Admin::PartnersController < Web::Admin::ApplicationController
   # PATCH/PUT /partners/1
   def update
     if @partner.update(partner_params)
-      redirect_to admin_partner_path(@partner), notice: 'Partner was successfully updated.'
+      redirect_to admin_partners_path, notice: 'Partner was successfully updated.'
     else
       render action: 'edit'
     end

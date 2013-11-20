@@ -6,10 +6,6 @@ class Web::Admin::BonusesController < Web::Admin::ApplicationController
     @bonuses = Bonus.all
   end
 
-  # GET /bonuses/1
-  def show
-  end
-
   # GET /bonuses/new
   def new
     @bonus = Bonus.new
@@ -24,7 +20,7 @@ class Web::Admin::BonusesController < Web::Admin::ApplicationController
     @bonus = Bonus.new(bonus_params)
 
     if @bonus.save
-      redirect_to admin_bonus_path(@bonus), notice: 'Bonus was successfully created.'
+      redirect_to admin_bonuses_path, notice: 'Bonus was successfully created.'
     else
       render action: 'new'
     end
@@ -33,7 +29,7 @@ class Web::Admin::BonusesController < Web::Admin::ApplicationController
   # PATCH/PUT /bonuses/1
   def update
     if @bonus.update(bonus_params)
-      redirect_to admin_bonus_path(@bonus), notice: 'Bonus was successfully updated.'
+      redirect_to admin_bonuses_path, notice: 'Bonus was successfully updated.'
     else
       render action: 'edit'
     end

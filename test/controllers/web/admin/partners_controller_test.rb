@@ -19,7 +19,7 @@ class Web::Admin::PartnersControllerTest < ActionController::TestCase
   test "should create partner" do
     post :create, partner: { description: @partner.description, title: @partner.title }
 
-    assert_redirected_to admin_partner_path(assigns(:partner))
+    assert_redirected_to admin_partners_path
   end
 
   test "should get edit" do
@@ -29,7 +29,7 @@ class Web::Admin::PartnersControllerTest < ActionController::TestCase
 
   test "should update partner" do
     patch :update, id: @partner, partner: { description: @partner.description, title: @partner.title }
-    assert_redirected_to admin_partner_path(assigns(:partner))
+    assert_redirected_to admin_partners_path
   end
 
   test "should destroy partner" do

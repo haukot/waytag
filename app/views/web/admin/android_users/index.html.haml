@@ -1,13 +1,17 @@
-%h1 Listing android_users
+%h1 Android Users
 
-%table
-  %tr
-    %th Token
-    %th State
-    %th
-
-  - @android_users.each do |android_user|
+%table.table.table-striped
+  %thead
     %tr
-      %td= android_user.token
-      %td= android_user.state
-      %td= link_to 'Destroy', admin_android_users_path(android_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th #
+      %th Token
+      %th State
+      %th
+
+  %tbody
+    - @android_users.each do |android_user|
+      %tr
+        %td= android_user.id
+        %td= android_user.token
+        %td= android_user.state
+        %td= admin_destroy_button(admin_android_user_path(android_user))

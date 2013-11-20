@@ -1,31 +1,37 @@
 %h1 Listing posts
 
-%table
-  %tr
-    %th User name
-    %th Title
-    %th Content
-    %th State
-    %th Published at
-    %th Seo name
-    %th Seo keywords
-    %th Seo description
-    %th
-    %th
+%hr
 
-  - @posts.each do |post|
+= link_to 'New Post', new_admin_post_path, right_button_params
+
+%table.table.table-striped
+  %thead
     %tr
-      %td= post.user_name
-      %td= post.title
-      %td= post.content
-      %td= post.state
-      %td= post.published_at
-      %td= post.seo_name
-      %td= post.seo_keywords
-      %td= post.seo_description
-      %td= link_to 'Edit', edit_admin_post_path(post)
-      %td= link_to 'Destroy', admin_post_path(post), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th #
+      %th User name
+      %th Title
+      %th Content
+      %th State
+      %th Published at
+      %th Seo name
+      %th Seo keywords
+      %th Seo description
+      %th
+      %th
+
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td= post.id
+        %td= post.user_name
+        %td= post.title
+        %td= post.content
+        %td= post.state
+        %td= post.published_at
+        %td= post.seo_name
+        %td= post.seo_keywords
+        %td= post.seo_description
+        %td= edit_and_destroy_buttons(edit_admin_post_path(post), admin_post_path(post))
 
 %br
 
-= link_to 'New Post', new_admin_post_path

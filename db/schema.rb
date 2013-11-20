@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131106143644) do
 
   create_table "bonuses", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "city_id"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20131106143644) do
   create_table "posts", force: true do |t|
     t.string   "user_name"
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.string   "state"
     t.datetime "published_at"
     t.string   "seo_name"

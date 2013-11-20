@@ -1,13 +1,19 @@
-%h1 Listing ios_users
+%h1 iOS Users
 
-%table
-  %tr
-    %th Token
-    %th State
-    %th
+%hr
 
-  - @ios_users.each do |ios_user|
+%table.table.table-striped
+  %thead
     %tr
-      %td= ios_user.token
-      %td= ios_user.state
-      %td= link_to 'Destroy', admin_ios_user_path(ios_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th #
+      %th Token
+      %th State
+      %th
+
+  %tbody
+    - @ios_users.each do |ios_user|
+      %tr
+        %td= ios_user.id
+        %td= ios_user.token
+        %td= ios_user.state
+        %td= admin_destroy_button(admin_ios_user_path(ios_user))

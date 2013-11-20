@@ -13,7 +13,7 @@ class Web::Admin::ReportsControllerTest < ActionController::TestCase
 
   test "should destroy report" do
     r = stub_request(:post, "https://api.twitter.com/1.1/statuses/destroy/#{@report.id_str}.json").
-      to_return(:status => 200, :body => "", :headers => {})
+      to_return(:body => load_fixture("status.json"), :headers => {:content_type => "application/json; charset=utf-8"})
 
     delete :destroy, id: @report
 

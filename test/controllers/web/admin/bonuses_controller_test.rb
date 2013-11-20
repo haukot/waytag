@@ -19,7 +19,7 @@ class Web::Admin::BonusesControllerTest < ActionController::TestCase
   test "should create bonus" do
     post :create, bonus: { description: @bonus.description, title: @bonus.title }
 
-    assert_redirected_to admin_bonus_path(assigns(:bonus))
+    assert_redirected_to admin_bonuses_path
   end
 
   test "should get edit" do
@@ -29,7 +29,7 @@ class Web::Admin::BonusesControllerTest < ActionController::TestCase
 
   test "should update bonus" do
     patch :update, id: @bonus, bonus: { description: @bonus.description, title: @bonus.title }
-    assert_redirected_to admin_bonus_path(assigns(:bonus))
+    assert_redirected_to admin_bonuses_path
   end
 
   test "should destroy bonus" do

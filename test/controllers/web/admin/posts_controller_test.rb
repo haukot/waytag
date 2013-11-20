@@ -19,7 +19,7 @@ class Web::Admin::PostsControllerTest < ActionController::TestCase
   test "should create post" do
     post :create, post: { content: @post.content, published_at: @post.published_at, seo_description: @post.seo_description, seo_keywords: @post.seo_keywords, seo_name: @post.seo_name, state: @post.state, title: @post.title, user_name: @post.user_name }
 
-    assert_redirected_to admin_post_path(assigns(:post))
+    assert_redirected_to admin_posts_path
   end
 
   test "should get edit" do
@@ -29,7 +29,7 @@ class Web::Admin::PostsControllerTest < ActionController::TestCase
 
   test "should update post" do
     patch :update, id: @post, post: { content: @post.content, published_at: @post.published_at, seo_description: @post.seo_description, seo_keywords: @post.seo_keywords, seo_name: @post.seo_name, state: @post.state, title: @post.title, user_name: @post.user_name }
-    assert_redirected_to admin_post_path(assigns(:post))
+    assert_redirected_to admin_posts_path
   end
 
   test "should destroy post" do

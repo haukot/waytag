@@ -1,20 +1,22 @@
-%h1 Listing partners
+%h1 Partners
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th
-    %th
-    %th
+%hr
 
-  - @partners.each do |partner|
+= link_to 'New Partner', new_admin_partner_path, right_button_params
+
+%table.table.table-striped
+  %thead
     %tr
-      %td= partner.title
-      %td= partner.description
-      %td= link_to 'Edit', edit_admin_partner_path(partner)
-      %td= link_to 'Destroy', admin_partner_path(partner), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th #
+      %th Title
+      %th Description
+      %th
 
-%br
+  %tbody
+    - @partners.each do |partner|
+      %tr
+        %td= partner.id
+        %td= partner.title
+        %td= partner.description
+        %td= edit_and_destroy_buttons(edit_admin_partner_path(partner), admin_partner_path(partner))
 
-= link_to 'New Partner', new_admin_partner_path

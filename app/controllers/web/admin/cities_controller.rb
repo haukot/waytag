@@ -20,7 +20,7 @@ class Web::Admin::CitiesController < Web::Admin::ApplicationController
     @city = City.new(city_params)
 
     if @city.save
-      redirect_to admin_city_path(@city), notice: 'City was successfully created.'
+      redirect_to admin_cities_path, notice: 'City was successfully created.'
     else
       render action: 'new'
     end
@@ -29,7 +29,7 @@ class Web::Admin::CitiesController < Web::Admin::ApplicationController
   # PATCH/PUT /cities/1
   def update
     if @city.update(city_params)
-      redirect_to admin_city_path(@city), notice: 'City was successfully updated.'
+      redirect_to admin_cities_path, notice: 'City was successfully updated.'
     else
       render action: 'edit'
     end
