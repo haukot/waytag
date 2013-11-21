@@ -11,7 +11,7 @@ xml.rss :version => "2.0" do
         xml.title message.text
         xml.description ""
         xml.pubDate message.created_at.to_s(:rfc822)
-        xml.link "https://twitter.com/#{message.city.twitter}/status/#{message.id_str}"
+        xml.link "https://twitter.com/#{message.city.twitter_name}/status/#{message.id_str}"
       end
     end
   end

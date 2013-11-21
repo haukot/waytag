@@ -15,8 +15,13 @@ Waytag::Application.routes.draw do
     get "/:id" => "messages#feed"
   end
 
+  match 'auth/:provider/callback', to: 'web/admin/sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+
   scope module: :web do
     namespace :admin do
+      resource :session, only: [:new, :create, :destroy]
+
       concern :sourceable do
         patch :on
         patch :off

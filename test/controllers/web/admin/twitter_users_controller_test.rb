@@ -2,6 +2,9 @@ require 'test_helper'
 
 class Web::Admin::TwitterUsersControllerTest < ActionController::TestCase
   setup do
+    user = create :twitter_user, screen_name: "8xx8ru"
+    sign_in user
+
     @twitter_user = create :twitter_user
   end
 

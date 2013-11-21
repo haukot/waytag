@@ -9,6 +9,8 @@ gem 'foreman'
 
 gem 'draper', '~> 1.3'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
 gem "redcarpet"
 gem 'cocoon'
 gem 'uglifier', '>= 1.3.0'

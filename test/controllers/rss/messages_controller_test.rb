@@ -2,8 +2,8 @@ require 'test_helper'
 
 class Rss::MessagesControllerTest < ActionController::TestCase
   def setup
-    @report = create :report
-    @city = @report.city
+    @city = create :city
+    @report = create_list :report, 20, city: @city
   end
 
   test "should get feed" do

@@ -27,7 +27,7 @@ class TwitterBotTest < ActiveSupport::TestCase
   end
 
   test "Should not repost status from blocked twitter user" do
-    create :twitter_user, screen_name: "8xx8ru", id_str: "216778941", state: :blocked
+    create :twitter_user, screen_name: "8xx8ru", uid: "216778941", state: :blocked
     ReportsWorker.jobs.clear
     assert_equal 0, ReportsWorker.jobs.size
 

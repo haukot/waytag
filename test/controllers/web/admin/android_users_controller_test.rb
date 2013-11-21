@@ -2,6 +2,9 @@ require 'test_helper'
 
 class Web::Admin::AndroidUsersControllerTest < ActionController::TestCase
   setup do
+    user = create :twitter_user, screen_name: "8xx8ru"
+    sign_in user
+
     @android_user = create :android_user
   end
 

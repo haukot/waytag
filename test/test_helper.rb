@@ -19,6 +19,7 @@ SimpleCov.start 'rails'
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
+  include AuthHelper
   include FactoryGirl::Syntax::Methods
   include Wrong
 end

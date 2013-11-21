@@ -6,7 +6,7 @@ class TextComposerTest < ActiveSupport::TestCase
   def test_compose_with_twitetr_via
     source_text = "На Локомотивной 67 дежурит отряд ДПС. Соблюдайте скоростной режим."
     city = create :city
-    user = create :twitter_user, name: "8xx8"
+    user = create :twitter_user, screen_name: "8xx8"
 
     report = create :report, source_text: source_text, sourceable: user, time: "2013-09-13 10:45"
     text = TextComposer.compose report
