@@ -1,54 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="261.35028"
-   height="63.732368"
-   id="svg4078">
-  <defs
-     id="defs4080" />
-  <style type="text/css">
-     <![CDATA[
-      @font-face {
-          font-family: "Russian Road Sign";
-          src: url('/assets/russianroadsign-medium.otf');
-      }
-     ]]>
-    </style>
-  <metadata
-     id="metadata4083">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     transform="translate(-244.32485,-500.496)"
-     id="layer1">
-    <text
-       x="303.8959"
-       y="548.29608"
-       id="text3934-1"
-       xml:space="preserve"
-       style="font-size:20.43964005px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"><tspan
-         x="303.8959"
-         y="548.29608"
-         id="tspan3936-5"
-         style="font-size:66.42884064px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium">ULWAY</tspan></text>
-    <path
-       d="m 268.77307,500.496 c -6.52468,0 -13.05013,2.48138 -18.02829,7.45954 -9.95633,9.95632 -7.04019,23.86264 0,36.05658 7.39607,12.81037 15.167,20.21625 18.02829,20.21625 2.86127,0 11.6485,-10.09881 18.02829,-20.21625 7.51024,-11.9102 9.9563,-26.10026 0,-36.05658 -4.97817,-4.97815 -11.50362,-7.45954 -18.02829,-7.45954 z m -6.47432,10.04415 6.21841,0 -1.33069,8.89259 7.10128,0 1.33069,-8.89259 6.23121,0 -1.34348,8.89259 4.88773,0 0,5.33556 -5.77059,0 -0.88286,7.10127 4.87493,0 0,5.33556 -5.77059,0 -1.33069,8.87979 -6.21842,0 1.33069,-8.87979 -7.11407,0 -1.33069,8.87979 -6.21842,0 1.33069,-8.87979 -4.88772,0 0,-5.33556 5.78338,0 0.88286,-7.10127 -4.88773,0 0,-5.33556 5.78339,0 1.33069,-8.89259 z m 3.99207,14.22815 -0.88286,7.10127 7.10127,0 0.89566,-7.10127 -7.11407,0 z"
-       id="path3841-1-9-1-5"
-       style="fill:#ffffff;fill-opacity:1;stroke:none" />
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1076px" height="262px" viewBox="0 0 1076 262" enable-background="new 0 0 1076 262" xml:space="preserve">
+<path fill="#FFFFFF" d="M269.621,43.388V146.37c0,1.922,1.922,51.491,55.335,51.491c53.331,0,55.253-49.569,55.253-51.491V43.388
+	h-26.665v104.904c0,20.982-17.138,28.587-28.587,28.587c-11.454,0-28.587-7.606-28.587-28.587V43.388H269.621z M429.737,195.94
+	h95.371v-22.904h-68.624V43.388h-26.747V195.94z M593.717,43.388h-28.587l32.349,152.551h30.514l24.82-100.502l24.749,100.502
+	h30.509l32.431-152.551h-28.587l-20.982,108.184L666.108,43.388h-26.665l-22.904,106.503h-1.599L593.717,43.388z M828.309,142.527
+	l19.137-64.785l19.06,64.785H828.309z M832.153,43.388L782.584,195.94h28.587l9.527-30.509h53.413l9.527,30.509h28.593
+	L862.662,43.388H832.153z M997.793,195.94h26.747v-61.024l47.647-91.528h-30.514l-30.509,62.94l-30.509-62.94h-30.509l47.647,91.528
+	V195.94z"/>
+<path fill="#FFFFFF" d="M100.875-0.056c-26.747,0-53.51,10.173-73.913,30.591c-40.821,40.821-28.869,97.836,0,147.826
+	c30.309,52.531,62.182,82.882,73.913,82.882c11.731,0,47.745-41.4,73.913-82.882c30.791-48.826,40.821-107.005,0-147.826
+	C154.37,10.117,127.622-0.056,100.875-0.056L100.875-0.056z M74.327,41.128h25.487l-5.443,36.454h29.105l5.468-36.454h25.543
+	l-5.504,36.454h20.039v21.879H145.36l-3.623,29.11h19.998v21.884h-23.662l-5.468,36.413h-25.481l5.443-36.413H83.399l-5.448,36.413
+	H52.449l5.463-36.413H37.873v-21.884h23.703l3.623-29.11H45.161V77.582h23.703L74.327,41.128z M90.686,99.461l-3.603,29.11h29.105
+	l3.664-29.11H90.686z"/>
 </svg>

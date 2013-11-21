@@ -21,6 +21,7 @@ class TwitterBot
         tweet = TweetPopulator.new(status).populate
 
         return unless tweet
+        p tweet.twitter_user
         return if tweet.twitter_user.blocked?
 
         if tweet.contains_bad_data?

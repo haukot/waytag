@@ -1,8 +1,16 @@
 class Web::CitiesController < Web::ApplicationController
+  layout "web/city", only: :show
+
   before_filter :redirect_if_city_defined!
 
   def index
     @cities = City.all
+  end
+
+  def show
+    @city = City.friendly.find params[:id]
+
+    @reports = @city.reports.latest_posted
   end
 
   def redirect_if_city_defined!

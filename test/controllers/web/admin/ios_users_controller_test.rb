@@ -5,6 +5,26 @@ class Web::Admin::IosUsersControllerTest < ActionController::TestCase
     @ios_user = create :ios_user
   end
 
+  test "should patch on" do
+    @ios_user.deactivate
+
+    patch :on, ios_user_id: @ios_user
+    assert_response :success
+
+    @ios_user.reload
+    assert { @ios_user.active? == true}
+  end
+
+  test "should patch off" do
+    @ios_user.activate
+
+    patch :off, ios_user_id: @ios_user
+    assert_response :success
+
+    @ios_user.reload
+    assert { @ios_user.blocked? == true}
+  end
+
   test "should get index" do
     get :index
     assert_response :success

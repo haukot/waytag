@@ -14,7 +14,6 @@ class ReportsService
       end
 
       report.try_approve!
-      p report
 
       if report.wating_post?
         PostWorker.perform_async(report.id)

@@ -5,6 +5,26 @@ class Web::Admin::ReportsControllerTest < ActionController::TestCase
     @report = create :report
   end
 
+  test "should patch good" do
+    patch :good, id: @report
+    assert_response :redirect
+  end
+
+  test "should patch bad" do
+    patch :bad, id: @report
+    assert_response :redirect
+  end
+
+  test "should patch publish" do
+    PostWorker.jobs.clear
+    assert_equal 0, PostWorker.jobs.size
+
+    patch :publish, id: @report
+    assert_response :redirect
+
+    assert_equal 1, PostWorker.jobs.size
+  end
+
   test "should get index" do
     get :index
     assert_response :success

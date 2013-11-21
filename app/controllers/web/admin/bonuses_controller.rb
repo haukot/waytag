@@ -3,7 +3,9 @@ class Web::Admin::BonusesController < Web::Admin::ApplicationController
 
   # GET /bonuses
   def index
-    @bonuses = Bonus.all
+    query = params[:q] || {}
+    @search = Bonus.ransack query
+    @bonuses = @search.result.page(params[:page])
   end
 
   # GET /bonuses/new

@@ -2,12 +2,18 @@
 
 %hr
 
+= simple_form_for @search, default_search_form_options(url: admin_ios_users_path) do |f|
+  = f.input :token_matches
+  = f.submit class: 'btn', value: "Search"
+
+= paginate @ios_users
+
 %table.table.table-striped
   %thead
     %tr
       %th #
-      %th Token
-      %th State
+      %th= sort_link @search, :token, "Token"
+      %th= sort_link @search, :state, "State"
       %th
 
   %tbody
@@ -16,4 +22,8 @@
         %td= ios_user.id
         %td= ios_user.token
         %td= ios_user.state
-        %td= admin_destroy_button(admin_ios_user_path(ios_user))
+        %td
+          .btn-group.pull-right
+            = ios_user.activate_or_block_link
+            = admin_destroy_button(admin_ios_user_path(ios_user))
+

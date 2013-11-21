@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    = render 'layouts/web/shared/head'
+    = include_gon
+  %body
+    = render partial: 'layouts/web/cities/menu', locals: { city: @city }
+    = yield
+    = render :partial => 'layouts/web/shared/footer'

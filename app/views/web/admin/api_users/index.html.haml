@@ -2,12 +2,18 @@
 
 %hr
 
+= simple_form_for @search, default_search_form_options(url: admin_api_users_path) do |f|
+  = f.input :token_matches
+  = f.submit class: 'btn', value: "Search"
+
+= paginate @api_users
+
 %table.table.table-striped
   %thead
     %tr
       %th #
-      %th Token
-      %th State
+      %th= sort_link @search, :token, "Token"
+      %th= sort_link @search, :state, "State"
       %th
 
   %tbody
@@ -16,4 +22,7 @@
         %td= api_user.id
         %td= api_user.token
         %td= api_user.state
-        %td= admin_destroy_button(admin_api_user_path(api_user))
+        %td
+          .btn-group.pull-right
+            = api_user.activate_or_block_link
+            = admin_destroy_button(admin_api_user_path(api_user))

@@ -1,0 +1,6 @@
+= nav_bar fixed: :top do
+  = menu_group do
+    = menu_item "Города", root_path
+    = drop_down city.name do
+      - city.cities_to_go.each do |sub_city|
+        = menu_item sub_city.name, city_path(sub_city)

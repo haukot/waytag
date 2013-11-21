@@ -1,11 +1,10 @@
 class Web::Cities::BonusesController < Web::Cities::ApplicationController
   # GET /bonuses
   def index
-    @bonuses = resource_city.bonuses
+    query = params[:q] || {}
+    @search = resource_city.bonuses.ransack query
+    @bonuses = @search.result.page(params[:page])
+
   end
 
-  # GET /bonuses/1
-  def show
-    @bonus = resource_city.bonuses.find(params[:id])
-  end
 end

@@ -5,6 +5,7 @@ class ReportsServiceTest < ActiveSupport::TestCase
 
   setup do
     @text = "На Локомотивной 67 дежурит отряд ДПС. Соблюдайте скоростной режим."
+    ClassifierFeatures.destroy_all
 
     Classifier.train(@text, :good)
     Classifier.train(@text, :good)
@@ -14,13 +15,13 @@ class ReportsServiceTest < ActiveSupport::TestCase
 
   test "perform" do
     PostWorker.jobs.clear
-    assert_equal 0, Report.count
-    assert_equal 0, PostWorker.jobs.size
+    assert { 0 == Report.count }
+    assert { 0 == PostWorker.jobs.size }
 
     report = create :report, text: "", source_text: @text
     ReportsService.perform(report.id)
 
-    assert_equal 1, PostWorker.jobs.size
+    assert { 1 == PostWorker.jobs.size }
   end
 
 end

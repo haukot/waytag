@@ -1,9 +1,13 @@
 class Web::Admin::AndroidUsersController < Web::Admin::ApplicationController
-  before_action :set_android_user, except: :index
+  include SourceableController
+
+  before_action :set_android_user, except: [:index, :on, :off]
 
   # GET /android_users
   def index
-    @android_users = AndroidUser.all
+    query = params[:q] || {}
+    @search = AndroidUser.ransack query
+    @android_users = @search.result.page(params[:page]).decorate
   end
 
   # DELETE /android_users/1
@@ -16,5 +20,9 @@ class Web::Admin::AndroidUsersController < Web::Admin::ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_android_user
       @android_user = AndroidUser.find(params[:id])
+    end
+
+    def sourceable
+      @sourceable = AndroidUser.find params[:android_user_id]
     end
 end

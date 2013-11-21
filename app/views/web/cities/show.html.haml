@@ -1,0 +1,20 @@
+.tweets-block
+  .container
+    - if @reports.any?
+      - @reports.each do |report|
+        .tweet
+          %span.info
+            %span.nick
+              - if report.mentor
+                = "@#{report.mentor}"
+            - if report.avatar
+              %img{:src => report.avatar, :alt => "", width: 20, height: 20 }
+            - else
+              = image_tag("avatar_ulway_20.png", size: "20x20")
+          %span.text
+            != markdown.render(report.text_without_via)
+
+-#= render :partial => 'layouts/web/shared/info'
+-#= render :partial => 'layouts/web/shared/form'
+-#= render :partial => 'layouts/web/shared/radio'
+-#= render :partial => 'layouts/web/shared/bonuses'

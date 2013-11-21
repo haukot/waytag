@@ -5,12 +5,12 @@ module Sourceable
     has_many :reports
 
     state_machine :state, initial: :active do
-      event :block do
+      event :deactivate do
         transition active: :blocked
       end
 
       event :activate do
-        transition blocked: :acitve
+        transition blocked: :active
       end
     end
   end

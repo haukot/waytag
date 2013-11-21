@@ -1,26 +1,50 @@
 # encoding: utf-8
-#User.find_or_create_by_login "admin", password: "admin"
 
-ul = City.find_or_create_by name: "Ульяновск", twitter_name: "@ulway", email: "ul@waytag.ru", slug: "ul", hashtag: "ulway"
+ul = City.find_or_create_by name: "Ульяновск", twitter_name: "@Ulway", email: "ul@waytag.ru", slug: "ul", hashtag: "ulway"
 
-YAML.load_file( 'db/streets-ul.yml' ).each do |street|
-  City::Street.where(city_id: ul.id, name: street["name"].downcase, rate: street["rate"]).first_or_create
+City.find_or_create_by name: "Чебоксары", twitter_name: "@Chebway", email: "cheb@waytag.ru", slug: "cheb", hashtag: "chebway"
+
+City.find_or_create_by name: "Пермь", twitter_name: "@Perm_way", email: "perm@waytag.ru", slug: "perm", hashtag: "permway"
+
+City.find_or_create_by name: "Екатеринбург", twitter_name: "@Ekbway", email: "ekbway@waytag.ru", slug: "ekb", hashtag: "ekbway"
+
+City.find_each do |city|
+  if city.streets.any?
+    YAML.load_file( "db/streets-#{city.slug}.yml" ).each do |street|
+      ul.streets.find_or_create_by( name: street["name"].downcase, rate: street["rate"] )
+    end
+  end
+
+  user = TwitterService.populate_user city.twitter_name.gsub(/@/, '')
+  user.deactivate
 end
 
-cheb = City.find_or_create_by name: "Чебоксары", twitter_name: "@chebway", email: "cheb@waytag.ru", slug: "cheb", hashtag: "chebway"
+if Rails.env.development?
+  FactoryGirl.reload
+  FactoryGirlSequences.reload
 
-YAML.load_file( 'db/streets-cheb.yml' ).each do |street|
-  City::Street.where(city_id: cheb.id, name: street["name"].downcase, rate: street["rate"]).first_or_create
-end
+  user = TwitterService.populate_user "vdv73rus"
+  FactoryGirl.create_list :report, 5, sourceable: user, city: ul, source_kind: :mentions
 
-perm = City.find_or_create_by name: "Пермь", twitter_name: "@Perm_way", email: "perm@waytag.ru", slug: "perm", hashtag: "permway"
+  user = TwitterService.populate_user "8xx8ru"
+  FactoryGirl.create_list :report, 5, sourceable: user, city: ul, source_kind: :hashtag
 
-YAML.load_file( 'db/streets-perm.yml' ).each do |street|
-  City::Street.where(city_id: perm.id, name: street["name"].downcase, rate: street["rate"]).first_or_create
-end
+  user = FactoryGirl.create_list :ios_user, 26
+  FactoryGirl.create_list :report, 5, sourceable: user.first, city: ul, source_kind: :ios
 
-ekb = City.find_or_create_by name: "Екатеринбург", twitter_name: "@Ekbway", email: "ekbway@waytag.ru", slug: "ekb", hashtag: "ekbway"
+  user = FactoryGirl.create_list :api_user, 26
+  FactoryGirl.create_list :report, 5, sourceable: user.first, city: ul, source_kind: :api
 
-YAML.load_file( 'db/streets-ekb.yml' ).each do |street|
-  City::Street.where(city_id: ekb.id, name: street["name"].downcase, rate: street["rate"]).first_or_create
+  user = FactoryGirl.create_list :android_user, 26
+  FactoryGirl.create_list :report, 5, sourceable: user.first, city: ul, source_kind: :android
+
+  FactoryGirl.create_list :post, 26
+  FactoryGirl.create_list :bonus, 26, city: ul
+  FactoryGirl.create_list :partner, 26, city: ul
+
+  Report.find_each do |report|
+    report.text = TextComposer.compose(report)
+    report.time = Time.now + rand(5).hours + rand(60).minutes
+    report.save
+  end
 end

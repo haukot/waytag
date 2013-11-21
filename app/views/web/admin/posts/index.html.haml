@@ -2,21 +2,22 @@
 
 %hr
 
+= paginate @posts
+
 = link_to 'New Post', new_admin_post_path, right_button_params
 
 %table.table.table-striped
   %thead
     %tr
       %th #
-      %th User name
-      %th Title
+      %th= sort_link @search, :user_name, "User name"
+      %th= sort_link @search, :title, "Title"
       %th Content
-      %th State
-      %th Published at
-      %th Seo name
-      %th Seo keywords
-      %th Seo description
-      %th
+      %th= sort_link @search, :state, "State"
+      %th= sort_link @search, :published_at, "Published at"
+      %th= sort_link @search, :seo_name, "Seo name"
+      %th= sort_link @search, :seo_keywords, "Seo keywords"
+      %th= sort_link @search, :seo_description, "Seo description"
       %th
 
   %tbody

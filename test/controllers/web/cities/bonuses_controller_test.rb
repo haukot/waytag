@@ -12,8 +12,4 @@ class Web::Cities::BonusesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:bonuses)
   end
 
-  test "should get show" do
-    get :show, id: @bonus, city_id: @city.id
-    assert_response :success
-  end
 end

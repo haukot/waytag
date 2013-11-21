@@ -17,27 +17,36 @@ Waytag::Application.routes.draw do
 
   scope module: :web do
     namespace :admin do
+      concern :sourceable do
+        patch :on
+        patch :off
+      end
+
       root to: 'reports#index'
 
       resources :posts, only: [:index, :edit, :new, :create, :update, :destroy]
 
-      resources :reports, only: [:index, :destroy]
+      resources :reports, only: [:index, :destroy] do
+        patch :good, on: :member
+        patch :bad, on: :member
+        patch :publish, on: :member
+      end
 
       resources :partners, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :cities, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :bonuses, only: [:index, :edit, :new, :create, :update, :destroy]
 
-      resources :ios_users, only: [:index, :destroy]
-      resources :android_users, only: [:index, :destroy]
-      resources :api_users, only: [:index, :destroy]
-      resources :twitter_users, only: [:index, :destroy]
+      resources :ios_users, only: [:index, :destroy], concerns: :sourceable
+      resources :android_users, only: [:index, :destroy], concerns: :sourceable
+      resources :api_users, only: [:index, :destroy], concerns: :sourceable
+      resources :twitter_users, only: [:index, :destroy, :create], concerns: :sourceable
     end
 
     root to: 'cities#index'
 
-    resources :cities, only: :index, path: '/' do
+    resources :cities, only: [:index, :show], path: '/' do
       scope module: :cities do
-        resources :reports, only: [:index, :create]
+        resources :reports, only: :create
 
         resources :partners, only: [:index, :show]
         resources :bonuses, only: [:index, :show]

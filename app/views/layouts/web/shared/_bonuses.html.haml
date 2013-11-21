@@ -1,5 +1,6 @@
-.bonus-block
-  %h2 Оффлайн-бонусы автомобилям с наклейками
-  = image_tag("sticker#{@resource_city.slug}.svg", class: "sticker")
-  %h2.all-bonuses
-    = link_to 'Все бонусы', city_bonuses_path(@resource_city)
+- if resource_city.slug == 'ul'
+  .bonus-block
+    %h2 Оффлайн-бонусы автомобилям с наклейками
+    = image_tag("sticker#{resource_city.slug}.svg", class: "sticker")
+    %h2.all-bonuses
+      = link_to 'Все бонусы', city_bonuses_path(resource_city)

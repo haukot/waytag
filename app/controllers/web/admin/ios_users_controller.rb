@@ -1,9 +1,13 @@
 class Web::Admin::IosUsersController < Web::Admin::ApplicationController
-  before_action :set_ios_user, except: :index
+  include SourceableController
+
+  before_action :set_ios_user, except: [:index, :on, :off]
 
   # GET /ios_users
   def index
-    @ios_users = IosUser.all
+    query = params[:q] || {}
+    @search = IosUser.ransack query
+    @ios_users = @search.result.page(params[:page]).decorate
   end
 
   # DELETE /ios_users/1
@@ -18,8 +22,7 @@ class Web::Admin::IosUsersController < Web::Admin::ApplicationController
       @ios_user = IosUser.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def ios_user_params
-      params.require(:ios_user).permit(:token, :state)
+    def sourceable
+      @sourceable = IosUser.find params[:ios_user_id]
     end
 end

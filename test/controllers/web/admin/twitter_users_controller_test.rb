@@ -5,6 +5,26 @@ class Web::Admin::TwitterUsersControllerTest < ActionController::TestCase
     @twitter_user = create :twitter_user
   end
 
+  test "should patch on" do
+    @twitter_user.deactivate
+
+    patch :on, twitter_user_id: @twitter_user
+    assert_response :success
+
+    @twitter_user.reload
+    assert { @twitter_user.active? == true}
+  end
+
+  test "should patch off" do
+    @twitter_user.activate
+
+    patch :off, twitter_user_id: @twitter_user
+    assert_response :success
+
+    @twitter_user.reload
+    assert { @twitter_user.blocked? == true}
+  end
+
   test "should get index" do
     get :index
     assert_response :success

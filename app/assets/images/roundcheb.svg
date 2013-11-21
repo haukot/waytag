@@ -1,83 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   version="1.1"
-   width="163.0625"
-   height="163.09375"
-   id="svg3564">
-  <defs
-     id="defs3566">
-    <style type="text/css">
-     <![CDATA[
-      @font-face {
-          font-family: "Russian Road Sign";
-          src: url('/assets/russianroadsign-medium.otf');
-      }
-     ]]>
-    </style>
-    <linearGradient
-       x1="565.78955"
-       y1="587.59021"
-       x2="564.79279"
-       y2="431.86737"
-       id="linearGradient4194"
-       xlink:href="#linearGradient4176"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       id="linearGradient4176">
-      <stop
-         id="stop4178"
-         style="stop-color:#aa0000;stop-opacity:1"
-         offset="0" />
-      <stop
-         id="stop4180"
-         style="stop-color:#ff0000;stop-opacity:1"
-         offset="1" />
-    </linearGradient>
-    <linearGradient
-       x1="565.78955"
-       y1="587.59021"
-       x2="564.79279"
-       y2="431.86737"
-       id="linearGradient3562"
-       xlink:href="#linearGradient4176"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-189.97833,22.350894)" />
-  </defs>
-  <metadata
-     id="metadata3569">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     transform="translate(-293.46875,-450.8125)"
-     id="layer1">
-    <path
-       d="m 448.5391,532.36218 a 73.539101,73.539101 0 1 1 -147.0782,0 73.539101,73.539101 0 1 1 147.0782,0 z"
-       id="path3068-3"
-       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient3562);stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-    <text
-       x="376.20758"
-       y="539.09869"
-       id="text3899-8-0-9"
-       xml:space="preserve"
-       style="font-size:29.15284157px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:160.00000238%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium"><tspan
-         x="376.20758"
-         y="539.09869"
-         id="tspan3040-7-7">CHEBWAY</tspan></text>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="svg3564" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="163.062px"
+	 height="163.094px" viewBox="0 0 163.062 163.094" enable-background="new 0 0 163.062 163.094" xml:space="preserve">
+<g id="layer1" transform="translate(-293.46875,-450.8125)">
+	
+		<linearGradient id="path3068-3_1_" gradientUnits="userSpaceOnUse" x1="858.9437" y1="27.314" x2="857.947" y2="183.0369" gradientTransform="matrix(1 0 0 -1 -483.4471 637.2571)">
+		<stop  offset="0" style="stop-color:#AA0000"/>
+		<stop  offset="1" style="stop-color:#FF0000"/>
+	</linearGradient>
+	<path id="path3068-3" fill="#FFFFFF" stroke="url(#path3068-3_1_)" stroke-width="16" d="M448.539,532.362
+		c0,40.615-32.925,73.539-73.539,73.539s-73.539-32.925-73.539-73.539c-0.02-40.615,32.888-73.555,73.503-73.575
+		s73.555,32.888,73.575,73.503C448.539,532.314,448.539,532.338,448.539,532.362L448.539,532.362z"/>
+	<g enable-background="new    ">
+		<path d="M328.561,526.852l-2.741,1.021c-0.612-2.041-1.665-2.857-3.179-2.857c-2.245,0-3.878,2.245-3.878,5.919
+			c0,3.675,1.633,5.92,3.878,5.92c1.514,0,2.566-0.816,3.179-2.857l2.741,1.021c-1.021,2.653-2.817,4.49-5.919,4.49
+			c-4.49,0-6.648-3.838-6.648-8.573c0-4.734,2.158-8.572,6.648-8.572C325.744,522.361,327.541,524.198,328.561,526.852z"/>
+		<path d="M333.048,522.77h2.858v6.531h6.124v-6.531h2.857v16.329h-2.857v-7.349h-6.124v7.349h-2.858V522.77z"/>
+		<path d="M350.189,522.77h10.206v2.653h-7.348v3.878h5.919v2.449h-5.919v4.899h7.552v2.449h-10.41V522.77z"/>
+		<path d="M372.23,522.77c3.062,0,4.782,2.333,4.782,4.49c0,1.225-0.903,2.653-2.332,3.266c1.633,0.612,2.857,1.837,2.857,3.675
+			c0,2.653-2.245,4.898-5.278,4.898h-6.357V522.77H372.23z M368.76,529.418h3.266c1.225,0,2.042-0.875,2.042-2.1
+			c0-1.429-1.021-2.1-2.042-2.1h-3.266V529.418z M368.76,536.649h3.47c1.633,0,2.45-1.283,2.45-2.449c0-1.167-0.816-2.45-2.45-2.45
+			h-3.47V536.649z"/>
+		<path d="M387.36,534.171h0.175l2.449-11.401h2.857l2.653,11.576l2.246-11.576h3.062l-3.47,16.329h-3.267l-2.653-10.76
+			l-2.653,10.76h-3.266l-3.471-16.329h3.062L387.36,534.171z"/>
+		<path d="M413.86,522.77l5.307,16.329h-3.062l-1.021-3.266h-5.715l-1.021,3.266h-3.062l5.308-16.329H413.86z M414.269,533.384
+			l-2.041-6.94l-2.041,6.94H414.269z"/>
+		<path d="M428.349,532.567l-5.104-9.798h3.267l3.266,6.735l3.266-6.735h3.266l-5.103,9.798v6.531h-2.857V532.567z"/>
+	</g>
+</g>
 </svg>

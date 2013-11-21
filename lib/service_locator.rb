@@ -29,12 +29,12 @@ class ServiceLocator
 
       key = city.to_sym
 
-      @rest_clients[key] ||= Twitter::Client.new(
-        :consumer_key =>          configus.twitter[key].consumer_key,
-        :consumer_secret =>       configus.twitter[key].consumer_secret,
-        :oauth_token =>           configus.twitter[key].oauth_token,
-        :oauth_token_secret =>    configus.twitter[key].oauth_token_secret
-      )
+      @rest_clients[key] ||= Twitter::REST::Client.new do |config|
+        config.consumer_key =           configus.twitter[key].consumer_key
+        config.consumer_secret =        configus.twitter[key].consumer_secret
+        config.access_token =           configus.twitter[key].oauth_token
+        config.access_token_secret =    configus.twitter[key].oauth_token_secret
+      end
 
       @rest_clients[key]
     end

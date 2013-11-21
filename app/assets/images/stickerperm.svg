@@ -1,54 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="349.18689"
-   height="63.732368"
-   id="svg4179">
-  <defs
-     id="defs4181" />
-  <style type="text/css">
-     <![CDATA[
-      @font-face {
-          font-family: "Russian Road Sign";
-          src: url('/assets/russianroadsign-medium.otf');
-      }
-     ]]>
-    </style>
-  <metadata
-     id="metadata4184">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     transform="translate(-200.40655,-500.496)"
-     id="layer1">
-    <text
-       x="259.97763"
-       y="548.29608"
-       id="text3934-1-6-4"
-       xml:space="preserve"
-       style="font-size:20.43964005px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"><tspan
-         x="259.97763"
-         y="548.29608"
-         id="tspan3936-5-5-7"
-         style="font-size:66.42884064px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium">PERMWAY</tspan></text>
-    <path
-       d="m 224.85477,500.496 c -6.52468,0 -13.05013,2.48138 -18.02829,7.45954 -9.95633,9.95632 -7.04018,23.86264 0,36.05658 7.39607,12.81037 15.167,20.21625 18.02829,20.21625 2.86128,0 11.64851,-10.09881 18.02829,-20.21625 7.51025,-11.9102 9.95631,-26.10026 0,-36.05658 -4.97816,-4.97815 -11.50361,-7.45954 -18.02829,-7.45954 z m -6.47432,10.04415 6.21842,0 -1.33069,8.89259 7.10128,0 1.33069,-8.89259 6.23121,0 -1.34349,8.89259 4.88773,0 0,5.33556 -5.77059,0 -0.88286,7.10127 4.87493,0 0,5.33556 -5.77059,0 -1.33069,8.87979 -6.21841,0 1.33069,-8.87979 -7.11408,0 -1.33069,8.87979 -6.21841,0 1.33069,-8.87979 -4.88773,0 0,-5.33556 5.78338,0 0.88287,-7.10127 -4.88773,0 0,-5.33556 5.78338,0 1.33069,-8.89259 z m 3.99207,14.22815 -0.88286,7.10127 7.10128,0 0.89565,-7.10127 -7.11407,0 z"
-       id="path3841-1-9-1-5-1-9"
-       style="fill:#ffffff;fill-opacity:1;stroke:none" />
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1076px" height="262px" viewBox="0 0 1076 262" enable-background="new 0 0 1076 262" xml:space="preserve">
+<path fill="#FFFFFF" d="M202.083,64.712v114.473h20.072v-40.082h18.568c22.895,0,38.636-22.895,38.636-37.197
+	c0-14.299-10.034-37.193-38.636-37.193H202.083z M222.154,81.895h12.857c11.48,0,22.895,5.711,22.895,20.01
+	c0,14.303-11.415,20.072-22.895,20.072h-12.857V81.895z M316.648,179.185h73.01v-17.187h-52.939v-34.309h41.462v-17.187h-41.462
+	V83.338h51.496V64.712h-71.568V179.185z M428.267,64.712v114.473h20.072v-45.789h11.418c12.857,0,15.741,7.992,20.852,17.606
+	c5.288,10.215,9.011,22.233,13.461,28.183h24.337c-12.861-5.707-18.568-48.612-37.197-52.938
+	c11.476-4.269,21.452-14.303,21.452-30.048c0-11.418-7.15-31.486-35.755-31.486H428.267z M448.338,81.895h12.861
+	c11.415,0,21.452,4.93,21.452,17.187c0,12.261-10.038,17.126-21.452,17.126h-12.861V81.895z M551.185,179.185h20.01V96.198
+	l34.313,60.092l34.374-60.092l1.442,82.986h18.568V64.712h-22.894l-31.49,52.938l-31.429-52.938h-22.895V179.185z M715.55,64.712
+	h-21.452l24.279,114.473h22.894l18.629-75.414l18.568,75.414h22.895L825.7,64.712h-21.452l-15.745,81.183l-18.629-81.183h-20.01
+	l-17.183,79.921h-1.204L715.55,64.712z M891.576,139.103l14.361-48.612l14.303,48.612H891.576z M894.46,64.712l-37.197,114.473
+	h21.452l7.153-22.895h40.082l7.15,22.895h21.452L917.355,64.712H894.46z M1018.759,179.185h20.071v-45.789l35.755-68.684h-22.895
+	l-22.895,47.231l-22.895-47.231h-22.898l35.755,68.684V179.185z"/>
+<path fill="#FFFFFF" d="M75.453,32.126c-20.072,0-40.155,7.63-55.465,22.941c-30.632,30.632-21.664,73.418,0,110.942
+	c22.745,39.405,46.662,62.195,55.465,62.195c8.803,0,35.844-31.067,55.465-62.195c23.106-36.655,30.632-80.31,0-110.942
+	C115.608,39.756,95.525,32.126,75.453,32.126L75.453,32.126z M55.532,63.027h19.141l-4.104,27.356h21.844l4.104-27.356h19.168
+	l-4.13,27.356h15.037v16.422h-17.756l-2.719,21.845h15.007v16.418h-17.756l-4.104,27.314H80.141l4.084-27.314H62.339l-4.088,27.314
+	H39.114l4.1-27.314H28.176V128.65h17.787l2.719-21.845H33.645V90.383h17.787L55.532,63.027z M67.823,106.805l-2.719,21.845h21.841
+	l2.765-21.845H67.823z"/>
 </svg>

@@ -2,17 +2,22 @@
 class TwitterService
   class << self
     def populate_user(screen_name)
+      user = TwitterUser.find_by_screen_name screen_name
+      return user if user
+
       client = ServiceLocator.waytag_twitter
-      client.user(screen_name).to_json
+      params = client.user(screen_name).to_hash
 
       tup = TwitterUserPopulator.new params
       tup.populate
+    rescue Twitter::Error
+      nil
     end
 
     def destroy(report)
       if report.id_str
         c = client(report.city)
-        c.status_destroy(report.id_str)
+        c.destroy_status(report.id_str.to_i)
       end
     rescue Twitter::Error => e
       Rails.logger.fatal "Twitter error #{e.to_s}"

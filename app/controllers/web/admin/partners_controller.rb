@@ -3,7 +3,9 @@ class Web::Admin::PartnersController < Web::Admin::ApplicationController
 
   # GET /partners
   def index
-    @partners = Partner.all
+    query = params[:q] || {}
+    @search = Partner.ransack query
+    @partners = @search.result.page(params[:page])
   end
 
   # GET /partners/new

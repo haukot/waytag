@@ -1,11 +1,19 @@
 %h1 Android Users
 
+%hr
+
+= simple_form_for @search, default_search_form_options(url: admin_android_users_path) do |f|
+  = f.input :token_matches
+  = f.submit class: 'btn', value: "Search"
+
+= paginate @android_users
+
 %table.table.table-striped
   %thead
     %tr
       %th #
-      %th Token
-      %th State
+      %th= sort_link @search, :token, "Token"
+      %th= sort_link @search, :state, "State"
       %th
 
   %tbody
@@ -14,4 +22,7 @@
         %td= android_user.id
         %td= android_user.token
         %td= android_user.state
-        %td= admin_destroy_button(admin_android_user_path(android_user))
+        %td
+          .btn-group.pull-right
+            = android_user.activate_or_block_link
+            = admin_destroy_button(admin_android_user_path(android_user))

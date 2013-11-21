@@ -5,11 +5,6 @@ class Web::Cities::ReportsControllerTest < ActionController::TestCase
     @city = create :city
   end
 
-  test "should get index" do
-    get :index, city_id: @city.id
-    assert_response :success
-  end
-
   test "should create report" do
     ReportsWorker.jobs.clear
     assert_equal 0, ReportsWorker.jobs.size

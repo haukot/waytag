@@ -5,6 +5,26 @@ class Web::Admin::ApiUsersControllerTest < ActionController::TestCase
     @api_user = create :api_user
   end
 
+  test "should patch on" do
+    @api_user.deactivate
+
+    patch :on, api_user_id: @api_user
+    assert_response :success
+
+    @api_user.reload
+    assert { @api_user.active? == true}
+  end
+
+  test "should patch off" do
+    @api_user.activate
+
+    patch :off, api_user_id: @api_user
+    assert_response :success
+
+    @api_user.reload
+    assert { @api_user.blocked? == true}
+  end
+
   test "should get index" do
     get :index
     assert_response :success

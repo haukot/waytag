@@ -1,110 +1,39 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   version="1.1"
-   width="176.29865"
-   height="224.25"
-   id="svg3744">
-  <defs
-     id="defs3746">
-  <style type="text/css">
-     <![CDATA[
-      @font-face {
-          font-family: "Russian Road Sign";
-          src: url('/assets/russianroadsign-medium.otf');
-      }
-     ]]>
-    </style>
-    <linearGradient
-       x1="124.58441"
-       y1="422.82404"
-       x2="117.90347"
-       y2="199.82404"
-       id="linearGradient4218"
-       xlink:href="#linearGradient4176"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(236.4142,149.62741)" />
-    <linearGradient
-       id="linearGradient4176">
-      <stop
-         id="stop4178"
-         style="stop-color:#aa0000;stop-opacity:1"
-         offset="0" />
-      <stop
-         id="stop4180"
-         style="stop-color:#ff0000;stop-opacity:1"
-         offset="1" />
-    </linearGradient>
-    <linearGradient
-       x1="124.58441"
-       y1="422.82404"
-       x2="117.90347"
-       y2="199.82404"
-       id="linearGradient3742"
-       xlink:href="#linearGradient4176"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-33.584423,-201.17246)" />
-    <linearGradient
-       x1="124.58441"
-       y1="422.82404"
-       x2="117.90347"
-       y2="199.82404"
-       id="linearGradient3893"
-       xlink:href="#linearGradient4176"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(253.25605,219.03813)" />
-  </defs>
-  <metadata
-     id="metadata3749">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     transform="translate(-286.84214,-420.25)"
-     id="layer1">
-    <path
-       d="m 433.65006,452.61378 c 32.53762,32.5376 24.54377,78.90612 0,117.82907 -20.84934,33.06412 -49.56377,66.07092 -58.91454,66.07092 -9.35076,0 -34.74389,-24.20618 -58.91451,-66.07092 -23.00755,-39.85024 -32.5376,-85.29147 0,-117.82907 32.53761,-32.53759 85.29146,-32.53758 117.82905,0"
-       id="path3841-1"
-       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient3893);stroke-width:16;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-    <text
-       x="374.64746"
-       y="511.27869"
-       id="text3899"
-       xml:space="preserve"
-       style="font-size:35.21085739px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:160.00000238%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium"><tspan
-         x="374.64746"
-         y="511.27869"
-         id="tspan3006">WAYTAG</tspan></text>
-    <rect
-       width="104"
-       height="7.1403594"
-       ry="3.5701797"
-       x="324.95602"
-       y="530.17493"
-       id="rect3905"
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:5.45449305;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-    <text
-       x="373.52441"
-       y="582.60608"
-       id="text3899-1"
-       xml:space="preserve"
-       style="font-size:44.97141647px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:160.00000238%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Russian Road Sign;-inkscape-font-specification:Russian Road Sign Medium"><tspan
-         x="373.52441"
-         y="582.60608"
-         id="tspan3006-7">RU</tspan></text>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="svg3744" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="176.299px"
+	 height="224.25px" viewBox="0 0 176.299 224.25" enable-background="new 0 0 176.299 224.25" xml:space="preserve">
+<g>
+	
+		<linearGradient id="path3841-1_1_" gradientUnits="userSpaceOnUse" x1="125.8643" y1="-197.5357" x2="119.1833" y2="25.4643" gradientTransform="matrix(1 0 0 -1 -33.5861 24.0381)">
+		<stop  offset="0" style="stop-color:#AA0000"/>
+		<stop  offset="1" style="stop-color:#FF0000"/>
+	</linearGradient>
+	<path id="path3841-1" fill="#FFFFFF" stroke="url(#path3841-1_1_)" stroke-width="16" d="M146.808,32.364
+		c32.538,32.538,24.544,78.906,0,117.829c-20.849,33.064-49.564,66.071-58.915,66.071s-34.744-24.206-58.915-66.071
+		c-23.008-39.85-32.538-85.291,0-117.829S114.27-0.174,146.808,32.364"/>
+	<path d="M31.153,85.077h0.211l2.958-13.77h3.451l3.205,13.981l2.712-13.981h3.698l-4.191,19.722h-3.944l-3.205-12.995
+		l-3.205,12.995h-3.944l-4.191-19.722h3.698L31.153,85.077z"/>
+	<path d="M63.16,71.307l6.41,19.722h-3.698l-1.232-3.944h-6.903l-1.232,3.944h-3.698l6.409-19.722H63.16z M63.653,84.126
+		l-2.465-8.382l-2.465,8.382H63.653z"/>
+	<path d="M80.659,83.14l-6.163-11.833h3.944l3.944,8.135l3.944-8.135h3.944L84.11,83.14v7.889h-3.451V83.14z"/>
+	<path d="M109.252,71.307v2.958h-5.424v16.764h-3.451V74.265h-5.423v-2.958H109.252z"/>
+	<path d="M124.286,71.307l6.409,19.722h-3.697l-1.232-3.944h-6.903l-1.232,3.944h-3.697l6.409-19.722H124.286z M124.779,84.126
+		l-2.466-8.382l-2.465,8.382H124.779z"/>
+	<path d="M151.153,76.238l-3.311,1.232c-0.74-2.465-2.008-3.451-3.839-3.451c-2.712,0-4.684,2.712-4.684,7.148
+		c0,4.438,1.972,7.149,4.684,7.149c1.232,0,1.972-0.246,2.712-0.986c0.986-0.985,1.232-1.479,1.232-3.204h-3.451v-2.959h7.149v9.861
+		h-2.959l-0.739-1.726c-0.846,1.197-2.043,2.219-3.944,2.219c-5.424,0-8.347-4.648-8.347-10.354c0-5.705,2.923-10.354,8.347-10.354
+		C147.737,70.814,149.92,73.033,151.153,76.238z"/>
+	<path id="rect3905" stroke="#000000" stroke-width="5.4545" d="M41.684,109.925h96.86c1.972,0,3.57,1.598,3.57,3.57l0,0
+		c0,1.972-1.598,3.57-3.57,3.57h-96.86c-1.972,0-3.57-1.598-3.57-3.57l0,0C38.114,111.523,39.712,109.925,41.684,109.925z"/>
+	<g enable-background="new    ">
+		<path d="M72.516,137.175c6.295,0,7.869,4.406,7.869,6.925c0,3.463-2.203,5.666-4.722,6.61c4.092,0.944,5.352,10.388,8.185,11.646
+			h-5.352c-0.982-1.31-1.794-3.979-2.966-6.242c-1.083-2.089-1.755-3.83-4.588-3.83h-2.519v10.072h-4.407v-25.182H72.516z
+			 M68.423,148.507h2.833c2.519,0,4.722-1.08,4.722-3.777c0-2.698-2.203-3.777-4.722-3.777h-2.833V148.507z"/>
+		<path d="M95.81,137.175v17.312c0,3.462,2.833,4.722,4.722,4.722s4.722-1.26,4.722-4.722v-17.312h4.407v16.997
+			c0,0.315-0.315,8.499-9.129,8.499s-9.128-8.184-9.128-8.499v-16.997H95.81z"/>
+	</g>
+</g>
 </svg>

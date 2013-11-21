@@ -1,16 +1,16 @@
 .info-block
   .round-sign-wrap
-    = image_tag("round#{@resource_city.slug}.svg", class: "round-sign")
+    = image_tag("round#{resource_city.slug}.svg", class: "round-sign")
   .info-content
     %p Стоите в пробке? Увидели камеру или инспектора у обочины? Случилось ДТП? Ремонт дороги? Сообщайте обо всём нам! Пусть весь город знает и выбирает более удобные маршруты!
     %p
       Имеете твиттер? Пишите с хештегом
       = succeed ("!") do
-        %span.hash ##{@resource_city.hashtag}
+        %span.hash ##{resource_city.hashtag}
       Ваша информация непременно к нам попадёт!
     %p
       Подписывайтесь на наш твиттер-аккаунт
-      %a(href="https://twitter.com/#{@resource_city.hashtag}" target="_blank") @#{@resource_city.hashtag}
+      %a(href="https://twitter.com/#{resource_city.hashtag}" target="_blank") @#{resource_city.hashtag}
 
 -# if @resource_city.widget
 -#  %div!= @resource_city.widget

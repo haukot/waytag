@@ -1,7 +1,4 @@
 class Web::Cities::ReportsController < Web::Cities::ApplicationController
-  def index
-    @reports = resource_city.reports.latest_posted
-  end
 
   def create
     @report = resource_city.reports.build(report_params)

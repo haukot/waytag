@@ -1,9 +1,13 @@
 class Web::Admin::ApiUsersController < Web::Admin::ApplicationController
-  before_action :set_api_user, except: :index
+  include SourceableController
+
+  before_action :set_api_user, except: [:index, :on, :off]
 
   # GET /api_users
   def index
-    @api_users = ApiUser.all
+    query = params[:q] || {}
+    @search = ApiUser.ransack query
+    @api_users = @search.result.page(params[:page]).decorate
   end
 
   # DELETE /api_users/1
@@ -16,6 +20,10 @@ class Web::Admin::ApiUsersController < Web::Admin::ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_api_user
       @api_user = ApiUser.find(params[:id])
+    end
+
+    def sourceable
+      @sourceable = ApiUser.find params[:api_user_id]
     end
 
 end

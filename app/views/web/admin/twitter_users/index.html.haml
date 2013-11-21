@@ -2,23 +2,47 @@
 
 %hr
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th #
-      %th Image
-      %th Name
-      %th Screen name
-      %th External id str
-      %th State
-      %th
+= simple_form_for @search, default_search_form_options(url: admin_twitter_users_path) do |f|
+  = f.input :id_str_matches, placeholder: "ID str"
+  = f.input :name_matches, placeholder: "name"
+  = f.input :screen_name_matches, placeholder: "screen name"
+  = f.submit class: 'btn', value: "Search"
 
-  %tbody
-    - @twitter_users.each do |twitter_user|
-      %tr
-        %td= twitter_user.id
-        %td= twitter_user.name
-        %td= twitter_user.screen_name
-        %td= twitter_user.id_str
-        %td= twitter_user.state
-        %td= admin_destroy_button(admin_twitter_user_path(twitter_user))
+= paginate @twitter_users
+
+.row
+  .col-md-9
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th= sort_link @search, :id_str, "External"
+          %th Image
+          %th= sort_link @search, :name, "Name"
+          %th= sort_link @search, :screen_name, "Screen name"
+          %th= sort_link @search, :state, "State"
+          %th Description
+          %th
+
+      %tbody
+        - @twitter_users.each do |twitter_user|
+          %tr{ class: twitter_user.state_class }
+            %td= twitter_user.id
+            %td= link_to twitter_user.id_str, twitter_user.twitter_path
+            %td
+              = image_tag twitter_user.profile_image_url if twitter_user.profile_image_url
+            %td= twitter_user.name
+            %td= "@#{twitter_user.screen_name}"
+            %td= twitter_user.state
+            %td= twitter_user.description
+            %td
+              .btn-group-vertical.pull-right
+                = twitter_user.activate_or_block_link
+                = admin_destroy_button(admin_twitter_user_path(twitter_user))
+  .col-md-3
+    %h3 Add from twitter
+
+    = form_tag admin_twitter_users_path, method: :post, role: :form do
+      = text_field_tag :screen_name, "", placeholder: "@user_name"
+      = submit_tag "Add"
+

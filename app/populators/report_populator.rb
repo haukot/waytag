@@ -19,7 +19,6 @@ class ReportPopulator < BasePopulator
 
   def populate_from_api(api_report, city)
     report = city.reports.build(api_report.to_report_params)
-    report.sourceable = SourceablePopulator.new(api_report.device_params).populate
 
     report.save
     report

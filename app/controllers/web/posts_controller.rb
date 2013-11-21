@@ -3,11 +3,14 @@ class Web::PostsController < Web::ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    query = params[:q] || {}
+    @search = Post.by_published_at.ransack(query)
+    @posts = @search.result.page(params[:page])
   end
 
   # GET /posts/1
   def show
+    @post = Post.find(params[:id])
   end
 
   private

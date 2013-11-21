@@ -4,12 +4,14 @@
 
 = link_to 'New Partner', new_admin_partner_path, right_button_params
 
+= paginate @partners
+
 %table.table.table-striped
   %thead
     %tr
       %th #
-      %th Title
-      %th Description
+      %th= sort_link @search, :title, "Title"
+      %th= sort_link @search, :description, "Description"
       %th
 
   %tbody

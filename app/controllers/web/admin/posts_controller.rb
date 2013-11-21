@@ -3,7 +3,9 @@ class Web::Admin::PostsController < Web::Admin::ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    query = params[:q] || {}
+    @search = Post.ransack query
+    @posts = @search.result.page(params[:page])
   end
 
   # GET /posts/new

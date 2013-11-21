@@ -2,27 +2,38 @@
 
 %hr
 
+= simple_form_for @search, default_search_form_options(url: admin_reports_path) do |f|
+  = f.input :city_id_eq, collection: City.all, include_blank: t('all_cities')
+  = f.submit class: 'btn', value: "Search"
+
+= paginate @reports
+
 %table.table.table-striped
   %thead
     %tr
       %th #
-      %th City
-      %th Text
-      %th Time
-      %th State
-      %th Source kind
-      %th Event kind
+      %th= sort_link @search, :city_id, "City"
+      %th= sort_link @search, :text, "Text"
+      %th= sort_link @search, :time, "Time"
+      %th= sort_link @search, :state, "State"
+      %th= sort_link @search, :source_kind, "Source"
+      %th= sort_link @search, :event_kind, "Event kind"
       %th
 
   %tbody
     - @reports.each do |report|
-      %tr
+      %tr{ class: report.state_class }
         %td= report.id
-        %td= report.city_id
+        %td= report.city.name
         %td= report.text
         %td= report.time
         %td= report.state
         %td= report.source_kind
         %td= report.event_kind
-        %td= admin_destroy_button(admin_report_path(report))
+        %td
+          = link_to 'Good', good_admin_report_path(report), class: 'btn btn-default', method: :patch
+          = link_to 'Bad', bad_admin_report_path(report), class: 'btn btn-default', method: :patch
+          = link_to 'Publish', publish_admin_report_path(report), class: 'btn btn-default', method: :patch
+          = link_to 'Destroy', admin_report_path(report), destroy_button_params
 
+= paginate @reports
