@@ -1,6 +1,7 @@
 class Web::CitiesController < Web::ApplicationController
   layout "web/city", only: :show
 
+  helper_method :resource_city
   before_filter :redirect_if_city_defined!
 
   def index
@@ -9,8 +10,12 @@ class Web::CitiesController < Web::ApplicationController
 
   def show
     @city = City.friendly.find params[:id]
+    @reports = @city.reports.latest_posted.decorate
+    @api_report = ApiReport.new
+  end
 
-    @reports = @city.reports.latest_posted
+  def resource_city
+    @city
   end
 
   def redirect_if_city_defined!

@@ -80,7 +80,7 @@ class Report < ActiveRecord::Base
   end
 
   def text_without_via
-    text.gsub(/via\s.*$/, '')
+    clean_text.gsub(/via\s.*$/, '')
     .strip
   end
 
@@ -88,4 +88,13 @@ class Report < ActiveRecord::Base
     self.class.where("(time > ?) AND (text = ? OR source_text = ?) AND ( id != ?)", time - 2.hours, text, source_text, id).any?
   end
 
+  def has_userpic?
+    sourceable && sourceable.respond_to?(:profile_image_url)
+  end
+
+  def userpic
+    if has_userpic?
+      sourceable.profile_image_url
+    end
+  end
 end

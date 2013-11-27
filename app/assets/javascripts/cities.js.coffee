@@ -36,13 +36,13 @@ jQuery ->
     len = 140 - text.length
 
     percent = parseInt((text.length / 140) * 100)
-    $('.progress .bar').css('width', percent + '%') 
+    $('.progress .bar').css('width', percent + '%')
     $('.progress .bar').css('height', $('.progress .preview').height())
 
-    if (len > 0 && text.length > 30) 
+    if (len > 0 && text.length > 30)
       $('.progress').removeClass('progress-danger')
       $('.progress').addClass('progress-success')
-    else 
+    else
       $('.progress').removeClass('progress-success')
       $('.progress').addClass('progress-danger')
 

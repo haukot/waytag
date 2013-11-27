@@ -39,4 +39,18 @@ class Web::Admin::TwitterUsersControllerTest < ActionController::TestCase
 
     assert_redirected_to admin_twitter_users_path
   end
+
+  test "should not create if user exists" do
+    put :create, screen_name: "8xx8ru"
+
+    assert_redirected_to admin_twitter_users_path
+  end
+
+  test "should create from twitter" do
+    stub_request(:get, "https://api.twitter.com/1.1/users/show.json").with(:query => {:screen_name => "sferik"}).to_return(:body => load_fixture("sferik.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    put :create, screen_name: "sferik"
+
+    assert_redirected_to admin_twitter_users_path
+  end
+
 end

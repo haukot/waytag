@@ -4,6 +4,12 @@ require 'test_helper'
 require "mocha/setup"
 
 class TwitterServiceTest < ActiveSupport::TestCase
+  test "populate user" do
+    stub_request(:get, "https://api.twitter.com/1.1/users/show.json").with(:query => {:screen_name => "sferik"}).to_return(:body => load_fixture("sferik.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    user = TwitterService.populate_user "sferik"
+    assert { user.valid? }
+  end
+
   test "Destroy" do
     report = create :report
 

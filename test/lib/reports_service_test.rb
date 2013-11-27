@@ -7,9 +7,9 @@ class ReportsServiceTest < ActiveSupport::TestCase
     @text = "На Локомотивной 67 дежурит отряд ДПС. Соблюдайте скоростной режим."
     ClassifierFeatures.destroy_all
 
-    Classifier.train(@text, :good)
-    Classifier.train(@text, :good)
-    Classifier.train(@text, :good)
+    10.times do
+      Classifier.train(@text, :good)
+    end
     Classifier.train("ololo", :bad)
   end
 

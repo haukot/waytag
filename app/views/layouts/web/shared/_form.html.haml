@@ -1,3 +1,8 @@
+= simple_form_for @api_report, url: api_city_reports_path(resource_city) do |f|
+  = f.error_notification
+  = f.input :text
+  = f.submit
+
 .send-form
   %h1 Сообщить обстановку
   %div#alert-placeholder
@@ -5,26 +10,23 @@
     .span3
       .control-group
         .event-selector.type
-          %button.btn.btn-large.btn-block ДТП
-          %button.btn.btn-large.btn-block ДПС
-          %button.btn.btn-large.btn-block Пробка
-          %button.btn.btn-large.btn-block Камера
-          %button.btn.btn-large.btn-block Ремонт
-    .span9
-      .row-fluid
-        .span6
-          .control-group.select2-wrapper
-            %input#street-select{ type: "hidden", placeholder: "Где?" }
-            .clearfix
-        .span6
-          .control-group
-            %textarea.how{:rows => "3", placeholder: "Как?" }
-            .clearfix
-      %br
-      .progress
-        .bar
-      .preview.well
-  %br
-  %form{action: city_reports_path(resource_city), method: 'POST'}
-    %input.form_text{ name:"text", type:"hidden" }
-    %input.send.btn-large.btn-inverse{:type => "submit", :value => "Сообщить в #{resource_city.twitter_name}"}
+          - EventKinds.all.each do |ek|
+            %button.btn.btn-large.btn-block= t(ek)
+    -#.span9
+      -#.row-fluid
+        -#.span6
+          -#.control-group.select2-wrapper
+            -#%input#street-select{ type: "hidden", placeholder: "Где?" }
+            -#.clearfix
+        -#.span6
+          -#.control-group
+            -#%textarea.how{:rows => "3", placeholder: "Как?" }
+            -#.clearfix
+      -#%br
+      -#.progress
+        -#.bar
+      -#.preview.well
+  -#%br
+  -#%form{action: city_reports_path(resource_city), method: 'POST'}
+    -#%input.form_text{ name:"text", type:"hidden" }
+    -#%input.send.btn-large.btn-inverse{:type => "submit", :value => "Сообщить в #{resource_city.twitter_name}"}
