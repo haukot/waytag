@@ -2,9 +2,10 @@
 
 %hr
 
-= simple_form_for @search, default_search_form_options(url: admin_reports_path) do |f|
-  = f.input :city_id_eq, collection: City.all, include_blank: t('all_cities')
-  = f.submit class: 'btn', value: "Search"
+.well
+  = simple_form_for @search, default_search_form_options(url: admin_reports_path, html: {class: "form-inline"}) do |f|
+    = f.input :city_id_eq, collection: City.all, include_blank: t('all_cities')
+    = f.submit class: 'btn', value: "Search"
 
 = paginate @reports
 

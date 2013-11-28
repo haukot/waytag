@@ -2,9 +2,10 @@
 
 %hr
 
-= simple_form_for @search, default_search_form_options(url: admin_api_users_path) do |f|
-  = f.input :token_matches
-  = f.submit class: 'btn', value: "Search"
+.well
+  = simple_form_for @search, default_search_form_options(url: admin_api_users_path, html: {class: "form-inline"}) do |f|
+    = f.input :token_matches
+    = f.submit class: 'btn', value: "Search"
 
 = paginate @api_users
 

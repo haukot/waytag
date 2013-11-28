@@ -2,11 +2,12 @@
 
 %hr
 
-= simple_form_for @search, default_search_form_options(url: admin_twitter_users_path) do |f|
-  = f.input :uid_matches, placeholder: "ID str"
-  = f.input :name_matches, placeholder: "name"
-  = f.input :screen_name_matches, placeholder: "screen name"
-  = f.submit class: 'btn', value: "Search"
+.well
+  = simple_form_for @search, default_search_form_options(url: admin_twitter_users_path, html: {class: "form-inline"}) do |f|
+    = f.input :uid_matches, placeholder: "ID str"
+    = f.input :name_matches, placeholder: "name"
+    = f.input :screen_name_matches, placeholder: "screen name"
+    = f.submit class: 'btn', value: "Search"
 
 = paginate @twitter_users
 

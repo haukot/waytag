@@ -1,12 +1,12 @@
 # Use this setup block to configure all options available in SimpleForm.
-SimpleForm.setup do |config|
+# SimpleForm.setup do |config|
   # Wrappers are used by the form builder to generate a
   # complete input. You can remove any component from the
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, class: :input,
-    hint_class: :field_with_hint, error_class: :field_with_errors do |b|
+  # config.wrappers :default, class: :input,
+  #   hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.
@@ -15,11 +15,11 @@ SimpleForm.setup do |config|
 
     # Determines whether to use HTML5 (:email, :url, ...)
     # and required attributes
-    b.use :html5
+    # b.use :html5
 
     # Calculates placeholders automatically from I18n
     # You can also pass a string as f.input placeholder: "Placeholder"
-    b.use :placeholder
+    # b.use :placeholder
 
     ## Optional extensions
     # They are disabled unless you pass `f.input EXTENSION_NAME => :lookup`
@@ -28,34 +28,34 @@ SimpleForm.setup do |config|
     # extensions by default, you can change `b.optional` to `b.use`.
 
     # Calculates maxlength from length validations for string inputs
-    b.optional :maxlength
+    # b.optional :maxlength
 
     # Calculates pattern from format validations for string inputs
-    b.optional :pattern
+    # b.optional :pattern
 
     # Calculates min and max from length validations for numeric inputs
-    b.optional :min_max
+    # b.optional :min_max
 
     # Calculates readonly automatically from readonly attributes
-    b.optional :readonly
+    # b.optional :readonly
 
     ## Inputs
-    b.use :label_input
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, wrap_with: { tag: :span, class: :error }
-  end
+  #   b.use :label_input
+  #   b.use :hint,  wrap_with: { tag: :span, class: :hint }
+  #   b.use :error, wrap_with: { tag: :span, class: :error }
+  # end
 
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
+  # config.default_wrapper = :default
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
   #   inline: input + label
   #   nested: label > input
-  config.boolean_style = :nested
+  # config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  # config.button_class = 'btn'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -63,10 +63,10 @@ SimpleForm.setup do |config|
   # config.error_method = :first
 
   # Default tag used for error notification helper.
-  config.error_notification_tag = :div
+  # config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  config.error_notification_class = 'alert alert-error'
+  # config.error_notification_class = 'alert alert-error'
 
   # ID to add for error notification helper.
   # config.error_notification_id = nil
@@ -95,7 +95,7 @@ SimpleForm.setup do |config|
   # config.label_text = lambda { |label, required| "#{required} #{label}" }
 
   # You can define the class to use on all labels. Default is nil.
-  config.label_class = 'control-label'
+  # config.label_class = 'control-label'
 
   # You can define the class to use on all forms. Default is simple_form.
   # config.form_class = :simple_form
@@ -111,7 +111,7 @@ SimpleForm.setup do |config|
   # in this configuration, which is recommended due to some quirks from different browsers.
   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
   # change this configuration to true.
-  config.browser_validations = false
+  # config.browser_validations = false
 
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]
@@ -142,4 +142,84 @@ SimpleForm.setup do |config|
 
   # Default class for inputs
   # config.input_class = nil
+# end
+
+# http://stackoverflow.com/questions/14972253/simpleform-default-input-class
+# https://github.com/plataformatec/simple_form/issues/316
+
+inputs = %w[
+  CollectionSelectInput
+  DateTimeInput
+  FileInput
+  GroupedCollectionSelectInput
+  NumericInput
+  PasswordInput
+  RangeInput
+  StringInput
+  TextInput
+]
+
+inputs.each do |input_type|
+  superclass = "SimpleForm::Inputs::#{input_type}".constantize
+
+  new_class = Class.new(superclass) do
+    def input_html_classes
+      super.push('form-control')
+    end
+  end
+
+  Object.const_set(input_type, new_class)
+end
+
+# Use this setup block to configure all options available in SimpleForm.
+SimpleForm.setup do |config|
+  config.boolean_style = :nested
+
+  config.wrappers :bootstrap3, tag: 'div', class: 'form-group', error_class: 'has-error',
+      defaults: { input_html: { class: 'default_class' } } do |b|
+
+    b.use :html5
+
+    b.use :min_max
+    b.use :maxlength
+    b.use :placeholder
+    b.optional :pattern
+    b.optional :readonly
+
+    b.use :label_input
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+    b.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+  end
+
+  config.wrappers :prepend, tag: 'div', class: "form-group", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label
+    b.wrapper tag: 'div', class: 'controls' do |input|
+      input.wrapper tag: 'div', class: 'input-prepend' do |prepend|
+        prepend.use :input
+      end
+      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    end
+  end
+
+  config.wrappers :append, tag: 'div', class: "control-group", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label
+    b.wrapper tag: 'div', class: 'controls' do |input|
+      input.wrapper tag: 'div', class: 'input-append' do |append|
+        append.use :input
+      end
+      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    end
+  end
+
+  # Wrappers for forms and inputs using the Twitter Bootstrap toolkit.
+  # Check the Bootstrap docs (http://getbootstrap.com/)
+  # to learn about the different styles for forms and inputs,
+  # buttons and other elements.
+  config.default_wrapper = :bootstrap3
 end
