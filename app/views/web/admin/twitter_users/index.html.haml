@@ -4,9 +4,12 @@
 
 .well
   = simple_form_for @search, default_search_form_options(url: admin_twitter_users_path, html: {class: "form-inline"}) do |f|
-    = f.input :uid_matches, placeholder: "ID str"
-    = f.input :name_matches, placeholder: "name"
-    = f.input :screen_name_matches, placeholder: "screen name"
+    .form-group
+      = f.input_field :uid_matches, placeholder: "ID str"
+    .form-group
+      = f.input_field :name_matches, placeholder: "name"
+    .form-group
+      = f.input_field :screen_name_matches, placeholder: "screen name"
     = f.submit class: 'btn', value: "Search"
   %hr
     = form_tag admin_twitter_users_path, method: :post, role: :form, class: "form-inline" do

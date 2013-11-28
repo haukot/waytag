@@ -4,8 +4,10 @@
 
 .well
   = simple_form_for @search, default_search_form_options(url: admin_ios_users_path, html: {class: "form-inline"}) do |f|
-    = f.input :token_matches
-    = f.submit class: 'btn', value: "Search"
+    .form-group
+      = f.input_field :token_matches
+    .form-group
+      = f.submit class: 'btn', value: "Search"
 
 = paginate @ios_users
 

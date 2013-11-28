@@ -33,3 +33,8 @@ footer{
   position: relative;
   top: 5px;
 }
+
+.form-control.datetime {
+  width: auto !important;
+  display: inline-block;
+}
