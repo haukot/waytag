@@ -20,7 +20,7 @@
         = menu_group :pull => :right do
           - if current_user
             %li
-              = image_tag current_user.profile_image_url
+              = image_tag current_user.profile_image_url, class: "nav-avatar"
             = drop_down "You are #{current_user.screen_name}" do
               = menu_item "Log Out", admin_session_path, method: :delete
 
