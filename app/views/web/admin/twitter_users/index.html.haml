@@ -8,11 +8,16 @@
     = f.input :name_matches, placeholder: "name"
     = f.input :screen_name_matches, placeholder: "screen name"
     = f.submit class: 'btn', value: "Search"
+  %hr
+    = form_tag admin_twitter_users_path, method: :post, role: :form, class: "form-inline" do
+      .form-group
+        = text_field_tag :screen_name, "", placeholder: "@user_name", class: "form-control"
+      = submit_tag "Add from twitter", class: "btn"
 
 = paginate @twitter_users
 
 .row
-  .col-md-9
+  .col-md-12
     %table.table.table-striped
       %thead
         %tr
@@ -40,10 +45,3 @@
               .btn-group-vertical.pull-right
                 = twitter_user.activate_or_block_link
                 = admin_destroy_button(admin_twitter_user_path(twitter_user))
-  .col-md-3
-    %h3 Add from twitter
-
-    = form_tag admin_twitter_users_path, method: :post, role: :form do
-      = text_field_tag :screen_name, "", placeholder: "@user_name"
-      = submit_tag "Add"
-
