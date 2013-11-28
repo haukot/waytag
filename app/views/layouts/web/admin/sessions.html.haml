@@ -4,15 +4,16 @@
     = render 'layouts/web/admin/shared/head'
 
   %body
-    = nav_bar fixed: :top, brand: "Waytag::Admin", brand_link: admin_root_path
+    .main
+      = nav_bar fixed: :top, brand: "Waytag::Admin", brand_link: admin_root_path
 
-    %br
-    %br
-    %br
-    .container
-      .row
-        .col-lg-12
-          = bootstrap_flash
-          = yield
-      %footer
-        %p &copy; Waytag.ru 2013
+      %br
+      %br
+      %br
+      .container.base-content
+        .row
+          .col-lg-12
+            = bootstrap_flash
+            = yield
+    %footer
+      %p &copy; Waytag.ru 2013
