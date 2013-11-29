@@ -21,3 +21,5 @@
         %td= bonus.title
         %td= bonus.description
         %td= edit_and_destroy_buttons(edit_admin_bonus_path(bonus), admin_bonus_path(bonus))
+
+= paginate @bonuses

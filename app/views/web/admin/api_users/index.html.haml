@@ -29,3 +29,5 @@
           .btn-group.pull-right
             = api_user.activate_or_block_link
             = admin_destroy_button(admin_api_user_path(api_user))
+
+= paginate @api_users

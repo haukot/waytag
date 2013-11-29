@@ -34,5 +34,5 @@
         %td= post.seo_description
         %td= edit_and_destroy_buttons(edit_admin_post_path(post), admin_post_path(post))
 
-%br
+= paginate @posts
 

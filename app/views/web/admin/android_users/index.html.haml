@@ -29,3 +29,5 @@
           .btn-group.pull-right
             = android_user.activate_or_block_link
             = admin_destroy_button(admin_android_user_path(android_user))
+
+= paginate @android_users
