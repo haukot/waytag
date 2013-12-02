@@ -1,8 +1,8 @@
-%h1 Partners
+%h1
+  Partners
+  = link_to '+ New Partner', new_admin_partner_path, class: "btn btn-default"
 
 %hr
-
-= link_to 'New Partner', new_admin_partner_path, right_button_params
 
 = paginate @partners
 

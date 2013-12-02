@@ -1,10 +1,10 @@
-%h1 Listing posts
+%h1
+  Listing posts
+  = link_to '+ New Post', new_admin_post_path, class: "btn btn-default"
 
 %hr
 
 = paginate @posts
-
-= link_to 'New Post', new_admin_post_path, right_button_params
 
 %table.table.table-striped
   %thead

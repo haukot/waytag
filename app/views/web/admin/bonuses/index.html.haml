@@ -1,8 +1,8 @@
-%h1 Bonuses
+%h1
+  Bonuses
+  = link_to '+ New Bonus', new_admin_bonus_path, class: "btn btn-default"
 
 %hr
-
-= link_to 'New Bonus', new_admin_bonus_path, right_button_params
 
 = paginate @bonuses
 
