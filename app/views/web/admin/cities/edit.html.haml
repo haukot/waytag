@@ -1,7 +1,8 @@
 %h1 Editing city
 
-= link_to 'Back', admin_cities_path
-
 %hr
 
 = render 'form', url: admin_city_path(@city)
+
+%br
+= link_to '← Back', admin_cities_path
