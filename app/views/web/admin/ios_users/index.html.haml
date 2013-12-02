@@ -11,23 +11,24 @@
 
 = paginate @ios_users
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th #
-      %th= sort_link @search, :token, "Token"
-      %th= sort_link @search, :state, "State"
-      %th
-
-  %tbody
-    - @ios_users.each do |ios_user|
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
       %tr
-        %td= ios_user.id
-        %td= ios_user.token
-        %td= ios_user.state
-        %td
-          .btn-group.pull-right
-            = ios_user.activate_or_block_link
-            = admin_destroy_button(admin_ios_user_path(ios_user))
+        %th #
+        %th= sort_link @search, :token, "Token"
+        %th= sort_link @search, :state, "State"
+        %th
+
+    %tbody
+      - @ios_users.each do |ios_user|
+        %tr
+          %td= ios_user.id
+          %td= ios_user.token
+          %td= ios_user.state
+          %td.text-right
+            .btn-group
+              = ios_user.activate_or_block_link
+              = admin_destroy_button(admin_ios_user_path(ios_user))
 
 = paginate @ios_users

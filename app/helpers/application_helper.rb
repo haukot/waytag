@@ -4,7 +4,14 @@ module ApplicationHelper
   end
 
   def edit_and_destroy_buttons(edit_path, destroy_path)
-    content_tag :div, class: "btn-group pull-right" do
+    content_tag :div, class: "btn-group" do
+      link_to('Edit', edit_path, edit_button_params) +
+      link_to('Destroy', destroy_path, destroy_button_params)
+    end
+  end
+
+  def edit_and_destroy_buttons_vertical(edit_path, destroy_path)
+    content_tag :div, class: "btn-group-vertical" do
       link_to('Edit', edit_path, edit_button_params) +
       link_to('Destroy', destroy_path, destroy_button_params)
     end

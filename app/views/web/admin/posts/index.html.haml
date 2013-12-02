@@ -6,33 +6,34 @@
 
 = paginate @posts
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th #
-      %th= sort_link @search, :user_name, "User name"
-      %th= sort_link @search, :title, "Title"
-      %th Content
-      %th= sort_link @search, :state, "State"
-      %th= sort_link @search, :published_at, "Published at"
-      %th= sort_link @search, :seo_name, "Seo name"
-      %th= sort_link @search, :seo_keywords, "Seo keywords"
-      %th= sort_link @search, :seo_description, "Seo description"
-      %th
-
-  %tbody
-    - @posts.each do |post|
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
       %tr
-        %td= post.id
-        %td= post.user_name
-        %td= post.title
-        %td= post.content
-        %td= post.state
-        %td= post.published_at
-        %td= post.seo_name
-        %td= post.seo_keywords
-        %td= post.seo_description
-        %td= edit_and_destroy_buttons(edit_admin_post_path(post), admin_post_path(post))
+        %th #
+        %th= sort_link @search, :user_name, "User name"
+        %th= sort_link @search, :title, "Title"
+        %th Content
+        %th= sort_link @search, :state, "State"
+        %th= sort_link @search, :published_at, "Published at"
+        %th= sort_link @search, :seo_name, "Seo name"
+        %th= sort_link @search, :seo_keywords, "Seo keywords"
+        %th= sort_link @search, :seo_description, "Seo description"
+        %th
+
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td= post.id
+          %td= post.user_name
+          %td= post.title
+          %td= post.content
+          %td= post.state
+          %td= post.published_at
+          %td= post.seo_name
+          %td= post.seo_keywords
+          %td= post.seo_description
+          %td= edit_and_destroy_buttons_vertical(edit_admin_post_path(post), admin_post_path(post))
 
 = paginate @posts
 

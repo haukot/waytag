@@ -4,24 +4,25 @@
 
 %hr
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th #
-      %th Slug
-      %th Name
-      %th Email
-      %th Twitter name
-      %th Hashtag
-      %th
-
-  %tbody
-    - @cities.each do |city|
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
       %tr
-        %td= city.id
-        %td= city.slug
-        %td= city.name
-        %td= city.email
-        %td= city.twitter_name
-        %td= city.hashtag
-        %td= edit_and_destroy_buttons(edit_admin_city_path(city), admin_city_path(city))
+        %th #
+        %th Slug
+        %th Name
+        %th Email
+        %th Twitter name
+        %th Hashtag
+        %th
+
+    %tbody
+      - @cities.each do |city|
+        %tr
+          %td= city.id
+          %td= city.slug
+          %td= city.name
+          %td= city.email
+          %td= city.twitter_name
+          %td= city.hashtag
+          %td.text-right= edit_and_destroy_buttons(edit_admin_city_path(city), admin_city_path(city))

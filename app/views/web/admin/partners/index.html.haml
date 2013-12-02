@@ -6,20 +6,21 @@
 
 = paginate @partners
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th #
-      %th= sort_link @search, :title, "Title"
-      %th= sort_link @search, :description, "Description"
-      %th
-
-  %tbody
-    - @partners.each do |partner|
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
       %tr
-        %td= partner.id
-        %td= partner.title
-        %td= partner.description
-        %td= edit_and_destroy_buttons(edit_admin_partner_path(partner), admin_partner_path(partner))
+        %th #
+        %th= sort_link @search, :title, "Title"
+        %th= sort_link @search, :description, "Description"
+        %th
+
+    %tbody
+      - @partners.each do |partner|
+        %tr
+          %td= partner.id
+          %td= partner.title
+          %td= partner.description
+          %td.text-right= edit_and_destroy_buttons(edit_admin_partner_path(partner), admin_partner_path(partner))
 
 = paginate @partners

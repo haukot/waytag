@@ -11,23 +11,24 @@
 
 = paginate @api_users
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th #
-      %th= sort_link @search, :token, "Token"
-      %th= sort_link @search, :state, "State"
-      %th
-
-  %tbody
-    - @api_users.each do |api_user|
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
       %tr
-        %td= api_user.id
-        %td= api_user.token
-        %td= api_user.state
-        %td
-          .btn-group.pull-right
-            = api_user.activate_or_block_link
-            = admin_destroy_button(admin_api_user_path(api_user))
+        %th #
+        %th= sort_link @search, :token, "Token"
+        %th= sort_link @search, :state, "State"
+        %th
+
+    %tbody
+      - @api_users.each do |api_user|
+        %tr
+          %td= api_user.id
+          %td= api_user.token
+          %td= api_user.state
+          %td.text-right
+            .btn-group
+              = api_user.activate_or_block_link
+              = admin_destroy_button(admin_api_user_path(api_user))
 
 = paginate @api_users

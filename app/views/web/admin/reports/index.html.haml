@@ -11,32 +11,37 @@
 
 = paginate @reports
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th #
-      %th= sort_link @search, :city_id, "City"
-      %th= sort_link @search, :text, "Text"
-      %th= sort_link @search, :time, "Time"
-      %th= sort_link @search, :state, "State"
-      %th= sort_link @search, :source_kind, "Source"
-      %th= sort_link @search, :event_kind, "Event kind"
-      %th
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th #
+        %th= sort_link @search, :city_id, "City"
+        %th= sort_link @search, :text, "Text"
+        %th= sort_link @search, :time, "Time"
+        %th= sort_link @search, :state, "State"
+        %th= sort_link @search, :source_kind, "Source"
+        %th= sort_link @search, :event_kind, "Event kind"
+        %th
+        %th
 
-  %tbody
-    - @reports.each do |report|
-      %tr{ class: report.state_class }
-        %td= report.id
-        %td= report.city.name
-        %td= report.text
-        %td= report.time
-        %td= report.state
-        %td= report.source_kind
-        %td= report.event_kind
-        %td
-          = link_to 'Good', good_admin_report_path(report), class: 'btn btn-default', method: :patch
-          = link_to 'Bad', bad_admin_report_path(report), class: 'btn btn-default', method: :patch
-          = link_to 'Publish', publish_admin_report_path(report), class: 'btn btn-default', method: :patch
-          = link_to 'Destroy', admin_report_path(report), destroy_button_params
+    %tbody
+      - @reports.each do |report|
+        %tr{ class: report.state_class }
+          %td= report.id
+          %td= report.city.name
+          %td= report.text
+          %td= report.time
+          %td= report.state
+          %td= report.source_kind
+          %td= report.event_kind
+          %td
+            .btn-group-vertical
+              = link_to 'Good', good_admin_report_path(report), class: 'btn btn-primary', method: :patch
+              = link_to 'Bad', bad_admin_report_path(report), class: 'btn btn-default', method: :patch
+          %td
+            .btn-group-vertical
+              = link_to 'Publish', publish_admin_report_path(report), class: 'btn btn-success', method: :patch
+              = link_to 'Destroy', admin_report_path(report), destroy_button_params
 
 = paginate @reports
