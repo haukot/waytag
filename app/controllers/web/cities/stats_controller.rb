@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Web::Cities::StatsController < Web::Cities::ApplicationController
   def index
     @all = Report.this_year.dtp.count

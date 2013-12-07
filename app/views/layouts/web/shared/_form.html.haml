@@ -1,5 +1,3 @@
-= javascript_include_tag 'cities'
-
 .send-form
   - if can_post_message?
     = simple_form_for @api_report, remote: true, url: city_reports_path(resource_city) do |f|

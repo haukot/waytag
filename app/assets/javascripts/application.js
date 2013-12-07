@@ -7,13 +7,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require select2
-//= require js-routes
-//= require Chart
-
-$(function() {
-    $('#b-city-selector').on('change', function(){
-        $(this).parents('form').submit()
-    });
-});
-
