@@ -2,7 +2,6 @@
 
 class Report < ActiveRecord::Base
   include EventKindable
-  include ReportsRepository
   include TextFunctions
 
   belongs_to :city
@@ -40,6 +39,8 @@ class Report < ActiveRecord::Base
       transition :wating_post => :post_failed
     end
   end
+
+  include ReportsRepository
 
   def contains_bad_data?
     super || with_mentions?

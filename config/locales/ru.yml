@@ -1,3 +1,7 @@
 ru:
   hello: "Hello world"
   all_cities: "Все города"
+  date:
+    formats:
+      month: "%B"
+      day: "%A"

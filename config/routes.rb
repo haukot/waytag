@@ -53,6 +53,7 @@ Waytag::Application.routes.draw do
 
     resources :cities, only: [:index, :show], path: '/' do
       scope module: :cities do
+        resources :stats, only: :index
         resources :reports, only: :create
 
         resources :partners, only: [:index, :show]

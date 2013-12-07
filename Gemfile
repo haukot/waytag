@@ -26,6 +26,7 @@ gem 'bootstrap-datetimepicker-rails'
 gem "select2-rails"
 gem 'jquery-ui-rails'
 gem 'sass-rails'
+gem 'chart-js-rails'
 
 gem 'js-routes'
 gem 'ransack', github: "ernie/ransack", branch: 'rails-4'

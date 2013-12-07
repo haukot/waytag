@@ -1,0 +1,19 @@
+.container.stat
+  .row-fluid
+    .span12.text-center
+      %h1 ДТП за 2013 год
+
+      %h2= "Всего: #{@all}"
+      %h2= "В сутки в среднем: #{@all / 365}"
+
+      %h2 По месяцам
+      %canvas#by_month{:height => "450", :width => "800"}
+
+      %h2 По дням недели
+      %canvas#by_day{:height => "450", :width => "800"}
+
+      %h2 По часам в сутках
+      %canvas#by_hour{:height => "450", :width => "800"}
+
+      %h2 Аварийные места
+      %canvas#danger_zones{:height => "450", :width => "800"}

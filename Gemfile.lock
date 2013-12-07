@@ -109,6 +109,8 @@ GEM
     capistrano_colors (0.5.5)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    chart-js-rails (0.0.6)
+      railties (> 3.1)
     cocoon (1.2.5)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -397,6 +399,7 @@ DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext
   capistrano_colors
+  chart-js-rails
   cocoon
   coffee-rails (~> 4.0.0)
   configus

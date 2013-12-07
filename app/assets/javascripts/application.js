@@ -9,6 +9,7 @@
 //= require twitter/bootstrap
 //= require jquery.ui.all
 //= require select2
+//= require Chart
 //= require_tree .
 
 $(function() {
