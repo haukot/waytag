@@ -51,6 +51,6 @@ class Web::Admin::PartnersController < Web::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def partner_params
-      params.require(:partner).permit(:title, :description)
+      params.require(:partner).permit(:title, :description, :city_id)
     end
 end

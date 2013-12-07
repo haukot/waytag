@@ -11,7 +11,7 @@ class Web::ApplicationController < ApplicationController
 
   def redirect_if_city_defined!
     if session[:city]
-      city = City.find session[:city]
+      city = City.friendly.find session[:city]
       redirect_to city_path(city) if city
     end
   end

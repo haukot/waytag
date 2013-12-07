@@ -5,7 +5,7 @@
 %hr
 
 .well
-  = simple_form_for @search, default_search_form_options(url: admin_bonuses_path, html: {class: "form-inline"}) do |f|
+  = simple_form_for @search, default_search_form_options(url: admin_partners_path, html: {class: "form-inline"}) do |f|
     .form-group
       = f.input_field :city_id_eq, collection: City.all, include_blank: t('all_cities')
     .form-group

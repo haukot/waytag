@@ -37,6 +37,7 @@ Waytag::Application.routes.draw do
         patch :publish, on: :member
       end
 
+      resources :streets, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :partners, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :cities, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :bonuses, only: [:index, :edit, :new, :create, :update, :destroy]

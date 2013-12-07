@@ -9,7 +9,7 @@ City.find_or_create_by name: "Пермь", twitter_name: "@Perm_way", email: "pe
 City.find_or_create_by name: "Екатеринбург", twitter_name: "@Ekbway", email: "ekbway@waytag.ru", slug: "ekb", hashtag: "ekbway"
 
 City.find_each do |city|
-  if city.streets.any?
+  unless city.streets.any?
     YAML.load_file( "db/streets-#{city.slug}.yml" ).each do |street|
       ul.streets.find_or_create_by( name: street["name"].downcase, rate: street["rate"] )
     end

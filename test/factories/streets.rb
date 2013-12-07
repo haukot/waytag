@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory 'city/street' do
-    name { generate :string }
+    name
     rate { generate :integer }
     city
   end

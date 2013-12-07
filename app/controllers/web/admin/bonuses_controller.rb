@@ -51,6 +51,6 @@ class Web::Admin::BonusesController < Web::Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bonus_params
-      params.require(:bonus).permit(:title, :description)
+      params.require(:bonus).permit(:title, :description, :city_id)
     end
 end

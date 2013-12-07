@@ -1,0 +1,35 @@
+%h1
+  Streets
+  = link_to '+ New city_street', new_admin_street_path, class: "btn btn-default"
+
+%hr
+
+.well
+  = simple_form_for @search, default_search_form_options(url: admin_streets_path, html: {class: "form-inline"}) do |f|
+    .form-group
+      = f.input_field :city_id_eq, collection: City.all, include_blank: t('all_cities')
+    .form-group
+      = f.submit class: 'btn', value: "Search"
+
+
+
+= paginate @city_streets
+
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th #
+        %th= sort_link @search, :name, "Name"
+        %th= sort_link @search, :city_id, "City"
+        %th
+
+    %tbody
+      - @city_streets.each do |city_street|
+        %tr
+          %td= city_street.id
+          %td= city_street.name
+          %td= city_street.city.name
+          %td.text-right= edit_and_destroy_buttons(edit_admin_street_path(city_street), admin_street_path(city_street))
+
+= paginate @city_streets

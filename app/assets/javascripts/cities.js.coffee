@@ -3,7 +3,7 @@ jQuery ->
     $('#alert-placeholder').html('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
 
   compose_url = (term, page) ->
-    Routes.api_city_streets_path(window.gon.current_city.slug, { q: { name_matches: term }, page: page })
+    Routes.api_city_streets_path(window.gon.current_city.slug, { q: { name_cont: term }, page: page })
 
   $("#street-select").select2
     multiple: 1,
