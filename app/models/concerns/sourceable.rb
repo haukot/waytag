@@ -2,7 +2,7 @@ module Sourceable
   extend ActiveSupport::Concern
 
   included do
-    has_many :reports
+    has_many :reports, as: :sourceable
 
     state_machine :state, initial: :active do
       event :deactivate do

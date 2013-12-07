@@ -30,6 +30,7 @@
         %th= sort_link @search, :screen_name, "Screen name"
         %th= sort_link @search, :state, "State"
         %th Description
+        %th Reports
         %th
 
     %tbody
@@ -43,6 +44,7 @@
           %td= "@#{twitter_user.screen_name}"
           %td= twitter_user.state
           %td= twitter_user.description
+          %td= twitter_user.reports_link
           %td
             .btn-group-vertical
               = twitter_user.activate_or_block_link

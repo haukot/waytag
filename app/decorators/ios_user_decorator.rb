@@ -1,11 +1,7 @@
 class IosUserDecorator < Draper::Decorator
   delegate_all
 
-  def state_class
-    if object.blocked?
-      "warning"
-    end
-  end
+  include SourceableDecoratorConcern
 
   def activate_or_block_link
     if object.blocked?

@@ -18,11 +18,7 @@ class TextComposer
     end
 
     def compose_via(report)
-       " via #{mention}#{report.sourceable.screen_name}" if report.sourceable.kind_of?(TwitterUser)
-    end
-
-    def mention
-      Rails.env.staging? ? "" : "@"
+       " via @#{report.sourceable.screen_name}" if report.sourceable.kind_of?(TwitterUser)
     end
 
   end

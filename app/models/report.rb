@@ -43,7 +43,11 @@ class Report < ActiveRecord::Base
   include ReportsRepository
 
   def contains_bad_data?
-    super || with_mentions?
+    super || with_mentions? || less_three_words?
+  end
+
+  def less_three_words?
+    clean_text.split.size < 3
   end
 
   def with_mentions?
@@ -84,6 +88,10 @@ class Report < ActiveRecord::Base
   def text_without_via
     clean_text.gsub(/via\s.*$/, '')
     .strip
+  end
+
+  def safe_text
+    text.gsub(/@|#/, '')
   end
 
   def has_duplicate?

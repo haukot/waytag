@@ -1,14 +1,10 @@
 class TwitterUserDecorator < Draper::Decorator
   delegate_all
 
+  include SourceableDecoratorConcern
+
   def twitter_path
     "http://twitter.com/#{object.screen_name}"
-  end
-
-  def state_class
-    if object.blocked?
-      "warning"
-    end
   end
 
   def activate_or_block_link

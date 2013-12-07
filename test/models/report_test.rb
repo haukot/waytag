@@ -3,6 +3,13 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
+  test "safe_text" do
+    report = create :report, source_text: "Как дела @asdasd #ljkjasd @alsdkjasd"
+
+    assert { report.safe_text.include?('#') == false }
+    assert { report.safe_text.include?('@') == false }
+  end
+
   test "has no duplicate" do
     create :report, source_text: "Как дела"
     report = create :report, source_text: "на мосту?"

@@ -27,9 +27,9 @@ class TwitterService
       c = client(report.city)
 
       if report.map_picture
-        response = c.update_with_media(report.text, image(report))
+        response = c.update_with_media(report.safe_text, image(report))
       else
-        response = c.update(report.text)
+        response = c.update(report.safe_text)
       end
 
       report.id_str = response[:id_str]
