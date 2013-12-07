@@ -1,0 +1,34 @@
+%h1 Web Users
+
+%hr
+
+.well
+  = simple_form_for @search, default_search_form_options(url: admin_web_users_path, html: {class: "form-inline"}) do |f|
+    .form-group
+      = f.input_field :ip_matches
+    .form-group
+      = f.submit class: 'btn', value: "Search"
+
+= paginate @web_users
+
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th #
+        %th= sort_link @search, :ip, "IP"
+        %th= sort_link @search, :state, "State"
+        %th
+
+    %tbody
+      - @web_users.each do |web_user|
+        %tr{ class: web_user.state_class }
+          %td= web_user.id
+          %td= web_user.ip
+          %td= web_user.state
+          %td.text-right
+            .btn-group
+              = web_user.activate_or_block_link
+              = admin_destroy_button(admin_web_user_path(web_user))
+
+= paginate @web_users

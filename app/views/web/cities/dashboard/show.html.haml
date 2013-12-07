@@ -1,0 +1,19 @@
+.tweets-block
+  .container
+    - if @reports.any?
+      - @reports.each do |report|
+        .tweet
+          %span.info
+            %span.nick
+              = report.published_by
+            = report.userpic
+          %span.info
+            = report.published_at
+          %span.text
+            != markdown.render(report.text_without_via)
+
+
+= render :partial => 'layouts/web/cities/info'
+= render :partial => 'layouts/web/shared/form'
+= render :partial => 'layouts/web/shared/radio'
+= render :partial => 'layouts/web/shared/bonuses'

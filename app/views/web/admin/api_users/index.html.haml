@@ -22,7 +22,7 @@
 
     %tbody
       - @api_users.each do |api_user|
-        %tr
+        %tr{ class: api_user.state_class }
           %td= api_user.id
           %td= api_user.token
           %td= api_user.state

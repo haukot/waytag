@@ -7,10 +7,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery.ui.all
 //= require select2
+//= require js-routes
 //= require Chart
-//= require_tree .
 
 $(function() {
     $('#b-city-selector').on('change', function(){

@@ -95,8 +95,14 @@ class Report < ActiveRecord::Base
   end
 
   def userpic
-    if has_userpic?
-      sourceable.profile_image_url
-    end
+    return sourceable.profile_image_url if has_userpic?
+  end
+
+  def has_username?
+    sourceable && sourceable.respond_to?(:screen_name)
+  end
+
+  def username
+    return sourceable.screen_name if has_username?
   end
 end

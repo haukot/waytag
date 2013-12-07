@@ -42,6 +42,7 @@ Waytag::Application.routes.draw do
       resources :bonuses, only: [:index, :edit, :new, :create, :update, :destroy]
 
       resources :ios_users, only: [:index, :destroy], concerns: :sourceable
+      resources :web_users, only: [:index, :destroy], concerns: :sourceable
       resources :android_users, only: [:index, :destroy], concerns: :sourceable
       resources :api_users, only: [:index, :destroy], concerns: :sourceable
       resources :twitter_users, only: [:index, :destroy, :create], concerns: :sourceable
@@ -51,8 +52,11 @@ Waytag::Application.routes.draw do
 
     resources :posts, only: [:index, :show]
 
-    resources :cities, only: [:index, :show], path: '/' do
+    resources :cities, only: [:index], path: '/' do
+      get "/" => "cities/dashboard#show"
       scope module: :cities do
+
+        resource :dashboard, only: :show
         resources :stats, only: :index
         resources :reports, only: :create
 

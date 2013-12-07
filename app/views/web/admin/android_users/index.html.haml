@@ -22,7 +22,7 @@
 
     %tbody
       - @android_users.each do |android_user|
-        %tr
+        %tr{ class: android_user.state_class }
           %td= android_user.id
           %td= android_user.token
           %td= android_user.state

@@ -1,20 +1,25 @@
 class Web::Cities::ReportsController < Web::Cities::ApplicationController
+  respond_to :json
 
   def create
-    @report = resource_city.reports.build(report_params)
-    @report.source_kind = :web
+    @api_report = ApiReport.new(report_params)
+    @api_report.type = :web
+    @api_report.token = request.remote_ip
 
-    if @report.save
-      ReportsWorker.perform_async(@report.id)
-      redirect_to city_reports_path(resource_city), notice: 'report was successfully created.'
+    if @api_report.valid?
+      report = ReportPopulator.new.populate_from_api(@api_report, resource_city)
+      ReportsWorker.perform_async(report.id)
+      session[:latest_posted_at] = Time.now + 5.minutes
+
+      render nothing: true, status: :created
     else
-      render action: 'index'
+      respond_with @api_report
     end
   end
 
   private
 
     def report_params
-      params.require(:report).permit(:source_text, :time, :event_kind)
+      params.require(:api_report).permit(:text, :time, :event_kind)
     end
 end

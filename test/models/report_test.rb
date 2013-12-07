@@ -63,7 +63,7 @@ class ReportTest < ActiveSupport::TestCase
   def _without_via_provider
     [
       ["test message via @8xx8", "test message"],
-      ["test message #ulway via ICQ: 625921555", "test message #ulway"],
+      ["test message #ulway via ICQ: 625921555", "test message"],
       ["test message via 8xx8", "test message"],
     ]
   end

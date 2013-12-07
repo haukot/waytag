@@ -1,7 +1,12 @@
 ru:
   hello: "Hello world"
   all_cities: "Все города"
-  date:
+  dps: "ДПС"
+  dtp: "ДТП"
+  cmr: "Камера"
+  rmnt: "Ремонт"
+  prbk: "Пробка"
+  date::
     formats:
       month: "%B"
       day: "%A"

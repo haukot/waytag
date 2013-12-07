@@ -1,7 +1,7 @@
 .row
   %p
 .row
-  .span12
+  .col-md-12
     %div
       %h1
         Наш виджет используют
@@ -11,7 +11,7 @@
         %li
           = link_to api_user.origin, api_user.origin, {rel: :nofollow, _target: :blank}
       - else
-        %li 
+        %li
           = api_user.origin
       %hr
     %hr

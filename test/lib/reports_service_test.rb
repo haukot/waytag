@@ -4,13 +4,15 @@ require 'test_helper'
 class ReportsServiceTest < ActiveSupport::TestCase
 
   setup do
-    @text = "На Локомотивной 67 дежурит отряд ДПС. Соблюдайте скоростной режим."
+    @text = generate :report_text
     ClassifierFeatures.destroy_all
 
     10.times do
       Classifier.train(@text, :good)
     end
-    Classifier.train("ololo", :bad)
+    10.times do
+      Classifier.train("ololo", :bad)
+    end
   end
 
   test "perform" do

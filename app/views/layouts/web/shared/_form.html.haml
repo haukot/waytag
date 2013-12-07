@@ -1,32 +1,32 @@
-= simple_form_for @api_report, url: api_city_reports_path(resource_city) do |f|
-  = f.error_notification
-  = f.input :text
-  = f.submit
+= javascript_include_tag 'cities'
 
 .send-form
-  %h1 Сообщить обстановку
-  %div#alert-placeholder
-  .row-fluid
-    .span3
-      .control-group
-        .event-selector.type
-          - EventKinds.all.each do |ek|
-            %button.btn.btn-large.btn-block= t(ek)
-    -#.span9
-      -#.row-fluid
-        -#.span6
-          -#.control-group.select2-wrapper
-            -#%input#street-select{ type: "hidden", placeholder: "Где?" }
-            -#.clearfix
-        -#.span6
-          -#.control-group
-            -#%textarea.how{:rows => "3", placeholder: "Как?" }
-            -#.clearfix
-      -#%br
-      -#.progress
-        -#.bar
-      -#.preview.well
-  -#%br
-  -#%form{action: city_reports_path(resource_city), method: 'POST'}
-    -#%input.form_text{ name:"text", type:"hidden" }
-    -#%input.send.btn-large.btn-inverse{:type => "submit", :value => "Сообщить в #{resource_city.twitter_name}"}
+  - if can_post_message?
+    = simple_form_for @api_report, remote: true, url: city_reports_path(resource_city) do |f|
+      %h1 Сообщить обстановку
+      %div#alert-placeholder
+      .row
+        .col-md-3
+          .control-group
+            .event-selector.type
+              - EventKinds.all.each do |ek|
+                %a.btn.btn-large.btn-block{ 'data-event-kind' => ek }= t(ek)
+        .col-md-9
+          .row
+            .col-md-6
+              .control-group.select2-wrapper
+                %input#street-select{ type: "hidden", placeholder: "Где?" }
+                .clearfix
+            .col-md-6
+              .control-group
+                %textarea.how{:rows => "3", placeholder: "Как?" }
+                .clearfix
+          %br
+          .preview.well
+      %br
+        = f.hidden_field :text, class: :send_form_text
+        = f.hidden_field :time, class: :send_form_time
+        = f.hidden_field :event_kind, class: :send_form_kind
+        = f.submit class: 'send btn btn-primary btn-large', :value => "Сообщить в #{resource_city.twitter_name}"
+  - else
+    %h1 Недавно вы уже отпарвляли сообщение, подождите немного для отправки следующего

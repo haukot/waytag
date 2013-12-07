@@ -22,7 +22,7 @@
 
     %tbody
       - @ios_users.each do |ios_user|
-        %tr
+        %tr{ class: ios_user.state_class }
           %td= ios_user.id
           %td= ios_user.token
           %td= ios_user.state

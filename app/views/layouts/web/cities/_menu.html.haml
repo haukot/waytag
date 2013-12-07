@@ -1,10 +1,14 @@
-= nav_bar fixed: :top do
-  = menu_group do
-    = menu_item "Города", root_path
-    = drop_down city.name do
-      - city.cities_to_go.each do |sub_city|
-        = menu_item sub_city.name, city_path(sub_city)
+%nav.navbar.navbar-inner{ role: "navigation" }
+  .container
+    = menu_group do
+      = menu_item "Города", root_path
+      = drop_down resource_city.name do
+        - resource_city.cities_to_go.each do |sub_city|
+          = menu_item sub_city.name, city_path(sub_city)
 
-    = menu_item "Бонусы", city_bonuses_path(city)
-    = menu_item "Партнеры", city_partners_path(city)
-    = menu_item "Статистика", city_stats_path(city)
+    = menu_group pull: :right do
+      - if resource_city.bonuses.any?
+        = menu_item "О, Бонусы", city_bonuses_path(resource_city)
+      - if resource_city.partners.any?
+        = menu_item "Партнеры", city_partners_path(resource_city)
+      = menu_item "Цифры и факты", city_stats_path(resource_city)
