@@ -49,6 +49,8 @@ Waytag::Application.routes.draw do
 
     root to: 'cities#index'
 
+    resources :posts, only: [:index, :show]
+
     resources :cities, only: [:index, :show], path: '/' do
       scope module: :cities do
         resources :reports, only: :create
@@ -57,7 +59,5 @@ Waytag::Application.routes.draw do
         resources :bonuses, only: [:index, :show]
       end
     end
-
-    resources :posts, only: [:index, :show]
   end
 end

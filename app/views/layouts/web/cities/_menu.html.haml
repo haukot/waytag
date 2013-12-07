@@ -4,3 +4,6 @@
     = drop_down city.name do
       - city.cities_to_go.each do |sub_city|
         = menu_item sub_city.name, city_path(sub_city)
+
+    = menu_item "Бонусы", city_path(city)
+    = menu_item "Партнеры", city_path(city)

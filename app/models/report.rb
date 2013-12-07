@@ -75,6 +75,7 @@ class Report < ActiveRecord::Base
   def clean_text
     text.gsub(/(#ulsk|##{city.hashtag}|#{city.twitter_name}|#{city.hashtag})/i, '')
     .sub(/\A\[\d{1,2}:\d{1,2}\]/, '')
+    .gsub(/via\s.*$/, '')
     .gsub(/\s+/, ' ')
     .strip
   end

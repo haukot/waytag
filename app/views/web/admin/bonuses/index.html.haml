@@ -4,6 +4,14 @@
 
 %hr
 
+.well
+  = simple_form_for @search, default_search_form_options(url: admin_bonuses_path, html: {class: "form-inline"}) do |f|
+    .form-group
+      = f.input_field :city_id_eq, collection: City.all, include_blank: t('all_cities')
+    .form-group
+      = f.submit class: 'btn', value: "Search"
+
+
 = paginate @bonuses
 
 .table-responsive
@@ -13,6 +21,7 @@
         %th #
         %th= sort_link @search, :title, "Title"
         %th= sort_link @search, :description, "Description"
+        %th= sort_link @search, :city_id, "City"
         %th
 
     %tbody
@@ -21,6 +30,7 @@
           %td= bonus.id
           %td= bonus.title
           %td= bonus.description
+          %td= bonus.city.name
           %td= edit_and_destroy_buttons_vertical(edit_admin_bonus_path(bonus), admin_bonus_path(bonus))
 
 = paginate @bonuses

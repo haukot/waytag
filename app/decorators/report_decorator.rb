@@ -11,6 +11,10 @@ class ReportDecorator < Draper::Decorator
     end
   end
 
+  def published_date
+    object.time.strftime("%d.%m.%Y")
+  end
+
   def published_at
     object.time.strftime("%H:%M")
   end

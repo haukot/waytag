@@ -2,7 +2,8 @@
   %h1 Блог Waytag
   - @posts.each do |post|
     .post
-      %h2= post.title
+      %h2
+        = link_to post.title, post_path(post)
       .description!= markdown.render(post.content)
       %p.meta
         %date= post.created_at.strftime("%e %b %Y")
