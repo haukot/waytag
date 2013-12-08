@@ -1,7 +1,7 @@
 Classifier = FisherClassifier.create do
 
   inc_feature do |feature, category|
-    feature = ClassifierFeatures.find_or_initialize_by(name: feature, category: category)
+    feature = ClassifierFeature.find_or_initialize_by(name: feature, category: category)
 
     feature.count += 1 if feature
 
@@ -15,18 +15,19 @@ Classifier = FisherClassifier.create do
     features = Mystem.clean text
     features.uniq
     features = features.select { |f| f.size > 2 }
+    features = features.map { |f| f.mb_chars.downcase.strip }
   end
 
   categories do
-    ClassifierFeatures.category.values
+    ClassifierFeature.category.values
   end
 
   category_count do |category|
-    ClassifierFeatures.where(category: category).sum(:count)
+    ClassifierFeature.where(category: category).sum(:count)
   end
 
   features_count do |feature, category|
-    f = ClassifierFeatures.find_by(name: feature, category: category)
+    f = ClassifierFeature.find_by(name: feature, category: category)
     if f
       f.count
     else

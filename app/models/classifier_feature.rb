@@ -1,4 +1,4 @@
-class ClassifierFeatures < ActiveRecord::Base
+class ClassifierFeature < ActiveRecord::Base
   extend Enumerize
 
   validates :category, presence: true

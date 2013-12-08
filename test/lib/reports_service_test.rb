@@ -5,7 +5,7 @@ class ReportsServiceTest < ActiveSupport::TestCase
 
   setup do
     @text = generate :report_text
-    ClassifierFeatures.destroy_all
+    ClassifierFeature.destroy_all
 
     10.times do
       Classifier.train(@text, :good)

@@ -37,6 +37,7 @@ Waytag::Application.routes.draw do
         patch :publish, on: :member
       end
 
+      resources :classifier_features, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :streets, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :partners, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :cities, only: [:index, :edit, :new, :create, :update, :destroy]

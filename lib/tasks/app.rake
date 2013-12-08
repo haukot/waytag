@@ -17,6 +17,20 @@ namespace :app do
     end
   end
 
+  desc 'Train streets'
+  task :streets => [:environment] do
+    buffer = ""
 
+    City::Street.find_each do |city|
+      buffer += " #{city.name}"
+      if buffer.length > 3000
+        10.times do
+          print '.'
+          Classifier.train(buffer, :good)
+        end
+        buffer = ""
+      end
+    end
+  end
 
 end

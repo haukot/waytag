@@ -1,0 +1,37 @@
+%h1
+  ClassifierFeatures
+  = link_to '+ New ClassifierFeature', new_admin_classifier_feature_path, class: "btn btn-default"
+
+%hr
+
+.well
+  = simple_form_for @search, default_search_form_options(url: admin_classifier_features_path, html: {class: "form-inline"}) do |f|
+    .form-group
+      = f.input_field :name_cont
+    .form-group
+      = f.submit class: 'btn', value: "Search"
+
+= paginate @classifier_features
+
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th #
+        %th= sort_link @search, :name
+        %th= sort_link @search, :category
+        %th= sort_link @search, :count
+        %th
+
+    %tbody
+      - @classifier_features.each do |classifier_feature|
+        %tr
+          %td= classifier_feature.id
+          %td= classifier_feature.name
+          %td
+            %span{ class: "label #{classifier_feature.category_class}" }
+              = classifier_feature.category
+          %td= classifier_feature.count
+          %td.text-right= edit_and_destroy_buttons(edit_admin_classifier_feature_path(classifier_feature), admin_classifier_feature_path(classifier_feature))
+
+= paginate @classifier_features
