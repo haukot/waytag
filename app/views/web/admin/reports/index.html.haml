@@ -16,33 +16,41 @@
     %thead
       %tr
         %th #
-        %th= sort_link @search, :city_id, "City"
+        %th= sort_link @search, :event_kind, "Event"
         %th= sort_link @search, :text, "Text"
         %th= sort_link @search, :time, "Date"
         %th= sort_link @search, :state, "State"
         %th= sort_link @search, :source_kind, "Source"
-        %th= sort_link @search, :event_kind, "Event kind"
         %th
+        %th= sort_link @search, :city_id, "City"
         %th
 
     %tbody
       - @reports.each do |report|
-        %tr{ class: report.state_class }
+        %tr
           %td= report.id
-          %td= report.city.name
+          %td
+            - if report.event_kind
+              %span{ class: "label #{report.event_label_class}" }
+                = t(report.event_kind)
           %td= report.text
           %td= report.published_date
-          %td= report.state
-          %td= report.source_kind
-          %td= report.event_kind
+          %td
+            %span{ class: "label #{report.state_label_class}" }
+              = report.state_string
+          %td
+            %span{ class: "label label-default" }
+              = report.source_kind
           %td= report.sourceable_link
+          %td= report.city.name
           %td
             .btn-group-vertical
               = link_to 'Good', good_admin_report_path(report), class: 'btn btn-primary', method: :patch
               = link_to 'Bad', bad_admin_report_path(report), class: 'btn btn-default', method: :patch
           %td
-            .btn-group-vertical
-              = link_to 'Publish', publish_admin_report_path(report), class: 'btn btn-success', method: :patch
+            - if report.posted?
               = link_to 'Destroy', admin_report_path(report), destroy_button_params
+            - else
+              = link_to 'Good && Publish', publish_admin_report_path(report), class: 'btn btn-success', method: :patch
 
 = paginate @reports

@@ -41,6 +41,52 @@ class ReportDecorator < Draper::Decorator
 
   end
 
+  def state_string
+    if object.rejected?
+      if with_mentions?
+        h.t(:with_mentions)
+      elsif less_three_words?
+        h.t(:less_three_words)
+      elsif question?
+        h.t(:question)
+      elsif contains_bad_data?
+        h.t(:contains_bad_data)
+      elsif yell?
+        h.t(:yell)
+      end
+    else
+      h.t(object.state)
+    end
+  end
+
+  def event_label_class
+    if object.event_kind.prbk?
+      "label-warning"
+    elsif object.event_kind.dtp?
+      "label-danger"
+    elsif object.event_kind.cmr?
+      "label-success"
+    elsif object.event_kind.dps?
+      "label-info"
+    elsif object.event_kind.rmnt?
+      "label-primary"
+    end
+  end
+
+  def state_label_class
+    if object.rejected? || object.bad?
+      "label-warning"
+    elsif object.added?
+      "label-default"
+    elsif object.posted?
+      "label-success"
+    elsif object.wating_post?
+      "label-info"
+    elsif object.post_failed?
+      "label-danger"
+    end
+  end
+
   def userpic
     image = object.userpic
     image ||= "avatar_ulway_20.png"

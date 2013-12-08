@@ -10,7 +10,8 @@ class TwitterService
 
       tup = TwitterUserPopulator.new params
       tup.populate
-    rescue Twitter::Error
+    rescue Twitter::Error => e
+      Rails.logger.fatal "Twitter error #{e.to_s}"
       nil
     end
 
@@ -34,6 +35,7 @@ class TwitterService
 
       report.id_str = response[:id_str]
       report.save
+      report.post
     rescue Twitter::Error::Forbidden => e
       Rails.logger.fatal "Tweet rejected #{e.to_s}"
       nil

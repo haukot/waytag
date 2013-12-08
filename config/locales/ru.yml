@@ -6,6 +6,16 @@ ru:
   cmr: "Камера"
   rmnt: "Ремонт"
   prbk: "Пробка"
+  rejected: "Отклонено"
+  with_mentions: "Лишние меншны"
+  less_three_words: "Меньше трех слов"
+  question: "Вопрос"
+  yell: "Капс"
+  added: "Добавлено"
+  posted: "Опубликовано"
+  bad: "Отклонено фильтром"
+  wating_post: "Ожидает публикации"
+  post_failed: "Неудачная публикация"
   date:
     formats:
       month: "%B"
