@@ -18,22 +18,27 @@ class Web::Admin::ClassifierFeaturesController < Web::Admin::ApplicationControll
     @classifier_feature = ClassifierFeature.new(classifier_feature_params)
 
     if @classifier_feature.save
-      redirect_to admin_classifier_features_path, notice: 'ClassifierFeature was successfully created.'
+      f(:success)
+      redirect_to admin_classifier_features_path
     else
+      f(:error)
       render action: 'new'
     end
   end
 
   def update
     if @classifier_feature.update(classifier_feature_params)
-      redirect_to admin_classifier_features_path, notice: 'ClassifierFeature was successfully updated.'
+      f(:success)
+      redirect_to admin_classifier_features_path
     else
+      f(:error)
       render action: 'edit'
     end
   end
 
   def destroy
     @classifier_feature.destroy
+    f(:success)
     redirect_to admin_classifier_features_url, notice: 'ClassifierFeature was successfully destroyed.'
   end
 

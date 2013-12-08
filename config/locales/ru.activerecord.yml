@@ -1,0 +1,49 @@
+ru:
+  attributes:
+    name: Имя
+    user_name: Имя пользователя
+    state_event: Изменить состояние
+    state: Состояние
+    created_at: Время создания
+    published_at: Опубликовано
+    description: Описание
+    city: Город
+    city_id: Город
+    slug: Слуг
+    login: Логин
+    user: Пользователь
+    order: Порядок
+    token: Токен
+    title: Заголовок
+    email: E-mail
+    twitter_name: Имя в твиттере
+    hashtag: Хештег
+    rate: Хуйня какая-то
+    category: Категория
+    content: Текст
+    text: Текст
+    time: Время
+    seo_name: СЕО имя
+    seo_keywords: СЕО ключевые слова
+    seo_description: СЕО описалово
+    sourceable_id: Источник
+    source_kind: Тип источника
+    longitude: Долгота
+    latitude: Широта
+    event_kind: Тип события
+
+  activerecord:
+    models:
+      user: Пользователь
+      city: Город
+      city/street: Улица
+      android_user: Android пользователь
+      api_user: Api пользователь
+      bonus: Бонус
+      classifier_feature: Признаки
+      ios_user: Ios пользователь.rb
+      partner: Партнер
+      post: Пост
+      report: Сообщение
+      twitter_user: Twitter пользователь
+      web_user: Web пользователь

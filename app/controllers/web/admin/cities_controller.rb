@@ -1,27 +1,25 @@
 class Web::Admin::CitiesController < Web::Admin::ApplicationController
   before_action :set_city, except: [:create, :index, :new]
 
-  # GET /cities
   def index
     @cities = City.all
   end
 
-  # GET /cities/new
   def new
     @city = City.new
   end
 
-  # GET /cities/1/edit
   def edit
   end
 
-  # POST /cities
   def create
     @city = City.new(city_params)
 
     if @city.save
-      redirect_to admin_cities_path, notice: 'City was successfully created.'
+      f(:success)
+      redirect_to admin_cities_path
     else
+      f(:error)
       render action: 'new'
     end
   end
@@ -29,8 +27,10 @@ class Web::Admin::CitiesController < Web::Admin::ApplicationController
   # PATCH/PUT /cities/1
   def update
     if @city.update(city_params)
-      redirect_to admin_cities_path, notice: 'City was successfully updated.'
+      f(:success)
+      redirect_to admin_cities_path
     else
+      f(:error)
       render action: 'edit'
     end
   end
@@ -38,16 +38,15 @@ class Web::Admin::CitiesController < Web::Admin::ApplicationController
   # DELETE /cities/1
   def destroy
     @city.destroy
-    redirect_to admin_cities_url, notice: 'City was successfully destroyed.'
+    f(:success)
+    redirect_to admin_cities_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_city
       @city = City.friendly.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def city_params
       params.require(:city).permit(:slug, :name, :email, :twitter_name, :hashtag)
     end

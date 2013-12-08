@@ -13,7 +13,9 @@ class Web::Admin::ApiUsersController < Web::Admin::ApplicationController
   # DELETE /api_users/1
   def destroy
     @api_user.destroy
-    redirect_to admin_api_users_url, notice: 'Api user was successfully destroyed.'
+
+    f(:success)
+    redirect_to admin_api_users_url
   end
 
   private

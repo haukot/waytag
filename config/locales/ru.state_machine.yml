@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    state_machines:
+      states:
+        published: Опубликовано
+        archived: Архивировано
+        active: активно
+        inactive: неактивно
+      events:
+        publish: Опубликовать
+        unpublish: Снять с публикации
+        activate: Активировать
+        archive: Архивировать

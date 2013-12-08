@@ -1,55 +1,52 @@
 class Web::Admin::PartnersController < Web::Admin::ApplicationController
   before_action :set_partner, except: [:create, :index, :new]
 
-  # GET /partners
   def index
     query = params[:q] || {}
     @search = Partner.ransack query
     @partners = @search.result.page(params[:page])
   end
 
-  # GET /partners/new
   def new
     @partner = Partner.new
   end
 
-  # GET /partners/1/edit
   def edit
   end
 
-  # POST /partners
   def create
     @partner = Partner.new(partner_params)
 
     if @partner.save
-      redirect_to admin_partners_path, notice: 'Partner was successfully created.'
+      f(:success)
+      redirect_to admin_partners_path
     else
+      f(:error)
       render action: 'new'
     end
   end
 
-  # PATCH/PUT /partners/1
   def update
     if @partner.update(partner_params)
-      redirect_to admin_partners_path, notice: 'Partner was successfully updated.'
+      f(:success)
+      redirect_to admin_partners_path
     else
+      f(:error)
       render action: 'edit'
     end
   end
 
-  # DELETE /partners/1
   def destroy
     @partner.destroy
-    redirect_to admin_partners_url, notice: 'Partner was successfully destroyed.'
+    f(:success)
+    redirect_to admin_partners_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_partner
       @partner = Partner.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def partner_params
       params.require(:partner).permit(:title, :description, :city_id)
     end

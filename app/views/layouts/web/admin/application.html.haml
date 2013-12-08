@@ -7,25 +7,25 @@
     .main
       = nav_bar fixed: :top, brand: "Waytag::Admin", brand_link: admin_root_path do
         = menu_group do
-          = menu_item "Reports", admin_reports_path
-          = menu_item "Cities", admin_cities_path
-          = menu_item "Streets", admin_streets_path
-          = menu_item "Partners", admin_partners_path
-          = menu_item "Bonuses", admin_bonuses_path
-          = menu_item "Blog", admin_posts_path
-          = drop_down "Users" do
-            = menu_item "Twitter", admin_twitter_users_path
-            = menu_item "Web", admin_web_users_path
-            = menu_item "Android", admin_android_users_path
-            = menu_item "IOS", admin_ios_users_path
-            = menu_item "API", admin_api_users_path
-          = menu_item "Classifier", admin_classifier_features_path
+          = menu_item t('reports'), admin_reports_path
+          = menu_item t('cities'), admin_cities_path
+          = menu_item t('streets'), admin_streets_path
+          = menu_item t('partners'), admin_partners_path
+          = menu_item t('bonuses'), admin_bonuses_path
+          = menu_item t('blog'), admin_posts_path
+          = drop_down t('users')do
+            = menu_item t('twitter'), admin_twitter_users_path
+            = menu_item t('web'), admin_web_users_path
+            = menu_item t('android'), admin_android_users_path
+            = menu_item t('ios'), admin_ios_users_path
+            = menu_item t('API'), admin_api_users_path
+          = menu_item t('classifier'), admin_classifier_features_path
         = menu_group :pull => :right do
           - if current_user
             %li
               = image_tag current_user.profile_image_url, class: "nav-avatar"
-            = drop_down "You are #{current_user.screen_name}" do
-              = menu_item "Log Out", admin_session_path, method: :delete
+            = drop_down "#{t('you_are')} #{current_user.screen_name}" do
+              = menu_item t('log_out'), admin_session_path, method: :delete
 
 
       %br

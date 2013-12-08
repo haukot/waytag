@@ -1,5 +1,21 @@
 ru:
-  hello: "Hello world"
+  API: API
+  android: Android
+  back: ← Назад
+  blog: Блог
+  bonuses: Бонусы
+  cities: Города
+  classifier: Классификатор
+  ios: IOS
+  log_out: Выход
+  partners: Партнеры
+  reports: Сообщения
+  search: Поиск
+  streets: Улицы
+  twitter: Twitter
+  users: Пользователи
+  web: Web
+  you_are: Вы
   all_cities: "Все города"
   dps: "ДПС"
   dtp: "ДТП"
@@ -20,3 +36,5 @@ ru:
     formats:
       month: "%B"
       day: "%A"
+      day_month_year: "%d %B %Y"
+      time: "%H:%M"

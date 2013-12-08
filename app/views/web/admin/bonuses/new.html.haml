@@ -1,8 +1,8 @@
-%h1 New bonus
+%h1= t('new_bonus')
 
 %hr
 
 = render 'form', url: admin_bonuses_path
 
 %br
-= link_to '← Back', admin_bonuses_path
+= link_to t('back'), admin_bonuses_path

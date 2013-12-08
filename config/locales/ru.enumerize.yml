@@ -1,0 +1,7 @@
+ru:
+  enumerize:
+    classifier_feature:
+      category:
+        good: "Хороший"
+        bad: "Плохой"
+

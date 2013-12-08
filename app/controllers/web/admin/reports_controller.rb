@@ -6,7 +6,9 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
 
     @report.try_approve!
 
-    redirect_to :action => :index
+    f(:success)
+
+    redirect_to action: :index
   end
 
   def bad
@@ -14,7 +16,9 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
 
     @report.try_approve!
 
-    redirect_to :action => :index
+    f(:success)
+
+    redirect_to action: :index
   end
 
   def publish
@@ -24,26 +28,27 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
 
     PostWorker.perform_async(@report.id)
 
-    redirect_to :action => :index
+    f(:success)
+
+    redirect_to action: :index
   end
 
-  # GET /reports
   def index
     query = params[:q] || { s: "time desc" }
     @search = Report.ransack query
     @reports = @search.result.page(params[:page]).decorate
   end
 
-  # DELETE /reports/1
   def destroy
     ReportsService.destroy(@report)
-    redirect_to admin_reports_url, notice: 'Report was successfully destroyed.'
+
+    f(:success)
+
+    redirect_to admin_reports_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_report
       @report = Report.find(params[:id])
     end
-
 end

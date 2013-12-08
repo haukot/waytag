@@ -14,6 +14,7 @@ class Web::Admin::SessionsController < Web::Admin::ApplicationController
 
   def destroy
     sign_out
+
     redirect_to root_url
   end
 end
