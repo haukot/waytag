@@ -5,7 +5,7 @@ class TwitterReader
       client = ServiceLocator.twitter_stream(city)
 
       client.filter(:track => "##{city}way") do |object|
-        status_recived(object, city, :mentions) if object.is_a?(Twitter::Tweet)
+        status_recived(object, city, :hashtag) if object.is_a?(Twitter::Tweet)
       end
 
       client.user do |object|
