@@ -5,18 +5,6 @@ GIT
     fisher_classifier (0.0.1)
 
 GIT
-  remote: git://github.com/Andrew8xx8/tweetstream.git
-  revision: 1aec59c550d28a37b76daf10affd6e42f25d7f46
-  specs:
-    tweetstream (2.6.0)
-      daemons (~> 1.1)
-      em-http-request
-      em-twitter
-      multi_json (~> 1.3)
-      twitter (~> 5.0)
-      yajl-ruby
-
-GIT
   remote: git://github.com/ernie/ransack.git
   revision: 4bff6c4d7ed4cf4396b11d353e94d9be82b99775
   branch: rails-4
@@ -125,10 +113,8 @@ GEM
     configus (0.0.4)
       rake
     connection_pool (1.2.0)
-    cookiejar (0.3.0)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
-    daemons (1.1.9)
     debugger (1.6.3)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -144,23 +130,10 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
-    em-http-request (1.0.3)
-      addressable (>= 2.2.3)
-      cookiejar
-      em-socksify
-      eventmachine (>= 1.0.0.beta.4)
-      http_parser.rb (>= 0.5.3)
-    em-socksify (0.3.0)
-      eventmachine (>= 1.0.0.beta.4)
-    em-twitter (0.2.2)
-      eventmachine (~> 1.0)
-      http_parser.rb (~> 0.5)
-      simple_oauth (~> 0.1)
     enumerize (0.7.0)
       activesupport (>= 3.2)
     equalizer (0.0.8)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     execjs (2.0.2)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
@@ -385,7 +358,6 @@ GEM
       ruby2ruby (>= 2.0.1)
       ruby_parser (>= 3.0.1)
       sexp_processor (>= 4.0)
-    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -442,7 +414,6 @@ DEPENDENCIES
   state_machine
   therubyracer
   turn
-  tweetstream!
   twitter
   twitter-bootstrap-rails!
   uglifier (>= 1.3.0)

@@ -7,17 +7,12 @@ class ServiceLocator
 
       return @stream_clients[city] if @stream_clients.has_key?(city)
 
-
-      TweetStream.configure do |config|
+      @stream_clients[city] ||= Twitter::Streaming::Client.new do |config|
         config.consumer_key       = configus.twitter[city].consumer_key
         config.oauth_token        = configus.twitter[city].oauth_token
         config.consumer_secret    = configus.twitter[city].consumer_secret
         config.oauth_token_secret = configus.twitter[city].oauth_token_secret
-        config.auth_method        = configus.twitter[city].auth_method
       end
-
-      @stream_clients[city] = TweetStream::Client.new
-      @stream_clients[city]
     end
 
     def waytag_twitter
@@ -35,8 +30,6 @@ class ServiceLocator
         config.access_token =           configus.twitter[key].oauth_token
         config.access_token_secret =    configus.twitter[key].oauth_token_secret
       end
-
-      @rest_clients[key]
     end
   end
 end

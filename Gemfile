@@ -44,7 +44,6 @@ gem 'sinatra', '>= 1.3.0', require: false
 gem 'sidekiq'
 gem 'russian_obscenity'
 gem 'twitter'
-gem 'tweetstream', github: 'Andrew8xx8/tweetstream', require: false
 
 gem 'fisher_classifier', github: 'Andrew8xx8/fisher_classifier'
 
