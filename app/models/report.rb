@@ -91,7 +91,11 @@ class Report < ActiveRecord::Base
   end
 
   def safe_text
-    text.gsub(/@|#/, '')
+    if Rails.env.staging? || Rails.env.development?
+      text.gsub(/@|#/, '')
+    else
+      text
+    end
   end
 
   def has_duplicate?
