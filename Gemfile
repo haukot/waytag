@@ -32,6 +32,7 @@ gem 'js-routes'
 gem 'ransack'
 gem 'kaminari'
 gem 'jbuilder'
+gem 'newrelic_rpm'
 
 gem 'geocoder'
 gem 'russian'
