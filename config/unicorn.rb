@@ -20,6 +20,7 @@ before_fork do |server, worker|
 end
 
 after_fork do |server, worker|
+  GC.disable
   defined?(ActiveRecord::Base) and
     ActiveRecord::Base.establish_connection
 end

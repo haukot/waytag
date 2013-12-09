@@ -34,7 +34,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   def index
     query = params[:q] || { s: "time desc" }
     @search = Report.ransack query
-    @reports = @search.result.page(params[:page]).decorate
+    @reports = @search.result.page(params[:page]).includes([:city, :sourceable]).decorate
   end
 
   def destroy
