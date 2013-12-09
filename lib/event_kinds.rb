@@ -10,7 +10,7 @@ class EventKinds
       return :dtp if text =~ /дтп|авария|влетел|прилетел|догнал/i
       return :prbk if text =~ /пробка|стоим\sот/i
       return :dps if text =~ /дпс/i
-      return :cmr if text =~ /камера/i
+      return :cmr if text =~ /радар|камера/i
       return :rmnt if text =~ /ремонт/i
       nil
     end

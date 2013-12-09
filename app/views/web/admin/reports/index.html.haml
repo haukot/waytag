@@ -48,9 +48,9 @@
               = link_to 'Good', good_admin_report_path(report), class: 'btn btn-primary', method: :patch
               = link_to 'Bad', bad_admin_report_path(report), class: 'btn btn-default', method: :patch
           %td
-            - if report.posted?
+            - if report.posted? && report.id_str
               = link_to 'Destroy', admin_report_path(report), destroy_button_params
-            - else
+            - unless report.posted? || report.wating_post?
               = link_to 'Good && Publish', publish_admin_report_path(report), class: 'btn btn-success', method: :patch
 
 = paginate @reports

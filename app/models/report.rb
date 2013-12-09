@@ -117,4 +117,8 @@ class Report < ActiveRecord::Base
   def username
     return sourceable.screen_name if has_username?
   end
+
+  def self.states
+    state_machine.states.map{|s| s.name}
+  end
 end
