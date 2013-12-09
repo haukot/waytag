@@ -4,8 +4,6 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   def good
     Classifier.train(@report.clean_text, :good)
 
-    @report.try_approve!
-
     f(:success)
 
     redirect_to action: :index
