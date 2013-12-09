@@ -1,7 +1,7 @@
 ru:
   flash:
     base:
-      process:
+      perform:
         success: Отправлено на обработку
       good:
         success: Класифицировано как хорошее

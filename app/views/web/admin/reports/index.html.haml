@@ -49,10 +49,10 @@
               = link_to t('mark_bad'), bad_admin_report_path(report), class: 'btn btn-default', method: :patch
           %td
             .btn-group-vertical
-            - if report.added?
-              = link_to t('process'), perform_admin_report_path(report), class: 'btn btn-default', method: :patch
-            - unless report.posted? || report.wating_post?
-              = link_to t('good_publish'), publish_admin_report_path(report), class: 'btn btn-success', method: :patch
-            = link_to t('destroy'), admin_report_path(report), destroy_button_params
+              - if report.added?
+                = link_to t('process'), perform_admin_report_path(report), class: 'btn btn-default', method: :patch
+              - if report.can_be_published?
+                = link_to t('good_publish'), publish_admin_report_path(report), class: 'btn btn-success', method: :patch
+              = link_to t('destroy'), admin_report_path(report), destroy_button_params
 
 = paginate @reports

@@ -94,5 +94,8 @@ class ReportDecorator < Draper::Decorator
     h.image_tag image, width: 20, height: 20
   end
 
+  def can_be_published?
+    !(object.posted? || object.wating_post? || object.added?)
+  end
 
 end
