@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.0.0'
 gem 'pg'
 
-gem "friendly_id", github: 'norman/friendly_id', branch: "master"
+gem "friendly_id", '> 5.0'
 gem 'gon'
 gem 'foreman'
 
@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'haml-rails'
-gem 'simple_form', git: 'https://github.com/plataformatec/simple_form.git'
+gem 'simple_form'
 gem 'therubyracer', platforms: :ruby
 gem "bootstrap-switch-rails"
 gem 'less-rails-bootstrap'
@@ -29,7 +29,7 @@ gem 'sass-rails'
 gem 'chart-js-rails'
 
 gem 'js-routes'
-gem 'ransack', github: "ernie/ransack", branch: 'rails-4'
+gem 'ransack'
 gem 'kaminari'
 gem 'jbuilder'
 
