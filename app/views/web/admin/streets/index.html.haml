@@ -9,7 +9,7 @@
     .form-group
       = f.input_field :city_id_eq, collection: City.all, include_blank: t('all_cities')
     .form-group
-      = f.submit class: 'btn', value: "Search"
+      = f.submit class: 'btn', value: t("search")
 
 
 
@@ -20,8 +20,8 @@
     %thead
       %tr
         %th #
-        %th= sort_link @search, :name, "Name"
-        %th= sort_link @search, :city_id, "City"
+        %th= sort_link @search, :name
+        %th= sort_link @search, :city_id
         %th
 
     %tbody

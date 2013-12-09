@@ -10,12 +10,12 @@
       = f.input_field :name_matches, placeholder: "name"
     .form-group
       = f.input_field :screen_name_matches, placeholder: "screen name"
-    = f.submit class: 'btn', value: "Search"
+    = f.submit class: 'btn', value: t("search")
   %hr
     = form_tag admin_twitter_users_path, method: :post, role: :form, class: "form-inline" do
       .form-group
         = text_field_tag :screen_name, "", placeholder: "@user_name", class: "form-control"
-      = submit_tag "Add from twitter", class: "btn"
+      = submit_tag t('add_from_twitter'), class: "btn"
 
 = paginate @twitter_users
 
@@ -24,13 +24,13 @@
     %thead
       %tr
         %th #
-        %th= sort_link @search, :uid, "External"
-        %th Image
-        %th= sort_link @search, :name, "Name"
-        %th= sort_link @search, :screen_name, "Screen name"
-        %th= sort_link @search, :state, "State"
-        %th Description
-        %th Reports
+        %th= sort_link @search, :uid
+        %th= t('image')
+        %th= sort_link @search, :name
+        %th= sort_link @search, :screen_name
+        %th= sort_link @search, :state
+        %th= t('description')
+        %th= t('reports')
         %th
 
     %tbody

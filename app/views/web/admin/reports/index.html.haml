@@ -7,7 +7,7 @@
     .form-group
       = f.input_field :city_id_eq, collection: City.all, include_blank: t('all_cities')
     .form-group
-      = f.submit class: 'btn', value: "Search"
+      = f.submit class: 'btn', value: t('search')
 
 = paginate @reports
 
@@ -16,13 +16,13 @@
     %thead
       %tr
         %th #
-        %th= sort_link @search, :event_kind, "Event"
-        %th= sort_link @search, :text, "Text"
-        %th= sort_link @search, :time, "Date"
-        %th= sort_link @search, :state, "State"
-        %th= sort_link @search, :source_kind, "Source"
+        %th= sort_link @search, :event_kind
+        %th= sort_link @search, :text
+        %th= sort_link @search, :time
+        %th= sort_link @search, :state
+        %th= sort_link @search, :source_kind
         %th
-        %th= sort_link @search, :city_id, "City"
+        %th= sort_link @search, :city_id
         %th
 
     %tbody
@@ -45,12 +45,14 @@
           %td= report.city.name
           %td
             .btn-group-vertical
-              = link_to 'Good', good_admin_report_path(report), class: 'btn btn-primary', method: :patch
-              = link_to 'Bad', bad_admin_report_path(report), class: 'btn btn-default', method: :patch
+              = link_to t('mark_good'), good_admin_report_path(report), class: 'btn btn-primary', method: :patch
+              = link_to t('mark_bad'), bad_admin_report_path(report), class: 'btn btn-default', method: :patch
           %td
-            - if report.posted? && report.id_str
-              = link_to 'Destroy', admin_report_path(report), destroy_button_params
+            .btn-group-vertical
+            - if report.added?
+              = link_to t('process'), perform_admin_report_path(report), class: 'btn btn-default', method: :patch
             - unless report.posted? || report.wating_post?
-              = link_to 'Good && Publish', publish_admin_report_path(report), class: 'btn btn-success', method: :patch
+              = link_to t('good_publish'), publish_admin_report_path(report), class: 'btn btn-success', method: :patch
+            = link_to t('destroy'), admin_report_path(report), destroy_button_params
 
 = paginate @reports

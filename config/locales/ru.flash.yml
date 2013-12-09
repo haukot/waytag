@@ -1,6 +1,8 @@
 ru:
   flash:
     base:
+      process:
+        success: Отправлено на обработку
       good:
         success: Класифицировано как хорошее
       bad:

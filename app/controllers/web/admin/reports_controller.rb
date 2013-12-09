@@ -1,6 +1,14 @@
 class Web::Admin::ReportsController < Web::Admin::ApplicationController
   before_action :set_report, except: :index
 
+  def perform
+    f(:success)
+
+    ReportsService.perform @report.id
+
+    redirect_to action: :index
+  end
+
   def good
     Classifier.train(@report.clean_text, :good)
 

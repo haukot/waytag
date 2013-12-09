@@ -35,6 +35,7 @@ Waytag::Application.routes.draw do
         patch :good, on: :member
         patch :bad, on: :member
         patch :publish, on: :member
+        patch :perform, on: :member
       end
 
       resources :classifier_features, only: [:index, :edit, :new, :create, :update, :destroy]

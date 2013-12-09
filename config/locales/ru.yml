@@ -32,6 +32,15 @@ ru:
   bad: "Отклонено фильтром"
   wating_post: "Ожидает публикации"
   post_failed: "Неудачная публикация"
+  mark_bad: "В спам"
+  mark_good: "Одобрить"
+  destroy: "Потратить"
+  process: "Обработать"
+  good_publish: "Пиздануть в твиттер"
+  description: "Описалово"
+  reports: "Сообщения"
+  image: "Фотыга"
+  add_from_twitter: "Добавить из твиттера"
   date:
     formats:
       month: "%B"

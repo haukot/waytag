@@ -2,7 +2,9 @@ class Web::Admin::CitiesController < Web::Admin::ApplicationController
   before_action :set_city, except: [:create, :index, :new]
 
   def index
-    @cities = City.all
+    query = params[:q] || {}
+    @search = City.ransack query
+    @cities = @search.result.page(params[:page])
   end
 
   def new

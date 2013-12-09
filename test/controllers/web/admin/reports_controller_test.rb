@@ -8,6 +8,13 @@ class Web::Admin::ReportsControllerTest < ActionController::TestCase
     @report = create :report
   end
 
+  test "should patch perform" do
+    report = create :report, state: :added
+
+    patch :perform, id: report
+    assert_response :redirect
+  end
+
   test "should patch good" do
     patch :good, id: @report
     assert_response :redirect

@@ -4,16 +4,18 @@
 
 %hr
 
+= paginate @cities
+
 .table-responsive
   %table.table.table-striped.table-hover
     %thead
       %tr
         %th #
-        %th Slug
-        %th Name
-        %th Email
-        %th Twitter name
-        %th Hashtag
+        %th= sort_link @search, :slug
+        %th= sort_link @search, :name
+        %th= sort_link @search, :email
+        %th= sort_link @search, :twitter_name
+        %th= sort_link @search, :hashtag
         %th
 
     %tbody
