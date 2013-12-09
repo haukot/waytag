@@ -27,7 +27,7 @@ class Report < ActiveRecord::Base
     end
 
     event :approve do
-      transition [:bad, :added] => :wating_post
+      transition all => :wating_post
     end
 
     event :mark_as_bad do

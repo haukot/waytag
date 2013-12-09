@@ -33,7 +33,7 @@ class TwitterService
         response = c.update(report.safe_text)
       end
 
-      report.id_str = response[:id_str]
+      report.id_str = response.id.to_s
       report.save
       report.post
     rescue Twitter::Error::Forbidden => e
