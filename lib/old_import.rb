@@ -1,5 +1,27 @@
 class OldImport
   class << self
+    def perform_users
+      city = City.find_by slug: "ul"
+
+      response = Net::HTTP.get tweet_url(city)
+      meta = ActiveSupport::JSON.decode(response)
+
+      c = 0
+      meta["num_pages"].to_i.times do |page|
+        response = Net::HTTP.get tweet_url(city, page)
+        tweets = ActiveSupport::JSON.decode(response)
+        tweets["tweets"].each do |t|
+          unless TwitterUser.exists?(screen_name: t["screen_name"])
+            p TwitterService.populate_user(t["mentor"]) if t["mentor"]
+            c += 1
+          end
+
+          exit if c == 179
+        end
+      end
+
+    end
+
     def perform
       City.find_each do |city|
         perform_city(city)

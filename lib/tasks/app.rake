@@ -5,6 +5,12 @@ namespace :app do
     OldImport.perform
   end
 
+  desc 'Users'
+  task :import_users => [:environment] do
+    OldImport.perform_users
+  end
+
+
   desc 'Train as bad'
   task :bad => [:environment] do
     file = File.expand_path("../../../db/tweets/bad", __FILE__)
