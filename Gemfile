@@ -33,6 +33,7 @@ gem 'ransack'
 gem 'kaminari'
 gem 'jbuilder'
 gem 'newrelic_rpm'
+gem 'sidekiq-limit_fetch'
 
 gem 'geocoder'
 gem 'russian'
