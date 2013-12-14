@@ -55,7 +55,6 @@ GEM
     awesome_print (1.2.0)
     bcrypt-ruby (3.0.1)
     bootstrap-datetimepicker-rails (0.0.11)
-    bootstrap-switch-rails (1.9.0)
     buftok (0.2.0)
     builder (3.1.4)
     capi (0.1.1)
@@ -352,7 +351,6 @@ DEPENDENCIES
   awesome_print
   bcrypt-ruby (~> 3.0.0)
   bootstrap-datetimepicker-rails
-  bootstrap-switch-rails
   capi (= 0.1.1)
   capistrano (= 2.13.5)
   capistrano-ext

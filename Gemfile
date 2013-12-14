@@ -19,7 +19,6 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'therubyracer', platforms: :ruby
-gem "bootstrap-switch-rails"
 gem 'less-rails-bootstrap'
 gem 'twitter-bootstrap-rails', github: "seyhunak/twitter-bootstrap-rails", branch: "bootstrap3"
 gem 'bootstrap-datetimepicker-rails'
