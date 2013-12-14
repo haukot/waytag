@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/Andrew8xx8/fisher_classifier.git
+  revision: c3bf384980c9a72098e5d1b2ccfc3db18e939494
+  specs:
+    fisher_classifier (0.0.2)
+
+GIT
   remote: git://github.com/kaize/usefull_scopes.git
   revision: 016c3807f6154f6022d095e7fa0bb74e1aa78b96
   specs:
@@ -14,11 +20,6 @@ GIT
       execjs
       rails (>= 3.1)
       railties (>= 3.1)
-
-PATH
-  remote: ~/projects/fisher_classifier
-  specs:
-    fisher_classifier (0.0.2)
 
 GEM
   remote: https://rubygems.org/
