@@ -2,7 +2,7 @@
   .row
     .col-md-6.col-md-offset-3
       %h1 Дорожный классификатор
-      = form_tag classifier_path, method: :post, role: :form do
+      = form_tag classifier_path, method: :get, role: :form do
         .control-group
           = text_field_tag :text, "", placeholder: "Текст", class: "form-control"
         .clearfix
@@ -51,7 +51,7 @@
                   %br
                   Взвешенная вероятность
                   %br
-                  (1 * 0.5 +
+                  (1 * 0.2 +
                   = feature[:feature_in_all_categories]
                   *
                   = real_f(feature_cat[:category_prob])

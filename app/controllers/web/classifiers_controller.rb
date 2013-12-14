@@ -1,7 +1,9 @@
 class Web::ClassifiersController < Web::ApplicationController
 
   def show
-    @classifier_meta = Classifier.meta_classify('the quick brown dox jumps')
+    text = params[:text]
+    text ||= Report.latest_posted.first.source_text
+    @classifier_meta = Classifier.meta_classify(text)
   end
 
 end

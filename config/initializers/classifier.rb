@@ -1,4 +1,6 @@
 Classifier = FisherClassifier.create do
+  assumed_prob 0.2
+  fisher_threshold 0.211111
 
   inc_feature do |feature, category|
     feature = ClassifierFeature.find_or_initialize_by(name: feature, category: category)
@@ -16,6 +18,7 @@ Classifier = FisherClassifier.create do
     features.uniq
     features = features.select { |f| f.size > 2 }
     features = features.map { |f| f.mb_chars.downcase.strip }
+    features << "count_#{features.count}"
   end
 
   categories do
@@ -36,6 +39,6 @@ Classifier = FisherClassifier.create do
   end
 
   default_category do
-    :none
+    "bad"
   end
 end

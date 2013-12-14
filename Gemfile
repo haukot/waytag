@@ -46,7 +46,7 @@ gem 'sidekiq'
 gem 'russian_obscenity'
 gem 'twitter'
 
-gem 'fisher_classifier', github: 'Andrew8xx8/fisher_classifier'
+gem 'fisher_classifier'
 #gem 'fisher_classifier', path: '~/projects/fisher_classifier'
 
 # Push
