@@ -53,6 +53,7 @@ Waytag::Application.routes.draw do
 
     root to: 'cities#index'
 
+    resource :classifier, only: [:show]
     resources :posts, only: [:index, :show]
 
     resources :cities, only: [:index], path: '/' do

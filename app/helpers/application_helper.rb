@@ -37,4 +37,8 @@ module ApplicationHelper
       role: "button"
     }
   end
+
+  def real_f(real)
+    format("%.3f", real)
+  end
 end

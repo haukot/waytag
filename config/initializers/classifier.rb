@@ -23,7 +23,7 @@ Classifier = FisherClassifier.create do
   end
 
   category_count do |category|
-    ClassifierFeature.where(category: category).sum(:count)
+    ClassifierFeature.where(category: category).count
   end
 
   features_count do |feature, category|
