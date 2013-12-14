@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/Andrew8xx8/fisher_classifier.git
-  revision: d661c34ff48b6d89a831182a60a88fb5c1c6675c
-  specs:
-    fisher_classifier (0.0.2)
-
-GIT
   remote: git://github.com/kaize/usefull_scopes.git
   revision: 016c3807f6154f6022d095e7fa0bb74e1aa78b96
   specs:
@@ -20,6 +14,11 @@ GIT
       execjs
       rails (>= 3.1)
       railties (>= 3.1)
+
+PATH
+  remote: ~/projects/fisher_classifier
+  specs:
+    fisher_classifier (0.0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -216,6 +215,8 @@ GEM
       pry (~> 0.9.10)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    puma (2.7.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-protection (1.5.1)
       rack
@@ -248,7 +249,7 @@ GEM
       redis (~> 3.0.4)
     ref (1.0.5)
     request_store (1.0.5)
-    ruby2ruby (2.0.6)
+    ruby2ruby (2.0.7)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
     ruby_parser (3.2.2)
@@ -269,7 +270,7 @@ GEM
       rdoc (~> 3.10)
     select2-rails (3.5.2)
       thor (~> 0.14)
-    sexp_processor (4.4.0)
+    sexp_processor (4.4.1)
     sidekiq (2.17.0)
       celluloid (>= 0.15.2)
       connection_pool (>= 1.0.0)
@@ -383,6 +384,7 @@ DEPENDENCIES
   pg
   pry-debugger
   pry-rails
+  puma
   rails (~> 4.0.0)
   ransack
   redcarpet

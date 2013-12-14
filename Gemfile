@@ -57,6 +57,7 @@ group :doc do
 end
 
 gem 'unicorn'
+gem "puma"
 
 group :development, :test do
   gem 'awesome_print'
