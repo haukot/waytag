@@ -56,6 +56,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :assets do
+  gem 'autoprefixer-rails'
+end
+
 gem 'unicorn'
 gem "puma"
 
