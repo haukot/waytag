@@ -8,7 +8,7 @@
           .control-group
             .event-selector.type
               - EventKinds.all.each do |ek|
-                %a.btn.btn-large.btn-block{ 'data-event-kind' => ek }= t(ek)
+                %a.btn.btn-lg.btn-block{ 'data-event-kind' => ek }= t(ek)
         .col-md-9
           .row
             .col-md-6
@@ -25,6 +25,6 @@
         = f.hidden_field :text, class: :send_form_text
         = f.hidden_field :time, class: :send_form_time
         = f.hidden_field :event_kind, class: :send_form_kind
-        = f.submit class: 'send btn btn-primary btn-large', :value => "Сообщить в #{resource_city.twitter_name}"
+        = f.submit class: 'send btn btn-primary btn-lg', :value => "Сообщить в #{resource_city.twitter_name}"
   - else
     %h1 Недавно вы уже отпарвляли сообщение, подождите немного для отправки следующего
