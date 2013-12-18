@@ -16,75 +16,85 @@
 
   - id = 0
   - @classifier_meta[:categories].each do |category|
-    %div{ class: "info-#{category[:name]}" }
-      %h2=t(category[:name])
-      - if category[:name] == @classifier_meta[:selected_category]
-        selected
-      .row
-        %h5 произведение вероятностей принадлежности текста к этой категории, если в нем есть этот признак
-        - @classifier_meta[:features].each do |feature|
-          .col-md-2
-            - feature_cat = feature[:categories].find { |c| c[:name] == category[:name] }
-            .dropdown
-              %p
-                = feature[:name]
-              %p.number.dropdown-toggle{ id: "dropdown_#{id}", 'data-toggle' => "dropdown" }
-                = real_f(feature_cat[:weighted_prob])
-                %span.caret
-              .dropdown-menu{ role: "menu", 'aria-labelledby' => "dropdown_#{id}" }
-                %div
-                  Вероятность (Признак|Категория)
-                  %br
-                  = real_f(feature_cat[:feature_prob])
+    %div{ class: "info-block info-#{category[:name]}" }
+      %h2.rotate
+        - if category[:name] == @classifier_meta[:selected_category]
+          &#10004;
+        =t(category[:name])
+      .container
+        .row
+          %br
+          %p.text-center произведение вероятностей принадлежности текста к этой категории, если в нем есть этот признак
+          .prob-list
+            - @classifier_meta[:features].each do |feature|
+              .prob-item
+                - feature_cat = feature[:categories].find { |c| c[:name] == category[:name] }
+                .dropdown
+                  %p.word
+                    %b= feature[:name]
+                  %button.btn.btn-info.btn-lg.dropdown-toggle{ id: "dropdown_#{id}", 'data-toggle' => "dropdown" }
+                    = real_f(feature_cat[:weighted_prob])
+                    %span.caret
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      %p Вероятность (Признак|Категория)
+                      %h4= real_f(feature_cat[:feature_prob])
 
-                  %br
-                  Частота появления во всех категориях
-                  %br
-                  = real_f(feature_cat[:freqsum])
+                      %p Частота появления во всех категориях
+                      %h4= real_f(feature_cat[:freqsum])
 
-                  %br
-                  Вероятность (Категория|Признак)
-                  %br
-                  = real_f(feature_cat[:feature_prob])
-                  \/
-                  = real_f(feature_cat[:freqsum])
-                  \=
-                  = real_f(feature_cat[:category_prob])
+                      %p Вероятность (Категория|Признак)
+                      %h4
+                        = real_f(feature_cat[:feature_prob])
+                        \/
+                        = real_f(feature_cat[:freqsum])
+                        \=
+                        = real_f(feature_cat[:category_prob])
 
-                  %br
-                  Взвешенная вероятность
-                  %br
-                  (1 * 0.2 +
-                  = feature[:feature_in_all_categories]
-                  *
-                  = real_f(feature_cat[:category_prob])
-                  ) / ( 1 +
-                  = feature[:feature_in_all_categories]
-                  ) =
-                  = real_f(feature_cat[:weighted_prob])
+                      %p Взвешенная вероятность
+                      %h4
+                        (1 * 0.2 +
+                        = feature[:feature_in_all_categories]
+                        *
+                        = real_f(feature_cat[:category_prob])
+                        ) / ( 1 +
+                        = feature[:feature_in_all_categories]
+                        ) =
+                        = real_f(feature_cat[:weighted_prob])
 
-          .col-md-1
-            %p
-            %p.sign
-              - if feature != @classifier_meta[:features].last
-                *
-              - else
-                = "=#{real_f(category[:probs_multiply])}"
+              .prob-sign
+                - if feature != @classifier_meta[:features].last
+                  &times;
+                - else
+                  = "=#{real_f(category[:probs_multiply])}"
 
-      .row
-        %h5
-          коэф. Фишера
-        %h5
-          = "-2 * log 2 (#{real_f(category[:probs_multiply])}) = #{real_f(category[:fisher_factor])}"
-      .row
-        %h4
-          Вероятность Фишера
-        %h4
-          invchi2(
-          = real_f(category[:fisher_factor]) \
-          ,
-          = @classifier_meta[:features].count
-          * 2 ) =
-          = real_f(category[:fisher_prob])
+        .row
+          %h2
+            коэф. Фишера
+          .coef.smaller<
+            —2
+            %span.arifm &times;
+            log
+            %sub<> 2
+            = "(#{real_f(category[:probs_multiply])})"
+            %span.arifm =
+            = "#{real_f(category[:fisher_factor])}"
+        .row
+          %h2
+            Вероятность Фишера
+          .coef.bigger<
+            (χ
+            %sup<> inv
+            )
+            %sup<> 2
+            (
+            = real_f(category[:fisher_factor]) \
+            ,
+            = @classifier_meta[:features].count
+            %span.arifm &times;
+            2 )
+            %span.arifm =
+            %span.coef.result
+              = real_f(category[:fisher_prob])
 
-        - id += 1
+            - id += 1

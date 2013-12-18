@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'haml-rails'
+gem "autoprefixer-rails"
 gem 'simple_form'
 gem 'therubyracer', platforms: :ruby
 gem 'less-rails-bootstrap'
@@ -54,10 +55,6 @@ gem 'gcm'
 
 group :doc do
   gem 'sdoc', require: false
-end
-
-group :assets do
-  gem 'autoprefixer-rails'
 end
 
 gem 'unicorn'
