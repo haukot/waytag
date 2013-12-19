@@ -1,5 +1,5 @@
 Classifier = FisherClassifier.create do
-  assumed_prob 0.2
+  assumed_prob 0.1
   fisher_threshold 0.211111
 
   inc_feature do |feature, category|
@@ -13,12 +13,21 @@ Classifier = FisherClassifier.create do
   inc_category do; end
 
   get_features do |text|
-    text = text.gsub(/http:\/\/\s*?/, '')
-    features = Mystem.clean text
-    features.uniq
-    features = features.select { |f| f.size > 2 }
-    features = features.map { |f| f.mb_chars.downcase.strip }
-    features << "count_#{features.count}"
+    text = text.to_s
+
+    if text
+      links_count = text.scan(/http/).count
+      text = text.gsub(/http:\/\/\s*?/, '')
+
+      features = Mystem.clean text
+      features.uniq
+      #features = features.select { |f| f.size > 2 }
+      features = features.map { |f| f.mb_chars.downcase.strip }
+      features << "less_than_3_words" if features.size < 3
+      features << "links_count_#{links_count}"
+    else
+      []
+    end
   end
 
   categories do
