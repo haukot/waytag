@@ -1,16 +1,12 @@
-.send-form
+.send-form.classifier-form
   .row
     .col-md-6.col-md-offset-3
       .center-block
         %center
-          %h1 Дорожный классификатор
           = form_tag classifier_path, method: :get, role: :form do
-            .control-group
-              = text_field_tag :text, "", placeholder: "Текст", class: "form-control"
-            .clearfix
-            .control-group
-              %br
-              = submit_tag 'Посмотреть че-как', class: "send btn btn-primary btn-lg"
+            = text_field_tag :text, "", placeholder: "Текст", class: "form-control", value: params[:text]
+            %br
+            = submit_tag 'Посмотреть че-как', class: "send btn btn-primary btn-lg"
 
 - if @classifier_meta
 

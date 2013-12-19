@@ -1,7 +1,9 @@
 class Web::Cities::PartnersController < Web::Cities::ApplicationController
   # GET /partners
   def index
-    @partners = resource_city.partners
+    query = {'s' => 'created_at desc' }.merge(params[:q] || {})
+    @search = resource_city.partners.ransack query
+    @partners = @search.result.page(params[:page])
   end
 
   # GET /partners/1

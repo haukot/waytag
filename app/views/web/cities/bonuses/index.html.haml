@@ -6,10 +6,10 @@
       .bonus
         %h2= bonus.title
         %description!= markdown.render(bonus.description)
-        %small.meta
-          %date= bonus.created_at.strftime("%e %b %Y")
+        %hr
 
     = paginate @bonuses
   - else
+
     %p В вашем городе к сожалению пока нет бонусов для автомобилей с наклеечкой :(
     %p Не переживайте! Ведь скоро они обязательно появятся!

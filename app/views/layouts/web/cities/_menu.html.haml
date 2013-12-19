@@ -6,7 +6,6 @@
           = image_tag("header_icon.png", size: "22x28", class: "logo pull-left")
 
         = menu_group do
-          = menu_item "Города", root_path
           = drop_down resource_city.name do
             - resource_city.cities_to_go.each do |sub_city|
               = menu_item sub_city.name, city_path(sub_city)
@@ -17,3 +16,4 @@
           - if resource_city.partners.any?
             = menu_item "Партнеры", city_partners_path(resource_city)
           = menu_item "Цифры и факты", city_stats_path(resource_city)
+          = menu_item "Все города", root_path
