@@ -4,7 +4,7 @@ staging:
   :limits:
     default: 1
 production:
-  :concurrency: 25
+  :concurrency: 10
   :limits:
     default: 5
 
