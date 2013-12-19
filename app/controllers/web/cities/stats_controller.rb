@@ -1,21 +1,21 @@
 #encoding: utf-8
 class Web::Cities::StatsController < Web::Cities::ApplicationController
   def index
-    @all = Report.this_year.dtp.count
+    @all = resource_city.reports.this_year.dtp.count
 
-    by_month = Report.this_year.dtp.by_month
+    by_month = resource_city.reports.this_year.dtp.by_month
     gon.by_month = {
       data: by_month.map { |t| t.count.to_i },
       labels: by_month.map { |t| l(t.month.to_date, format: :month) }
     }
 
-    by_day = Report.this_year.dtp.by_day
+    by_day = resource_city.reports.this_year.dtp.by_day
     gon.by_day = {
       data: by_day.map { |t| t.count.to_i },
       labels: %w(ПН ВТ СР ЧТ ПТ СБ ВС)
     }
 
-    by_hour = Report.this_year.dtp.by_hour.select { |t| t.count.to_i > 10 }
+    by_hour = resource_city.reports.this_year.dtp.by_hour.select { |t| t.count.to_i > 10 }
     gon.by_hour = {
       data: by_hour.map { |t| t.count.to_i },
       labels: by_hour.map { |t| t.hour.to_i + 4 }
@@ -49,7 +49,7 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
     }
 
     streets.each_pair do |e, cond|
-      gon.danger_zones[:data] << Report.this_year.dtp.in_street(cond).count
+      gon.danger_zones[:data] << resource_city.reports.this_year.dtp.in_street(cond).count
     end
 
     gon.danger_zones[:labels] = streets.keys
