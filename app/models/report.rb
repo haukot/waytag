@@ -43,7 +43,11 @@ class Report < ActiveRecord::Base
   include ReportsRepository
 
   def contains_bad_data?
-    super || with_mentions? || less_three_words?
+    super || with_mentions? || less_three_words? || has_obscenity?
+  end
+
+  def has_obscenity?
+    RussianObscenity.obscene?(clean_text)
   end
 
   def less_three_words?

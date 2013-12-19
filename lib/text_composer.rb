@@ -2,7 +2,7 @@
 class TextComposer
   class << self
     def compose(report)
-      report.text = RussianObscenity.sanitize(report.source_text, '')
+      report.text = report.source_text
 
       via = compose_via report
 

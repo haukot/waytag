@@ -43,7 +43,9 @@ class ReportDecorator < Draper::Decorator
 
   def state_string
     if object.rejected?
-      if with_mentions?
+      if has_obscenity?
+        RussianObscenity.find(object.clean_text)
+      elsif with_mentions?
         h.t(:with_mentions)
       elsif less_three_words?
         h.t(:less_three_words)
