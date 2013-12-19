@@ -1,5 +1,5 @@
 Classifier = FisherClassifier.create do
-  assumed_prob 0.1
+  assumed_prob 0.2
   fisher_threshold 0.211111
 
   inc_feature do |feature, category|
