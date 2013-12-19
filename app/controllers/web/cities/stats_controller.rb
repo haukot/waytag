@@ -18,7 +18,7 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
     by_hour = Report.this_year.dtp.by_hour.select { |t| t.count.to_i > 10 }
     gon.by_hour = {
       data: by_hour.map { |t| t.count.to_i },
-      labels: by_hour.map { |t| t.hour + 4 }
+      labels: by_hour.map { |t| t.hour.to_i + 4 }
     }
 
     gon.danger_zones = { labels: [], data: [] }
