@@ -27,11 +27,11 @@ class TwitterService
     def update(report)
       c = client(report.city)
 
-      if report.map_picture
-        response = c.update_with_media(report.safe_text, image(report))
-      else
+#      if report.map_picture
+#        response = c.update_with_media(report.safe_text, image(report))
+#      else
         response = c.update(report.safe_text)
-      end
+#      end
 
       report.id_str = response.id.to_s
       report.save
