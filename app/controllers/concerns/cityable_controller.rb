@@ -8,8 +8,8 @@ module CityableController
     skip_before_filter :redirect_if_city_defined!
 
     def define_city_variables
-      session[:city] ||= resource_city.slug
-      gon.current_city ||= resource_city
+      session[:city] = resource_city.slug
+      gon.current_city = resource_city
     end
   end
 end

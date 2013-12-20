@@ -2,7 +2,7 @@ class Web::Cities::DashboardController < Web::Cities::ApplicationController
   helper_method :can_post_message?
 
   def show
-    @reports = resource_city.reports.latest_posted.limit(82).includes([:city, :sourceable]).decorate
+    @reports = resource_city.reports.latest_posted.limit(12).includes([:city, :sourceable]).decorate
     @api_report = ApiReport.new
   end
 
