@@ -2,7 +2,7 @@ class ReportsService
   class << self
     def destroy(report)
       TwitterService.destroy(report) if report.id_str
-      report.destroy
+      report.reject
     end
 
     def perform(report_id)

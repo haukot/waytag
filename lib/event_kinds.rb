@@ -8,7 +8,7 @@ class EventKinds
 
     def from_text(text)
       return :dtp if text =~ /дтп|авария|влетел|прилетел|догнал/i
-      return :prbk if text =~ /пробка|стоим\sот/i
+      return :prbk if text =~ /пробка|стоим\sот|транспортный коллапс|еле ползет/i
       return :dps if text =~ /дпс/i
       return :cmr if text =~ /радар|камера/i
       return :rmnt if text =~ /ремонт/i
