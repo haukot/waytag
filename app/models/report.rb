@@ -35,7 +35,7 @@ class Report < ActiveRecord::Base
     end
 
     event :reject do
-      transition :added => :rejected
+      transition all => :rejected
       transition :wating_post => :post_failed
     end
   end
