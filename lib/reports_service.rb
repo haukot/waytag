@@ -2,7 +2,7 @@ class ReportsService
   class << self
     def destroy(report)
       TwitterService.destroy(report) if report.id_str
-      report.reject
+      report.delete
     end
 
     def perform(report_id)
@@ -16,7 +16,7 @@ class ReportsService
       report.try_approve!
 
       if report.wating_post?
-#        PostWorker.perform_async(report.id)
+        PostWorker.perform_async(report.id)
       end
     end
 

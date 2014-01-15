@@ -15,6 +15,7 @@ class Report < ActiveRecord::Base
   enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
 
   state_machine :state, initial: :added do
+    state :deleted
     state :added
     state :posted
     state :rejected
@@ -37,6 +38,10 @@ class Report < ActiveRecord::Base
     event :reject do
       transition all => :rejected
       transition :wating_post => :post_failed
+    end
+
+    event :delete do
+      transition all => :deleted
     end
   end
 
