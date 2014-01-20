@@ -27,6 +27,7 @@ gem "select2-rails"
 gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'chart-js-rails'
+gem 'geocoder'
 
 gem 'js-routes'
 gem 'ransack'
