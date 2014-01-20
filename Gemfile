@@ -47,6 +47,7 @@ gem 'sinatra', '>= 1.3.0', require: false
 gem 'sidekiq'
 gem 'russian_obscenity'
 gem 'twitter'
+gem 'sidekiq-failures'
 
 gem 'fisher_classifier'
 #gem 'fisher_classifier', path: '~/projects/fisher_classifier'
