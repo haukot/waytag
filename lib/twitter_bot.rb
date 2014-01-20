@@ -36,9 +36,9 @@ class TwitterBot
       return if Rails.env.staging?
 
       if tweet.yell?
-        client.update("@#{tweet.twitter_user.screen_name} #{YELL.sample}", in_reply_to_status_id: tweet.id_str.to_i)
+        #client.update("@#{tweet.twitter_user.screen_name} #{YELL.sample}", in_reply_to_status_id: tweet.id_str.to_i)
       elsif !tweet.more_two_mentions? && tweet.question?
-        client.update("@#{tweet.twitter_user.screen_name} #{QUESTION.sample}", in_reply_to_status_id: tweet.id_str.to_i)
+        #client.update("@#{tweet.twitter_user.screen_name} #{QUESTION.sample}", in_reply_to_status_id: tweet.id_str.to_i)
       end
     end
 
