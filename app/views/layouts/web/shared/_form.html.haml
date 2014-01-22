@@ -1,7 +1,7 @@
 .send-form
   - if can_post_message?
+    %h1 Сообщить обстановку
     = simple_form_for @api_report, remote: true, url: city_reports_path(resource_city) do |f|
-      %h1 Сообщить обстановку
       %div#alert-placeholder
       .row
         .col-md-3
@@ -26,5 +26,9 @@
         = f.hidden_field :time, class: :send_form_time
         = f.hidden_field :event_kind, class: :send_form_kind
         = f.submit class: 'send btn btn-primary btn-lg', :value => "Сообщить в #{resource_city.twitter_name}"
+    :javascript
+      $(function() { React.renderComponent(PostForm(null), document.getElementById('new_api_report'));} );
   - else
     %h1 Недавно вы уже отпарвляли сообщение, подождите немного для отправки следующего
+
+

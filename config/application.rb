@@ -16,6 +16,8 @@ module Waytag
 
     config.time_zone = 'Moscow'
 
+    config.react.addons = true
+
     config.generators do |g|
       g.template_engine :haml
       g.stylesheets false

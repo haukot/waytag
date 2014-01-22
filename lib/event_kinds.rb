@@ -6,6 +6,12 @@ class EventKinds
       [:dps, :dtp, :cmr, :prbk]
     end
 
+    def all_translated
+      translated = {}
+      all.each { |ek| translated[ek] = I18n.t(ek) }
+      translated
+    end
+
     def from_text(text)
       return :dtp if text =~ /дтп|авария|влетел|прилетел|догнал/i
       return :prbk if text =~ /пробка|стоим\sот|транспортный коллапс|еле ползет/i

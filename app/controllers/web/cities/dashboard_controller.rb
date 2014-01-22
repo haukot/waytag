@@ -3,7 +3,9 @@ class Web::Cities::DashboardController < Web::Cities::ApplicationController
 
   def show
     @reports = resource_city.reports.latest_posted.limit(12).includes([:city, :sourceable]).decorate
+
     @api_report = Web::ReportType.new
+    gon.kinds = EventKinds.all.map { |ek| { key: ek, name: t(ek) } }
   end
 
   def can_post_message?

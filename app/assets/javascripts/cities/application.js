@@ -1,3 +1,5 @@
-//= require select2
-//= require js-routes
-//= require cities/form
+//= require react
+// da //= require select2
+// aa //= require js-routes
+// aa //= require cities/form
+//= require cities/new_form
