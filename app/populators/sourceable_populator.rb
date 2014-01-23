@@ -9,5 +9,7 @@ class SourceablePopulator < BasePopulator
     else
       klass.find_or_create_by(token: params[:token])
     end
+  rescue NameError
+    nil
   end
 end

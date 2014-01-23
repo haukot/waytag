@@ -2,7 +2,7 @@ class Web::Cities::ReportsController < Web::Cities::ApplicationController
   respond_to :json
 
   def create
-    @api_report = ApiReport.new(report_params)
+    @api_report = Web::ReportType.new(report_params)
     @api_report.type = :web
     @api_report.token = request.remote_ip
 
@@ -13,7 +13,7 @@ class Web::Cities::ReportsController < Web::Cities::ApplicationController
 
       render nothing: true, status: :created
     else
-      respond_with @api_report
+      render nothing: true, status: :unprocessable_entity
     end
   end
 

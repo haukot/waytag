@@ -3,6 +3,13 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
+  test "generate_text_by_geo" do
+    report = create :report, source_text:"", text: "", longitude: 14.5191613, latitude: 121.0132101
+    report.generate_text_by_geo!
+
+    assert { report.source_text.present? }
+  end
+
   test "safe_text" do
     report = create :report, source_text: "Как дела @asdasd #ljkjasd @alsdkjasd"
 

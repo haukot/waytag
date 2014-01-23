@@ -27,6 +27,7 @@ ru:
   less_three_words: "Меньше трех слов"
   question: "Вопрос"
   yell: "Капс"
+  empty_text: "Пустой текст"
   added: "Добавлено"
   posted: "Опубликовано"
   good: "Хорошее сообщение"

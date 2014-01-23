@@ -22,7 +22,7 @@ class ReportPopulatorTest < ActiveSupport::TestCase
 
   test "Populating from api report" do
     city = create :city
-    api_report = build :api_report
+    api_report = build 'api/report_type'
 
     rp = ReportPopulator.new
 

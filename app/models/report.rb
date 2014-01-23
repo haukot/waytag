@@ -3,11 +3,11 @@
 class Report < ActiveRecord::Base
   include EventKindable
   include TextFunctions
+  include GeoFunctions
 
   belongs_to :city
   belongs_to :sourceable, polymorphic: true
 
-  validates :source_text, presence: true
   validates :time, presence: true
   validates :source_kind, presence: true
   validates :city, presence: true
@@ -40,7 +40,7 @@ class Report < ActiveRecord::Base
       transition :wating_post => :post_failed
     end
 
-    event :delete do
+    event :safe_delete do
       transition all => :deleted
     end
   end
@@ -78,12 +78,6 @@ class Report < ActiveRecord::Base
 
   def classify
     Classifier.classify(clean_text).to_sym
-  end
-
-  def map_picture
-    if latitude && longitude
-      URI::encode("http://maps.googleapis.com/maps/api/staticmap?center=#{latitude},#{longitude}&zoom=15&size=400x400&markers=color:red|label:O|#{latitude},#{longitude}&sensor=true")
-    end
   end
 
   def clean_text
@@ -129,5 +123,9 @@ class Report < ActiveRecord::Base
 
   def self.states
     state_machine.states.map{|s| s.name}
+  end
+
+  def text_empty?
+    source_text.nil? || source_text.empty?
   end
 end

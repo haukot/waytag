@@ -15,7 +15,7 @@ class Api::Cities::ReportsControllerTest < ActionController::TestCase
   test "should post create" do
     ReportsWorker.jobs.clear
     assert_equal 0, ReportsWorker.jobs.size
-    attrs = attributes_for :api_report
+    attrs = attributes_for 'api/report_type'
 
     post :create, city_id: @city.id, report: attrs, format: :json
 
@@ -25,11 +25,11 @@ class Api::Cities::ReportsControllerTest < ActionController::TestCase
 
   test "should not post create for blocked user" do
     user = create :api_user, state: :blocked
-    attrs = attributes_for :api_report, type: :api, token: user.token
+    attrs = attributes_for 'api/report_type', type: :api, token: user.token
 
     post :create, city_id: @city.id, report: attrs, format: :json
 
-    assert_response :unprocessable_entity
+    assert_response :forbidden
   end
 
 end

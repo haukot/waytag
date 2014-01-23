@@ -37,22 +37,22 @@ class TwitterBotTest < ActiveSupport::TestCase
   end
 
 
-  test "Answer on yell" do
-    r = stub_request(:post, "https://api.twitter.com/1.1/statuses/update.json")
-    .to_return(:status => 200, :body => load_fixture("status.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+  #test "Answer on yell" do
+    #r = stub_request(:post, "https://api.twitter.com/1.1/statuses/update.json")
+    #.to_return(:status => 200, :body => load_fixture("status.json"), :headers => {:content_type => "application/json; charset=utf-8"})
 
-    TwitterBot.handle_status(load_fixture('status_yell.json'), 'ul', 'hashtag')
+    #TwitterBot.handle_status(load_fixture('status_yell.json'), 'ul', 'hashtag')
 
-    assert_requested r
-  end
+    #assert_requested r
+  #end
 
-  test "Answer on question" do
-    r = stub_request(:post, "https://api.twitter.com/1.1/statuses/update.json")
-    .to_return(:status => 200, :body => load_fixture("status.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+  #test "Answer on question" do
+    #r = stub_request(:post, "https://api.twitter.com/1.1/statuses/update.json")
+    #.to_return(:status => 200, :body => load_fixture("status.json"), :headers => {:content_type => "application/json; charset=utf-8"})
 
-    TwitterBot.handle_status(load_fixture('status_question.json'), 'ul', 'hashtag')
+    #TwitterBot.handle_status(load_fixture('status_question.json'), 'ul', 'hashtag')
 
-    assert_requested r
-  end
+    #assert_requested r
+  #end
 
 end

@@ -8,6 +8,7 @@ require 'support'
 require 'webmock/minitest'
 
 require 'rails/test_help'
+
 FactoryGirl.reload
 FactoryGirlSequences.reload
 Wrong.config.color

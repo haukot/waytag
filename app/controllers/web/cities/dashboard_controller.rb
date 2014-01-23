@@ -3,7 +3,7 @@ class Web::Cities::DashboardController < Web::Cities::ApplicationController
 
   def show
     @reports = resource_city.reports.latest_posted.limit(12).includes([:city, :sourceable]).decorate
-    @api_report = ApiReport.new
+    @api_report = Web::ReportType.new
   end
 
   def can_post_message?

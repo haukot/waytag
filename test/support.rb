@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+Geocoder.configure(:lookup => :test)
 Geocoder::Lookup::Test.set_default_stub(
   [
     {
@@ -8,8 +9,9 @@ Geocoder::Lookup::Test.set_default_stub(
       'city'         => 'Ульяновск',
       'street'       => 'Промышленная',
       'street_name'  => 'Промышленная',
-      'street_number'=> '36',
-      'address'      => 'New York, NY, USA',
+      'street_number'  => '36',
+      'street_address' => 'Промышленная 36',
+      'addres'      => 'New York, NY, USA',
       'state'        => 'New York',
       'state_code'   => 'NY',
       'country'      => 'United States',
@@ -25,5 +27,3 @@ end
 def load_fixture(file)
   File.read(fixture_path + '/' + file)
 end
-
-

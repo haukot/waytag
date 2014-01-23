@@ -21,8 +21,8 @@ class ClassifierTest < ActiveSupport::TestCase
   end
 
   test "Classifier test" do
-    generate_cases(0, @count)
-    p @results.inject(0){ |sum, e| sum + e } / @results.size
+#    generate_cases(0, @count)
+#    p @results.inject(0){ |sum, e| sum + e } / @results.size
   end
 
   def generate_cases(b, e, depth = 1)
