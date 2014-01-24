@@ -37,7 +37,7 @@ class Api::Cities::ReportsController < Api::Cities::ApplicationController
     per_page = params[:per_page]
 
     @q = resource_city.reports.latest_posted.ransack(q_param)
-    @reports = @q.result.page(page).per(per_page)
+    @reports = @q.result.page(page).per(per_page).decorate
   end
 
 end

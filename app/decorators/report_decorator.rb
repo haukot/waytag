@@ -89,11 +89,14 @@ class ReportDecorator < Draper::Decorator
     end
   end
 
-  def userpic
-    image = object.userpic
-    image ||= "avatar_ulway_20.png"
+  def userpic_url
+    url = object.userpic
+    url ||= h.image_url "avatar_ulway_20.png"
+    url
+  end
 
-    h.image_tag image, width: 20, height: 20
+  def userpic
+    h.image_tag userpic_url, width: 20, height: 20
   end
 
   def can_be_published?
