@@ -32,4 +32,28 @@ class Api::Cities::ReportsControllerTest < ActionController::TestCase
     assert_response :forbidden
   end
 
+  test "should post create from Andrushya width geo and aempty text" do
+    ReportsWorker.jobs.clear
+
+    attrs = {
+      latitude: 54.316157,
+      longitude: 48.395595,
+      event_kind: :dtp,
+      push_token: generate(:token),
+      token: generate(:token),
+      from: :android
+    }
+
+    post :create, city_id: @city.id, report: attrs, format: :json
+
+    assert_response :created
+    assert { ReportsWorker.jobs.size == 1}
+
+    user = AndroidUser.first
+    assert { user != nil }
+    assert { user.token == attrs[:token] }
+    assert { user.push_token == attrs[:push_token] }
+  end
+
+
 end

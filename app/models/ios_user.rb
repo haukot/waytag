@@ -1,3 +1,2 @@
-class IosUser < ActiveRecord::Base
-  include Sourceable
+class IosUser < ApiUser
 end

@@ -11,7 +11,8 @@ class Api::Cities::ReportsController < Api::Cities::ApplicationController
   #   @param optional [Float] longitude Долгота
   #   @param optional [Float] latitude Широта
   def create
-    params.require(:report).permit(:token).permit(:from).permit(:event_kind).permit(:text).permit(:longitude).permit(:latitude)
+    params.require(:report).permit(:token).permit(:from).permit(:event_kind).permit(:text).permit(:longitude).permit(:latitude).permit(:push_token).permit(:accuracy)
+
     @api_report = Api::ReportType.new(params[:report])
 
     if @api_report.valid?

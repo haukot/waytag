@@ -1,3 +1,2 @@
-class AndroidUser < ActiveRecord::Base
-  include Sourceable
+class AndroidUser < ApiUser
 end

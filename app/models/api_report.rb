@@ -3,7 +3,7 @@ class ApiReport
   include EventKindable
   include TextFunctions
 
-  attr_accessor :time, :text, :event_kind, :type, :token, :longitude, :latitude
+  attr_accessor :time, :text, :event_kind, :type, :token, :longitude, :latitude, :push_token, :device_token
 
   enumerize :device_type, in: [:android, :ios, :api]
 

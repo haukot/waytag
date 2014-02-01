@@ -10,6 +10,8 @@ class Api::ReportType
   attribute :longitude, Float
   attribute :latitude, Float
   attribute :token, String
+  attribute :push_token, String
+  attribute :accuracy, Integer
 
   enumerize :from, in: [:android, :ios, :api]
 
@@ -42,12 +44,14 @@ class Api::ReportType
       sourceable: sourceable,
       longitude: longitude,
       latitude: latitude,
-      event_kind: event_kind
+      event_kind: event_kind,
+      accuracy: accuracy
     }
   end
 
   def device_params
     {
+      push_token: push_token,
       type: from,
       token: token
     }
