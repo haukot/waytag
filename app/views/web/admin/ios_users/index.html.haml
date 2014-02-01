@@ -16,6 +16,7 @@
     %thead
       %tr
         %th #
+        %th= sort_link @search, :push_token
         %th= sort_link @search, :token
         %th= sort_link @search, :state
         %th
@@ -24,6 +25,7 @@
       - @ios_users.each do |ios_user|
         %tr{ class: ios_user.state_class }
           %td= ios_user.id
+          %td= ios_user.push_token
           %td= ios_user.token
           %td= ios_user.state
           %td.text-right
