@@ -28,6 +28,7 @@ gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'chart-js-rails'
 gem 'geocoder'
+gem 'active_model_serializers'
 
 gem 'js-routes'
 gem 'virtus'
@@ -50,6 +51,7 @@ gem 'twitter'
 gem 'sidekiq-failures'
 
 gem 'fisher_classifier'
+gem 'urbanairship'
 #gem 'fisher_classifier', path: '~/projects/fisher_classifier'
 
 # Push

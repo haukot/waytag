@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :android_user do
     token { generate :slug }
+    push_token { generate :slug }
   end
 end

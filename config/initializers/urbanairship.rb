@@ -1,0 +1,3 @@
+Urbanairship.application_key = configus.urbanairship.application_key
+Urbanairship.application_secret = configus.urbanairship.application_secret
+Urbanairship.master_secret = configus.urbanairship.master_secret

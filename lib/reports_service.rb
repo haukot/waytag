@@ -30,6 +30,7 @@ class ReportsService
 
       if report.wating_post?
         PostWorker.perform_async(report.id)
+        PushWorker.perform_async(report.id)
       end
     end
 

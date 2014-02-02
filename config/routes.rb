@@ -3,6 +3,7 @@ Waytag::Application.routes.draw do
   mount Sidekiq::Web => '/q'
 
   namespace :api do
+    match "*all" => "application#cors_preflight_check", via: :options
     resources :cities, only: [:index, :show] do
       scope module: :cities do
         resources :reports, only: [:index, :create]
