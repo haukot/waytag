@@ -24,7 +24,7 @@ class Api::Cities::ReportsController < Api::Cities::ApplicationController
 
       render nothing: true, status: :created, location: nil
     else
-      respond_width api_report
+      respond_with api_report, location: nil
     end
 
   end

@@ -15,6 +15,15 @@ class Api::Cities::ReportsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should post create wrong" do
+    attrs = { ololo: true }
+
+    post :create, city_id: @city.id, report: attrs, token: @user.token, format: :json
+
+    assert_response :unprocessable_entity
+  end
+
+
   test "should post create" do
     ReportsWorker.jobs.clear
     attrs = {
