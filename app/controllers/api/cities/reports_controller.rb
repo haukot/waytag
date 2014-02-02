@@ -21,9 +21,12 @@ class Api::Cities::ReportsController < Api::Cities::ApplicationController
 
     if api_report.save
       ReportsWorker.perform_async(api_report.id)
+
+      render nothing: true, status: :created, location: nil
+    else
+      respond_width api_report
     end
 
-    render nothing: true, status: :created, location: nil
   end
 
   ##
