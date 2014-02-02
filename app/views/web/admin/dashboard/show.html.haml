@@ -1,0 +1,25 @@
+= javascript_include_tag "admin/stats/application"
+
+.row
+  .col-md-6
+    %h2 Сообщения
+
+    %canvas#reports{:height => "360", :width => "360"}
+    .row
+      - @reports.each do |v|
+        .col-md-3
+          %p{style: "color: #fff; margin: 5px; padding: 5px; text-align:center; background: ##{v[:color]}"}
+            = v[:label]
+            %strong
+              = v[:value]
+
+  .col-md-6
+    %h2 Юзера
+    %canvas#users{:height => "360", :width => "360"}
+    .row
+      - @users.each do |v|
+        .col-md-3
+          %p{style: "color: #fff; margin: 5px; padding: 5px; text-align:center; background: ##{v[:color]}"}
+            = v[:label]
+            %strong
+              = v[:value]

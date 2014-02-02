@@ -4,6 +4,7 @@ class Web::Cities::ReportsController < Web::Cities::ApplicationController
     report = Web::ReportType.new(report_params)
     report.city = resource_city
     report.sourceable = WebUser.find_or_create_by(ip: request.remote_ip)
+    report.source_kind = report.sourceable.source_kind
 
     if report.save
       ReportsWorker.perform_async(report.id)

@@ -8,11 +8,11 @@ class Report < ActiveRecord::Base
   belongs_to :city
   belongs_to :sourceable, polymorphic: true
 
+  enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
+
   validates :time, presence: true
   validates :source_kind, presence: true
   validates :city, presence: true
-
-  enumerize :source_kind, in: [:web, :api, :ios, :android, :mentions, :hashtag]
 
   state_machine :state, initial: :added do
     state :deleted

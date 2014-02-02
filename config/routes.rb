@@ -37,7 +37,9 @@ Waytag::Application.routes.draw do
         patch :off
       end
 
-      root to: 'reports#index'
+      root to: 'dashboard#show'
+
+      resource :dashboard, only: :show
 
       resources :posts, only: [:index, :edit, :new, :create, :update, :destroy]
 

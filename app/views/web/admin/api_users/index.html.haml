@@ -17,6 +17,8 @@
       %tr
         %th #
         %th= sort_link @search, :token
+        %th= sort_link @search, :push_token
+        %th= sort_link @search, :kind
         %th= sort_link @search, :state
         %th
 
@@ -25,6 +27,8 @@
         %tr{ class: api_user.state_class }
           %td= api_user.id
           %td= api_user.token
+          %td= api_user.push_token
+          %td= api_user.kind
           %td= api_user.state
           %td.text-right
             .btn-group
