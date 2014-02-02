@@ -1,7 +1,7 @@
 class UrbanairshipService
   class << self
     def push(report)
-      AndroidUser.with_push_token.find_in_batches(batch_size: 25) do |batch|
+      ApiUser.android.with_push_token.find_in_batches(batch_size: 25) do |batch|
         push_tokens = batch.map(&:push_token)
 
         notification = {

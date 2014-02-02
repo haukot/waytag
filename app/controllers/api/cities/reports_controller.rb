@@ -1,4 +1,5 @@
 class Api::Cities::ReportsController < Api::Cities::ApplicationController
+  skip_before_filter :authenticate_user!, only: :index
 
   ##
   # Закинуть телегу
@@ -11,22 +12,18 @@ class Api::Cities::ReportsController < Api::Cities::ApplicationController
   #   @param optional [Float] longitude Долгота
   #   @param optional [Float] latitude Широта
   def create
-    params.require(:report).permit(:token).permit(:from).permit(:event_kind).permit(:text).permit(:longitude).permit(:latitude).permit(:push_token).permit(:accuracy)
+    params.require(:report)
 
-    @api_report = Api::ReportType.new(params[:report])
+    api_report = Api::ReportType.new(params[:report])
+    api_report.sourceable = current_user
+    api_report.source_kind = current_user.kind
+    api_report.city = resource_city
 
-    if @api_report.valid?
-      if @api_report.sourceable_not_blocked?
-        report = ReportPopulator.new.populate_from_api(@api_report, resource_city)
-        ReportsWorker.perform_async(report.id)
-
-        render nothing: true, status: :created
-      else
-        render nothing: true, status: :forbidden
-      end
-    else
-      respond_with @api_report, location: nil
+    if api_report.save
+      ReportsWorker.perform_async(api_report.id)
     end
+
+    render nothing: true, status: :created, location: nil
   end
 
   ##
@@ -43,8 +40,17 @@ class Api::Cities::ReportsController < Api::Cities::ApplicationController
     page = params[:page]
     per_page = params[:per_page]
 
-    @q = resource_city.reports.latest_posted.ransack(q_param)
-    @reports = @q.result.page(page).per(per_page).decorate
+    q = resource_city.reports.latest_posted.ransack(q_param)
+    reports = q.result.page(page).per(per_page)
+
+    meta = {
+      count: reports.count,
+      total_count: reports.total_count,
+      current_page: reports.current_page,
+      num_pages: reports.num_pages,
+    }
+
+    render json: reports.decorate, meta_data: meta, serializer: CustomArraySerializer, scope: nil
   end
 
 end

@@ -5,7 +5,7 @@ require "mocha/setup"
 
 class UrbanairshipServiceTest < ActiveSupport::TestCase
   test "push" do
-    create_list :android_user, 100
+    create_list :api_user, 100, kind: :android
     report = create :report
     request = stub_request(:post, /.*?.urbanairship.com\/api\/push\//).
             to_return(:status => 200, :body => "", :headers => {})

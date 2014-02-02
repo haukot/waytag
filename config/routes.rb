@@ -2,8 +2,17 @@ Waytag::Application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/q'
 
+  match "/401" => "errors#unauthorized", via: [:get, :post, :patch, :put, :delete]
+  match "/403" => "errors#forbidden", via: [:get, :post, :patch, :put, :delete]
+  match "/404" => "errors#not_found", via: [:get, :post, :patch, :put, :delete]
+  match "/422" => "errors#unprocessable_entity", via: [:get, :post, :patch, :put, :delete]
+  match "/500" => "errors#internal_server_error", via: [:get, :post, :patch, :put, :delete]
+  match "/503" => "errors#service_unavailable", via: [:get, :post, :patch, :put, :delete]
+
   namespace :api do
     match "*all" => "application#cors_preflight_check", via: :options
+
+    resource :user, only: [:create, :update]
     resources :cities, only: [:index, :show] do
       scope module: :cities do
         resources :reports, only: [:index, :create]
@@ -45,9 +54,7 @@ Waytag::Application.routes.draw do
       resources :cities, only: [:index, :edit, :new, :create, :update, :destroy]
       resources :bonuses, only: [:index, :edit, :new, :create, :update, :destroy]
 
-      resources :ios_users, only: [:index, :destroy], concerns: :sourceable
       resources :web_users, only: [:index, :destroy], concerns: :sourceable
-      resources :android_users, only: [:index, :destroy], concerns: :sourceable
       resources :api_users, only: [:index, :destroy], concerns: :sourceable
       resources :twitter_users, only: [:index, :destroy, :create], concerns: :sourceable
     end

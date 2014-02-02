@@ -7,7 +7,7 @@ class Rss::MessagesControllerTest < ActionController::TestCase
   end
 
   test "should get feed" do
-    get :feed, { id: @city.slug }
+    get :feed, { id: @city.slug, ololo_yeah!: true }
     assert_response :success
   end
 end

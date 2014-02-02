@@ -17,11 +17,4 @@ class ReportPopulator < BasePopulator
     report.save! ? report : nil
   end
 
-  def populate_from_api(api_report, city)
-    report = city.reports.build(api_report.to_report_params)
-
-    report.save
-    report
-  end
-
 end

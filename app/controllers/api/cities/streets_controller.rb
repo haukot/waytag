@@ -1,4 +1,6 @@
 class Api::Cities::StreetsController < Api::Cities::ApplicationController
+  skip_before_filter :authenticate_user!, only: :index
+
   ##
   # Получить список улиц города
   #

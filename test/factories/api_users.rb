@@ -3,5 +3,7 @@
 FactoryGirl.define do
   factory :api_user do
     token  { generate :slug }
+    push_token  { generate :token }
+    kind  { :api }
   end
 end

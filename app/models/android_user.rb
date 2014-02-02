@@ -1,2 +1,0 @@
-class AndroidUser < ApiUser
-end

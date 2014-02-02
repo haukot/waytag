@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140201103159) do
+ActiveRecord::Schema.define(version: 20140202182757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "android_users", force: true do |t|
-    t.string   "token"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "api_users", force: true do |t|
     t.string   "token"
@@ -31,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140201103159) do
     t.integer  "accuracy"
     t.string   "push_token"
     t.string   "type"
+    t.string   "kind"
   end
 
   create_table "bonuses", force: true do |t|
@@ -63,13 +57,6 @@ ActiveRecord::Schema.define(version: 20140201103159) do
     t.string   "name"
     t.string   "category"
     t.integer  "count",      default: 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "ios_users", force: true do |t|
-    t.string   "token"
-    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

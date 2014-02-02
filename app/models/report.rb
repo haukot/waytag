@@ -45,6 +45,8 @@ class Report < ActiveRecord::Base
     end
   end
 
+  before_save :define_event_kind
+
   include ReportsRepository
 
   def contains_bad_data?
@@ -128,4 +130,9 @@ class Report < ActiveRecord::Base
   def text_empty?
     source_text.nil? || source_text.empty?
   end
+
+  def define_event_kind
+    self.event_kind ||= EventKinds.from_text(source_text)
+  end
+
 end
