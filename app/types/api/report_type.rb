@@ -6,6 +6,13 @@ class Api::ReportType < Report
   validates :event_kind, presence: true
   validate :text_or_geo
 
+  before_save :save_text_as_source
+
+  def save_text_as_source
+    self.source_text = self.text
+    self.text = ""
+  end
+
   def text_or_geo
     unless text || (latitude && longitude)
       errors.add(:text, "[text] or [latitude] and [longitude] should be present")
