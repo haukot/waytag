@@ -1,6 +1,6 @@
 class Rss::MessagesController < Rss::ApplicationController
   def feed
-    if params["ololo_yeah!"]
+    if params[:token] && params[:token] == "jbyeOOwmpPhTvo7LETJVc3MwgiLYMJS3mvYxZMKC5TgNhteodtH2MBC5ugKBBC6B"
       @city = City.friendly.find params[:id]
       @messages = @city.reports.latest_posted.limit(20)
 
