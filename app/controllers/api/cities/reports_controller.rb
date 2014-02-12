@@ -1,4 +1,5 @@
 class Api::Cities::ReportsController < Api::Cities::ApplicationController
+  wrap_parameters :report
   skip_before_filter :authenticate_user!, only: :index
 
   ##

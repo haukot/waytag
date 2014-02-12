@@ -1,4 +1,5 @@
 class Api::UsersController < Api::ApplicationController
+  wrap_parameters :user
   skip_before_filter :authenticate_user!,  only: :create
 
   ##
