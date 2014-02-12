@@ -29,6 +29,7 @@ gem 'sass-rails'
 gem 'chart-js-rails'
 gem 'geocoder'
 gem 'active_model_serializers'
+gem 'nokogiri', require: false
 
 gem 'js-routes'
 gem 'virtus'
