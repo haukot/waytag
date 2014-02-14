@@ -33,6 +33,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
     Classifier.train(@report.clean_text, :good)
 
     PostWorker.perform_async(@report.id)
+    PushWorker.perform_async(@report.id)
 
     f(:success)
 
