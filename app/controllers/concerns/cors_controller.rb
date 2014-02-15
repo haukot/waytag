@@ -6,7 +6,7 @@ module CorsController
 
     def cors_set_access_control_headers
       headers['Access-Control-Allow-Origin'] = '*'
-      headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+      headers['Access-Control-Allow-Methods'] = 'POST, GET, PATCH, PUT, OPTIONS'
       headers['Access-Control-Allow-Headers'] = '*'
       headers['Access-Control-Request-Method'] = '*'
       headers['Access-Control-Max-Age'] = "1728000"
@@ -15,7 +15,7 @@ module CorsController
     def cors_preflight_check
       if request.method.to_s.downcase.to_sym == :options
         headers['Access-Control-Allow-Origin'] = '*'
-        headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+        headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, PATCH, OPTIONS'
         headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept'
         headers['Access-Control-Request-Method'] = '*'
         headers['Access-Control-Max-Age'] = '1728000'
