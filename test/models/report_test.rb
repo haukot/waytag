@@ -92,6 +92,7 @@ class ReportTest < ActiveSupport::TestCase
   def _clean_provider
     [
       ["test message", "test message"],
+      ["test #uldriver message", "test message"],
       ["test #ulway message", "test message"],
       ["test ulway ulway message", "test message"],
       ["test #ulsk message", "test message"],
