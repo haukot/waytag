@@ -20,7 +20,16 @@ class ReportDecorator < Draper::Decorator
   end
 
   def published_by
-    "@#{object.username}" if has_username?
+    return "" unless has_username?
+
+    case object.sourceable
+    when TwitterUser
+      "@#{object.username}"
+    when VkUser
+      "#{object.username}"
+    else
+      ""
+    end
   end
 
   def sourceable_link
@@ -32,6 +41,8 @@ class ReportDecorator < Draper::Decorator
                "@#{sourceable.screen_name}"
              when WebUser
                sourceable.ip
+             when VkUser
+               sourceable.name
              else
                sourceable.class.name.gsub(/User/, ' # ') + sourceable.id.to_s
              end
@@ -95,7 +106,7 @@ class ReportDecorator < Draper::Decorator
 
   def userpic_url
     url = object.userpic
-    url ||= h.image_url "avatar_ulway_20.png"
+    url ||= h.image_url "waytag.png"
     url
   end
 

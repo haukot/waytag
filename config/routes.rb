@@ -59,6 +59,7 @@ Waytag::Application.routes.draw do
       resources :web_users, only: [:index, :destroy], concerns: :sourceable
       resources :api_users, only: [:index, :destroy], concerns: :sourceable
       resources :twitter_users, only: [:index, :destroy, :create], concerns: :sourceable
+      resources :vk_users, only: [:index, :destroy, :create], concerns: :sourceable
     end
 
     root to: 'cities#index'

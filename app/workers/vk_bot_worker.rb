@@ -15,9 +15,12 @@ class VkBotWorker
       report.city = City.find_by(slug: :ul)
       report.source_kind = :vk
 
+      if author
+        report.sourceable = VkUser.find_or_create_by name: author
+      end
+
       report.save
 
-      p report.errors
       ReportsWorker.perform_async(report.id)
     end
   end

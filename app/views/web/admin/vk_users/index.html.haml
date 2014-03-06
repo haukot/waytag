@@ -1,0 +1,34 @@
+%h1 VK Users
+
+%hr
+
+.well
+  = simple_form_for @search, default_search_form_options(url: admin_vk_users_path, html: {class: "form-inline"}) do |f|
+    .form-group
+      = f.input_field :name_matches
+    .form-group
+      = f.submit class: 'btn', value: t("search")
+
+= paginate @vk_users
+
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th #
+        %th= sort_link @search, :name
+        %th= sort_link @search, :state
+        %th
+
+    %tbody
+      - @vk_users.each do |vk_user|
+        %tr{ class: vk_user.state_class }
+          %td= vk_user.id
+          %td= vk_user.name
+          %td= vk_user.state
+          %td.text-right
+            .btn-group
+              = vk_user.activate_or_block_link
+              = admin_destroy_button(admin_vk_user_path(vk_user))
+
+= paginate @vk_users
