@@ -50,6 +50,7 @@ gem 'sidekiq'
 gem 'russian_obscenity'
 gem 'twitter'
 gem 'sidekiq-failures'
+gem 'tweetstream', require: false
 
 gem 'fisher_classifier'
 gem 'urbanairship'

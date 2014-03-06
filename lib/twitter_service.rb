@@ -6,7 +6,7 @@ class TwitterService
       return user if user
 
       client = ServiceLocator.waytag_twitter
-      params = client.user(screen_name).to_hash
+      params = client.user(screen_name).to_h
 
       tup = TwitterUserPopulator.new params
       tup.populate

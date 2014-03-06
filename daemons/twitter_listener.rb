@@ -1,7 +1,8 @@
 require 'sidekiq'
+require "eventmachine"
 require "active_support"
 require "configus"
-require "twitter"
+require "tweetstream"
 
 require File.expand_path("../../lib/configus", __FILE__)
 
@@ -15,6 +16,10 @@ $0 = "tweets-reader"
 
 puts "Hello from TwitterReader v2!"
 
-ARGV.each do |city|
-  TwitterReader.read_from(city)
+EM.run do
+  ARGV.each do |city|
+    EM.next_tick do
+      TwitterReader.read_from(city)
+    end
+  end
 end
