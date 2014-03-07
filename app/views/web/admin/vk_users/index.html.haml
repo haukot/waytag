@@ -7,6 +7,8 @@
     .form-group
       = f.input_field :name_matches
     .form-group
+      = f.input_field :vk_id_matches
+    .form-group
       = f.submit class: 'btn', value: t("search")
 
 = paginate @vk_users
@@ -17,6 +19,7 @@
       %tr
         %th #
         %th= sort_link @search, :name
+        %th= sort_link @search, :vk_id
         %th= sort_link @search, :state
         %th
 
@@ -24,6 +27,7 @@
       - @vk_users.each do |vk_user|
         %tr{ class: vk_user.state_class }
           %td= vk_user.id
+          %td= vk_user.vk_id
           %td= vk_user.name
           %td= vk_user.state
           %td.text-right

@@ -3,7 +3,7 @@ class VkBotWorker
 
   sidekiq_options retry: 5
 
-  def perform(text, author, time)
+  def perform(text, author, time, id)
     event_kind = EventKinds.from_text text
 
     if event_kind
@@ -15,8 +15,15 @@ class VkBotWorker
       report.city = City.find_by(slug: :ul)
       report.source_kind = :vk
 
-      if author
-        report.sourceable = VkUser.find_or_create_by name: author
+      if id
+        sourceable = VkUser.find_or_create_by(vk_id: id)
+
+        if sourceable.name != author
+          sourceable.name = author
+          sourceable.save
+        end
+
+        report.sourceable = sourceable
       end
 
       report.save

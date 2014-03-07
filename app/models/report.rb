@@ -15,8 +15,8 @@ class Report < ActiveRecord::Base
   validates :city, presence: true
 
   state_machine :state, initial: :added do
-    state :deleted
     state :added
+    state :deleted
     state :posted
     state :rejected
     state :bad
@@ -105,7 +105,7 @@ class Report < ActiveRecord::Base
   end
 
   def has_duplicate?
-    self.class.where("(time > ?) AND (text = ? OR source_text = ?) AND ( id != ?)", time - 2.hours, text, source_text, id).any?
+    self.class.where("(time > ?) AND (text LIKE ? OR source_text LIKE ?) AND (id != ?)", time - 2.hours, "%#{text}%", "%#{source_text}%", id).any?
   end
 
   def has_userpic?

@@ -14,24 +14,27 @@ loop do
   page.css('.pi_body').each do |body|
     text = body.css('.pi_text')[0]
     if text
-      text.text
+      text = text.text.to_s
       user = body.css('.pi_signed .user')[0]
-      unless messages.has_key?(text.text)
-        messages[text.text] = {
-          author: user ? user.text : '',
-          processed: false,
-          time: Time.now
-        }
+      unless messages.has_key?(text)
+        if text.length <= 140
+          messages[text] = {
+            author: user ? user.text.to_s : '',
+            id: user[:href].gsub(/^\//, ''),
+            processed: false,
+            time: Time.now
+          }
+        end
       end
     end
   end
-  p messages
 
   messages.reject!{ |k, v| v[:time] < (Time.now - 3600) }
   messages.each do |text, params|
     unless params[:processed]
       params[:processed] = true
-      VkBotWorker.perform_async(text, params[:author], params[:time])
+
+      VkBotWorker.perform_async(text, params[:author], params[:time], params[:id])
     end
   end
 
