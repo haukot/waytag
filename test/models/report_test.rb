@@ -10,13 +10,6 @@ class ReportTest < ActiveSupport::TestCase
     assert { report.source_text.present? }
   end
 
-  test "safe_text" do
-    report = create :report, source_text: "Как дела @asdasd #ljkjasd @alsdkjasd"
-
-    assert { report.safe_text.include?('#') == false }
-    assert { report.safe_text.include?('@') == false }
-  end
-
   test "has no duplicate" do
     create :report, source_text: "Как дела"
     report = create :report, source_text: "на мосту?"
@@ -24,16 +17,14 @@ class ReportTest < ActiveSupport::TestCase
     assert { report.has_duplicate? == false }
   end
 
-  test "has_duplicate by source text" do
-    create :report, source_text: "Как дела на мосту?"
-    report = create :report, source_text: "Как дела на мосту?"
-
-    assert { report.has_duplicate? }
-  end
-
   test "has_duplicate by text" do
     create :report, text: "Как дела на мосту?"
     report = create :report, text: "Как дела на мосту?"
+
+    assert { report.has_duplicate? }
+
+    report = create :report, text: Text.clean("[17:11]    Дпс на [17:11] #uldriver инзенской #ulway via @UlwayStaging")
+    report = create :report, text: Text.clean("[17:11] Дпс на инзенской #ulway")
 
     assert { report.has_duplicate? }
   end
@@ -67,40 +58,4 @@ class ReportTest < ActiveSupport::TestCase
     assert { report.with_mentions? == true }
   end
 
-  test "text without via" do
-    _without_via_provider.each do |test_case|
-      report = create :report, text: test_case[0]
-      assert { report.text_without_via == test_case[1] }
-    end
-  end
-
-  def _without_via_provider
-    [
-      ["test message via @8xx8", "test message"],
-      ["test message #ulway via ICQ: 625921555", "test message"],
-      ["test message via 8xx8", "test message"],
-    ]
-  end
-
-  test "clean text" do
-    _clean_provider.each do |test_case|
-      report = create :report, text: test_case[0]
-      assert { test_case[1] == report.clean_text }
-    end
-  end
-
-  def _clean_provider
-    [
-      ["test message", "test message"],
-      ["test #uldriver message", "test message"],
-      ["test #ulway message", "test message"],
-      ["test ulway ulway message", "test message"],
-      ["test #ulsk message", "test message"],
-      ["test @ulway message", "test message"],
-      ["test @ulway #Ulway message", "test message"],
-      ["test @UlWaY message", "test message"],
-      ["test message #ulsk", "test message"],
-      ["[12:12]   test message   ", "test message"],
-    ]
-  end
 end

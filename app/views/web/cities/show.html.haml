@@ -7,7 +7,7 @@
 
           %p
             = report.published_at
-            != markdown.render(report.text_without_via)
+            != markdown.render(report.text)
             = report.published_by
           %hr
 

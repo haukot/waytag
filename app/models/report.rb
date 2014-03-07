@@ -54,15 +54,15 @@ class Report < ActiveRecord::Base
   end
 
   def has_obscenity?
-    RussianObscenity.obscene?(clean_text)
+    RussianObscenity.obscene?(text)
   end
 
   def less_three_words?
-    clean_text.split.size < 3
+    text.split.size < 3
   end
 
   def with_mentions?
-    mentions = clean_text.scan(/@\w*/m)
+    mentions = text.scan(/@\w*/m)
     mentions.count > 0
   end
 
@@ -79,33 +79,11 @@ class Report < ActiveRecord::Base
   end
 
   def classify
-    Classifier.classify(clean_text).to_sym
-  end
-
-  def clean_text
-    text.gsub(/(#{city.twitter_name}|#{city.hashtag})/i, '')
-    .sub(/\A\[\d{1,2}:\d{1,2}\]/, '')
-    .gsub(/via\s.*$/, '')
-    .gsub(/#.*?(\s|$)/, ' ')
-    .gsub(/\s+/, ' ')
-    .strip
-  end
-
-  def text_without_via
-    clean_text.gsub(/via\s.*$/, '')
-    .strip
-  end
-
-  def safe_text
-    if Rails.env.staging? || Rails.env.development?
-      text.gsub(/@|#/, '')
-    else
-      text
-    end
+    Classifier.classify(text).to_sym
   end
 
   def has_duplicate?
-    self.class.where("(time > ?) AND (text LIKE ? OR source_text LIKE ?) AND (id != ?)", time - 2.hours, "%#{text}%", "%#{source_text}%", id).any?
+    self.class.duplicate(self).any?
   end
 
   def has_userpic?

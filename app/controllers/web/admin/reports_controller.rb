@@ -10,7 +10,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   end
 
   def good
-    Classifier.train(@report.clean_text, :good)
+    Classifier.train(@report.text, :good)
 
     f(:success)
 
@@ -18,7 +18,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   end
 
   def bad
-    Classifier.train(@report.clean_text, :bad)
+    Classifier.train(@report.text, :bad)
 
     @report.try_approve!
 
@@ -30,7 +30,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   def publish
     @report.approve
 
-    Classifier.train(@report.clean_text, :good)
+    Classifier.train(@report.text, :good)
 
     PostWorker.perform_async(@report.id)
     PushWorker.perform_async(@report.id)

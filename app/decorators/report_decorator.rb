@@ -57,7 +57,7 @@ class ReportDecorator < Draper::Decorator
       if object.text_empty?
         h.t(:empty_text)
       elsif has_obscenity?
-        RussianObscenity.find(object.clean_text)
+        RussianObscenity.find(object.text)
       elsif with_mentions?
         h.t(:with_mentions)
       elsif less_three_words?
@@ -116,6 +116,30 @@ class ReportDecorator < Draper::Decorator
 
   def can_be_published?
     !(object.posted? || object.wating_post? || object.added?)
+  end
+
+  def composed_text
+    via = " via @#{object.sourceable.screen_name}" if object.sourceable.kind_of?(TwitterUser)
+
+    _text = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}#{via}"
+
+    text = object.text.truncate(truncate_to(_text))
+
+    _text.gsub(/\{\?\}/, text)
+  end
+
+  def safe_text
+    if Rails.env.staging? || Rails.env.development?
+      composed_text.gsub(/@|#/, '')
+    else
+      composed_text
+    end
+  end
+
+  private
+
+  def truncate_to(text)
+    143 - text.size
   end
 
 end

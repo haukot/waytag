@@ -18,6 +18,7 @@ module ReportsRepository
       cond = streets.map { |c| "text ILIKE '%#{c}%'" }
       where(cond.join ' OR ')
     end
+    scope :duplicate, ->(report) { where("(time > ?) AND (text LIKE ?) AND (id != ?)", report.time - 2.hours, "%#{report.text}%", report.id) }
   end
 
 end

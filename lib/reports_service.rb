@@ -16,7 +16,7 @@ class ReportsService
 
       return report.reject if report.text_empty?
 
-      report.text = TextComposer.compose(report)
+      report.text = Text.clean(report.source_text)
 
       return report.destroy if report.has_duplicate?
 
@@ -29,8 +29,8 @@ class ReportsService
       report.save!
 
       if report.wating_post?
-        PostWorker.perform_async(report.id)
         PushWorker.perform_async(report.id)
+        PostWorker.perform_async(report.id)
       end
     end
 

@@ -30,7 +30,7 @@ class TwitterService
 #      if report.map_picture
 #        response = c.update_with_media(report.safe_text, image(report))
 #      else
-        response = c.update(report.safe_text)
+        response = c.update(report.decorate.safe_text)
 #      end
 
       report.id_str = response.id.to_s

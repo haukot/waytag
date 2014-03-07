@@ -18,7 +18,7 @@
           %span.info
             = report.published_at
           %span.text
-            != markdown.render(report.text_without_via)
+            != markdown.render(report.text)
 
 
 = render :partial => 'layouts/web/cities/info'

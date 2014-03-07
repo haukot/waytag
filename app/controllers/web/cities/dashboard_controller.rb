@@ -7,7 +7,7 @@ class Web::Cities::DashboardController < Web::Cities::ApplicationController
   end
 
   def can_post_message?
-    return true unless session[:latest_posted_at]
+    return true #unless session[:latest_posted_at]
 
     session[:latest_posted_at] < Time.now
   end

@@ -25,7 +25,7 @@ class TwitterServiceTest < ActiveSupport::TestCase
     report = create :report
 
     r = stub_request(:post, "https://api.twitter.com/1.1/statuses/update.json").
-      with(:body => {"status" => report.text }).
+      with(:body => {"status" => report.decorate.composed_text }).
       to_return(:status => 200, :body => load_fixture('update.json'), :headers => {})
 
     TwitterService.update(report)

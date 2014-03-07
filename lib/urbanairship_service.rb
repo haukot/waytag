@@ -6,7 +6,7 @@ class UrbanairshipService
 
         notification = {
           apids: push_tokens,
-          android: { alert: report.clean_text }
+          android: { alert: report.decorate.composed_text }
         }
         Urbanairship.push(notification)
       end
