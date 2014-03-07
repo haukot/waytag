@@ -10,4 +10,12 @@ class Web::CitiesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should redirect if city defined" do
+    session[:city] = City.first
+
+    get :index
+    assert_response :redirect
+  end
+
+
 end

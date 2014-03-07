@@ -8,6 +8,8 @@ class ReportDecorator < Draper::Decorator
       "warning"
     elsif object.post_failed?
       "danger"
+    elsif object.deleted?
+      "danger"
     end
   end
 
@@ -20,17 +22,31 @@ class ReportDecorator < Draper::Decorator
   end
 
   def published_by
-    return "" unless has_username?
-
     case object.sourceable
     when TwitterUser
-      "@#{object.username}"
+      "@#{object.sourceable.screen_name}"
     when VkUser
-      "#{object.username}"
+      "#{object.sourceable.name}"
     else
       ""
     end
   end
+
+  def userpic_url
+    case object.sourceable
+    when TwitterUser
+      sourceable.profile_image_url
+    when VkUser
+      h.image_url "vk.png"
+    else
+      h.image_url "waytag.png"
+    end
+  end
+
+  def userpic
+    h.image_tag userpic_url, width: 20, height: 20
+  end
+
 
   def sourceable_link
     if object.sourceable
@@ -76,6 +92,28 @@ class ReportDecorator < Draper::Decorator
     end
   end
 
+  def can_be_published?
+    !(object.posted? || object.wating_post? || object.added?)
+  end
+
+  def composed_text
+    via = " via @#{object.sourceable.screen_name}" if object.sourceable.kind_of?(TwitterUser)
+
+    _text = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}#{via}"
+
+    text = object.text.truncate(truncate_to(_text))
+
+    _text.gsub(/\{\?\}/, text)
+  end
+
+  def safe_text
+    if Rails.env.staging? || Rails.env.development?
+      composed_text.gsub(/@|#/, '')
+    else
+      composed_text
+    end
+  end
+
   def event_label_class
     if object.event_kind.prbk?
       "label-warning"
@@ -101,38 +139,8 @@ class ReportDecorator < Draper::Decorator
       "label-info"
     elsif object.post_failed?
       "label-danger"
-    end
-  end
-
-  def userpic_url
-    url = object.userpic
-    url ||= h.image_url "waytag.png"
-    url
-  end
-
-  def userpic
-    h.image_tag userpic_url, width: 20, height: 20
-  end
-
-  def can_be_published?
-    !(object.posted? || object.wating_post? || object.added?)
-  end
-
-  def composed_text
-    via = " via @#{object.sourceable.screen_name}" if object.sourceable.kind_of?(TwitterUser)
-
-    _text = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}#{via}"
-
-    text = object.text.truncate(truncate_to(_text))
-
-    _text.gsub(/\{\?\}/, text)
-  end
-
-  def safe_text
-    if Rails.env.staging? || Rails.env.development?
-      composed_text.gsub(/@|#/, '')
-    else
-      composed_text
+    elsif object.deleted?
+      "label-danger"
     end
   end
 

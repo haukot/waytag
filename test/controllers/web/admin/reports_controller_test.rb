@@ -36,6 +36,13 @@ class Web::Admin::ReportsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    create :report, state: :rejected, event_kind: :prbk
+    create :report, state: :bad, event_kind: :dtp
+    create :report, state: :post_failed
+    create :report, state: :posted, event_kind: :cmr
+    create :report, state: :deleted, event_kind: :dps
+    create :report, state: :wating_post, event_kind: :rmnt
+
     get :index
     assert_response :success
     assert_not_nil assigns(:reports)

@@ -86,26 +86,6 @@ class Report < ActiveRecord::Base
     self.class.duplicate(self).any?
   end
 
-  def has_userpic?
-    sourceable && sourceable.respond_to?(:profile_image_url)
-  end
-
-  def userpic
-    return sourceable.profile_image_url if has_userpic?
-  end
-
-  def has_username?
-    sourceable && sourceable.respond_to?(:screen_name)
-  end
-
-  def username
-    return sourceable.screen_name if has_username?
-  end
-
-  def self.states
-    state_machine.states.map{|s| s.name}
-  end
-
   def text_empty?
     source_text.nil? || source_text.empty?
   end

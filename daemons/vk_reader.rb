@@ -20,7 +20,7 @@ loop do
         if text.length <= 140
           messages[text] = {
             author: user ? user.text.to_s : '',
-            id: user[:href].gsub(/^\//, ''),
+            id: user ? user[:href].gsub(/^\//, '') : '',
             processed: false,
             time: Time.now
           }

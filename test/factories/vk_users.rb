@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :vk_user do
     name
+    vk_id { generate :slug }
   end
 end

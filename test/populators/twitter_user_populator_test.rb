@@ -11,4 +11,33 @@ class TwitterUserPopulatorTest < ActiveSupport::TestCase
 
     assert { user.present? }
   end
+
+  test "Test populating user from omni auth" do
+    tup = TwitterUserPopulator.new
+
+    auth = OmniAuth::AuthHash.new({
+      provider: 'twitter',
+      uid: '123545',
+      info:{
+        name: "stub"
+      },
+      credentials: {
+        token: "stub"
+      },
+      extra: {
+        raw_info: {
+          profile_image_url: "stub",
+          name: "stub",
+          screen_name: "stub",
+          description: "stub",
+        }
+      }
+      # etc.
+    })
+
+    user = tup.populate_from_omniauth(auth)
+
+    assert { user.present? }
+  end
+
 end
