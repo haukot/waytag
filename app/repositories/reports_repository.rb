@@ -8,7 +8,7 @@ module ReportsRepository
 
     scope :today_posted_in, ->(city) { where(status: :posted).where(city_id: city.id).where('time > ? AND time < ?', Date.today.beginning_of_day, Time.now).order('time DESC') }
 
-    scope :this_year, -> { where("time BETWEEN ? AND ?", Date.today.beginning_of_year, Date.today.end_of_year) }
+    scope :in_year, ->(date) { where("time BETWEEN ? AND ?", date.beginning_of_year, date.end_of_year) }
 
     scope :dtp, -> { where(event_kind: :dtp) }
     scope :by_month, -> { select("date_trunc('month', time) AS month , count(*) AS count").group('1').order("month") }

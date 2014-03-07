@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
+  myNewChart = new Chart($("#by_type").get(0).getContext("2d")).Pie(gon.by_type)
+
   data = {
     labels : gon.by_month.labels,
     datasets : [

@@ -41,7 +41,7 @@ class Web::Admin::ReportsControllerTest < ActionController::TestCase
     create :report, state: :post_failed
     create :report, state: :posted, event_kind: :cmr
     create :report, state: :deleted, event_kind: :dps
-    create :report, state: :wating_post, event_kind: :rmnt
+    create :report, state: :wating_post
 
     get :index
     assert_response :success

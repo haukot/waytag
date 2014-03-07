@@ -123,8 +123,6 @@ class ReportDecorator < Draper::Decorator
       "label-success"
     elsif object.event_kind.dps?
       "label-info"
-    elsif object.event_kind.rmnt?
-      "label-primary"
     end
   end
 

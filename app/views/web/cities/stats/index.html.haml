@@ -1,11 +1,32 @@
 = javascript_include_tag "stats/application"
 
 .container.stat
+  %br
+  %br
+  .row
+    .col-md-4.col-md-offset-4
+      %ul.nav.nav-pills.nav-justified.waytag-pills
+        - @years.each do |year|
+          %li{class: year.to_i == @current_year.to_i ? "active" : ""}
+            = link_to year, city_stats_path(city: resource_city, year: year)
+  %br
+  %br
+
   .row
     .col-md-12.text-center
-      %h1 ДТП за 2013 год
+      %canvas#by_type{:height => "450", :width => "800"}
+      .row
+        - @by_type.each do |v|
+          .col-md-3
+            %p{style: "color: #fff; margin: 5px; padding: 5px; text-align:center; background: ##{v[:color]}"}
+              = v[:label]
+              %strong
+              = v[:value]
 
-      %h2= "Всего: #{@all}"
+      %br
+      %br
+
+      %h2= "ДТП: #{@all}"
       %h2= "В сутки в среднем: #{@all / 365}"
 
       %h2 По месяцам

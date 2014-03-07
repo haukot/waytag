@@ -3,7 +3,7 @@
 class EventKinds
   class << self
     def all
-      [:dps, :dtp, :cmr, :rmnt, :prbk]
+      [:dps, :dtp, :cmr, :prbk]
     end
 
     def from_text(text)
@@ -11,7 +11,6 @@ class EventKinds
       return :prbk if text =~ /пробка|стоим\sот|транспортный коллапс|еле ползет/i
       return :dps if text =~ /дпс/i
       return :cmr if text =~ /радар|камер/i
-      return :rmnt if text =~ /ремонт/i
       nil
     end
 
