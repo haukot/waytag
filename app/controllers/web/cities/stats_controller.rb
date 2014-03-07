@@ -20,6 +20,12 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
 
     @all = resource_city.reports.in_year(@current_date).count
 
+    if @current_year.to_i == DateTime.current.year.to_i
+      @avg = @all / (DateTime.current.yday)
+    else
+      @avg = @all / 365
+    end
+
     by_month = resource_city.reports.in_year(@current_date).dtp.by_month
     gon.by_month = {
       data: by_month.map { |t| t.count.to_i },
@@ -32,7 +38,7 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
       labels: %w(ПН ВТ СР ЧТ ПТ СБ ВС)
     }
 
-    by_hour = resource_city.reports.in_year(@current_date).dtp.by_hour.select { |t| t.count.to_i > 10}
+    by_hour = resource_city.reports.in_year(@current_date).dtp.by_hour.select { |t| t.count.to_i > 10 }
     gon.by_hour = {
       data: by_hour.map { |t| t.count.to_i },
       labels: by_hour.map do |t|
