@@ -18,7 +18,7 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
     end
     gon.by_type = @by_type
 
-    @all = resource_city.reports.in_year(@current_date).dtp.count
+    @all = resource_city.reports.in_year(@current_date).count
 
     by_month = resource_city.reports.in_year(@current_date).dtp.by_month
     gon.by_month = {
@@ -35,7 +35,11 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
     by_hour = resource_city.reports.in_year(@current_date).dtp.by_hour.select { |t| t.count.to_i > 10 }
     gon.by_hour = {
       data: by_hour.map { |t| t.count.to_i },
-      labels: by_hour.map { |t| t.hour.to_i + 4 }
+      labels: by_hour.map do |t|
+        hour = t.hour.to_i + 4
+        hour = 0 if hour > 24
+        hour
+      end
     }
 
     gon.danger_zones = { labels: [], data: [] }
@@ -66,7 +70,7 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
     }
 
     streets.each_pair do |e, cond|
-      gon.danger_zones[:data] << resource_city.reports.in_year(@current_date).dtp.in_street(cond).count
+      gon.danger_zones[:data] << resource_city.reports.dtp.in_street(cond).count
     end
 
     gon.danger_zones[:labels] = streets.keys
