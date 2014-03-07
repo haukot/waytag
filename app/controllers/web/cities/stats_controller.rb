@@ -32,13 +32,11 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
       labels: %w(ПН ВТ СР ЧТ ПТ СБ ВС)
     }
 
-    by_hour = resource_city.reports.in_year(@current_date).dtp.by_hour.select { |t| t.count.to_i > 10 }
+    by_hour = resource_city.reports.in_year(@current_date).dtp.by_hour.select { |t| t.count.to_i > 10}
     gon.by_hour = {
       data: by_hour.map { |t| t.count.to_i },
       labels: by_hour.map do |t|
-        hour = t.hour.to_i + 4
-        hour = 0 if hour > 24
-        hour
+        t.hour.to_i + 3
       end
     }
 
