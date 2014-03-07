@@ -33,7 +33,22 @@
             - if report.event_kind
               %span{ class: "label #{report.event_label_class}" }
                 = t(report.event_kind)
-          %td= report.text
+          %td
+            .dropdown
+              = report.composed_text
+              %a{ id: dom_id(report), "data-toggle" => "dropdown", href: "#", "data-target"=>"#"}
+                %b.caret
+              %table.table.dropdown-menu{"aria-labelledby" => dom_id(report)}
+                %tr
+                  %th
+                    clean:
+                  %td
+                    = report.text
+                %tr
+                  %th
+                    source:
+                  %td
+                    = report.source_text
           %td= report.published_date
           %td
             %span{ class: "label #{report.state_label_class}" }
