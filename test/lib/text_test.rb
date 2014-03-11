@@ -12,8 +12,10 @@ class TextTest < ActiveSupport::TestCase
 
   def _clean_provider
     [
+      ["ULWAY!!!!!!       message", "! message"],
+      [" \"\"  #Ulway ULWAY       message", "message"],
       ["   #Ulway ULWAY       message", "message"],
-      ["#ulway message", "message"],
+      ["#ulway message!", "message!"],
       ["@ulway message", "message"],
       ["ulway message", "message"],
       ["test message", "test message"],

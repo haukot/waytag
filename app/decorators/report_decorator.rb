@@ -96,6 +96,14 @@ class ReportDecorator < Draper::Decorator
     !(object.posted? || object.wating_post? || object.added?)
   end
 
+  def text_with_date
+    _text = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}"
+
+    text = object.text.truncate(truncate_to(_text))
+
+    _text.gsub(/\{\?\}/, text)
+  end
+
   def composed_text
     via = " via @#{object.sourceable.screen_name}" if object.sourceable.kind_of?(TwitterUser)
 

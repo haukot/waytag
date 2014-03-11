@@ -8,10 +8,12 @@ xml.rss :version => "2.0" do
 
     for message in @messages
       xml.item do
-        xml.title message.composed_text
+        xml.title message.text_with_date
         xml.description ""
         xml.pubDate message.created_at.to_s(:rfc822)
-        xml.link "https://twitter.com/#{message.city.twitter_name}/status/#{message.id_str}"
+        if message.published_by.present?
+          xml.copyright message.published_by
+        end
       end
     end
   end

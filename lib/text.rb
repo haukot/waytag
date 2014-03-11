@@ -7,6 +7,8 @@ class Text
       text.gsub(/@?(#{cities.pluck(:twitter_name).join('|')})/i, '')
       .gsub(/(#{cities.pluck(:hashtag).join('|')})/i, '')
       .gsub(/\[\d{1,2}:\d{1,2}\]/, '')
+      .gsub(/[!]+/, '!')
+      .gsub(/[%;"'{}\/]*/, '')
       .gsub(/via\s.*$/, '')
       .gsub(/#.*?(\s|$)/, ' ')
       .gsub(/\s+/, ' ')
