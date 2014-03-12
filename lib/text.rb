@@ -8,7 +8,7 @@ class Text
       .gsub(/(#{cities.pluck(:hashtag).join('|')})/i, '')
       .gsub(/\[\d{1,2}:\d{1,2}\]/, '')
       .gsub(/[!]+/, '!')
-      .gsub(/[%;"'{}\/]*/, '')
+      .gsub(/[%;"'{}]*/, '')
       .gsub(/via\s.*$/, '')
       .gsub(/#.*?(\s|$)/, ' ')
       .gsub(/\s+/, ' ')

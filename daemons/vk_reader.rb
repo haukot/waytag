@@ -9,7 +9,6 @@ messages = {}
 loop do
   response =  Net::HTTP.get_response(URI('http://m.vk.com/uldriver'))
   response.body.force_encoding("UTF-8")
-  m = response.body.scan(/<.*?pi_text.*?>(.*?)<\/.*?<.*?pi_date.*?>(.*?)<\//)
   page = Nokogiri::HTML(response.body)
   page.css('.pi_body').each do |body|
     text = body.css('.pi_text')[0]
@@ -29,7 +28,7 @@ loop do
     end
   end
 
-  messages.reject!{ |k, v| v[:time] < (Time.now - 3600) }
+  messages.reject!{ |k, v| v[:time] < (Time.now - 3600 * 24) }
   messages.each do |text, params|
     unless params[:processed]
       params[:processed] = true
