@@ -109,7 +109,11 @@ class ReportDecorator < Draper::Decorator
 
     _text = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}#{via}"
 
-    text = object.text.truncate(truncate_to(_text))
+    if object.text
+      text = object.text.truncate(truncate_to(_text))
+    else
+      text = ""
+    end
 
     _text.gsub(/\{\?\}/, text)
   end
