@@ -4,6 +4,15 @@
     = simple_form_for @api_report, remote: true, url: city_reports_path(resource_city) do |f|
       %p Включите Javascript =)
     :javascript
-      $(function() { React.renderComponent(PostForm(null), document.getElementById('new_report'));} );
+
+      $(function() {
+        $("#new_report").bind("ajax:success", function(evt, data, status, xhr) {
+          $("#new_report").fadeOut("slow", function() {
+            $(this).replaceWith('<h3>Сообщение успешно отправлено. Следующая отправка возможна через 5 минут</h3>');
+          })
+        });
+
+        React.renderComponent(PostForm(null), document.getElementById('new_report'));
+      } );
   - else
     %h2 Недавно вы уже отпарвляли сообщение, подождите немного для отправки следующего

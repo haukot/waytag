@@ -117,15 +117,14 @@ var PostForm = React.createClass({
     this.setState({ text: e.target.value, time: new Date() });
   },
 
-  onSubmit: function() {
+  onSubmit: function(e) {
     this.setState({sended: true});
+    if (this.state.sended) {
+      return false;
+    }
   },
 
   render: function() {
-    if (this.state.sended) {
-      return (<h3>Успешно отправлено</h3>);
-    }
-
     var cx = React.addons.classSet;
     var buttonClasses = cx({
       'send': true,  'btn': true,  'btn-primary': true,  'btn-lg': true, 'enabled': !this.isDanger()
