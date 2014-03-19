@@ -94,6 +94,10 @@ var PostForm = React.createClass({
     return [this.formatedTime(this.state.time), this.state.kind.name, this.state.text, ' #' + gon.current_city.hashtag].join(' ')
   },
 
+  textWithKind: function() {
+    return [this.state.kind.name, this.state.text].join(' ');
+  },
+
   isDanger: function() {
     var length = this.formatedText().length;
     if (length > 140 || length < 30) {
@@ -142,7 +146,7 @@ var PostForm = React.createClass({
           </div>
         </div>
 
-        <input className="send_form_text" name="report[text]" type="hidden" value={this.state.text}/>
+        <input className="send_form_text" name="report[text]" type="hidden" value={this.textWithKind()}/>
         <input className="send_form_time" name="report[time]" type="hidden" value={this.state.time} />
         <input className="send_form_kind" name="report[event_kind]" type="hidden" value={this.state.kind.key} />
 
