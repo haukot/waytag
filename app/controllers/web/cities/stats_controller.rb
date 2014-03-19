@@ -7,7 +7,7 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
 
     @years = 2012.upto(DateTime.current.year).to_a
 
-    colors = %w(C75646 8EB33B D0B03C 72B3CC C8A0D1 218693 B0B0B0)
+    colors = %w(#c83539  #f2c285 #19bb9b #38a6c9)
     kinds = Report.event_kind.values
     @by_type = kinds.map.with_index do |k, i|
       {
@@ -38,7 +38,7 @@ class Web::Cities::StatsController < Web::Cities::ApplicationController
       labels: %w(ПН ВТ СР ЧТ ПТ СБ ВС)
     }
 
-    by_hour = resource_city.reports.in_year(@current_date).dtp.by_hour.select { |t| t.count.to_i > 10 }
+    by_hour = resource_city.reports.in_year(@current_date).dtp.by_hour.select { |t| t.count.to_i > 0 }
     gon.by_hour = {
       data: by_hour.map { |t| t.count.to_i },
       labels: by_hour.map do |t|

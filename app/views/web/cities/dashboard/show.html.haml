@@ -1,35 +1,25 @@
 = javascript_include_tag "cities/application"
 
--#.tweets-block
-  -#.container
-    -#- if @reports.any?
-      -#- date = ""
-      -#- @reports.each do |report|
-        -#.tweet
-          -#- if report.published_date != date
-            -#- date = report.published_date
-            -#%span.date
-              -#= date
+.tweets-block.row
+  .container.col-md-10.col-md-offset-1
+    - if @reports.any?
+      - date = ""
+      - @reports.each do |report|
+        .tweet.row
+          .col-md-3.info
+            - if report.published_date != date
+              - date = report.published_date
+              %span.date
+                = date
 
-          %span.info
             %span.nick
               = report.published_by
+
             = report.userpic
-          %span.info
+
+          .col-md-9.text
             = report.published_at
-          %span.text
-            != markdown.render(report.text)
+            = report.text
 
-          -#%span.info
-            -#%span.nick
-              -#= report.published_by
-            -#= report.userpic
-          -#%span.info
-            -#= report.published_at
-          -#%span.text
-            -#!= markdown.render(report.text_without_via)
-
-
--#= render :partial => 'layouts/web/cities/info'
 = render :partial => 'layouts/web/shared/form'
-= render :partial => 'layouts/web/shared/bonuses'
+= render :partial => 'layouts/web/cities/info'

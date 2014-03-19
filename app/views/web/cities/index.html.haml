@@ -1,11 +1,10 @@
-.cities-index
+.row.cities-index-top
   %h1 Ваш город
 
-  .svg-logo
-    = image_tag("waytagpin.svg", class: "sticker")
-
+.row.cities-index-content
+  .col-md-2.col-md-offset-5
     - if @cities.any?
-      - @cities.each do |city|
-        = link_to city_path(city) do
-          %span.name
+      .btn-group-vertical.btn-group-lg
+        - @cities.each do |city|
+          = link_to city_path(city), class: 'btn btn-default' do
             = city.name

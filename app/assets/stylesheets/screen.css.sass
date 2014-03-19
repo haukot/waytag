@@ -47,11 +47,39 @@ h3
 
 // Splash page
 .main.welcome
-  background: url(asphalt_new.jpg) 0 0 #ccc
+  background: #f5f5f0
   h1
     margin-top: 0
     color: #fff
     text-align: center
+
+.cities-index-top
+  background: #19bb9b
+  padding: 20px 0
+
+.cities-index-content
+  .btn-group-vertical
+    margin-top: 20px
+    width: 100%
+
+    .btn
+      margin: 10px auto
+      color: #fff
+      background: #19bb9b
+      border-radius: 3px
+      border-color: #19bb9b
+      border-bottom-color: #20725c
+      border-width: 2px
+      box-shadow: none
+      text-shadow: none
+      letter-spacing: 2px
+
+    .btn:hover
+      color: #19bb9b
+      background: #fff
+      border-color: #fff
+      border-bottom-color: #ddd
+
 .cities-index
   padding: 40px
   .svg-logo
@@ -94,13 +122,17 @@ h3
 
 // Navbar
 .logo
-  margin-right: 10px
+  height: 2.3em
+  width: auto
   position: relative
   top: 10px
 .navbar
   margin-bottom: 0
+  font-size: 1em
+  .caret
+    margin-left: 0
 .navbar-inner
-  background: #ee684e
+  background: #19bb9b
   border: none
   border-radius: 0
   box-shadow: none
@@ -114,13 +146,13 @@ h3
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > li:hover > a
-  background: #990000 !important
+  background: #20725c !important
   color: #fff !important
 
 .dropdown-menu > li > a
   color: #000
 .dropdown-menu > li > a:hover
-  background-color: #990000
+  background-color: #20725c
   color: #fff
 
 // Tweets block
@@ -136,19 +168,16 @@ h3
   overflow: hidden
   position: relative
   .date
-    display: inline-block
     opacity: 0.5
-    position: absolute
   .nick
-    display: inline-block
-    width: 200px
-    text-align: right
     opacity: 0.8
   .info
-    margin-right: 4px
-  .info,
+    text-align: right
+    padding-right: 0
   .text
-    float: left
+    text-align: left
+    padding-left: 5px
+
   img
     border-radius: 2px
     margin: 0 2px
@@ -157,80 +186,103 @@ h3
 
 // Info block
 .info-block
-  padding: 100px
-  background: #cbf3f5
+  h2
+    margin: 2em 0
+    color: #f5f5f0
+  background: #3a3a3a
   overflow: hidden
-.round-sign-wrap
-  width: 30%
-  margin-right: 10%
-  float: left
-.round-sign
-  width: 100%
-.info-content
-  margin-left: 40%
-  color: #008c94
-  font-size: 30px
-  line-height: 36px
+
+  .circle
+    margin: 0 auto
+    display: block
+    border-radius: 3em
+    width: 6.5em
+    height: 6.5em
+    text-align: center
+    transition: width 230ms cubic-bezier(0.645, 0.045, 0.355, 1)
+    overflow: hidden
+    position: relative
+
+    a
+      position: absolute
+      left: 0.53em
+      font-size: 4em
+
+  .twitter
+    background-color: #55AcEE
+
+  .vk
+    background-color: #4d75a3
+
+  .yandex
+    background-color: #ed1226
+
+  .twitter:hover
+    width: 17em
+    transition: width 310ms cubic-bezier(0.645, 0.045, 0.355, 1)
+
+  .vk:hover
+    width: 21em
+    transition: width 220ms cubic-bezier(0.645, 0.045, 0.355, 1)
+
+  .yandex:hover
+    width: 16em
+    transition: width 330ms cubic-bezier(0.645, 0.045, 0.355, 1)
+
   a,
   .hash
-    color: #ee684e
+    color: #fff
   p
     margin-bottom: 30px
 
 // Send form
 .send-form
   font-size: 24px
-  background-color: #00b3bc
-  color: #fff
+  background-color: #f5f5f0
+  color: #333
   padding: 30px 40px
-  h1
-    margin-top: 0
-    margin-bottom: 30px
   h2
-    text-align: left
-    margin-bottom: 10px
+    font-family: "Roboto Condensed", sans-serif
+    margin-bottom: 34px
+
   .progress, .preview.well
     box-shadow: none
     text-shadow: none
     border-radius: 2px
+
+    .progress-bar-success
+      background-color: #19bb9b
 
   .preview.well
     border: none
     background: none
     padding: 0
 
-  .select2-choices, textarea
+  textarea
     font-size: 24px
     padding: 10px
-    color: #00b3bc
+    color: #19bb9b
     box-shadow: none
     text-shadow: none
     background: #fff
-    border-radius: 2px
+    border-radius: 3px
     border-color: #fff
-    border-bottom-color: #eee
-    border-width: 3px
-
-  .select2-container
-    display: block
-
-  .select2-drop
-    border: none
-
-  .select2-result-label
-    font-size: 24px
-    color: #00b3bc
+    border-bottom-color: #ddd
+    border-width: 2px
+    margin-bottom: 18px
 
   form
     text-align: center
   .event-selector
+    margin-bottom: 15px
     .btn
-      color: #67531d
-      background: #ffd35b
-      border-radius: 2px
-      border-color: #ffd35b
-      border-bottom-color: #efc34b
-      border-width: 3px
+      margin: 0 5px
+      color: #fff
+      background: #19bb9b
+      border-radius: 3px
+      border-color: #19bb9b
+      border-bottom-color: #20725c
+      border-width: 2px
       box-shadow: none
       text-shadow: none
       letter-spacing: 2px
@@ -239,24 +291,32 @@ h3
       color: #000
       background: #fff
       border-color: #fff
-      border-bottom-color: #eee
+      border-bottom-color: #ddd
+
   .how
     width: 100%
     box-sizing: border-box
+
   .send
     color: #fff
-    background: #ee684e
-    border-radius: 2px
-    border-color: #ee684e
-    border-bottom-color: #de583e
-    border-width: 3px
+    background: #d9534f
+    border-radius: 3px
+    border-color: #d9534f
+    border-bottom-color: #99332f
+    border-width: 2px
     box-shadow: none
     text-shadow: none
     letter-spacing: 2px
 
+  .send.enabled
+    color: #fff
+    background: #19bb9b
+    border-color: #19bb9b
+    border-bottom-color: #20725c
+
 // Radio block
 .radio-block
-  background: #ee684e
+  background: #c83539
   color: #fff
   padding: 50px 0
   h2,
@@ -319,8 +379,6 @@ h3
   a
     color: #fff
     text-decoration: underline
-.sticker
-  width: 100%
 
 // Stat
 .stat
@@ -331,8 +389,9 @@ h3
 
 // Footer
 .footer
-  background: #000
-  color: #ddd
+  border-top: 1px solid #3a3a3a
+  background: #1f1f1f
+  color: #777
   a
     color: #ccc
   .footer-inner
@@ -352,7 +411,7 @@ h3
     font-size: 36px
     height: auto
     padding: 10px
-    color: #00b3bc
+    color: #19bb9b
     box-shadow: none
     text-shadow: none
     background: #fff
@@ -372,6 +431,25 @@ h3
     margin-bottom: 30px
   .dropdown-menu
     width: 400px
+
+// Stats
+.legend
+  border-radius: 3px
+  color: #fff
+  margin: 5px
+  padding: 5px
+  text-align:center
+
+.waytag-pills.nav-pills
+  li
+    a
+      color: #19bb9b
+
+  li.active
+    a
+      color: #fff
+      background-color: #19bb9b
+
 
 // Info bad
 .info-bad

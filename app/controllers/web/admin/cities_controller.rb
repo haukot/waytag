@@ -50,6 +50,6 @@ class Web::Admin::CitiesController < Web::Admin::ApplicationController
     end
 
     def city_params
-      params.require(:city).permit(:slug, :name, :email, :twitter_name, :hashtag)
+      params.require(:city).permit(:slug, :name, :email, :twitter_name, :hashtag, :vk_name, :yandex_widget)
     end
 end

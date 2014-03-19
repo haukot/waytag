@@ -21,7 +21,7 @@
       .row
         - @by_type.each do |v|
           .col-md-3
-            %p{style: "color: #fff; margin: 5px; padding: 5px; text-align:center; background: ##{v[:color]}"}
+            %p.legend{style: "background: #{v[:color]}"}
               = v[:label]
               %strong
               = v[:value]

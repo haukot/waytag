@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307083916) do
+ActiveRecord::Schema.define(version: 20140319222531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20140307083916) do
     t.string   "hashtag"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "vk_name"
+    t.string   "yandex_widget"
   end
 
   create_table "city_streets", force: true do |t|

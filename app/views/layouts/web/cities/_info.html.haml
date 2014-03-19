@@ -1,13 +1,21 @@
-.info-block
-  .round-sign-wrap
-    = image_tag("round#{resource_city.slug}.svg", class: "round-sign")
-  .info-content
-    %p Стоите в пробке? Увидели камеру или инспектора у обочины? Случилось ДТП? Ремонт дороги? Сообщайте обо всём нам! Пусть весь город знает и выбирает более удобные маршруты!
-    %p
-      Имеете твиттер? Пишите с хештегом
-      = succeed ("!") do
-        %span.hash ##{resource_city.hashtag}
-      Ваша информация непременно к нам попадёт!
-    %p
-      Подписывайтесь на наш твиттер-аккаунт
-      %a(href="https://twitter.com/#{resource_city.hashtag}" target="_blank") @#{resource_city.hashtag}
+.info-block.row
+  .col-md-8.col-md-offset-2
+    %h2 Читайте нас
+
+    .row
+      - if resource_city.vk_name
+        .col-md-4
+          .vk.circle
+            %a{href: resource_city.vk_name, target: "_blank"} Вконтакте
+
+      - if resource_city.hashtag
+        .col-md-4
+          .twitter.circle
+            %a{ href: "https://twitter.com/#{resource_city.hashtag}", target: "_blank" } Твиттер
+
+      - if resource_city.yandex_widget
+        .col-md-4
+          .yandex.circle
+            %a{ href: resource_city.yandex_widget, target: "_blank" } Яндекс
+
+    %h2 Пишите с хештегом ##{resource_city.hashtag}
