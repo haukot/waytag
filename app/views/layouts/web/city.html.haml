@@ -6,6 +6,7 @@
   %body
     .main
       .content
-        = render partial: 'layouts/web/cities/menu', locals: { city: @city }
-        = yield
+        .container-fluid
+          = render partial: 'layouts/web/cities/menu', locals: { city: @city }
+          = yield
     = render :partial => 'layouts/web/shared/footer'

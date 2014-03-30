@@ -1,21 +1,22 @@
-.info-block.row
-  .col-md-8.col-md-offset-2
-    %h2 Читайте нас
+.container-fluid
+  .info-block.row
+    .col-md-8.col-md-offset-2
+      %h2 Читайте нас
 
-    .row
-      - if resource_city.vk_name
-        .col-md-4
-          .vk.circle
-            %a{href: resource_city.vk_name, target: "_blank"} Вконтакте
+      .row
+        - if resource_city.vk_name
+          .col-md-4
+            .vk.circle
+              %a{href: resource_city.vk_name, target: "_blank"} Вконтакте
 
-      - if resource_city.hashtag
-        .col-md-4
-          .twitter.circle
-            %a{ href: "https://twitter.com/#{resource_city.hashtag}", target: "_blank" } Твиттер
+        - if resource_city.hashtag
+          .col-md-4
+            .twitter.circle
+              %a{ href: "https://twitter.com/#{resource_city.hashtag}", target: "_blank" } Твиттер
 
-      - if resource_city.yandex_widget
-        .col-md-4
-          .yandex.circle
-            %a{ href: resource_city.yandex_widget, target: "_blank" } Яндекс
+        - if resource_city.yandex_widget
+          .col-md-4
+            .yandex.circle
+              %a{ href: resource_city.yandex_widget, target: "_blank" } Яндекс
 
-    %h2 Пишите с хештегом ##{resource_city.hashtag}
+      %h2 Пишите с хештегом ##{resource_city.hashtag}

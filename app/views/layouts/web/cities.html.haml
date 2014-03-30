@@ -6,5 +6,6 @@
   %body
     .main.welcome
       .content
-        = yield
+        .container-fluid
+          = yield
     = render :partial => 'layouts/web/shared/footer'
