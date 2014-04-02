@@ -11,9 +11,6 @@ xml.rss :version => "2.0" do
         xml.title message.text_with_date
         xml.description ""
         xml.pubDate message.created_at.to_s(:rfc822)
-        if message.published_by.present?
-          xml.copyright message.published_by
-        end
       end
     end
   end
