@@ -32,12 +32,6 @@ class EventKindsTest < ActiveSupport::TestCase
     end
   end
 
-  test "Detect rmnt from text" do
-    [ "ремонт на олимпийском" ].each do |text|
-      assert { EventKinds.from_text(text) == :rmnt }
-    end
-  end
-
   test "Detect prbk from text" do
     [ "Пробка на олимпийском" ].each do |text|
       assert { EventKinds.from_text(text) == :prbk }

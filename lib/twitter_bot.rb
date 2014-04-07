@@ -11,15 +11,19 @@ class TwitterBot
       "Вам тут не справочная!"
     ]
 
-    def handle_status(status, city, source)
-      client = ServiceLocator.twitter(city)
+    def handle_status(status)
       status = ActiveSupport::JSON.decode status
+      tweet = TweetPopulator.new(status).populate
 
-      if status["text"] == "I love @Ulway!"
-        client.direct_message_create(status["user"]["id"], "I love you tooo!")
+      city = tweet.city
+
+      return unless city
+
+      client = ServiceLocator.twitter(city.slug)
+
+      if tweet.love?
+        client.create_direct_message(status["user"]["id"], "I love you tooo!")
       else
-        tweet = TweetPopulator.new(status).populate
-
         return unless tweet
 
         return if tweet.twitter_user.blocked?
@@ -27,7 +31,7 @@ class TwitterBot
         if tweet.contains_bad_data?
           try_answer_on tweet, client
         else
-          add_report(tweet, city, source)
+          add_report(tweet, city, tweet.source)
         end
       end
     end
@@ -43,10 +47,8 @@ class TwitterBot
     end
 
     def add_report(tweet, city, source)
-      city = City.find_by(slug: city)
-
       rp = ReportPopulator.new({
-        source_kind: source.to_sym,
+        source_kind: source,
         city_id: city.id,
       })
 

@@ -14,6 +14,22 @@ class Tweet
   validates :text, presence: true
   validates :created_at, presence: true
 
+  def city
+    return @city if @city
+
+    City.find_each do |city|
+      if text.downcase.include?(city.hashtag)
+        @city = city
+      end
+    end
+
+    @city
+  end
+
+  def source
+    in_reply_to_user_id_str ? :mentions : :hashtag
+  end
+
   def contains_bad_data?
     super || more_two_mentions? || retweeted? || answer?
   end
@@ -29,6 +45,10 @@ class Tweet
 
   def retweeted?
     retweeted || text.include?("RT")
+  end
+
+  def love?
+    text == "I love @Ulway!"
   end
 
 end

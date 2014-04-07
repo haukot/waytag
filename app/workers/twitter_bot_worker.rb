@@ -3,7 +3,7 @@ class TwitterBotWorker
 
   sidekiq_options retry: 5
 
-  def perform(status, city, source)
-    TwitterBot.handle_status status, city, source
+  def perform(status)
+    TwitterBot.handle_status status
   end
 end
