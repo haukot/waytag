@@ -306,7 +306,7 @@ h3
   .event-selector
     margin-bottom: 15px
     .btn
-      margin: 0 5px
+      margin: 0 5px 5px 5px
       color: #fff
       background: #19bb9b
       border-radius: 3px
@@ -427,6 +427,11 @@ h3
     left: -25%
   .stat
     overflow: hidden !important
+@media only screen and (max-width : 450px)
+  canvas
+    transform: scale(0.5, 0.5)
+    position: relative
+    left: -50%
 
 // Bonuses
 .bonus
@@ -456,6 +461,15 @@ h3
       padding-top: 20px
     p
       line-height: 18px
+@media only screen and (max-width : 400px)
+  .footer
+    p
+      float: none !important
+      padding: 0
+      &.pull-right
+        a
+          margin-left: 0
+          margin-right: 20px
 
 
 // Classifier
