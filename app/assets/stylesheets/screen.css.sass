@@ -155,6 +155,15 @@ h3
   background-color: #20725c
   color: #fff
 
+@media only screen and (max-width : 767px)
+  .navbar-inner
+    ul.pull-right
+      float: none !important
+  .navbar-default .navbar-nav > .open > a,
+  .navbar-default .navbar-nav > .open > a:hover,
+  .navbar-default .navbar-nav > li:hover > a
+    background-color: transparent !important
+
 // Tweets block
 .tweets-block
   padding: 20px 0
@@ -183,6 +192,17 @@ h3
     margin: 0 2px
     position: relative
     top: -2px
+
+@media only screen and (max-width : 767px)
+  .tweet .info
+    text-align: left
+    padding-left: 5px
+  .tweet .date
+    display: block
+    font-size: 20px
+    border-bottom: 1px solid #bbb
+    padding-bottom: 8px
+    margin-bottom: 6px
 
 // Info block
 .info-block
@@ -400,6 +420,14 @@ h3
   canvas
     transform: scale(0.75, 0.75)
 
+@media only screen and (max-width : 767px)
+  canvas
+    transform: scale(0.5, 0.5)
+    position: relative
+    left: -25%
+  .stat
+    overflow: hidden !important
+
 // Bonuses
 .bonus
   margin-bottom: 30px
@@ -421,6 +449,13 @@ h3
     &.pull-right
       a
         margin-left: 20px
+
+@media only screen and (max-width : 767px)
+  .footer
+    .footer-inner
+      padding-top: 20px
+    p
+      line-height: 18px
 
 
 // Classifier

@@ -28,16 +28,18 @@
       %br
       %br
 
-      %canvas#by_type{:height => "450", :width => "800"}
+      .row
+        .col-xs-12
+          %canvas#by_type{:height => "450", :width => "800"}
 
-      %h2 Самые аварийные места
-      %canvas#danger_zones{:height => "450", :width => "800"}
+          %h2 Самые аварийные места
+          %canvas#danger_zones{:height => "450", :width => "800"}
 
-      %h2 По часам в сутках
-      %canvas#by_hour{:height => "450", :width => "800"}
+          %h2 По часам в сутках
+          %canvas#by_hour{:height => "450", :width => "800"}
 
-      %h2 По дням недели
-      %canvas#by_day{:height => "450", :width => "800"}
+          %h2 По дням недели
+          %canvas#by_day{:height => "450", :width => "800"}
 
-      %h2 По месяцам
-      %canvas#by_month{:height => "450", :width => "800"}
+          %h2 По месяцам
+          %canvas#by_month{:height => "450", :width => "800"}
