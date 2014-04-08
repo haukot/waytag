@@ -6,7 +6,6 @@
       .bonus
         %h2= bonus.title
         %description!= markdown.render(bonus.description)
-        %hr
 
     = paginate @bonuses
   - else
