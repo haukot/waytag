@@ -2,12 +2,12 @@
 
 .container-fluid
   .tweets-block.row
-    .container.col-md-10.col-md-offset-1
+    .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
       - if @reports.any?
         - date = ""
         - @reports.each do |report|
           .tweet.row
-            .col-md-3.info
+            .col-md-3.col-sm-3.info
               - if report.published_date != date
                 - date = report.published_date
                 %span.date
@@ -18,7 +18,7 @@
 
               = report.userpic
 
-            .col-md-9.text
+            .col-md-9.col-sm-9.text
               = report.published_at
               = report.text
 
