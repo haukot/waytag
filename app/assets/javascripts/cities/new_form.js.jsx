@@ -142,7 +142,7 @@ var PostForm = React.createClass({
             <textarea className="how" placeholder="Где?" rows="3" onChange={this.handleTextChange} value={this.state.text}></textarea>
 
             <Preview formatedTextLength={this.formatedText().length} formatedText={this.formatedText()} isDanger={this.isDanger()} />
-            <input className={buttonClasses} name="commit" type="submit" value="Сообщить в @Ulway" disabled={this.isDanger()} onClick={this.onSubmit}/>
+            <input className={buttonClasses} name="commit" type="submit" value={"Сообщить в @" + this.gon.current_city.twitter_name} disabled={this.isDanger()} onClick={this.onSubmit}/>
           </div>
         </div>
 
