@@ -70,7 +70,6 @@ gem 'unicorn-worker-killer'
 group :development, :test do
   gem 'awesome_print'
   gem 'pry-rails'
-  gem 'pry-debugger'
 
   gem 'wrong'
   gem 'factory_girl_rails'
