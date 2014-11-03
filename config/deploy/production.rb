@@ -5,6 +5,6 @@ set :branch, 'master'
 set :user, 'waytag_production'
 set :keep_releases, 5
 
-role :web, '95.85.39.207'
-role :app, '95.85.39.207'
-role :db, '95.85.39.207', :primary => true
+role :web, '188.226.206.114'
+role :app, '188.226.206.114'
+role :db, '188.226.206.114', :primary => true
