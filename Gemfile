@@ -58,6 +58,9 @@ gem 'tweetstream', require: false
 gem 'fisher_classifier'
 gem 'urbanairship'
 # gem 'fisher_classifier', path: '~/projects/fisher_classifier'
+#
+gem 'meta-tags'
+gem 'sitemap_generator'
 
 gem 'tzinfo'
 gem 'tzinfo-data'

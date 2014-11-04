@@ -10,6 +10,16 @@ module CityableController
     def define_city_variables
       session[:city] = resource_city.slug
       gon.current_city = resource_city
+
+      set_meta_tags title: "#{resource_city.name}. Сейчас на дорогах", reverse: true, keywords: keywords_for_city
+    end
+
+    def keywords_for_city
+      default_words = [
+        resource_city.name, resource_city.hashtag
+      ].concat(resource_city.keywords.split(','))
+      kw = configus.keywords
+      default_words.concat(kw.map { |w| "#{w} #{resource_city.name.downcase}" })
     end
   end
 end
