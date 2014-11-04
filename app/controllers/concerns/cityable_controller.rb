@@ -15,6 +15,7 @@ module CityableController
     end
 
     def keywords_for_city
+      resource_city.keywords ||= ''
       default_words = [
         resource_city.name, resource_city.hashtag
       ].concat(resource_city.keywords.split(','))
