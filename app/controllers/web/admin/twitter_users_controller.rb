@@ -31,11 +31,12 @@ class Web::Admin::TwitterUsersController < Web::Admin::ApplicationController
   end
 
   private
-    def set_twitter_user
-      @twitter_user = TwitterUser.find(params[:id])
-    end
 
-    def sourceable
-      @sourceable = TwitterUser.find params[:twitter_user_id]
-    end
+  def set_twitter_user
+    @twitter_user = TwitterUser.find(params[:id])
+  end
+
+  def sourceable
+    @sourceable = TwitterUser.find params[:twitter_user_id]
+  end
 end

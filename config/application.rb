@@ -25,7 +25,7 @@ module Waytag
       g.helper false
     end
 
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
     config.action_dispatch.rescue_responses.merge!(
       'ActiveModel::ForbiddenAttributesError' => :unprocessable_entity,
       'ActionController::ParameterMissing' => :unprocessable_entity,

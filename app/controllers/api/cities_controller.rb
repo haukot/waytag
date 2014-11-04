@@ -1,5 +1,5 @@
 class Api::CitiesController < Api::ApplicationController
-  skip_before_filter :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :index
 
   ##
   # Получить список городов
@@ -18,5 +18,4 @@ class Api::CitiesController < Api::ApplicationController
     @q = City.ransack q_param
     @cities = @q.result.page(page).per(per_page)
   end
-
 end

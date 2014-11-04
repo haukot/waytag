@@ -10,7 +10,7 @@ Classifier = FisherClassifier.create do
     feature.save
   end
 
-  inc_category do; end
+  inc_category { ; }
 
   get_features do |text|
     text = text.to_s
@@ -21,9 +21,9 @@ Classifier = FisherClassifier.create do
 
       features = Mystem.clean text
       features.uniq
-      #features = features.select { |f| f.size > 2 }
+      # features = features.select { |f| f.size > 2 }
       features = features.map { |f| f.mb_chars.downcase.strip }
-      features << "less_than_3_words" if features.size < 3
+      features << 'less_than_3_words' if features.size < 3
       features << "links_count_#{links_count}"
     else
       []
@@ -48,6 +48,6 @@ Classifier = FisherClassifier.create do
   end
 
   default_category do
-    "bad"
+    'bad'
   end
 end

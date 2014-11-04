@@ -3,10 +3,9 @@ class ClassifierFeatureDecorator < Draper::Decorator
 
   def category_class
     if object.category.good?
-      "label-success"
+      'label-success'
     else
-      "label-danger"
+      'label-danger'
     end
   end
-
 end

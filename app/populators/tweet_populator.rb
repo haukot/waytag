@@ -9,8 +9,8 @@ class TweetPopulator < BasePopulator
     tweet.twitter_user = populate_user
 
     if geo_data_exists?
-      tweet.longitude = params["geo"]["coordinates"].first
-      tweet.latitude = params["geo"]["coordinates"].last
+      tweet.longitude = params['geo']['coordinates'].first
+      tweet.latitude = params['geo']['coordinates'].last
     end
 
     tweet.valid? ? tweet : nil
@@ -19,14 +19,13 @@ class TweetPopulator < BasePopulator
   private
 
   def populate_user
-    return nil if City.exists? twitter_name: params["user"]["screen_name"]
+    return nil if City.exists? twitter_name: params['user']['screen_name']
 
-    up = TwitterUserPopulator.new (params["user"])
+    up = TwitterUserPopulator.new(params['user'])
     up.populate
   end
 
   def geo_data_exists?
-    params["geo"] && params["geo"]["coordinates"] && params["geo"]["type"] == "Point"
+    params['geo'] && params['geo']['coordinates'] && params['geo']['type'] == 'Point'
   end
-
 end

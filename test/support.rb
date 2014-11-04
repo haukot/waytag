@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-Geocoder.configure(:lookup => :test)
+Geocoder.configure(lookup: :test)
 Geocoder::Lookup::Test.set_default_stub(
   [
     {
@@ -21,7 +21,7 @@ Geocoder::Lookup::Test.set_default_stub(
 )
 
 def fixture_path
-  File.expand_path("../../fixtures", __FILE__)
+  File.expand_path('../../fixtures', __FILE__)
 end
 
 def load_fixture(file)

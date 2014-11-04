@@ -3,22 +3,22 @@ class ReportDecorator < Draper::Decorator
 
   def state_class
     if object.posted?
-      "success"
+      'success'
     elsif object.rejected? || object.bad?
-      "warning"
+      'warning'
     elsif object.post_failed?
-      "danger"
+      'danger'
     elsif object.deleted?
-      "danger"
+      'danger'
     end
   end
 
   def published_date
-    object.time.strftime("%d.%m.%Y")
+    object.time.strftime('%d.%m.%Y')
   end
 
   def published_at
-    object.time.strftime("[%H:%M]")
+    object.time.strftime('[%H:%M]')
   end
 
   def published_by
@@ -28,7 +28,7 @@ class ReportDecorator < Draper::Decorator
     when VkUser
       "#{object.sourceable.name}"
     else
-      ""
+      ''
     end
   end
 
@@ -37,9 +37,9 @@ class ReportDecorator < Draper::Decorator
     when TwitterUser
       sourceable.profile_image_url
     when VkUser
-      h.image_url "vk.png"
+      h.image_url 'vk.png'
     else
-      h.image_url "waytag.png"
+      h.image_url 'waytag.png'
     end
   end
 
@@ -47,32 +47,29 @@ class ReportDecorator < Draper::Decorator
     h.image_tag userpic_url, width: 20, height: 20
   end
 
-
   def sourceable_link
-    if object.sourceable
-      path = "admin_#{object.sourceable.class.name.underscore.pluralize}_path".to_sym
+    return unless object.sourceable
+    path = "admin_#{object.sourceable.class.name.underscore.pluralize}_path".to_sym
 
-      name = case object.sourceable
-             when TwitterUser
-               "@#{sourceable.screen_name}"
-             when WebUser
-               sourceable.ip
-             when VkUser
-               sourceable.name
-             else
-               sourceable.class.name.gsub(/User/, ' # ') + sourceable.id.to_s
-             end
+    name = case object.sourceable
+           when TwitterUser
+             "@#{sourceable.screen_name}"
+           when WebUser
+             sourceable.ip
+           when VkUser
+             sourceable.name
+           else
+             sourceable.class.name.gsub(/User/, ' # ') + sourceable.id.to_s
+           end
 
-      h.link_to name, h.send(path, q: { id_eq: object.sourceable.id })
-    end
-
+    h.link_to name, h.send(path, q: { id_eq: object.sourceable.id })
   end
 
   def state_string
     if object.rejected?
       if object.text_empty?
         h.t(:empty_text)
-      elsif has_obscenity?
+      elsif obscenity?
         RussianObscenity.find(object.text)
       elsif with_mentions?
         h.t(:with_mentions)
@@ -97,25 +94,25 @@ class ReportDecorator < Draper::Decorator
   end
 
   def text_with_date
-    _text = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}"
+    t = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}"
 
-    text = object.text.truncate(truncate_to(_text))
+    text = object.text.truncate(truncate_to(t))
 
-    _text.gsub(/\{\?\}/, text)
+    t.gsub(/\{\?\}/, text)
   end
 
   def composed_text
-    via = " via @#{object.sourceable.screen_name}" if object.sourceable.kind_of?(TwitterUser)
+    via = " via @#{object.sourceable.screen_name}" if object.sourceable.is_a?(TwitterUser)
 
-    _text = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}#{via}"
+    t = object.time.strftime('[%H:%M]') + " {?} ##{object.city.hashtag}#{via}"
 
     if object.text
-      text = object.text.truncate(truncate_to(_text))
+      text = object.text.truncate(truncate_to(t))
     else
-      text = ""
+      text = ''
     end
 
-    _text.gsub(/\{\?\}/, text)
+    t.gsub(/\{\?\}/, text)
   end
 
   def safe_text
@@ -128,29 +125,29 @@ class ReportDecorator < Draper::Decorator
 
   def event_label_class
     if object.event_kind.prbk?
-      "label-warning"
+      'label-warning'
     elsif object.event_kind.dtp?
-      "label-danger"
+      'label-danger'
     elsif object.event_kind.cmr?
-      "label-success"
+      'label-success'
     elsif object.event_kind.dps?
-      "label-info"
+      'label-info'
     end
   end
 
   def state_label_class
     if object.rejected? || object.bad?
-      "label-warning"
+      'label-warning'
     elsif object.added?
-      "label-default"
+      'label-default'
     elsif object.posted?
-      "label-success"
+      'label-success'
     elsif object.wating_post?
-      "label-info"
+      'label-info'
     elsif object.post_failed?
-      "label-danger"
+      'label-danger'
     elsif object.deleted?
-      "label-danger"
+      'label-danger'
     end
   end
 
@@ -159,5 +156,4 @@ class ReportDecorator < Draper::Decorator
   def truncate_to(text)
     143 - text.size
   end
-
 end

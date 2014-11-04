@@ -2,7 +2,7 @@ class City < ActiveRecord::Base
   extend FriendlyId
   include CitiesRepository
 
-  friendly_id :slug, :use => :slugged
+  friendly_id :slug, use: :slugged
 
   has_many :reports
   has_many :bonuses
@@ -13,8 +13,7 @@ class City < ActiveRecord::Base
     if id
       self.class.cities_to_go(id)
     else
-      self.none
+      none
     end
   end
-
 end

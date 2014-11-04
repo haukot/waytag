@@ -1,15 +1,11 @@
 # encoding: utf-8
 class BasePopulator
   class << self
-
     def permit(*args)
       @_args = args
     end
 
-    def _args
-      @_args
-    end
-
+    attr_reader :_args
   end
 
   def initialize(raw_params = {})
@@ -26,5 +22,4 @@ class BasePopulator
   def params
     @raw_params
   end
-
 end

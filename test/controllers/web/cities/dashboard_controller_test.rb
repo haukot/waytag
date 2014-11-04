@@ -5,7 +5,7 @@ class Web::Cities::DashboardControllerTest < ActionController::TestCase
     @city = create :city
   end
 
-  test "should get show" do
+  test 'should get show' do
     create :report, sourceable: create(:api_user), source_kind: :api
     create :report, sourceable: create(:vk_user), source_kind: :vk
     create :report, sourceable: create(:twitter_user), source_kind: :mentions

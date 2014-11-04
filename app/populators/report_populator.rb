@@ -16,5 +16,4 @@ class ReportPopulator < BasePopulator
 
     report.save! ? report : nil
   end
-
 end

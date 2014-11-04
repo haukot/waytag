@@ -18,11 +18,12 @@ class Web::Admin::WebUsersController < Web::Admin::ApplicationController
   end
 
   private
-    def set_web_user
-      @web_user = WebUser.find(params[:id])
-    end
 
-    def sourceable
-      @sourceable = WebUser.find params[:web_user_id]
-    end
+  def set_web_user
+    @web_user = WebUser.find(params[:id])
+  end
+
+  def sourceable
+    @sourceable = WebUser.find params[:web_user_id]
+  end
 end

@@ -9,21 +9,20 @@ class Api::ReportType < Report
   before_save :save_text_as_source
 
   def save_text_as_source
-    self.source_text = self.text
-    self.text = ""
+    self.source_text = text
+    self.text = ''
   end
 
   def text_or_geo
-    unless text || (latitude && longitude)
-      errors.add(:text, "[text] or [latitude] and [longitude] should be present")
-      errors.add(:longitude, "[text] or [latitude] and [longitude] should be present")
-      errors.add(:latitude, "[text] or [latitude] and [longitude] should be present")
-    end
+    return if text || (latitude && longitude)
+
+    errors.add(:text, '[text] or [latitude] and [longitude] should be present')
+    errors.add(:longitude, '[text] or [latitude] and [longitude] should be present')
+    errors.add(:latitude, '[text] or [latitude] and [longitude] should be present')
   end
 
   def initialize(params = {})
     params[:time] = Time.zone.now
     super(params)
   end
-
 end

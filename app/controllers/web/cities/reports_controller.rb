@@ -1,5 +1,4 @@
 class Web::Cities::ReportsController < Web::Cities::ApplicationController
-
   def create
     report = Web::ReportType.new(report_params)
     report.city = resource_city
@@ -21,5 +20,4 @@ class Web::Cities::ReportsController < Web::Cities::ApplicationController
   def report_params
     params.require(:report)
   end
-
 end

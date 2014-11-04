@@ -10,7 +10,7 @@ class ReportsService
       report = Report.find report_id
 
       if report.text_empty?
-        report.generate_text_by_geo
+        report.text_by_geo
         approve_text = true
       end
 
@@ -18,7 +18,7 @@ class ReportsService
 
       report.text = Text.clean(report.source_text)
 
-      return report.destroy if report.has_duplicate?
+      return report.destroy if report.duplicate?
 
       if approve_text
         report.approve
@@ -28,11 +28,10 @@ class ReportsService
 
       report.save!
 
-      if report.wating_post?
-        PushWorker.perform_async(report.id)
-        PostWorker.perform_async(report.id)
-      end
-    end
+      return unless report.wating_post?
 
+      PushWorker.perform_async(report.id)
+      PostWorker.perform_async(report.id)
+    end
   end
 end

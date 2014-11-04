@@ -1,5 +1,4 @@
 class Web::Admin::DashboardController < Web::Admin::ApplicationController
-
   def show
     colors = %w(C75646 8EB33B D0B03C 72B3CC C8A0D1 218693 B0B0B0)
 
@@ -31,5 +30,4 @@ class Web::Admin::DashboardController < Web::Admin::ApplicationController
     @reports = gon.reports
     @users = gon.users
   end
-
 end

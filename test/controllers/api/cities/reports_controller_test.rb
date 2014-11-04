@@ -8,14 +8,14 @@ class Api::Cities::ReportsControllerTest < ActionController::TestCase
     @user = create :api_user
   end
 
-  test "should get index" do
+  test 'should get index' do
     create_list :report, 5, city_id: @city.id
 
     get :index, city_id: @city.id, format: :json
     assert_response :success
   end
 
-  test "should post create wrong" do
+  test 'should post create wrong' do
     attrs = { ololo: true }
 
     post :create, city_id: @city.id, report: attrs, token: @user.token, format: :json
@@ -23,8 +23,7 @@ class Api::Cities::ReportsControllerTest < ActionController::TestCase
     assert_response :unprocessable_entity
   end
 
-
-  test "should post create" do
+  test 'should post create' do
     ReportsWorker.jobs.clear
     attrs = {
       text: generate(:report_text),
@@ -37,18 +36,18 @@ class Api::Cities::ReportsControllerTest < ActionController::TestCase
     assert_equal 1, ReportsWorker.jobs.size
   end
 
-  test "should not post create for blocked user" do
+  test 'should not post create for blocked user' do
     @user.deactivate
     attrs = attributes_for 'api/report_type'
 
     assert do
-      rescuing {
+      rescuing do
         post :create, city_id: @city.id, report: attrs, token: @user.token, format: :json
-      }.kind_of? ApplicationController::Forbidden
+      end.is_a? ApplicationController::Forbidden
     end
   end
 
-  test "should post create from Andrushya width geo and empty text" do
+  test 'should post create from Andrushya width geo and empty text' do
     ReportsWorker.jobs.clear
 
     attrs = {
@@ -60,8 +59,6 @@ class Api::Cities::ReportsControllerTest < ActionController::TestCase
     post :create, city_id: @city.id, report: attrs, token: @user.token, format: :json
 
     assert_response :created
-    assert { ReportsWorker.jobs.size == 1}
+    assert { ReportsWorker.jobs.size == 1 }
   end
-
-
 end

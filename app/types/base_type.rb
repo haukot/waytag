@@ -2,24 +2,19 @@ module BaseType
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def name
-      superclass.name
-    end
+    delegate :name, to: :superclass
 
     def permit(*args)
       @_args = args
     end
 
-    def _args
-      @_args
-    end
+    attr_reader :_args
   end
 
   def assign_attributes(attrs = {})
-    raise ApplicationController::BadRequest, "expected hash" unless attrs.kind_of? Hash
+    fail ApplicationController::BadRequest, 'expected hash' unless attrs.is_a? Hash
 
     permitted_attrs = attrs.send :permit, self.class._args
     super(permitted_attrs)
   end
-
 end

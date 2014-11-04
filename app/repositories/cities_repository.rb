@@ -4,6 +4,6 @@ module CitiesRepository
   included do
     include UsefullScopes
 
-    scope :cities_to_go, ->(id) { where("id <> ?", id) }
+    scope :cities_to_go, ->(id) { where('id <> ?', id) }
   end
 end

@@ -6,23 +6,23 @@ class ClassifierTest < ActiveSupport::TestCase
   DEPTH = 4
 
   setup do
-    @good = File.readlines(File.expand_path("../../../db/tweets/bad", __FILE__))
-    @bad = File.readlines(File.expand_path("../../../db/tweets/good", __FILE__))
+    @good = File.readlines(File.expand_path('../../../db/tweets/bad', __FILE__))
+    @bad = File.readlines(File.expand_path('../../../db/tweets/good', __FILE__))
 
     @count = [@good.count, @bad.count].min
-    #load_fixture('good_texts') do |line|
-      #Classifier.train(line, :good)
-    #end
+    # load_fixture('good_texts') do |line|
+    # Classifier.train(line, :good)
+    # end
 
-    #load_fixture('bad_texts').each_line do |line|
-      #Classifier.train(line, :bad)
-    #end
+    # load_fixture('bad_texts').each_line do |line|
+    # Classifier.train(line, :bad)
+    # end
     @results = []
   end
 
-  test "Classifier test" do
-#    generate_cases(0, @count)
-#    p @results.inject(0){ |sum, e| sum + e } / @results.size
+  test 'Classifier test' do
+    #    generate_cases(0, @count)
+    #    p @results.inject(0){ |sum, e| sum + e } / @results.size
   end
 
   def generate_cases(b, e, depth = 1)
@@ -41,21 +41,21 @@ class ClassifierTest < ActiveSupport::TestCase
   end
 
   def train(b, e)
-    print "t"
+    print 't'
     (b..e).each do |k|
       Classifier.train(@good[k], :good)
       Classifier.train(@bad[k], :bad)
-      print "."
+      print '.'
     end
   end
 
   def check(b, e)
-    print "c"
+    print 'c'
     right = 0
     wrong = 0
 
     (b..e).each do |k|
-      print "."
+      print '.'
       if Classifier.classify(@good[k]).to_sym == :good
         right += 1
       else
@@ -73,6 +73,6 @@ class ClassifierTest < ActiveSupport::TestCase
   end
 
   def middle(beginning, ending)
-    middle = beginning + (ending - beginning) / 2
+    beginning + (ending - beginning) / 2
   end
 end

@@ -13,5 +13,4 @@ class Web::Cities::DashboardController < Web::Cities::ApplicationController
 
     session[:latest_posted_at] < Time.now
   end
-
 end

@@ -1,5 +1,5 @@
 class Api::Cities::StreetsController < Api::Cities::ApplicationController
-  skip_before_filter :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :index
 
   ##
   # Получить список улиц города
@@ -18,5 +18,4 @@ class Api::Cities::StreetsController < Api::Cities::ApplicationController
     @q = resource_city.streets.ransack q_param
     @streets = @q.result.page(page).per(per_page)
   end
-
 end

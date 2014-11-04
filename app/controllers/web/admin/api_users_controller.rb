@@ -19,13 +19,13 @@ class Web::Admin::ApiUsersController < Web::Admin::ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_api_user
-      @api_user = ApiUser.find(params[:id])
-    end
 
-    def sourceable
-      @sourceable = ApiUser.find params[:api_user_id]
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_api_user
+    @api_user = ApiUser.find(params[:id])
+  end
 
+  def sourceable
+    @sourceable = ApiUser.find params[:api_user_id]
+  end
 end

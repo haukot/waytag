@@ -9,12 +9,11 @@ class TwitterUserDecorator < Draper::Decorator
 
   def activate_or_block_link
     if object.blocked?
-      h.link_to "Activate", h.admin_twitter_user_on_path(object),
-        remote: true, method: :patch, class: 'sourceable btn btn-success'
+      h.link_to 'Activate', h.admin_twitter_user_on_path(object),
+                remote: true, method: :patch, class: 'sourceable btn btn-success'
     else
-      h.link_to "Block", h.admin_twitter_user_off_path(object),
-        remote: true, method: :patch, class: 'sourceable btn btn-warning'
+      h.link_to 'Block', h.admin_twitter_user_off_path(object),
+                remote: true, method: :patch, class: 'sourceable btn btn-warning'
     end
   end
-
 end

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'pg'
 
-gem "friendly_id", '> 5.0'
+gem 'friendly_id', '> 5.0'
 gem 'gon'
 gem 'foreman'
 
@@ -11,20 +11,22 @@ gem 'draper', '~> 1.3'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem "redcarpet"
+gem 'redcarpet'
 gem 'cocoon'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
+
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
 gem 'haml-rails'
-gem "autoprefixer-rails"
+gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'therubyracer', platforms: :ruby
 gem 'less-rails-bootstrap'
-gem 'twitter-bootstrap-rails', github: "seyhunak/twitter-bootstrap-rails", branch: "bootstrap3"
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'bootstrap-datetimepicker-rails'
-gem "select2-rails"
-gem 'jquery-ui-rails'
+gem 'select2-rails'
 gem 'sass-rails'
 gem 'chart-js-rails'
 gem 'geocoder'
@@ -55,7 +57,7 @@ gem 'tweetstream', require: false
 
 gem 'fisher_classifier'
 gem 'urbanairship'
-#gem 'fisher_classifier', path: '~/projects/fisher_classifier'
+# gem 'fisher_classifier', path: '~/projects/fisher_classifier'
 
 # Push
 gem 'gcm'
@@ -83,7 +85,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'turn'
   gem 'simplecov'
   gem 'mocha', require: false
   gem 'webmock'

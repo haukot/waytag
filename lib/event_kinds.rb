@@ -19,6 +19,5 @@ class EventKinds
       return :cmr if text =~ /радар|камер/i
       nil
     end
-
   end
 end

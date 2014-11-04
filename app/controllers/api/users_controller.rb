@@ -1,6 +1,6 @@
 class Api::UsersController < Api::ApplicationController
   wrap_parameters :user
-  skip_before_filter :authenticate_user!,  only: :create
+  skip_before_action :authenticate_user!,  only: :create
 
   ##
   # Зарегать юзера

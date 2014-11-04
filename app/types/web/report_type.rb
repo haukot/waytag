@@ -10,14 +10,12 @@ class Web::ReportType < Report
   before_save :save_text_as_source
 
   def save_text_as_source
-    self.source_text = self.text
-    self.text = ""
+    self.source_text = text
+    self.text = ''
   end
 
   def user_blocked?
-    if sourceable.blocked?
-      errors.add(text: "You account is blocked!")
-    end
+    return unless sourceable.blocked?
+    errors.add(text: 'You account is blocked!')
   end
-
 end

@@ -5,9 +5,8 @@ class Web::ClassifiersControllerTest < ActionController::TestCase
     create_list :report, 5, state: :posted
   end
 
-  test "should get show" do
+  test 'should get show' do
     get :show
     assert_response :success
   end
-
 end

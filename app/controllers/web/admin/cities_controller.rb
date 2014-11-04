@@ -45,11 +45,12 @@ class Web::Admin::CitiesController < Web::Admin::ApplicationController
   end
 
   private
-    def set_city
-      @city = City.friendly.find(params[:id])
-    end
 
-    def city_params
-      params.require(:city).permit(:slug, :name, :email, :twitter_name, :hashtag, :vk_name, :yandex_widget)
-    end
+  def set_city
+    @city = City.friendly.find(params[:id])
+  end
+
+  def city_params
+    params.require(:city).permit(:slug, :name, :email, :twitter_name, :hashtag, :vk_name, :yandex_widget)
+  end
 end

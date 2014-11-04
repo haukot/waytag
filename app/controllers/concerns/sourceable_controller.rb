@@ -15,4 +15,3 @@ module SourceableController
     end
   end
 end
-

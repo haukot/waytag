@@ -5,7 +5,6 @@ class Mystem
   DEFAULT_PARAMS = '-n -l -e utf8'
 
   class << self
-
     def clean(text)
       exec = [BIN, DEFAULT_PARAMS].join(' ')
 
@@ -15,7 +14,7 @@ class Mystem
         stdout.read
       end
 
-      words = words.split(/\n/)
+      words.split(/\n/)
     end
 
     def parts_of_speach(text)

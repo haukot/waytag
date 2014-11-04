@@ -5,5 +5,5 @@ class Api::ApplicationController < ApplicationController
   include Api::Auth
   include CorsController
 
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 end

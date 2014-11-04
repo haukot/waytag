@@ -3,14 +3,12 @@
 require 'test_helper'
 
 class ReportPopulatorTest < ActiveSupport::TestCase
-  test "Test populating report from Twitter" do
+  test 'Test populating report from Twitter' do
     city = create :city
     tweet = build :tweet
 
-    rp = ReportPopulator.new({
-      source_kind: :mentions,
-      city_id: city.id
-    })
+    rp = ReportPopulator.new(source_kind: :mentions,
+                             city_id: city.id)
 
     report = rp.populate_from_twitter tweet
 
@@ -19,5 +17,4 @@ class ReportPopulatorTest < ActiveSupport::TestCase
     assert { report.latitude }
     assert { report.sourceable == tweet.twitter_user }
   end
-
 end

@@ -24,7 +24,7 @@ class Report < ActiveRecord::Base
     state :post_failed
 
     event :post do
-      transition :wating_post => :posted
+      transition wating_post: :posted
     end
 
     event :approve do
@@ -32,12 +32,12 @@ class Report < ActiveRecord::Base
     end
 
     event :mark_as_bad do
-      transition :added => :bad
+      transition added: :bad
     end
 
     event :reject do
       transition all => :rejected
-      transition :wating_post => :post_failed
+      transition wating_post: :post_failed
     end
 
     event :safe_delete do
@@ -50,10 +50,10 @@ class Report < ActiveRecord::Base
   include ReportsRepository
 
   def contains_bad_data?
-    super || with_mentions? || less_three_words? || has_obscenity?
+    super || with_mentions? || less_three_words? || obscenity?
   end
 
-  def has_obscenity?
+  def obscenity?
     RussianObscenity.obscene?(text)
   end
 
@@ -82,7 +82,7 @@ class Report < ActiveRecord::Base
     Classifier.classify(text).to_sym
   end
 
-  def has_duplicate?
+  def duplicate?
     self.class.duplicate(self).any?
   end
 
@@ -93,5 +93,4 @@ class Report < ActiveRecord::Base
   def define_event_kind
     self.event_kind ||= EventKinds.from_text(source_text)
   end
-
 end

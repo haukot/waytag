@@ -9,5 +9,4 @@ module ApiUserRepository
     scope :api, -> { where(kind: :api) }
     scope :ios, -> { where(kind: :ios) }
   end
-
 end

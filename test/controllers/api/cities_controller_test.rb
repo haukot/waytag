@@ -5,10 +5,9 @@ class Api::CitiesControllerTest < ActionController::TestCase
     @city = create_list :city, 11
   end
 
-  test "should get index" do
-    get :index, { format: :json }
+  test 'should get index' do
+    get :index, format: :json
 
     assert_response :success
   end
-
 end

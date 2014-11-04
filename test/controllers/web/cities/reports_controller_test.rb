@@ -5,7 +5,7 @@ class Web::Cities::ReportsControllerTest < ActionController::TestCase
     @city = create :city
   end
 
-  test "should create report" do
+  test 'should create report' do
     ReportsWorker.jobs.clear
 
     attrs = attributes_for :report
@@ -15,5 +15,4 @@ class Web::Cities::ReportsControllerTest < ActionController::TestCase
 
     assert_equal 1, ReportsWorker.jobs.size
   end
-
 end

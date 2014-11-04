@@ -5,7 +5,7 @@ class TwitterReader
 
       puts "City #{city} connected \n"
 
-      client = register_stream_callbacks(client, city)
+      register_stream_callbacks(client, city)
     end
 
     def status_recived(status, city, source)
@@ -15,7 +15,7 @@ class TwitterReader
     end
 
     def error(message)
-      puts "Error #{message.to_s}\n"
+      puts "Error #{message}\n"
       client.stop
       exit
     end
@@ -34,7 +34,7 @@ class TwitterReader
     end
 
     def enhance_your_calm
-      puts "Enhance you calm"
+      puts 'Enhance you calm'
       exit
     end
 

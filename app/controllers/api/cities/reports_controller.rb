@@ -1,6 +1,6 @@
 class Api::Cities::ReportsController < Api::Cities::ApplicationController
   wrap_parameters :report
-  skip_before_filter :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :index
 
   ##
   # Закинуть телегу
@@ -27,7 +27,6 @@ class Api::Cities::ReportsController < Api::Cities::ApplicationController
     else
       respond_with api_report, location: nil
     end
-
   end
 
   ##
@@ -51,10 +50,9 @@ class Api::Cities::ReportsController < Api::Cities::ApplicationController
       count: reports.count,
       total_count: reports.total_count,
       current_page: reports.current_page,
-      num_pages: reports.num_pages,
+      num_pages: reports.num_pages
     }
 
     render json: reports.decorate, meta_data: meta, serializer: CustomArraySerializer, scope: nil
   end
-
 end

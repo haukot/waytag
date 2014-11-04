@@ -5,9 +5,9 @@ class Tweet
   include TextFunctions
 
   attr_accessor :id_str, :retweeted, :longitude,
-    :latitude, :text, :in_reply_to_status_id_str,
-    :in_reply_to_user_id_str, :created_at,
-    :twitter_user
+                :latitude, :text, :in_reply_to_status_id_str,
+                :in_reply_to_user_id_str, :created_at,
+                :twitter_user
 
   validates :twitter_user, presence: true
   validates :id_str, presence: true
@@ -18,9 +18,7 @@ class Tweet
     return @city if @city
 
     City.find_each do |city|
-      if text.downcase.include?(city.hashtag)
-        @city = city
-      end
+      @city = city if text.downcase.include?(city.hashtag)
     end
 
     @city
@@ -44,11 +42,10 @@ class Tweet
   end
 
   def retweeted?
-    retweeted || text.include?("RT")
+    retweeted || text.include?('RT')
   end
 
   def love?
-    text == "I love @Ulway!"
+    text == 'I love @Ulway!'
   end
-
 end

@@ -43,11 +43,12 @@ class Web::Admin::PostsController < Web::Admin::ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:user_name, :title, :content, :state, :published_at, :seo_name, :seo_keywords, :seo_description)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:user_name, :title, :content, :state, :published_at, :seo_name, :seo_keywords, :seo_description)
+  end
 end

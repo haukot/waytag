@@ -1,5 +1,4 @@
 class Web::Cities::ApplicationController < Web::ApplicationController
-
   include CityableController
 
   def resource_city

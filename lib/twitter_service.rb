@@ -11,7 +11,7 @@ class TwitterService
       tup = TwitterUserPopulator.new params
       tup.populate
     rescue Twitter::Error => e
-      Rails.logger.fatal "Twitter error #{e.to_s}"
+      Rails.logger.fatal "Twitter error #{e}"
       nil
     end
 
@@ -21,23 +21,23 @@ class TwitterService
         c.destroy_status(report.id_str.to_i)
       end
     rescue Twitter::Error => e
-      Rails.logger.fatal "Twitter error #{e.to_s}"
+      Rails.logger.fatal "Twitter error #{e}"
     end
 
     def update(report)
       c = client(report.city)
 
-#      if report.map_picture
-#        response = c.update_with_media(report.safe_text, image(report))
-#      else
-        response = c.update(report.decorate.safe_text)
-#      end
+      #      if report.map_picture
+      #        response = c.update_with_media(report.safe_text, image(report))
+      #      else
+      response = c.update(report.decorate.safe_text)
+      #      end
 
       report.id_str = response.id.to_s
       report.save
       report.post
     rescue Twitter::Error::Forbidden => e
-      Rails.logger.fatal "Tweet rejected #{e.to_s}"
+      Rails.logger.fatal "Tweet rejected #{e}"
       nil
     end
 
@@ -50,6 +50,5 @@ class TwitterService
     def client(city)
       ServiceLocator.twitter(city.slug)
     end
-
   end
 end

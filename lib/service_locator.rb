@@ -5,8 +5,7 @@ class ServiceLocator
 
       @stream_clients ||= {}
 
-      return @stream_clients[city] if @stream_clients.has_key?(city)
-
+      return @stream_clients[city] if @stream_clients.key?(city)
 
       TweetStream.configure do |config|
         config.consumer_key       = configus.twitter[city].consumer_key

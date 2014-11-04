@@ -41,7 +41,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   end
 
   def index
-    query = params[:q] || { s: "time desc" }
+    query = params[:q] || { s: 'time desc' }
     @search = Report.ransack query
     @reports = @search.result.page(params[:page]).includes([:city, :sourceable]).decorate
   end
@@ -55,7 +55,8 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   end
 
   private
-    def set_report
-      @report = Report.find(params[:id])
-    end
+
+  def set_report
+    @report = Report.find(params[:id])
+  end
 end

@@ -43,11 +43,12 @@ class Web::Admin::StreetsController < Web::Admin::ApplicationController
   end
 
   private
-    def set_city_street
-      @city_street = City::Street.find(params[:id])
-    end
 
-    def city_street_params
-      params.require(:city_street).permit(:name, :city_id)
-    end
+  def set_city_street
+    @city_street = City::Street.find(params[:id])
+  end
+
+  def city_street_params
+    params.require(:city_street).permit(:name, :city_id)
+  end
 end

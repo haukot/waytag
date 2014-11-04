@@ -44,11 +44,12 @@ class Web::Admin::BonusesController < Web::Admin::ApplicationController
   end
 
   private
-    def set_bonus
-      @bonus = Bonus.find(params[:id])
-    end
 
-    def bonus_params
-      params.require(:bonus).permit(:title, :description, :city_id)
-    end
+  def set_bonus
+    @bonus = Bonus.find(params[:id])
+  end
+
+  def bonus_params
+    params.require(:bonus).permit(:title, :description, :city_id)
+  end
 end

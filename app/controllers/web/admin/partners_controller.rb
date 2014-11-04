@@ -43,11 +43,12 @@ class Web::Admin::PartnersController < Web::Admin::ApplicationController
   end
 
   private
-    def set_partner
-      @partner = Partner.find(params[:id])
-    end
 
-    def partner_params
-      params.require(:partner).permit(:title, :description, :city_id)
-    end
+  def set_partner
+    @partner = Partner.find(params[:id])
+  end
+
+  def partner_params
+    params.require(:partner).permit(:title, :description, :city_id)
+  end
 end

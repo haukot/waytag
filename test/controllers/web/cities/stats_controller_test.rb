@@ -6,9 +6,8 @@ class Web::Cities::StatsControllerTest < ActionController::TestCase
     create :report, city: @city
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index, city_id: @city.id
     assert_response :success
   end
-
 end

@@ -12,10 +12,10 @@ class TwitterUserPopulator < BasePopulator
 
   def populate_from_omniauth(auth)
     TwitterUser.where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.profile_image_url = auth["extra"]["raw_info"]["profile_image_url"]
-      user.name = auth["extra"]["raw_info"]["name"]
-      user.screen_name = auth["extra"]["raw_info"]["screen_name"]
-      user.description = auth["extra"]["raw_info"]["description"]
+      user.profile_image_url = auth['extra']['raw_info']['profile_image_url']
+      user.name = auth['extra']['raw_info']['name']
+      user.screen_name = auth['extra']['raw_info']['screen_name']
+      user.description = auth['extra']['raw_info']['description']
 
       user.provider = auth.provider
       user.uid = auth.uid
@@ -24,5 +24,4 @@ class TwitterUserPopulator < BasePopulator
       user.save!
     end
   end
-
 end

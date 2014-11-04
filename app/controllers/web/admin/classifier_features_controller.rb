@@ -43,11 +43,12 @@ class Web::Admin::ClassifierFeaturesController < Web::Admin::ApplicationControll
   end
 
   private
-    def set_classifier_feature
-      @classifier_feature = ClassifierFeature.find(params[:id])
-    end
 
-    def classifier_feature_params
-      params.require(:classifier_feature).permit(:name, :category, :count)
-    end
+  def set_classifier_feature
+    @classifier_feature = ClassifierFeature.find(params[:id])
+  end
+
+  def classifier_feature_params
+    params.require(:classifier_feature).permit(:name, :category, :count)
+  end
 end

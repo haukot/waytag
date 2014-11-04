@@ -1,30 +1,27 @@
 class GeocoderService
   class << self
-    def generate_text_by_geo(report)
-      return report unless report.has_geo?
-
+    def text_by_geo(report)
+      return report unless report.geo?
     end
 
     def generate_geo_by_text(report)
-      return report if report.has_geo?
+      return report if report.geo?
 
       results = Geocoder.search("#{report.latitude}, #{report.longitude}")
 
-      if results.any?
-        result = results.first
-        city_name = result.city
+      return if results.empty?
 
-        if City.where(name: city_name).any? && result.street_address
-          self.text ||= ""
-          self.text = kind_to_text(self.kind)
-          self.text += result.street_address.gsub(/\d+\s*/, "")
-          self.text += ", #{result.street_number}" if result.street_number
+      result = results.first
+      city_name = result.city
 
-          @geo_data_loaded = true
-        end
-      end
+      return unless City.where(name: city_name).any? && result.street_address
 
+      self.text ||= ''
+      self.text = kind_to_text(kind)
+      self.text += result.street_address.gsub(/\d+\s*/, '')
+      self.text += ", #{result.street_number}" if result.street_number
+
+      @geo_data_loaded = true
     end
-
   end
 end
