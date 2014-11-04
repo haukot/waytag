@@ -59,6 +59,9 @@ gem 'fisher_classifier'
 gem 'urbanairship'
 # gem 'fisher_classifier', path: '~/projects/fisher_classifier'
 
+gem 'tzinfo'
+gem 'tzinfo-data'
+
 # Push
 gem 'gcm'
 
